@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Sunshine and Daisies Theme by stylizedthemes.tumblr.com -->
+        <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+        <link rel="shortcut icon" href="{Favicon}"/>
+        <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+        <link rel="alternate" type="application/rss+xml" href="{RSS}"/>
+        {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=1080"/>
+        <meta name="font:Body" content="Helvetica Neue, Helvetica, Arial, sans-serif"/>
+        <meta name="text:Custom Link 1 URL" content=""/>
+        <meta name="text:Custom Link 1 Name" content=""/>
+        <meta name="text:Custom Link 2 URL" content=""/>
+        <meta name="text:Custom Link 2 Name" content=""/>
+        <meta name="text:Custom Link 3 URL" content=""/>
+        <meta name="text:Custom Link 3 Name" content=""/>
+        <meta name="text:Custom Link 4 URL" content=""/>
+        <meta name="text:Custom Link 4 Name" content=""/>
+        <meta name="if:Show Archive Link" content="1"/>
+        <meta name="if:Show Random Link" content="0"/>
+        <meta name="if:Infinite Scrolling" content="0"/>
+        <!--[if (lte IE 8)]><script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link href='http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise' rel='stylesheet' type='text/css'>
+        <style type="text/css">
+        body {
+            color: #222;
+            background: #fdf977 url('http://static.tumblr.com/frs2lbn/qo6n6elmb/flower5.jpg');
+            background-repeat: repeat;
+            background-position: bottom left;
+            background-attachment: fixed;
+            font-family: {font:Body};
+        }
+        
+        /* containers */
+        .wrapper {
+            width: 1090px;
+            margin: 0 auto;
+        }
+        .main {
+            background-color: #fff;
+            width: 1056px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: -8px;
+            margin-bottom: -20px;
+        }
+        
+        ul#posts {
+            margin-top: 6px;   
+        }
+        
+        
+        a {
+            color: #222;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #222;
+            text-decoration: none;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        /* headings */
+        h1 {
+            font-size: 60px;
+            line-height: 60px;
+            font-family: 'Waiting for the Sunrise', cursive;
+            color: #222;
+            background-color: transparent;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            padding: 5px;
+            text-align: center;
+        }
+        h1 a, h1 a:hover {
+            color: #222;
+        }
+        h2 {
+            font-size: 18px;
+            color: #222;
+        }
+        h3 {
+            color: #222;
+            font-size: 13px;
+            line-height: 13px;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            font-weight: normal;
+            font-family: #222;
+        }
+        h4 {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        p#description {
+            font-size: 11px;
+            line-height: 100%;
+            color: #222;
+            text-align: center;
+            margin-left: -20px;
+            margin-right: 0px;
+            margin-top: -10px;
+            margin-bottom: -25px;
+            padding: 10px 5px 10px 5px;
+            background-color: transparent;
+        }
+        
+        /* header */
+        header {
+            width: 1056px;
+            text-align: center;
+            background-color: #fff;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: -10px;
+        }
+
+        nav {
+            color: #222;
+            background-color: none;
+            padding: 0px;
+            clear: both;
+        }
+        
+        ul.sidelinks {
+            text-align: center;
+        }
+        ul.sidelinks li {
+            color: #222;
+            text-align: center;  
+            display: inline;
+        }
+        a.sidelink {
+            color: #222;
+            background-color: #fff;
+            text-align: center;
+            display: inline;
+            padding: 1px 4px 1px 4px;
+            margin-bottom: 1px;
+            margin-left: 0px;
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: bold;
+        }
+        a.sidelink:hover {
+            color: #222;
+            background-color: #fdf977;
+            text-align: center;
+            text-decoration: none;
+            display: inline;
+            padding: 1px 4px 1px 4px;
+            margin-bottom: 1px;
+            margin-left: 0px;
+        }
+        
+        
+        ul.sidelinks li {
+            text-align: left;  
+            display: block;
+        }
+        
+        /* main post styles */
+        .post {
+            width: 250px;
+            float: left;
+            background-color: #fff;
+            margin-bottom: 4px;
+            margin-left: 2px;
+            margin-right: 2px;
+            padding: 5px;
+            overflow: hidden;
+        }
+        
+        /* adds padding to things in a post */
+        .content {
+            padding: 10px 20px;
+            font-size: 11px;
+            line-height: 120%;
+        }
+        
+        /* text post styles */
+        .text p {
+            font-size: 11px;
+            line-height: 120%;
+            text-align: left;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            -ms-hyphens: auto;
+            -o-hyphens: auto;
+            hyphens: auto;
+        }
+        .text ul {
+            list-style-type: square;
+            font-size: 10px;
+            padding-left: 20px;
+        }
+        blockquote {
+            color: #222;
+            background-color: #fdf977;
+            font-size: 12px;
+            line-height: 100%;
+            padding: 4px;
+            margin: 6px 1px;
+            font-style: italic;
+        }
+        
+        .post img {
+            width: 250px;
+            height: auto;
+            display: block;
+        }
+        
+        /* who even uses chat posts? */
+        .chat {
+            font-size: 13px;
+            line-height: 16px;
+        }
+        .chat .label {
+            font-weight: bold;
+            text-align: right;
+        }
+        .chat li {
+            border-bottom: 1px solid #fff;
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+        .chat li:last-child {
+            border-bottom: none;   
+        }
+        
+        a img.credit {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+        
+        /* if upscale small images is off, under 400px/700px wide images will have a background */
+        .imgback {
+            background-color: #ffffff;
+        }
+        
+        /* contain text images */
+        .text p img {
+            max-width: 100%;
+        }
+        
+        /* shown on the permalink page; has notes, source, and time posted */
+        .perma-info {
+            color: #222;
+            background-color: #fff;
+            font-size: 13px;
+            line-height: 18px;
+            font-weight: normal;
+            padding: 5px 10px 5px 10px;
+            overflow:hidden;
+        }
+        .perma-info a, .perma-info a:hover {
+            color: #222;
+            text-decoration: none;
+        }
+        
+        /* notes stuff */
+        ol.notes {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .note {
+            padding: 4px;
+            border-bottom: 1px solid #fdf533;
+        }
+        .note:last-child {
+            border-bottom: 0;
+            margin-bottom: 10px;
+        }
+         .note blockquote {
+            color: #ffffff;
+            background-color: transparent;
+            border: none;
+        }
+        
+        .index-info {
+            width: 240px;
+            background-color: rgba(0,0,0,0.7);
+            font-size: 11px;
+            line-height: 14px;
+            color: #fff;
+            padding: 5px;
+        }
+        .index-info a {
+            color: #fff;
+        }
+        .index-info a:hover {
+            color: #fff;
+        }
+        
+         .post .index-info {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            opacity: 0;
+        }
+         .post:hover .index-info {
+            opacity: 1;
+        }
+
+        
+        /* remove blank space from bottom of photoset posts */
+        iframe.photoset {
+            display: block;   
+        }
+        
+        /* line */
+        hr {
+            clear: both;
+            border: 0;
+            border-bottom: 1px solid #222;
+            margin: 15px 10px;
+        }
+        
+       
+        
+        /* fix height of element with floats inside */
+        .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+        .clearfix:after { clear: both; }
+        .clearfix { zoom: 1; }
+        
+        /* remove border on linked images in IE */
+        a img {
+            border: 0;   
+        }
+        
+        /* you shouldn't see this div if infinite scroll is on */
+        div.pagination {
+            background-color: none;
+            margin-bottom: 10px;
+            clear: both;
+            text-align: center;
+        }
+        
+        /* previous and next page buttons */
+        #previous, #next, .page-info {
+            color: #222;
+            font-family: {font:Body};
+            font-size: 11px;
+            background: #fff; 
+            font-weight: bold;
+            padding: 5px 7px 5px 7px;
+        }
+        #previous:hover, #next:hover {
+            color: #222;
+            font-family: {font:Body};
+            font-size: 11px;
+            background: transparent;
+            font-weight: bold;
+            padding: 5px 7px 5px 7px;
+            background-color: #fdf977;
+        }
+        
+                /* icons next to notes */
+        .reblog {background: transparent url('http://static.tumblr.com/anzluor/nF5ml4elu/reblog.png') right center no-repeat;}
+        .like {background: transparent url('http://static.tumblr.com/anzluor/O7Nml4ekz/like.png') right center no-repeat;}
+        
+        /* tumblr reblog button */
+        .reblog_button {
+            float: right;
+            margin-left: 8px;
+            margin-top: 1px;
+        }
+        
+        /* special styling for permalink pages */
+        {block:PermalinkPage}
+
+            .wrapper {
+                width: 530px;
+            }
+
+            .main {
+                width: 530px;   
+            }
+            header {
+                width: 530px;
+                margin-left: 0px;
+            }
+            .post {
+                float: none;
+                margin-left: 10px;
+                margin-right: 10px;
+                width: 500px;
+            }
+            .post img {
+                width: 500px;
+                height: auto;
+                opacity: 1;
+            }
+            .reblog_button {
+                margin-left: 10px;
+                margin-top: 0px;
+            }
+        {/block:PermalinkPage}
+        
+        /* make sure avatars don't get huge */
+        img.avatar {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            display: inline;
+            margin-right: 5px;
+        }
+        
+        {CustomCSS}
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+        <header class="clearfix">
+        
+        <div class="content">
+        
+                <a href="/">
+                <h1>{Title}</h1>
+                </a>
+                
+        {block:Description}
+            <p id="description">{Description}</p>
+        {/block:Description}
+        </div>
+        
+        <nav>
+            <ul class="sidelinks">
+                {block:HasPages}
+                    {block:Pages}
+                    <a class="sidelink" href="{URL}">{Label}</a>
+                    {/block:Pages}
+                {/block:HasPages}
+                
+                {block:AskEnabled}<a class="sidelink" href="/ask">{AskLabel}</a>{/block:AskEnabled}
+                
+                {block:SubmissionsEnabled}<a class="sidelink" href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+                
+                {block:IfShowArchiveLink}<a class="sidelink" href="/archive">{lang:Archive}</a>{/block:IfShowArchiveLink}
+                
+                {block:IfShowRandomLink}<a class="sidelink" href="/random">{lang:Random}</a>{/block:IfShowRandomLink}
+                
+                {block:IfCustomLink1URL}
+                    <a class="sidelink" href="{text:Custom Link 1 URL}">{text:Custom Link 1 Name}</a>
+                {/block:IfCustomLink1URL}
+                
+                {block:IfCustomLink2URL}
+                    <a class="sidelink" href="{text:Custom Link 2 URL}">{text:Custom Link 2 Name}</a>
+                {/block:IfCustomLink2URL}
+                
+                {block:IfCustomLink3URL}
+                    <a class="sidelink" href="{text:Custom Link 3 URL}">{text:Custom Link 3 Name}</a>
+                {/block:IfCustomLink3URL}
+                
+                {block:IfCustomLink4URL}
+                    <a class="sidelink" href="{text:Custom Link 4 URL}">{text:Custom Link 4 Name}</a>
+                {/block:IfCustomLink4URL}
+                
+                <a class="sidelink" href="http://stylizedthemes.tumblr.com/" title="Get this theme!">Theme</a>
+            </ul>
+        </nav>
+
+        </header>
+        
+        <div class="main">
+
+        <ul id="posts">
+            {block:Posts}
+                <li class="post {PostType}">
+                                
+                {block:Text}
+                    {block:Title}
+                        <h3>{Title}</h3>
+                    {/block:Title}
+
+                    <div class="content">{Body}</div>
+                {/block:Text}
+                
+                
+                {block:Answer}
+                    <div class="content">
+                        <img class="avatar" style="float:left" src="{AskerPortraitURL-30}"/>
+                        <p>{lang:Asker asked}: <b>{Question}</b></p>
+                    </div>
+
+                    <div class="content">{Answer}</div>
+                {/block:Answer}
+                
+
+                {block:Photo}
+                    {block:IndexPage}
+                        <div class="imgback"><center><a href="{Permalink}"><img src="{PhotoURL-250}" alt="{PhotoAlt}" /></a></center></div>
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                        <div class="imgback"><center>{LinkOpenTag}<img src="{PhotoURL-1280}" alt="{PhotoAlt}" />{LinkCloseTag}</center></div>
+                    {/block:PermalinkPage}
+
+                    {block:PermalinkPage}{block:Caption}
+                        <div class="content">{Caption}</div>
+                    {/block:Caption}{/block:PermalinkPage}
+                {/block:Photo}
+                
+
+                {block:Photoset}
+                    {block:IndexPage}
+                        {Photoset-250}
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                        {Photoset-500}
+                    {/block:PermalinkPage}
+
+                    {block:PermalinkPage}{block:Caption}
+                        <div class="content">{Caption}</div>
+                    {/block:Caption}{/block:PermalinkPage}
+                {/block:Photoset}
+                
+
+                {block:Quote}
+                    <div class="content"><blockquote>"{Quote}"</blockquote>
+
+                    {block:Source}
+                        <p style="text-align: right">&mdash; {Source}</p></div>
+                    {/block:Source}
+                {/block:Quote}
+                
+
+                {block:Link}
+                <h3><a href="{URL}" class="link" {Target}>{Name} &rarr;</a></h3>
+
+                    {block:Description}
+                        <div class="content">{Description}</div>
+                    {/block:Description}
+                {/block:Link}
+                
+
+                {block:Chat}
+                    {block:Title}
+                        <h3><a href="{Permalink}">{Title}</a></h3>
+                    {/block:Title}
+                    <div class="content">
+                    <ul class="chat">
+                        {block:Lines}
+                            <li class="{Alt} user_{UserNumber}">
+                                {block:Label}
+                                    <span class="label">{Label}</span>
+                                {/block:Label}
+
+                                <span class="line">{Line}</span>
+                            </li>
+                        {/block:Lines}
+                    </ul>
+                    </div>
+                {/block:Chat}
+                
+
+                {block:Video}
+                    {block:IndexPage}
+                        {VideoEmbed-250}
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                        {VideoEmbed-500}
+                    {/block:PermalinkPage}
+
+                    {block:Caption}
+                        <div class="content">{Caption}</div>
+                    {/block:Caption}
+                {/block:Video}
+                
+
+                {block:Audio}
+                    {block:AlbumArt}
+                        <img src="{AlbumArtURL}" width="500" title="Album art" alt="Album art" />
+                    {/block:AlbumArt}
+                    {AudioPlayerBlack}
+
+                    {block:Caption}
+                        <div class="content">{Caption}</div>
+                    {/block:Caption}
+                {/block:Audio}
+                
+                {block:IndexPage}
+                <div class="index-info">
+                    <a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>
+                        {ReblogButton size="12" color="white"}
+
+                    
+                    {block:Date}<a style="float:right; text-align: right" class="timeago" href='{Permalink}'>{TimeAgo}</a>{/block:Date}
+                    
+                </div>
+                {/block:IndexPage}
+                
+                {block:PermalinkPage}
+                {block:PermalinkPagination}
+                <div class="perma-info">
+                
+                {block:PostNotes}<a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>{/block:PostNotes}
+                {block:ContentSource}&nbsp;&mdash;&nbsp;<a href="{SourceURL}">Source</a>{/block:ContentSource}
+                {block:RebloggedFrom} (<a href="{ReblogParentURL}">via</a>){/block:RebloggedFrom}
+                    {ReblogButton size="16" color="black"}
+
+                {block:Date}<a style="float:right; text-align: right" class="timeago" href='{Permalink}'>{TimeAgo}</a>{/block:Date}
+                
+                {block:PostNotes}
+                    <hr />
+                    {PostNotes-64}
+                {/block:PostNotes}
+                </div>
+                {/block:PermalinkPagination}
+                {/block:PermalinkPage}
+                </li>
+            {/block:Posts}
+        </ul>
+        <div class="pagination">
+            {block:Pagination}{block:PreviousPage}<a href="{PreviousPage}" id="next">&laquo; {lang:Previous Page}</a> {/block:PreviousPage}
+            
+            <span class="page-info">{lang:CurrentPage of TotalPages}</span>
+            
+            {block:NextPage}<a href="{NextPage}" id="next">{lang:Next Page} &raquo;</a>{/block:NextPage}{/block:Pagination}
+        </div>
+      </div>
+    </div>
+    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="http://static.tumblr.com/ohnymtu/6c6mzbk90/credit1.png" alt="" /></a>
+    {block:IndexPage}
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        {block:IfInfiniteScrolling}<script src="http://static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
+        <script src="http://static.tumblr.com/anzluor/3H8mp4qek/masonry.pkgd.min.js"></script>
+        <script>
+        $(function(){
+            var container = $('ul#posts');
+
+            container.imagesLoaded( function(){
+                container.masonry({
+                    itemSelector : 'li.post'
+                });
+            });
+            
+            {block:IfInfiniteScrolling}
+            container.infinitescroll({
+                navSelector  : 'div.pagination',    
+                nextSelector : 'div.pagination a#next',
+                itemSelector : 'li.post',
+                },
+                function( newElements ) {
+                    var $newElems = $( newElements ).css({ opacity: 0 });
+                    $newElems.imagesLoaded(function(){
+                        $newElems.animate({ opacity: 1 });
+                        container.masonry( 'appended', $newElems, true ); 
+                    });
+                }
+            );
+            {/block:IfInfiniteScrolling}
+        });
+        </script>
+        {/block:IndexPage}
+
+    </body>
+</html>
