@@ -4,7 +4,7 @@
 <!-- 
 
 theme:      Mini Grid
-version:    1.0.7 (January 15, 2016)
+version:    1.0.8 (June 9, 2016)
 from:       adorablethemes.com
 
 -->
@@ -68,6 +68,7 @@ body {
     padding: 20px;
     width: 160px;
     position: fixed;
+    text-align: center;
 }
 .main {
 	float:right;

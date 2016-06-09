@@ -4,7 +4,7 @@
     	<!-- 
     	
         theme:      Smooth SC
-        version:    1.4.3 (January 15, 2016)
+        version:    1.4.4 (June 9, 2016)
         from:       adorablethemes.com
         
     	-->
@@ -493,7 +493,7 @@
                         
 						{block:IfShowLikedPostsLink}<li><a class="sidebar-link" href="http://tumblr.com/liked/by/{Name}">{lang:Liked posts}</a></li>{/block:IfShowLikedPostsLink}
 						
-						
+						<li><a class="sidebar-link" href="http://adorablethemes.com/">Theme</a></li>
 					</ul>
 					
 				</div>
