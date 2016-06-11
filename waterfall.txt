@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Waterfall
-        version:    1.7.1 (March 20, 2015)
+        version:    1.7.2 (April 7, 2016)
         from:       adorablethemes.com
         
         -->
@@ -552,7 +552,7 @@
                         {block:IfShowArchiveLink}<li><a class="sidebar-link link-archive" href="/archive"> {lang:Archive}</a></li>{/block:IfShowArchiveLink}
                         {block:IfShowRandomLink}<li><a class="sidebar-link link-random" href="/random"> {lang:Random}</a></li>{/block:IfShowRandomLink}
                         
-                        {block:IfShowLikedPostsLink}<li><a class="sidebar-link link-likes" href="http://tumblr.com/liked/by/{Name}"> {lang:Liked posts}</a></li>{/block:IfShowLikedPostsLink}
+                        {block:IfShowLikedPostsLink}<li><a class="sidebar-link link-likes" href="https://www.tumblr.com/liked/by/{Name}"> {lang:Liked posts}</a></li>{/block:IfShowLikedPostsLink}
                         
                         <li><a class="sidebar-link" href="http://adorablethemes.com/"> Theme</a></li>
                     </ul>
@@ -775,8 +775,8 @@
                                 {block:IfDisqusShortname}
                                 <aside class="post-meta">
                                     <div id="disqus_thread"></div>
-                                    <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
-                                    <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
+                                    <script type="text/javascript" src="//disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+                                    <noscript><a href="//{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
                                 </aside>
                                 {/block:IfDisqusShortname}
                                 {block:PostNotes}
@@ -867,7 +867,7 @@
                 
             </div>
             
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
             {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
         <script>
         $(function(){
@@ -933,7 +933,7 @@
                             query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
                         }
                     }
-                    document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+                    document.write('<script charset="utf-8" type="text/javascript" src="//disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
                 })();
                 //]]>
             </script>

@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Impulse
-        version:    2.0.4 (August 21, 2015)
+        version:    2.0.5 (April 7, 2016)
         from:       adorablethemes.com
         
         -->
@@ -1012,8 +1012,8 @@
                 <div class="post-meta post-comments">
                     <div class="post-content">
                     <div id="disqus_thread"></div>
-                    <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
-                    <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
+                    <script type="text/javascript" src="//disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+                    <noscript><a href="//{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
                     </div>
                 </div>
                 {/block:IfDisqusShortname}
@@ -1037,9 +1037,8 @@
 		{block:NextPage}<a href="{NextPage}" id="next">{lang:Next} &rarr;</a>{/block:NextPage}{/block:Pagination}
 	</div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="//static.tumblr.com/anzluor/z2tn74e8h/masonry.pkgd.min.js"></script>
+    <script src="//static.tumblr.com/anzluor/z2tn74e8h/masonry.pkgd.min.js"></script>
 	{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-	<script src="//static.tumblr.com/anzluor/z2tn74e8h/masonry.pkgd.min.js"></script>
     <script src="//static.tumblr.com/anzluor/lmen89y2n/impulse.min.js"></script>
         {block:IfGoogleAnalyticsID}
             <script>
@@ -1064,7 +1063,7 @@
                             query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
                         }
                     }
-                    document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+                    document.write('<script charset="utf-8" type="text/javascript" src="//disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
                 })();
                 //]]>
             </script>
