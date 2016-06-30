@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Reflection
-        version:    1.4.1 (January 15, 2016)
+        version:    1.4.2 (June 30, 2016)
         from:       adorablethemes.com
         
         -->
@@ -58,6 +58,7 @@
         <meta name="if:Show Secondary Navbar" content="1">
         <meta name="if:Show RSS Link" content="1">
         <meta name="if:Page Shadow" content="0">
+        <meta name="if:Show Header Link Icons" content="1">
         {/block:Hidden}
         
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
@@ -223,6 +224,14 @@
             margin-right: 0;
             margin-left: 10px;
         }
+        {block:IfNotShowHeaderLinkIcons}
+        .header-link .fa {
+            display: none;
+        }
+        .social-links .header-link .fa {
+            display: inline-block;
+        }
+        {/block:IfNotShowHeaderLinkIcons}
         
         /* footer styles */
         .footer {
@@ -857,7 +866,7 @@
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-	<script src="//static.tumblr.com/anzluor/z2tn74e8h/masonry.pkgd.min.js"></script>
+	<script src="//static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
 	<script src="//static.tumblr.com/anzluor/HAXmxj1fs/photoset-grid.js"></script>
 	<script src="//static.tumblr.com/anzluor/dOsntb1u4/reflection.min.js"></script>
     {block:IfGoogleAnalyticsID}

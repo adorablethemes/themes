@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Ambient
-        version:    2.1 (September 14, 2015)
+        version:    2.1.1 (June 30, 2016)
         from:       adorablethemes.com
         
         -->
@@ -40,6 +40,8 @@
         <meta name="if:Infinite Scrolling" content="0">
         <meta name="if:Show Tags On Index" content="1">
         <meta name="if:Use Real Dates" content="0">
+        <meta name="if:Show Sidebar Link Icons" content="1">
+        <meta name="if:Post Shadows" content="1">
         
         <meta name="text:Facebook Username" content="">
         <meta name="text:Twitter Username" content="">
@@ -164,13 +166,20 @@
             background-color: rgba({RGBAccentColor},0.9);
             text-decoration: none;
         }
+        {block:IfNotShowSidebarLinkIcons}
+        .sidebar-link .fa {
+            display: none;
+        }
+        {/block:IfNotShowSidebarLinkIcons}
         
         /* General post styles */
         .post {
 			background-color: {color:Post Background};
 			margin-bottom: 40px;
 			border: 5px solid {color:Post Borders};
+			{block:IfPostShadows}
 			box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+			{/block:IfPostShadows}
 			border-radius: 2px;
         }
         figure {
