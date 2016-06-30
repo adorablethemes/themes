@@ -25,7 +25,7 @@
         <meta name="color:Page Background" content="#ffffff">
         <meta name="color:Content Background" content="#ffffff">
         <meta name="color:Text" content="#444444">
-        <meta name="color:Links" content="#46B8D1">
+        <meta name="color:Links" content="#4893c7">
         <meta name="color:Lines" content="#ecf0f1">
         
         <meta name="if:Page Shadow" content="0">

@@ -25,7 +25,7 @@
         
         <meta name="color:Page Background" content="#dddddd">
         <meta name="color:Page Background" content="#dddddd">
-        <meta name="color:Post Headers" content="#483357">
+        <meta name="color:Post Headers" content="#567591">
         <meta name="color:Post Header Text" content="#ffffff">
 		<meta name="color:Links" content="#577691">
 		
