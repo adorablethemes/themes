@@ -389,10 +389,10 @@
         
         /* previous and next page buttons */
         #previous, #next, .page-info {
-            color: #222;
+            color: #666;
             font-family: {font:Body};
             font-size: 11px;
-            background: #fff; 
+            background: transparent; 
             font-weight: bold;
             padding: 5px 7px 5px 7px;
         }
