@@ -13,7 +13,9 @@
         <meta name="image:Profile Photo" content=""/>
         <meta name="font:Heading" content="'courier new', helvetica, arial, sans-serif"/>
         <meta name="font:Body" content="'courier new', helvetica, arial, sans-serif"/>
-        <meta name="color:Background" content="#ffffff"/> 
+        <meta name="color:Background" content="#ffffff"/>
+        <meta name="color:Text" content="#222222"/> 
+        <meta name="color:Hover" content="#666666"/> 
         <meta name="image:Background" content=""/>
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>
@@ -30,7 +32,7 @@
         <!--[if (lte IE 8)]><script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <style type="text/css">
         body {
-            color: #222;
+            color: {color:Text};
             background: {color:Background} url('{image:Background}');
             background-repeat: repeat;
             background-position: bottom left;
@@ -53,12 +55,12 @@
         }
         
         a {
-            color: #666;
+            color: {color:Text};
             text-decoration: none;
         }
         
         a:hover {
-            color: #222;
+            color: {color:Hover};
             text-decoration: none;
         }
         
@@ -73,7 +75,7 @@
             font-size: 30px;
             line-height: 30px;
             font-family: {font:Heading};
-            color: #222;
+            color: {color:Text};
             background-color: transparent;
             margin-top: 25px;
             margin-bottom: 0px;
@@ -82,14 +84,14 @@
             font-weight: normal;
         }
         h1 a, h1 a:hover {
-            color: #222;
+            color: {color:Hover};
         }
         h2 {
             font-size: 18px;
-            color: #222;
+            color: {color:Text};
         }
         h3 {
-            color: #222;
+            color: {color:Text};
             font-size: 16px;
             line-height: 110%;
             margin-left: 10px;
@@ -129,7 +131,7 @@
 
         nav {
             float: right;
-            color: #222;
+            color: {color:Text};
             background-color: none;
             padding: 0px;
             clear: both;
@@ -144,7 +146,7 @@
             float: right;
             font-size: 11px;
             line-height: 100%;
-            color: #222;
+            color: {color:Text};
             text-align: right;
             padding-bottom: 5px;
         }
@@ -154,12 +156,12 @@
             text-align: right;
         }
         ul.sidelinks li {
-            color: #222;
+            color: {color:Text};
             text-align: right;  
             display: inline;
         }
         a.sidelink {
-            color: #666;
+            color: {color:Text};
             background-color: none;
             text-align: right;
             display: inline;
@@ -172,7 +174,7 @@
             text-transform: uppercase;
         }
         a.sidelink:hover {
-            color: #222;
+            color: {color:Hover};
             background-color: none;
             text-align: right;
             text-decoration: none;
@@ -221,7 +223,7 @@
             padding-left: 20px;
         }
         blockquote {
-            color: #222;
+            color: {color:Text};
             background-color: transparent;
             font-size: 13px;
             line-height: 110%;
@@ -280,7 +282,7 @@
         
         /* shown on the permalink page; has notes, source, and time posted */
         .perma-info {
-            color: #222;
+            color: {color:Text};
             background-color: transparent;
             font-size: 11px;
             line-height: 13px;
@@ -289,10 +291,10 @@
             overflow:hidden;
         }
         .perma-info a {
-            color: #222;
+            color: {color:Text};
         }
         .perma-info a:hover {
-            color: #666;
+            color: {color:Hover};
             text-decoration: none;
         }
         
@@ -310,7 +312,7 @@
             margin-bottom: 15px;
         }
          .note blockquote {
-            color: #222;
+            color: {color:Text};
             background-color: rgba(48,48.48,0.1);
             border: none;
         }
@@ -389,7 +391,7 @@
         
         /* previous and next page buttons */
         #previous, #next, .page-info {
-            color: #666;
+            color: {color:Text};
             font-family: {font:Body};
             font-size: 11px;
             background: transparent; 
@@ -397,7 +399,7 @@
             padding: 5px 7px 5px 7px;
         }
         #previous:hover, #next:hover {
-            color: #222;
+            color: {color:Hover};
             font-family: {font:Body};
             font-size: 11px;
             background: transparent;
@@ -458,15 +460,14 @@
         <header class="clearfix">
         
         <div class="content">
-        
-                  <a href="/">
+                          <a href="/">
         {block:IfProfilePhotoImage}<img class="profile-photo" src         ="{image:Profile Photo}" alt="" />{/block:IfProfilePhotoImage}
         {block:IfNotProfilePhotoImage}<img class="profile-photo" src              ="{PortraitURL-128}" alt="" />{/block:IfNotProfilePhotoImage}
         </a>
         
-                <a href="/">
+
                 <h1>{Title}</h1>
-                </a>
+
         </div>
             
         <nav>    
@@ -490,22 +491,22 @@
                 {block:IfShowRandomLink}<a class="sidelink" href="/random">{lang:Random}</a>{/block:IfShowRandomLink}
                 
                 {block:IfCustomLink1URL}
-                    <a class="sidelink" href="{text:Custom Link 1 URL}">{text:Custom Link 1 Name}</a>
+                    <a class="sidelink" href="{text:Custom Link 1 URL}" target="_blank">{text:Custom Link 1 Name}</a>
                 {/block:IfCustomLink1URL}
                 
                 {block:IfCustomLink2URL}
-                    <a class="sidelink" href="{text:Custom Link 2 URL}">{text:Custom Link 2 Name}</a>
+                    <a class="sidelink" href="{text:Custom Link 2 URL}" target="_blank">{text:Custom Link 2 Name}</a>
                 {/block:IfCustomLink2URL}
                 
                 {block:IfCustomLink3URL}
-                    <a class="sidelink" href="{text:Custom Link 3 URL}">{text:Custom Link 3 Name}</a>
+                    <a class="sidelink" href="{text:Custom Link 3 URL}" target="_blank">{text:Custom Link 3 Name}</a>
                 {/block:IfCustomLink3URL}
                 
                 {block:IfCustomLink4URL}
-                    <a class="sidelink" href="{text:Custom Link 4 URL}">{text:Custom Link 4 Name}</a>
+                    <a class="sidelink" href="{text:Custom Link 4 URL}" target="_blank">{text:Custom Link 4 Name}</a>
                 {/block:IfCustomLink4URL}
                 
-                <a class="sidelink" href="http://adorablethemes.com/" title="Get this theme!">Theme</a>
+                <a class="sidelink" href="http://stylizedthemes.tumblr.com/" target="_blank" title="Get this theme!">Theme</a>
             </ul>
         </nav>
 
