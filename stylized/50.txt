@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=1200"/>
         <meta name="font:Body" content="Helvetica Neue, Helvetica, Arial, sans-serif"/>
         <meta name="color:Accent" content="#ff9bc1"/>
+        <meta name="color:Post Links" content="#222222"/>
         <meta name="image:Profile Photo" content=""/>
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>
@@ -48,12 +49,12 @@
         
         
         a {
-            color: {color:Accent};
+            color: {color:Post Links};
             text-decoration: none;
         }
         
         a:hover {
-            color: {color:Accent};
+            color: {color:Post Links};
             text-decoration: none;
         }
         
@@ -243,6 +244,13 @@
             line-height: 110%;
             padding: 5px;
             margin: 0px;
+        }
+        
+         blockquote img {
+            width: 250px;
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
         
         .post img {
@@ -600,10 +608,10 @@
 
                 {block:Video}
                     {block:IndexPage}
-                        {VideoEmbed-250}
+                        {Video-250}
                     {/block:IndexPage}
                     {block:PermalinkPage}
-                        {VideoEmbed-500}
+                        {Video-500}
                     {/block:PermalinkPage}
 
                     {block:Caption}
