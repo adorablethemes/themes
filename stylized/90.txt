@@ -431,11 +431,11 @@ ol.notes .reply {background: transparent url('//static.tumblr.com/anzluor/n70n6a
         {/block:IfShowRandomLink}
         
         {block:IfCustomLink1URL}
-            <a class="sidelink" href="{text:Custom Link 1 URL}">{text:Custom Link 1 Name}</a>
+            <a class="sidebar-link" href="{text:Custom Link 1 URL}">{text:Custom Link 1 Name}</a>
         {/block:IfCustomLink1URL}
                 
         {block:IfCustomLink2URL}
-            <a class="sidelink" href="{text:Custom Link 2 URL}">{text:Custom Link 2 Name}</a>
+            <a class="sidebar-link" href="{text:Custom Link 2 URL}">{text:Custom Link 2 Name}</a>
         {/block:IfCustomLink2URL}
         
         <li><a class="sidebar-link" href="http://stylizedthemes.tumblr.com/">Themes</a></li>
