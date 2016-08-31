@@ -14,19 +14,19 @@
 <meta name="select:Columns" content="3col" title="3 columns">
 <meta name="select:Columns" content="2col" title="2 columns">
 
-<meta name="font:Headings" content="Helvetica">
-<meta name="font:Body" content="Helvetica">
+<meta name="font:Headings" content="Avalon">
+<meta name="font:Body" content="Avalon">
 
 <meta name="image:Sidebar Photo" content="">
 <meta name="image:Background" content="">
 
-<meta name="color:Background" content="#ffffff">
+<meta name="color:Background" content="#eeeeee">
 <meta name="color:Text" content="#666666">
 <meta name="color:Post Background" content="#eeeeee">
-<meta name="color:Borders" content="#ffffff">
-<meta name="color:Sidebar" content="#ffffff">
-<meta name="color:Links" content="#888888">
-<meta name="color:Links Hover" content="#666666">
+<meta name="color:Borders" content="#eeeeee">
+<meta name="color:Sidebar" content="#eeeeee">
+<meta name="color:Links" content="#666666">
+<meta name="color:Links Hover" content="#222222">
 
 <meta name="text:Facebook URL" content="">
 <meta name="text:Flickr URL" content="">
