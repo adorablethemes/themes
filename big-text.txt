@@ -502,7 +502,7 @@
     {/block:PermalinkPagination}
 	
     <footer>
-        Powered by <a href="https://www.tumblr.com/">Tumblr</a> &amp; <a href="http://adorablethemes.com/">Big Text Theme</a>
+        Powered by <a href="https://www.tumblr.com/">Tumblr</a> &amp; <a href="http://adorablethemes.com/theme/big-text">Big Text Theme</a>
     </footer>
       </div>
 		{block:IfInfiniteScrolling}

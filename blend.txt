@@ -300,7 +300,7 @@
 				<li><a class="header-link" href="https://twitter.com/{TwitterUsername}"><i class="fa fa-fw fa-twitter"></i> Twitter</a></li>
 			{/block:Twitter}
 			
-			<li><a class="header-link" href="http://adorablethemes.com/"><i class="fa fa-fw fa-heart-o"></i> Theme</a></li>
+			<li><a class="header-link" href="http://adorablethemes.com/theme/blend"><i class="fa fa-fw fa-heart-o"></i> Theme</a></li>
 			
         </ul>
 
