@@ -9,7 +9,7 @@
         {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=1024"/>
-        <meta name="font:Body" content="Helvetica"/>
+        <meta name="font:Body" content="Georgia"/>
         <meta name="color:Background" content="#ffffff"/>
         <meta name="color:Borders" content="#dddddd"/>
         <meta name="color:Text" content="#999999"/>
