@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Illuminate Theme by stylizedthemes.tumblr.com -->
+        <!-- Illuminate Theme v2 by stylizedthemes.tumblr.com -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -179,6 +179,7 @@
         .post {
             width: 250px;
             float: left;
+            position: relative;
             margin-bottom: 10px;
             margin-left: 5px;
             margin-right: 5px;
