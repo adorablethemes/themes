@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Waterfall
-        version:    1.7.2 (April 7, 2016)
+        version:    1.7.3 (September 30, 2016)
         from:       adorablethemes.com
         
         -->
@@ -37,7 +37,6 @@
         <meta name="if:Show Liked Posts Link" content="0">
         <meta name="if:Show Random Link" content="0">
         <meta name="if:Show Like and Reblog Buttons" content="1">
-        <meta name="if:Dark Like and Reblog Buttons" content="0">
         <meta name="if:Show Contributors" content="0">
     	<meta name="if:Show Followed Blogs" content="0">
     	
@@ -62,6 +61,8 @@
         
         <!-- HTML5 elements for old browsers -->
         <!--[if lte IE 8]><script src="//static.tumblr.com/hriofhd/Qj0m8pn7q/html5shiv.js"></script><![endif]-->
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
         
 		<style type="text/css">
 			body {
@@ -437,10 +438,6 @@
                 color: {color:Text} !important;
             }
             
-            .reblog-button {
-                margin-right: 6px;   
-            }
-            
             .tag:before {
                 content: "#";
             }
@@ -499,7 +496,25 @@
                 left: 49%;
                 z-index: 999;
             }
-    	
+            
+            .like-button-parent {
+                display: inline-block !important;
+                float: right;
+            }
+            .reblog-button {
+                margin-right: 0.75em;
+            }
+            .like-button-parent {
+                position: relative;
+            }
+            .like-button-parent .like_button {
+                position: absolute;
+                top: 0;
+                opacity: 0;
+            }
+            .like-button-parent .like_button.liked + span {
+                color: #d95e40;
+            }
 			
 			{CustomCSS}
 		</style>
@@ -760,12 +775,12 @@
                                 {/block:HasTags}
 								<aside class="post-meta">
 									{block:IfShowRealDates}
-    								<a title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}, {Year}" href="{Permalink}">{ShortMonth} {DayOfMonth} {Year}</a> - 
+    								<a title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}{DayOfMonthSuffix}, {Year}" href="{Permalink}">{ShortMonth} {DayOfMonth} {Year}</a>
                                     {/block:IfShowRealDates}
                                     {block:IfNotShowRealDates}
-    								<a title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}, {Year}" href="{Permalink}">{TimeAgo}</a> - 
+    								<a title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}{DayOfMonthSuffix}, {Year}" href="{Permalink}">{TimeAgo}</a>
                                     {/block:IfNotShowRealDates}
-                                    <a class="postnotes" href='{Permalink}#notes'>{NoteCountWithLabel}</a> 
+                                    {block:NoteCount} - <a class="postnotes" href='{Permalink}#notes'>{NoteCountWithLabel}</a>{/block:NoteCount}
 									<div class="float-right">
 									{block:RebloggedFrom}{lang:Reblogged from ReblogParentName 2}{/block:RebloggedFrom}
     								 
@@ -797,37 +812,25 @@
                                 {/block:HasTags}
     							<aside class="post-meta">
                                     {block:IfShowRealDates}
-									{block:Date}<a title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}, {Year}" href="{Permalink}">{ShortMonth} {DayOfMonth} {Year}</a> - {/block:Date}
+									{block:Date}<a title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}{DayOfMonthSuffix}, {Year}" href="{Permalink}">{ShortMonth} {DayOfMonth} {Year}</a>{/block:Date}
                                     {/block:IfShowRealDates}
                                     {block:IfNotShowRealDates}
-    								{block:Date}<a title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}, {Year}" href="{Permalink}">{TimeAgo}</a> - {/block:Date}
+    								{block:Date}<a title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}{DayOfMonthSuffix}, {Year}" href="{Permalink}">{TimeAgo}</a>{/block:Date}
                                     {/block:IfNotShowRealDates}
-                                    <a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>
+                                    {block:NoteCount} - <a class="postnotes" href='{Permalink}#notes'>{NoteCountWithLabel}</a>{/block:NoteCount}
                                     {block:IfDisqusShortname} - <a href="{Permalink}#disqus_thread">{lang:View comments}</a>{/block:IfDisqusShortname}
-                                    {block:IfDarkLikeandReblogButtons}
                                     
                                     {block:IfShowLikeandReblogButtons}
-                                    <div class="float-right like-button">
-    								{LikeButton color="black" size="16"}
+                                    <div class="float-right like-reblog-buttons">
+                                        <div class="float-right like-button-parent">
+                    					    {LikeButton color="gray" size="16"}
+                    					    <span><i class="fa fa-lg fa-heart-o"></i></span>
+                    					</div>
+                    					<div class="float-right reblog-button">
+                                            <a href="{ReblogURL}"><i class="fa fa-lg fa-refresh"></i></a>
+                                        </div>
                                     </div>
-                                    <div class="float-right reblog-button">
-                                    {ReblogButton color="black" size="16"}
-									</div>
                                     {/block:IfShowLikeandReblogButtons}
-                                    
-                                    {/block:IfDarkLikeandReblogButtons}
-                                    {block:IfNotDarkLikeandReblogButtons}
-                                    
-                                    {block:IfShowLikeandReblogButtons}
-                                    <div class="float-right like-button">
-    								{LikeButton color="gray" size="16"}
-                                    </div>
-                                    <div class="float-right reblog-button">
-                                    {ReblogButton color="gray" size="16"}
-									</div>
-                                    {/block:IfShowLikeandReblogButtons}
-                                    
-                                    {/block:IfNotDarkLikeandReblogButtons}
 									
 								</aside>
                                 {/block:IndexPage}

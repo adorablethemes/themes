@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Ambient
-        version:    2.1.1 (June 30, 2016)
+        version:    2.1.2 (September 30, 2016)
         from:       adorablethemes.com
         
         -->
@@ -119,7 +119,9 @@
         .my-avatar {
             border: 5px solid white;
             border-radius: 2px;
-            margin-bottom: 16px;
+            {block:IfBackgroundImage}
+            margin-bottom: 12px;
+            {/block:IfBackgroundImage}
         }
         .my-avatar:hover {
             box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
@@ -289,12 +291,6 @@
         .tag:before {
             content: "#";
         }
-        .like-reblog-buttons {
-            margin-top: -1px;
-        }
-        .reblog_button {
-            margin-right: 8px;
-        }
         .post-reblog-info {
             background-color: transparent;
             border: 0;
@@ -404,6 +400,25 @@
         }
         .font-large {
             font-size: 15px;
+        }
+        
+        .like-button-parent {
+            display: inline-block !important;
+            float: right;
+        }
+        .reblog-button {
+            margin-right: 0.75em;
+        }
+        .like-button-parent {
+            position: relative;
+        }
+        .like-button-parent .like_button {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+        }
+        .like-button-parent .like_button.liked + span {
+            color: #d95e40;
         }
         
         {CustomCSS}
@@ -658,11 +673,12 @@
                 
                 <div class="post-meta">
                     <div class="float-right like-reblog-buttons">
-                        <div class="float-right like-button">
-    					{LikeButton color="gray" size="16"}
+                        <div class="float-right like-button-parent">
+    					    {LikeButton color="gray" size="16"}
+    					    <span><i class="fa fa-lg fa-heart-o"></i></span>
     					</div>
     					<div class="float-right reblog-button">
-                        {ReblogButton color="gray" size="16"}
+                            <a href="{ReblogURL}"><i class="fa fa-lg fa-refresh"></i></a>
                         </div>
     				</div>
     				
