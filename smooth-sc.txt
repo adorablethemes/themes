@@ -4,7 +4,7 @@
     	<!-- 
     	
         theme:      Smooth SC
-        version:    1.4.4 (June 9, 2016)
+        version:    1.4.5 (October 2, 2016)
         from:       adorablethemes.com
         
     	-->
@@ -55,6 +55,7 @@
         {/block:Hidden}
         
 		<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic" rel="stylesheet" type="text/css">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 		
 		<style type="text/css">
 			body {
@@ -202,6 +203,10 @@
 			.post-header a, .post-header a:hover {
 				color: {color:Post Header Text};
 			}
+			ul.chat {
+			    list-style-type: none;
+			    padding-left: 0;
+			}
             .chat li {
                 padding-top: 5px;
                 padding-bottom: 5px;
@@ -212,6 +217,11 @@
             }
 			.chat-label {
 				font-weight: 600;
+			}
+			.quote-text {
+			    font-style: italic;
+			    font-size: 16px;
+			    margin-top: 8px;
 			}
 			.post-content {
 				padding: 10px 20px;
@@ -267,6 +277,7 @@
 				padding: 10px 20px;
 				line-height: 15px;
 				font-style: normal;
+				min-height: 16px;
 			}
             .post-meta a, .post-meta a:hover {
                 color: #777;   
@@ -286,6 +297,14 @@
 				border-right: 10px solid transparent;
 				border-top: 10px solid {color:Post Headers};
 				margin-left: 5px;
+			}
+			.asker-container img.avatar {
+				vertical-align: middle;
+				display: inline !important;
+				width: 24px !important;
+				height: 24px !important;
+				margin-right: 7px;
+				border-radius: 3px;
 			}
 			::selection {
 				background: {color:Post Headers};
@@ -312,14 +331,13 @@
 			.note:last-child {
 				margin-bottom: 5px;
 			}
-			img.avatar {
+			.note img.avatar {
 				vertical-align: middle;
 				display: inline !important;
-				width: 24px !important;
-				height: 24px !important;
+				width: 20px !important;
+				height: 20px !important;
 				margin-right: 7px;
-				border-radius: 3px;
-                border: 1px solid #888;
+				border-radius: 20px;
 			}
 			a img {
 				border: 0;   
@@ -397,6 +415,25 @@
             	height: auto;
             }
             {/block:If700pxColumn}
+            
+            .like-button-parent {
+                display: inline-block !important;
+                float: right;
+            }
+            .reblog-button {
+                margin-right: 0.75em;
+            }
+            .like-button-parent {
+                position: relative;
+            }
+            .like-button-parent .like_button {
+                position: absolute;
+                top: 0;
+                opacity: 0;
+            }
+            .like-button-parent .like_button.liked + span {
+                color: #d95e40;
+            }
 			
 			{CustomCSS}
 		</style>
@@ -479,7 +516,7 @@
 					
 					<ul class="sidebar-links">
 					
-						<li><a class="sidebar-link" href="/">Home</a></li>
+						<li><a class="sidebar-link" href="/">{lang:Home}</a></li>
 						
 						{block:HasPages}
 							{block:Pages}
@@ -578,7 +615,7 @@
                                 {block:IfShowPostAuthors}
                                 <a title="{PostAuthorTitle}" href="{PostAuthorURL}"><img src="{PostAuthorPortraitURL-64}"/></a>
                                 {/block:IfShowPostAuthors}
-                                {block:Date}<p><a title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}, {Year}" href="{Permalink}">{ShortMonth} {DayOfMonth} <span class="year_{Year}">{Year}</span></a></p>{/block:Date}
+                                {block:Date}<p><a title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}{DayOfMonthSuffix}, {Year}" href="{Permalink}">{ShortMonth} {DayOfMonth} <span class="year_{Year}">{Year}</span></a></p>{/block:Date}
                                 </div>
 								<div class="post {PostType}">
 								
@@ -634,7 +671,8 @@
 								
 
 								{block:Quote}
-									<div class="post-content"><blockquote>"{Quote}"</blockquote>
+									<div class="post-content">
+									<div class="quote-text">"{Quote}"</div>
 
 									{block:Source}
 										<p style="text-align: right">&mdash; {Source}</p>
@@ -703,7 +741,7 @@
 								{block:PermalinkPage}
                                 {block:Date}
 								<div class="post-meta">
-									<a class="postnotes" href="{Permalink}">{NoteCountWithLabel}</a> 
+									{block:NoteCount}<a class="postnotes" href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
 									<div class="float-right">
 									{block:RebloggedFrom}{lang:Reblogged from ReblogParentName 2}{/block:RebloggedFrom}
     								 
@@ -737,13 +775,16 @@
                                 {/block:HasTags}
                                 {/block:IfShowTagsonIndex}
     							<div class="post-meta">
-									<a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a> 
-									<div class="float-right like-button">
-									{LikeButton size="16"}
+									{block:NoteCount}<a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>{/block:NoteCount}
+									<div class="float-right like-reblog-buttons">
+                                        <div class="float-right like-button-parent">
+                    					    {LikeButton color="gray" size="16"}
+                    					    <span><i class="fa fa-lg fa-heart-o"></i></span>
+                    					</div>
+                    					<div class="float-right reblog-button">
+                                            <a href="{ReblogURL}"><i class="fa fa-lg fa-refresh"></i></a>
+                                        </div>
                                     </div>
-                                    <div class="float-right reblog-button">
-                                    {ReblogButton size="16"}
-									</div>
 								</div>
                                 {/block:IndexPage}
 							</div>
@@ -777,7 +818,7 @@
     {block:NextPage}<a href="{NextPage}" class="but" id="next">{lang:Next Page} &raquo;</a>{/block:NextPage}
 </div>
 {/block:Pagination}
-			<div class="footer"><span class="footer-text">{lang:Powered by Tumblr 2} | <a href="http://adorablethemes.com/theme/smooth-sc">Smooth SC Theme</a></span></div>
+			<div class="footer"><span class="footer-text">{lang:Powered by Tumblr 2} &amp; <a href="http://adorablethemes.com/theme/smooth-sc">Smooth SC Theme</a></span></div>
 		</div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         {block:IndexPage}{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}{/block:IndexPage}
