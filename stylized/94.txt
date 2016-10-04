@@ -489,7 +489,7 @@
         
         /* previous and next page buttons */
         #previous, #next, .page-info {
-            color: {color:Text};
+            color: #222;
             font-family: {font:Body};
             font-size: 10px;
             font-weight: normal;
