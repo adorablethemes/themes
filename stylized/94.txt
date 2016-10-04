@@ -9,7 +9,7 @@
         {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="font:Body" content="'Lorimer No 2', Avalon, Arial, Helvetica, Sans-serif"/>
+        <meta name="font:Body" content="Avalon, Arial, Helvetica, Sans-serif"/>
         <meta name="color:Background" content="#ffffff"/>
         <meta name="color:Text" content="#eeeeee"/>
         <meta name="image:Profile Photo" content=""/>
