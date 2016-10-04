@@ -27,6 +27,9 @@
         <meta name="if:Infinite Scrolling" content="0"/>
         {/block:Hidden}
         <!--[if (lte IE 8)]><script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        
         <style type="text/css">
         body {
             color: #dbbff7;
@@ -58,7 +61,7 @@
         }
         
         a:hover {
-            color: #666;
+            color: #999;
             text-decoration: none;
         }
         
@@ -187,7 +190,7 @@
             font-weight: normal;
         }
         a.sidelink:hover {
-            color: #666;
+            color: #999;
             background-color: #fff;
             text-align: right;
             text-decoration: none;
@@ -264,11 +267,6 @@
             opacity: 1;
         }
         
-        /*.post img:hover {*/
-        /*    background-color: #000;*/
-        /*    opacity: 0.6;*/
-        /*}*/
-        
         .chat {
             font-size: 13px;
             line-height: 16px;
@@ -317,8 +315,7 @@
             padding-left: 0;
         }
         .note {
-            padding: 4px;
-            border-bottom: 1px solid #eee;
+            padding: 2px;
         }
         .note:last-child {
             border-bottom: 0;
@@ -330,16 +327,13 @@
             border: none;
         }
         
-        
         .index-info {
             width: 220px;
             background-color: rgba(219,191,247,0.7);
             font-size: 14px;
             line-height: 16px;
             color: #fff;
-            padding: 5px 15px 5px 15px;
-            /*text-align: center;*/
-            /*border-radius: 100%;*/
+            padding: 10px 15px;
         }
         .index-info a {
             color: #fff;
@@ -359,7 +353,6 @@
             opacity: 1;
         }
 
-        
         /* remove blank space from bottom of photoset posts */
         iframe.photoset {
             display: block;   
@@ -370,10 +363,8 @@
             clear: both;
             border: 0;
             border-bottom: 1px solid #dbbff7;
-            margin: 15px 10px;
+            margin: 15px 0px;
         }
-        
-       
         
         /* fix height of element with floats inside */
         .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
@@ -403,7 +394,7 @@
             padding: 5px 7px 5px 7px;
         }
         #previous:hover, #next:hover {
-            color: #666;
+            color: #999;
             font-family: {font:Body};
             font-size: 11px;
             background: #fff;
@@ -414,15 +405,8 @@
         
         /* Note icons */
         ol.notes .reblog {background: transparent url('//static.tumblr.com/anzluor/Gw5n6ay0z/reblog.png') right center no-repeat;}
-    	ol.notes .like {background: transparent url('//static.tumblr.com/anzluor/0yrn6ay0n/like.png') right center no-repeat;}
-    	ol.notes .reply {background: transparent url('//static.tumblr.com/anzluor/n70n6ay1a/reply.png') right center no-repeat;}
-        
-        /* tumblr reblog button */
-        .reblog_button {
-            float: right;
-            margin-left: 8px;
-            margin-top: 1px;
-        }
+        ol.notes .like {background: transparent url('//static.tumblr.com/anzluor/0yrn6ay0n/like.png') right center no-repeat;}
+        ol.notes .reply {background: transparent url('//static.tumblr.com/anzluor/n70n6ay1a/reply.png') right center no-repeat;}
         
         /* special styling for permalink pages */
         {block:PermalinkPage}
@@ -453,9 +437,11 @@
                 opacity: 1;
                 padding: 0px;
             }
-            .reblog_button {
-                margin-left: 10px;
+            /*tumblr reblog button */
+            .reblog-button {
+                float: right;
                 margin-top: 0px;
+                margin-left: 12px;
             }
         {/block:PermalinkPage}
         
@@ -644,8 +630,8 @@
                 {block:IndexPage}
                 <div class="index-info">
                     <a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>
-                        {ReblogButton size="16" color="white"}
-
+                    
+                    <a style="float:right; text-align: right" href="{ReblogURL}"><i class="fa fa-retweet" ></i></a>
                     
                 </div>
                 {/block:IndexPage}
@@ -654,12 +640,15 @@
                 {block:PermalinkPagination}
                 <div class="perma-info">
                 
+                <div class="reblog-button">
+                    <a href="{ReblogURL}"><i class="fa fa-retweet" ></i>
+                </div>
+                
+                {block:Date}<a style="float:right; text-align: right" class="timeago" href='{Permalink}'>{TimeAgo}</a>{/block:Date}
+                
                 {block:PostNotes}<a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>{/block:PostNotes}
                 {block:ContentSource}&nbsp;&mdash;&nbsp;<a href="{SourceURL}">Source</a>{/block:ContentSource}
                 {block:RebloggedFrom} (<a href="{ReblogParentURL}">via</a>){/block:RebloggedFrom}
-                    {ReblogButton size="16" color="black"}
-
-                {block:Date}<a style="float:right; text-align: right" class="timeago" href='{Permalink}'>{TimeAgo}</a>{/block:Date}
                 
                 {block:PostNotes}
                     <hr />
@@ -671,6 +660,7 @@
                 </li>
             {/block:Posts}
         </ul>
+        
         <div class="pagination">
             {block:Pagination}{block:PreviousPage}<a href="{PreviousPage}" id="next">&laquo; {lang:Previous Page}</a> {/block:PreviousPage}
             
