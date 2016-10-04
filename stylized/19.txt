@@ -10,7 +10,8 @@
         {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=1024"/>
-        <meta name="font:Body" content="Helvetica Neue, Helvetica, Arial, sans-serif"/>
+        {block:Hidden}
+        <meta name="font:Body" content="Helvetica"/>
         <meta name="image:Profile Photo" content=""/>
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>
@@ -23,8 +24,9 @@
         <meta name="if:Show Archive Link" content="1"/>
         <meta name="if:Show Random Link" content="0"/>
         <meta name="if:Infinite Scrolling" content="0"/>
-        <!--[if (lte IE 8)]><script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-        <link href='http://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
+        {/block:Hidden}
+        <!--[if (lte IE 8)]><script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link href='//fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
         
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
         
@@ -32,7 +34,7 @@
         body {
             color: #fff;
             background-color: #000;
-            background-image: url('http://static.tumblr.com/frs2lbn/pfLn0n631/damask1.jpg');
+            background-image: url('//static.tumblr.com/frs2lbn/pfLn0n631/damask1.jpg');
             background-repeat: repeat-x;
             background-attachment: fixed;
             background-position: bottom left;
@@ -55,7 +57,7 @@
         
         
         a {
-            color: #999;
+            color: #aaa;
             text-decoration: none;
         }
         
@@ -137,7 +139,6 @@
             padding: 0px;
             width: 169px;
             height: auto;
-            border: 0px solid #ffffff;
         }
 
         nav {
@@ -228,12 +229,16 @@
         }
         
         .post img {
+            max-width: 100%;
+            height: auto;
+        }
+        .photo-post-photo {
             width: 250px;
+            max-width: 100%;
             height: auto;
             display: block;
         }
         
-        /* who even uses chat posts? */
         .chat {
             font-size: 13px;
             line-height: 16px;
@@ -257,7 +262,6 @@
             right: 0;
         }
         
-        /* if upscale small images is off, under 400px/700px wide images will have a background */
         .imgback {
             background-color: #000000;
         }
@@ -288,7 +292,7 @@
             padding-left: 0;
         }
         .note {
-            padding: 4px;
+            padding: 3px;
         }
         .note:last-child {
             border-bottom: 0;
@@ -328,6 +332,8 @@
             margin: 15px 10px;
         }
         
+       
+        
         /* fix height of element with floats inside */
         .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
         .clearfix:after { clear: both; }
@@ -356,7 +362,7 @@
             padding: 6px;
         }
         
-        /* icons next to notes */
+                /* icons next to notes */
         .reblog {background: transparent url('http://static.tumblr.com/ohnymtu/liNoej6zz/reblog-white.png') right center no-repeat;}
         .like {background: transparent url('http://static.tumblr.com/ohnymtu/KSUoej6zo/like-white.png') right center no-repeat;}
         
@@ -378,12 +384,12 @@
                 height: auto;
                 opacity: 1;
             }
-
+            
             /*tumblr reblog button */
-        .reblog-button {
-            float: right;
-            margin-top: 0px;
-            margin-left: 12px;
+            .reblog-button {
+                float: right;
+                margin-top: 0px;
+                margin-left: 12px;
         }
         {/block:PermalinkPage}
         
@@ -408,7 +414,7 @@
                 <h1>{Title}</h1>
                 
         <a href="/">
-                    {block:IfProfilePhotoImage}<img class="profile-photo" src="{image:Profile Photo}" alt="" />{/block:IfProfilePhotoImage}
+        {block:IfProfilePhotoImage}<img class="profile-photo" src="{image:Profile Photo}" alt="" />{/block:IfProfilePhotoImage}
         {block:IfNotProfilePhotoImage}<img class="profile-photo" src="{PortraitURL-128}" alt="" />{/block:IfNotProfilePhotoImage}
 
         </a>
@@ -448,7 +454,7 @@
                     <li><a class="sidelink" href="{text:Custom Link 4 URL}">{text:Custom Link 4 Name}</a></li>
                 {/block:IfCustomLink4URL}
                 
-                <li><a class="sidelink" href="http://stylizedthemes.tumblr.com/" title="Get this theme!">Theme</a></li>
+                <li><a class="sidelink" href="http://adorablethemes.com/" title="Get this theme!">Theme</a></li>
             </ul>
         </nav>
 
@@ -481,10 +487,10 @@
 
                 {block:Photo}
                     {block:IndexPage}
-                        <div class="imgback"><center><a href="{Permalink}"><img src="{PhotoURL-250}" alt="{PhotoAlt}" /></a></center></div>
+                        <div class="imgback"><center><a href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" alt="{PhotoAlt}" /></a></center></div>
                     {/block:IndexPage}
                     {block:PermalinkPage}
-                        <div class="imgback"><center>{LinkOpenTag}<img src="{PhotoURL-1280}" alt="{PhotoAlt}" />{LinkCloseTag}</center></div>
+                        <div class="imgback"><center>{LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-1280}" alt="{PhotoAlt}" />{LinkCloseTag}</center></div>
                     {/block:PermalinkPage}
 
                     {block:PermalinkPage}{block:Caption}
@@ -547,10 +553,10 @@
 
                 {block:Video}
                     {block:IndexPage}
-                        {Video-250}
+                        {VideoEmbed-250}
                     {/block:IndexPage}
                     {block:PermalinkPage}
-                        {Video-500}
+                        {VideoEmbed-500}
                     {/block:PermalinkPage}
 
                     {block:Caption}
@@ -560,9 +566,6 @@
                 
 
                 {block:Audio}
-                    {block:AlbumArt}
-                        <img src="{AlbumArtURL}" width="500" title="Album art" alt="Album art" />
-                    {/block:AlbumArt}
                     {AudioPlayerBlack}
 
                     {block:Caption}
@@ -578,7 +581,6 @@
                     
                 </div>
                 {/block:IndexPage}
-                
                 
                 {block:PermalinkPage}
                 {block:PermalinkPagination}
@@ -604,7 +606,6 @@
                 </li>
             {/block:Posts}
         </ul>
-        
         <div class="pagination">
             {block:Pagination}{block:PreviousPage}<a href="{PreviousPage}" id="next">&laquo; {lang:Previous Page}</a> {/block:PreviousPage}
             
@@ -614,11 +615,11 @@
         </div>
       </div>
     </div>
-    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="http://static.tumblr.com/ohnymtu/HlWmzb7xl/credit1.png" alt="" /></a>
+    <a href="http://adorablethemes.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/HlWmzb7xl/credit1.png" alt="" /></a>
     {block:IndexPage}
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        {block:IfInfiniteScrolling}<script src="http://static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-        <script src="http://static.tumblr.com/anzluor/3H8mp4qek/masonry.pkgd.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
+        <script src="//static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
         <script>
         $(function(){
             var container = $('ul#posts');
