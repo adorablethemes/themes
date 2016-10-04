@@ -631,7 +631,7 @@
                 <div class="index-info">
                     <a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>
                     
-                    <a style="float:right; text-align: right" href="{ReblogURL}"><i class="fa fa-retweet" ></i></a>
+                    <a style="float:right; text-align: right" href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
                     
                 </div>
                 {/block:IndexPage}

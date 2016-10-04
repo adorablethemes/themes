@@ -623,7 +623,7 @@
                 <div class="perma-info">
                 
                 <div class="reblog-button">
-                    <a href="{ReblogURL}"><i class="fa fa-retweet" ></i>
+                    <a href="{ReblogURL}"><i class="fa fa-retweet"></i>
                 </div>
                 
                 {block:Date}<a style="float:right; text-align: right" class="timeago" href='{Permalink}'>{TimeAgo}</a>{/block:Date}
