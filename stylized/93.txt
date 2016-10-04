@@ -409,10 +409,14 @@
         .like {background: transparent url('http://static.tumblr.com/anzluor/O7Nml4ekz/like.png') right center no-repeat;}
         
          /*tumblr reblog button */
-        .reblog_button {
+        .reblog-button {
             float: right;
-            margin-top: 3px;
+            margin-top: 1px;
             margin-left: 12px;
+        }
+        
+        .fa-retweet {
+            font-size: 16px;
         }
         
         /* special styling for permalink pages */
@@ -626,14 +630,14 @@
                         <div class="content">{Caption}</div>
                     {/block:Caption}{/block:PermalinkPage}
                 {/block:Audio}
-
+                
                 
                 {block:PermalinkPage}
                 {block:PermalinkPagination}
                 <div class="perma-info">
                 
                 <div class="reblog-button">
-                    {ReblogButton size="14"}
+                    <a href="{ReblogURL}"><i class="fa fa-retweet"></i>
                 </div>
                 
                 {block:Date}<a style="float:right; text-align: right" class="timeago" href='{Permalink}'>{TimeAgo}</a>{/block:Date}
@@ -641,9 +645,6 @@
                 {block:PostNotes}<a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>{/block:PostNotes}
                 {block:ContentSource}&nbsp;&mdash;&nbsp;<a href="{SourceURL}">Source</a>{/block:ContentSource}
                 {block:RebloggedFrom} (<a href="{ReblogParentURL}">via</a>){/block:RebloggedFrom}
-                
-
-            
                 
                 {block:PostNotes}
                     <hr />
