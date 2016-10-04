@@ -615,7 +615,7 @@
         </div>
       </div>
     </div>
-    <a href="http://adorablethemes.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/HlWmzb7xl/credit1.png" alt="" /></a>
+    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="http://static.tumblr.com/ohnymtu/fmJoejmpk/credit3.jpg" alt="" /></a>
     {block:IndexPage}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}

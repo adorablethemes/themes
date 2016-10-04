@@ -642,7 +642,7 @@ ol.notes .reply {background: transparent url('//static.tumblr.com/anzluor/n70n6a
 {/block:Pagination}
 </div>
 
-<a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="http://i.imgur.com/0jHzlR4.jpg" alt="" /></a>
+<a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="http://static.tumblr.com/ohnymtu/fmJoejmpk/credit3.jpg" alt="" /></a>
 
 
 
