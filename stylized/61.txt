@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Single Stroke Theme by stylizedthemes.com -->
+        <!-- Single Stroke Theme by stylizedthemes.tumblr.com -->
         <!-- Last updated October 4, 2016 -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
