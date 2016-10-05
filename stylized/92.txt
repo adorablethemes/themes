@@ -198,6 +198,10 @@
             text-decoration: none;
         }
         
+        .post iframe {
+            display: block;
+        }
+        
         /* main post styles */
         .post {
             background-color: rgba({RGBcolor:Sidebar}, 0.7);
@@ -648,14 +652,16 @@
                 
 
                 {block:Audio}
-                    {block:AlbumArt}
-                        <img src="{AlbumArtURL}" width="500" title="Album art" alt="Album art" />
-                    {/block:AlbumArt}
-                    {AudioPlayerBlack}
+                    {block:IndexPage}
+                        {AudioEmbed-250}
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                        {AudioEmbed-500}
+                    {/block:PermalinkPage}
 
-                    {block:Caption}
+                    {block:PermalinkPage}{block:Caption}
                         <div class="content">{Caption}</div>
-                    {/block:Caption}
+                    {/block:Caption}{/block:PermalinkPage}
                 {/block:Audio}
                 
                 {block:IndexPage}
