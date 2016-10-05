@@ -22,7 +22,7 @@
         <style type="text/css">
         body {
             color: #666;
-            background: #222 url('https://i.imgur.com/wIT6V1N.png');
+            background: #222 url('http://static.tumblr.com/ohnymtu/ijMoejx3q/halloween2.png');
             background-repeat: repeat;
             background-position: top center;
             background-attachment: fixed;
