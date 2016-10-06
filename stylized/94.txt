@@ -146,8 +146,6 @@
             color: {color:Text};
             font-size: 14px;
             line-height: 14px;
-            /*padding: 10px;*/
-            /*margin-bottom: -10px;*/
             text-align: center;
             font-family: {font:Body};
             font-weight: normal;
