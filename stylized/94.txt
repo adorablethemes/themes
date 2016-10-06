@@ -130,12 +130,24 @@
             color: {color:Text};
             text-decoration: none;
         }
-        h2, h3, h4 {
+        h2, h3 {
             color: {color:Text};
             font-size: 14px;
             line-height: 14px;
             padding: 10px;
             margin-bottom: -10px;
+            text-align: center;
+            font-family: {font:Body};
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+        
+        h4 {
+            color: {color:Text};
+            font-size: 14px;
+            line-height: 14px;
+            /*padding: 10px;*/
+            /*margin-bottom: -10px;*/
             text-align: center;
             font-family: {font:Body};
             font-weight: normal;
@@ -698,7 +710,7 @@
                 
 
                 {block:Link}
-                <h3><a href="{URL}" class="link-post-link" {Target}>{Name} &rarr;</a></h3>
+                <h4><a href="{URL}" class="link-post-link" {Target}>{Name} &rarr;</a></h4>
 
                     {block:Description}
                         <div class="content">{Description}</div>
