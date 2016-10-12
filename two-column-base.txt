@@ -561,6 +561,7 @@
 			container.imagesLoaded( function(){
 				container.masonry({
 					itemSelector : '.post'
+					transitionDuration: 0
 				});
 			});
 			{block:IfInfiniteScrolling}
@@ -576,9 +577,13 @@
 				},
 				function( newElements ) {
 					var $newElems = $( newElements ).css({ opacity: 0 });
+                    var $newElemsIDs = $newElems.map(function () { 
+                        return this.id; 
+                    }).get();
 					$newElems.imagesLoaded(function(){
 						$newElems.animate({ opacity: 1 });
 						container.masonry( 'appended', $newElems, true );
+						Tumblr.LikeButton.get_status_by_post_ids($newElemsIDs);
 					});
 				}
 			);
