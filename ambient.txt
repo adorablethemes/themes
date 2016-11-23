@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Ambient
-        version:    2.1.2 (September 30, 2016)
+        version:    2.2 (November 23, 2016)
         from:       adorablethemes.com
         
         -->
@@ -30,6 +30,7 @@
         <meta name="color:Post Borders" content="#ffffff">
         <meta name="color:Post Background" content="#fafafa">
         <meta name="color:Post Text" content="#444444">
+        <meta name="color:Sidebar Link Text" content="#ffffff">
         
         <meta name="font:Post Body" content="Helvetica">
         <meta name="font:Sidebar Links" content="Verdana">
@@ -152,21 +153,29 @@
         .sidebar-links {
             list-style-type: none;
             padding-left: 0;
+            background-color: {AccentColor};
+            border-radius: 2px;
+            overflow: hidden;
         }
         .sidebar-link {
 			font-size: 0.83em;
 			font-family: {font:Sidebar Links};
-			color: white;
+			color: {color:Sidebar Link Text};
 			background-color: {AccentColor};
 			display: block;
-			padding: 4px 5px;
-			margin-bottom: 2px;
+			padding: 6px;
 			text-decoration: none;
-			border-radius: 2px;
+			border-bottom: 1px solid rgba({RGBcolor:Sidebar Link Text},0.2);
+        }
+        .sidebar-link:last-child {
+            border-bottom: 0;
         }
         .sidebar-link:hover {
-            background-color: rgba({RGBAccentColor},0.9);
+            background-color: rgba({RGBcolor:Sidebar Link Text},0.2);
             text-decoration: none;
+        }
+        .sidebar-link .fa {
+            margin-right: 2px;
         }
         {block:IfNotShowSidebarLinkIcons}
         .sidebar-link .fa {
@@ -342,12 +351,12 @@
         }
         #previous:hover, #next:hover, .jump-page:hover {
             background-color: rgba({RGBAccentColor},0.9);
-            color: white;
+            color: {color:Sidebar Link Text};
             text-decoration: none;
         }
         .current-page {
             font-weight: 700;
-            color: white;
+            color: {color:Sidebar Link Text};
             background-color: {AccentColor};
         }
         
@@ -604,7 +613,9 @@
 
                 {block:Link}
                     <h3><a href="{URL}" class="link-post-link"{block:Host} title="{Host}"{/block:Host} {Target}>{Name} &rarr;</a></h3>
-
+                    {block:Excerpt}
+                        <blockquote><p>{Excerpt}</p></blockquote>
+                    {/block:Excerpt}
                     {block:Description}
                         <div class="link-description">{Description}</div>
                     {/block:Description}
