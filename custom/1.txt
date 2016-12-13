@@ -353,7 +353,7 @@
             color: rgba({RGBcolor:Post Text}, 0.5);
         }
         .post-index-meta a:hover {
-            color: rgba({RGBcolor:Post Text}, 0.75);
+            color: rgba({RGBcolor:Post Text}, 0.5);
         }
         
         .photo .post-index-meta {
