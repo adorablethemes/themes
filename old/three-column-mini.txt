@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 
+
+theme:      Three Column Mini
+version:    1.5.1 (July 20, 2013)
+from:       adorablethemes.com
+
+-->
+<title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+<link rel="shortcut icon" href="{Favicon}"/>
+<link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+<link rel="alternate" type="application/rss+xml" href="{RSS}"/>
+{block:Description}
+<meta name="description" content="{MetaDescription}"/>
+{/block:Description}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1010"/>
+<meta name="font:Headings" content="Helvetica"/>
+<meta name="font:Body" content="Helvetica"/>
+<meta name="image:SidebarPic" content=""/>
+<meta name="image:Background" content=""/>
+<meta name="color:Background" content="#333333"/>
+<meta name="color:Text" content="#222222"/>
+<meta name="color:PostBack" content="#ffffff"/>
+<meta name="color:Borders" content="#ffffff"/>
+<meta name="color:Sidebar" content="#ffffff"/>
+<meta name="color:Link" content="#0095cd"/>
+<meta name="text:Facebook Username" content=""/>
+<meta name="text:Flickr Username" content=""/>
+<meta name="text:Instagram Username" content=""/>
+<meta name="text:Pinterest Username" content=""/>
+<meta name="text:Steam Username" content=""/>
+<meta name="text:YouTube Username" content=""/>
+<meta name="text:Google Analytics ID" content=""/>
+<meta name="if:Infinite Scrolling" content="1"/>
+<meta name="if:Show Archive Link" content="1"/>
+<meta name="if:Show Random Link" content="0"/>
+<meta name="if:Show Title" content="1"/>
+<meta name="if:Sidebar Columns" content="0"/>
+<style type="text/css">
+
+body {
+  color: {color:Text};
+	background: {image:Background};
+	background-attachment: fixed;
+	font-family: {font:Body};
+}
+.wrapper {
+	width: 990px;
+	margin: 0 auto;
+}
+.sidebar {
+	float:left;
+    background: {color:Sidebar};
+    border: 2px solid {color:Borders};
+    padding: 20px;
+	width: 160px;
+	position: fixed;
+}
+.main {
+	float:right;
+	width: 780px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: {font:Headings};
+}
+h1 {
+	font-size: 24px;
+}
+p#description {
+	font-size: 12px; 
+}
+
+a {
+	color: {color:Link};
+	text-decoration: none;
+}
+a:hover {
+	color: {color:Link};
+    text-decoration: underline;
+}
+
+{block:IfSidebarColumns}
+.sidebar ul {
+	-webkit-columns: 2 auto;
+	-moz-columns: 2 auto;
+	-ms-columns: 2 auto;
+	columns: 2 auto;
+}
+{/block:IfSidebarColumns}
+.sidelink {
+	font-size: 13px;
+}
+.sidepic {
+	max-width: 160px;
+	height: auto;
+	border-radius: 3px;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+ul#posts {
+	margin-top: 0px;
+}
+ol.notes {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.content {
+	padding: 10px;
+}
+
+.post p {
+	font-size: 13px;
+	line-height: 20px;
+}
+.post ul {
+	list-style-type: square;
+	font-size: 12px;
+	padding-left: 20px;
+}
+.post blockquote {
+	font-size: 12px;
+	padding: 4px;
+	margin: 16px 10px;
+    border-left: 2px solid {color:Link};
+	font-style: italic;
+}
+.text img {
+	max-width: 200px;
+}
+
+.chat {
+	font-size: 13px;
+	line-height: 16px;
+}
+.chat .label {
+	font-weight: bold;
+}
+.chat ul {
+    padding-left: 0;
+    list-style-type: none;   
+}
+.chat ul li {
+    border-bottom: 1px solid rgba(0,0,0,0.1);   
+    padding: 2px 0;
+}
+.chat ul li:last-child {
+    border-bottom: 0   
+}
+
+.post {
+	border: 2px solid {color:Borders};
+	float: left;
+	background: {color:PostBack};
+	margin-right: 5px;
+    margin-bottom: 5px;
+	width: 250px;
+	height: 166px;
+	overflow: hidden;
+}
+
+.perma {
+	border: 2px solid {color:Borders};
+	background: {color:PostBack};
+	margin-right: 5px;
+    margin-bottom: 5px;
+	float: left;
+	width: 500px;
+	height: auto;
+}
+
+.photo img {
+    max-width: 500px;
+	height: auto;
+}
+
+.w250 iframe {
+    width: 250px;
+    height: 166px;
+}
+.w500 iframe {
+    width: 500px;
+    height: 350px;
+}
+.a250 iframe {
+    width: 230px;
+    height: 146px;
+}
+.a500 iframe {
+    width: 480px;
+    height: 80px;
+}
+
+.infoblock {
+	float: left;
+	color: {color:Text};
+	font-size: 12px;
+	background: {color:PostBack};
+	width: 480px;
+	padding: 10px;
+    border: 2px solid {color:Borders};
+}
+.rebloglink {
+	float: right;   
+}
+
+.postHover {
+	position: absolute;
+	opacity: 0;
+    width: 250px;
+    height: 20px;
+	-webkit-transition: opacity 0.1s ease-in;
+	-moz-transition: opacity 0.1s ease-in;
+	transition: opacity 0.1s ease-in;
+}
+.post:hover .postHover {
+	opacity: 1;
+}
+.postHover a {
+    font-family: Verdana, sans-serif;
+	color: #eee;
+    display:block;
+	float: right;
+	font-size: 10px;
+    background: #111;
+    border-radius: 2px;
+    padding: 3px;
+    margin: 2px;
+}
+.postHover a:hover {
+	color: white;
+    background: #555;
+    text-decoration: none;
+}
+hr {
+	clear: both;
+	border: 0;
+	border-bottom: 1px solid {color:Text};
+	margin: 15px 0;
+}
+
+.note {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 5px 0;
+}
+img.avatar {
+    vertical-align: middle;   
+}
+
+a img.credit {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+
+a img {
+	border: none;   
+}
+
+div.pagination {
+	margin: 0 auto;
+	clear: both;
+	text-align: center;
+}
+#previous, #next {
+    font-size: 12px;
+    background: {color:PostBack};
+    color: {color:Text};
+    padding: 5px;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	*zoom: 1;
+}
+
+::selection{
+	background: {color:Text};
+	color: {color:PostBack};
+}
+::-moz-selection{
+	background: {color:Text};
+	color: {color:PostBack};
+}
+
+.notes .reblog {background: transparent url('//static.tumblr.com/anzluor/nF5ml4elu/reblog.png') right center no-repeat;}
+.notes .like {background: transparent url('//static.tumblr.com/anzluor/O7Nml4ekz/like.png') right center no-repeat;}
+
+{CustomCSS}
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="sidebar">
+    
+    <a href="/">
+	<img class="sidepic" src="{image:SidebarPic}" title="{Title}" alt="" />
+    </a>
+
+	{block:IfShowTitle}
+		<h1>{Title}</h1>
+	{/block:IfShowTitle}
+
+
+	{block:Description}
+		<p id="description">{Description}</p>
+	{/block:Description}
+	
+	<hr />
+
+
+	<ul class="sidelinks">
+		{block:HasPages}
+			{block:Pages}
+			<li><a class="sidelink" href="{URL}">{Label}</a></li>
+			{/block:Pages}
+		{/block:HasPages}
+		
+		{block:AskEnabled}
+			<li><a class="sidelink" href="/ask">{AskLabel}</a></li>
+		{/block:AskEnabled}
+		
+		{block:SubmissionsEnabled}
+			<li><a class="sidelink" href="/submit">{SubmitLabel}</a></li>
+		{/block:SubmissionsEnabled}
+		
+		{block:IfShowArchiveLink}
+    		<li><a class="sidelink" href="/archive">{lang:Archive}</a></li>
+		{/block:IfShowArchiveLink}
+		
+		{block:IfShowRandomLink}
+			<li><a class="sidelink" href="/random">{lang:Random}</a></li>
+		{/block:IfShowRandomLink}
+	</ul>
+    
+    <hr />
+    
+    {block:IfFacebookUsername}
+        <a href="https://facebook.com/{text:Facebook Username}" title="Facebook" class="but but-facebook"><img src="//static.tumblr.com/anzluor/XEumnhtgn/facebook.png" /></a>
+    {/block:IfFacebookUsername}
+    
+    {block:IfFlickrUsername}
+        <a href="https://flickr.com/photos/{text:Flickr Username}" title="Flickr" class="but but-flickr"><img src="//static.tumblr.com/anzluor/A4Bmnhthe/flickr.png" /></a>
+    {/block:IfFlickrUsername}
+    
+    {block:IfInstagramUsername}
+        <a href="https://instagram.com/{text:Instagram Username}" title="Instagram" class="but but-instagram"><img src="//static.tumblr.com/anzluor/Agkmnmmp7/insta.png" /></a>
+    {/block:IfInstagramUsername}
+    
+    {block:IfPinterestUsername}
+        <a href="https://pinterest.com/{text:Pinterest Username}" title="Pinterest" class="but but-pinterest"><img src="//static.tumblr.com/anzluor/w7zmnmmpi/pinterest.png" /></a>
+    {/block:IfPinterestUsername}
+    
+    {block:IfSteamUsername}
+        <a href="https://steamcommunity.com/id/{text:Steam Username}" title="Steam" class="but but-steam"><img src="//static.tumblr.com/anzluor/vg2mnhtib/steam.png" /></a>
+    {/block:IfSteamUsername}
+    
+    {block:Twitter}
+        <a href="https://twitter.com/{Twitter Username}" title="Twitter" class="but but-twitter"><img src="//static.tumblr.com/anzluor/666mnhtip/twitter.png" /></a>
+    {/block:Twitter}
+    
+    {block:IfYouTubeUsername}
+        <a href="https://youtube.com/user/{text:YouTube Username}" title="YouTube" class="but but-youtube"><img src="//static.tumblr.com/anzluor/Ea9mnhtjd/youtube.png" /></a>
+    {/block:IfYouTubeUsername}
+
+</div>
+
+<div class="main clearfix">
+
+<ul id="posts">
+
+{block:Posts}
+	{block:Text}
+		{block:PermalinkPage}
+		<li id="{PostID}" class="post perma text">
+			<div class="content">
+			{block:Title}
+				<h3><a href="{Permalink}">{Title}</a></h3>
+			{/block:Title}
+
+			{Body}
+			</div>
+		</li>
+		{/block:PermalinkPage}
+		{block:IndexPage}
+			<li id="{PostID}" class="post text">
+				<div class="postHover">
+                    <a title="Reblog" href="{ReblogURL}">Reblog</a>
+					<a title="Notes" href="{Permalink}">&hearts; {NoteCount}</a>
+				</div>
+                <div class="content">
+				{block:Title}
+				<h3><a href="{Permalink}">{Title}</a></h3>
+				{/block:Title}
+
+				{Body}
+                </div>
+			</li>
+		{/block:IndexPage}
+	{/block:Text}
+    
+    {block:Answer}
+    	{block:PermalinkPage}
+		<li id="{PostID}" class="post perma answer">
+			<div class="content">
+			<p><b>{Asker}: </b> {Question} </p>
+            <hr />
+
+			{Answer}
+			</div>
+		</li>
+		{/block:PermalinkPage}
+		{block:IndexPage}
+			<li id="{PostID}" class="post answer">
+				<div class="postHover">
+    				<a title="Notes" href="{Permalink}">&hearts; {NoteCount}</a>
+				</div>
+                <div class="content">
+        		<p><b>{Asker}: </b> {Question} </p>
+                <hr />
+    
+    			{Answer}
+    			</div>
+			</li>
+		{/block:IndexPage}
+	{/block:Answer}
+
+	{block:Photo}
+		{block:PermalinkPage}
+		<li id="{PostID}" class="post perma photo">
+			{LinkOpenTag}
+				<img src="{PhotoURL-500}" title="{PhotoAlt}" alt="{PhotoAlt}"/>
+			{LinkCloseTag}
+			{block:Caption}
+			<div class="content">
+				<div class="caption">{Caption}</div>
+			</div>
+			{/block:Caption}
+		</li>
+		{/block:PermalinkPage}
+		{block:IndexPage}
+			<li id="{PostID}" class="post photo" style="background-image: url('{PhotoURL-400}'); background-size: cover; background-position: center center;">
+				<div class="postHover">
+                    <a title="Reblog" href="{ReblogURL}">Reblog</a>
+    				<a title="Notes" href="{Permalink}">&hearts; {NoteCount}</a>
+				</div>
+                <a href="{Permalink}" style="display:block; width: 250px; height: 166px;">&nbsp;</a>
+			</li>
+		{/block:IndexPage}
+	{/block:Photo}
+
+	{block:Photoset}
+		{block:PermalinkPage}
+		<li id="{PostID}" class="post perma photoset">
+			{Photoset-500}
+			<div class="content">
+				<div class="caption">{Caption}</div>
+			</div>
+		</li>
+		{/block:PermalinkPage}
+		{block:IndexPage}
+			<li id="{PostID}" class="post photoset">
+				<div class="postHover">
+                    <a title="Reblog" href="{ReblogURL}">Reblog</a>
+    				<a title="Notes" href="{Permalink}">&hearts; {NoteCount}</a>
+				</div>
+				{Photoset-250}
+			</li>
+		{/block:IndexPage}
+	{/block:Photoset}
+
+	{block:Quote}
+		{block:PermalinkPage}
+		<li id="{PostID}" class="post perma quote">
+			<div class="content">
+				"{Quote}"
+				{block:Source}
+					<div class="source">{Source}</div>
+				{/block:Source}
+			</div>
+		</li>
+		{/block:PermalinkPage}
+		{block:IndexPage}
+			<li id="{PostID}" class="post quote">
+				<div class="postHover">
+                    <a title="Reblog" href="{ReblogURL}">Reblog</a>
+    				<a title="Notes" href="{Permalink}">&hearts; {NoteCount}</a>
+				</div>
+                <div class="content">
+				<blockquote>"{Quote}"</blockquote>
+				{block:Source}
+				    <p>&mdash; {Source}</p>
+				{/block:Source}
+                </div>
+			</li>
+		{/block:IndexPage}
+	{/block:Quote}
+
+	{block:Link}
+		{block:PermalinkPage}
+		<li id="{PostID}" class="post perma link">
+			<div class="content">
+				<p><a href="{URL}" {Target}>{Name} &rarr;</a></p>
+				{block:Description}
+					{Description}
+				{/block:Description}
+			</div>
+		</li>
+		{/block:PermalinkPage}
+		{block:IndexPage}
+			<li id="{PostID}" class="post link">
+				<div class="postHover">
+                    <a title="Reblog" href="{ReblogURL}">Reblog</a>
+    				<a title="Notes" href="{Permalink}">&hearts; {NoteCount}</a>
+				</div>
+                <div class="content">
+				<p><a href="{URL}" {Target}>{Name} &rarr;</a></p>
+				{block:Description}
+					{Description}
+				{/block:Description}
+                </div>
+			</li>
+		{/block:IndexPage}
+	{/block:Link}
+
+	{block:Chat}
+		{block:PermalinkPage}
+		<li id="{PostID}" class="post perma chat">
+			<div class="content">
+				{block:Title}
+					<h3><a href="{Permalink}">{Title}</a></h3>
+				{/block:Title}
+				<ul class="chat">
+					{block:Lines}
+						<li class="{Alt} user_{UserNumber}">
+						    {block:Label}<span class="label">{Label}</span>{/block:Label} {Line}
+                        </li>
+					{/block:Lines}
+				</ul>
+			</div>
+		</li>
+		{/block:PermalinkPage}
+		{block:IndexPage}
+			<li id="{PostID}" class="post chat">
+				<div class="postHover">
+                    <a title="Reblog" href="{ReblogURL}">Reblog</a>
+    				<a title="Notes" href="{Permalink}">&hearts; {NoteCount}</a>
+				</div>
+                <div class="content">
+			{block:Title}
+				<h3><a href="{Permalink}">{Title}</a></h3>
+				{/block:Title}
+    			<ul class="chat">
+					{block:Lines}
+						<li class="{Alt} user_{UserNumber}">
+						    {block:Label}<span class="label">{Label}</span>{/block:Label} {Line}
+                        </li>
+					{/block:Lines}
+				</ul>
+                </div>
+			</li>
+		{/block:IndexPage}
+	{/block:Chat}
+
+	{block:Video}
+		{block:PermalinkPage}
+		<li id="{PostID}" class="post perma video w500">
+			{Video-500}
+			<div class="content">
+				{block:Caption}
+					{Caption}
+				{/block:Caption}
+			</div>
+		</li>
+		{/block:PermalinkPage}
+		{block:IndexPage}
+			<li id="{PostID}" class="post video w250">
+				<div class="postHover">
+                    <a title="Reblog" href="{ReblogURL}">Reblog</a>
+    				<a title="Notes" href="{Permalink}">&hearts; {NoteCount}</a>
+				</div>
+				{Video-250}
+			</li>
+		{/block:IndexPage}
+	{/block:Video}
+
+	{block:Audio}
+		{block:PermalinkPage}
+		<li id="{PostID}" class="post perma audio a500">
+            {block:AlbumArt}
+                <img src="{AlbumArtURL}" />
+            {/block:AlbumArt}
+			<div class="content">
+				{AudioPlayerWhite}
+				{block:Caption}
+					{Caption}
+				{/block:Caption}
+			</div>
+		</li>
+		{/block:PermalinkPage}
+		{block:IndexPage}
+		<li id="{PostID}" class="post audio a250">
+			    <div class="postHover">
+                    <a title="Reblog" href="{ReblogURL}">Reblog</a>
+    				<a title="Notes" href="{Permalink}">&hearts; {NoteCount}</a>
+				</div>
+                <div class="content">
+				{AudioPlayerWhite}
+                </div>
+			</li>
+		{/block:IndexPage}
+	{/block:Audio}
+	
+	{block:PermalinkPage}
+        {block:PermalinkPagination}
+		<div class="infoblock">
+			{block:PostNotes}
+				{PostNotes-16}
+			{/block:PostNotes}
+			<a class="timeposted" href='{Permalink}'>Posted {TimeAgo}</a>
+			<a class="rebloglink" href='{ReblogURL}'>Reblog</a>
+		</div>
+        {/block:PermalinkPagination}
+	{/block:PermalinkPage}
+
+{/block:Posts}
+
+</ul>
+</div>
+{block:IfNotInfiniteScrolling}
+<div class="pagination">
+{block:Pagination}{block:PreviousPage}<a href="{PreviousPage}" id="previous">&larr; {lang:Previous}</a> &nbsp;{/block:PreviousPage} {block:NextPage}<a href="{NextPage}" id="next">{lang:Next} &rarr;</a>{/block:NextPage}{/block:Pagination}
+</div>
+{/block:IfNotInfiniteScrolling}  
+</div>
+{block:IfInfiniteScrolling}
+	<script type="text/javascript" src="//static.tumblr.com/q0etgkr/ytzm5f1ke/infinitescrolling.js"></script>
+{/block:IfInfiniteScrolling}
+{block:IfGoogleAnalyticsID}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '{text:Google Analytics ID}', 'tumblr.com');
+  ga('send', 'pageview');
+
+</script>
+{/block:IfGoogleAnalyticsID}
+</body>
+</html>
