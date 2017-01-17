@@ -151,19 +151,6 @@
     	margin: 0;
     	text-decoration: none !important;
     }
-    footer {
-        color: {color:Content Text};
-        background-color: {color:Content Background};
-        text-align: center;
-    	padding-top: 12px;
-    }
-    footer p {
-    	font-size: 12px;
-    }
-    footer a, footer a:hover {
-    	color: #444;
-    	font-weight: bold;
-    }
     hr.clear {
     	clear: both;
     	border: 0;
@@ -197,7 +184,7 @@
         margin-bottom: 20px;
     	{block:IfShowAccentLines}border-bottom: 4px solid {color:Accent};{/block:IfShowAccentLines}
     	background-color: {color:Headers};
-    	color: white;
+    	color: {color:Header Text};
     	padding: 0 8px;
     	font-size: 14px;
         line-height: 30px;
@@ -993,7 +980,7 @@
 		
 		{block:HasPages}
 		<div class="widget widget-pages">
-		    <span class="sidebar-header"> {lang:Pages}</span>
+		    <span class="sidebar-header">{lang:Pages}</span>
 		    <ul>
 				{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
 			</ul>
