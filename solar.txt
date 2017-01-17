@@ -4,7 +4,7 @@
     <!-- 
     
     theme:      Solar
-    version:    1.0.1 (March 8, 2016)
+    version:    2.0 (January 16, 2017)
     from:       adorablethemes.com
     
     -->
@@ -18,34 +18,59 @@
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     
     {block:Hidden}
+    <meta name="image:Header" content="">
     <meta name="image:Background" content="">
-    <meta name="color:Background" content="#eeeeee">
+    
+    <meta name="color:Background" content="#dddddd">
 	<meta name="color:Headers" content="#222222">
+	<meta name="color:Header Text" content="#ffffff">
 	<meta name="color:Accent" content="#1abc9c">
+	<meta name="color:Text on Accent" content="#ffffff">
+	<meta name="color:Content Background" content="#ffffff">
+	<meta name="color:Content Text" content="#222222">
+	<meta name="color:Sidebar Background" content="#ffffff">
+	<meta name="color:Sidebar Text" content="#222222">
+	
 	<meta name="if:Show Archive Link" content="1">
 	<meta name="if:Show Followed Blogs" content="1">
+	<meta name="if:Show Liked Posts" content="0">
 	<meta name="if:Infinite Scrolling" content="0">
 	<meta name="if:Use Real Dates" content="1">
+	<meta name="if:Show Accent Lines" content="1">
+	<meta name="if:Show Tags on Index" content="1">
+	<meta name="if:Show Like and Reblog Buttons" content="1">
+	
+	<meta name="text:Featured Tag 1" content="">
+	<meta name="text:Featured Tag 2" content="">
+	<meta name="text:Featured Tag 3" content="">
+	<meta name="text:Featured Tag 4" content="">
 	<meta name="text:Facebook Username" content="">
 	<meta name="text:Flickr Username" content="">
 	<meta name="text:Instagram Username" content="">
 	<meta name="text:Pinterest Username" content="">
 	<meta name="text:SoundCloud Username" content="">
+	<meta name="text:Twitch Username" content="">
 	<meta name="text:Vine Username" content="">
 	<meta name="text:YouTube Username" content="">
-	<meta name="text:Google Analytics ID" content="">
 	<meta name="text:Max Tweets" content="4">
+	<meta name="text:Header Height" content="130">
+	<meta name="text:Copyright Text" content="">
+	<meta name="text:Google Analytics ID" content="">
+	
 	<meta name="select:Max Followed Blogs" content="27" title="25">
     <meta name="select:Max Followed Blogs" content="52" title="50">
     <meta name="select:Max Followed Blogs" content="77" title="75">
     <meta name="select:Max Followed Blogs" content="102" title="100">
+    <meta name="select:Header Image Style" content="center" title="center">
+    <meta name="select:Header Image Style" content="cover" title="cover">
+    <meta name="select:Header Image Style" content="tile" title="tile">
     <meta name="select:Background Image Style" content="tile" title="tile">
     <meta name="select:Background Image Style" content="cover" title="cover">
     <meta name="select:Background Image Style" content="center" title="center">
 	{/block:Hidden}
 
 	<link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic" rel="stylesheet">
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	
 	<style type="text/css">
 	/* Reset */
@@ -70,7 +95,7 @@
         background-image: url('{image:Background}');
         background-attachment: fixed;
         {/block:IfBackgroundImage}
-    	color: #444;
+    	color: {color:Content Text};
     	font-family: Lato, Arial, sans-serif;
     	margin: auto 0;
     }
@@ -98,44 +123,42 @@
         line-height: 150%;
     }
     h2 {
-        color: #444;
+        color: {color:Content Text};
         font-size: 26px;
         line-height: 30px;
     }
     a, a:hover {
-        color: #444;
+        color: {color:Content Text};
         text-decoration: none;
     }
     header {
         background-color: {color:Headers};
-    	height: 130px;
+        {block:IfHeaderImage}
+        background-image: url('{image:Header}');
+        {/block:IfHeaderImage}
+    	height: {text:Header Height}px;
     	clear: both;
     	margin-bottom: 20px;
-    	border-bottom: 4px solid {color:Accent};
+    	{block:IfShowAccentLines}border-bottom: 4px solid {color:Accent};{/block:IfShowAccentLines}
     	overflow: hidden;
     }
     h1.blog-title, h1.blog-title:hover {
-        color: white;
+        color: {color:Header Text};
     	font-weight: 400;
     	font-size: 23px;
-    	line-height: 130px;
+    	line-height: {text:Header Height}px;
     	text-align: center;
     	margin: 0;
     	text-decoration: none !important;
     }
     footer {
-        border-top: 12px solid transparent;
-        color: #444;
-    	clear: both;
+        color: {color:Content Text};
+        background-color: {color:Content Background};
+        text-align: center;
     	padding-top: 12px;
     }
     footer p {
     	font-size: 12px;
-    	{block:IfBackgroundImage}
-    	float: left;
-    	background-color: white;
-    	padding: 4px 8px;
-    	{/block:IfBackgroundImage}
     }
     footer a, footer a:hover {
     	color: #444;
@@ -146,12 +169,19 @@
     	border: 0;
     }
     #content {
-        background-color: #fff;
+        background-color: {color:Content Background};
     	float: left;
     	text-align: left;
     	width: 560px;
     	margin-top: 0px;
+    	margin-bottom: 20px;
     	padding: 20px;
+    }
+    .text-left {
+        text-align: left;
+    }
+    .text-center {
+        text-align: center;
     }
     .text-right {
         text-align: right;
@@ -165,7 +195,7 @@
     .intro {
         margin: -20px;
         margin-bottom: 20px;
-    	border-bottom: 4px solid {color:Accent};
+    	{block:IfShowAccentLines}border-bottom: 4px solid {color:Accent};{/block:IfShowAccentLines}
     	background-color: {color:Headers};
     	color: white;
     	padding: 0 8px;
@@ -184,13 +214,13 @@
     	text-decoration: underline;
     }
     .post-content blockquote {
-    	border-left: 2px solid #999;
+    	border-left: 2px solid rgba({RGBcolor:Content Text}, 0.5);
     	margin: 20px 10px;
     	padding-left: 20px;
     	font-style: italic;
     }
     .post-content blockquote p {
-    	color: #777;
+    	color: {color:Content Text};
     	font-size: 14px;
     	font-style: italic;
     }
@@ -212,15 +242,15 @@
         padding-left: 20px;
     }
     .post-content ul li {
-        color: #777;
+        color: rgba({RGBcolor:Content Text}, 0.75);
     }
     .post-content hr {
     	clear: both;
     	border: 0;
-    	border-bottom: 2px solid #ccc;
+    	border-bottom: 2px solid rgba({RGBcolor:Content Text}, 0.2);
     }
     .post-content small {
-        color: #777;
+        color: rgba({RGBcolor:Content Text}, 0.75);
         font-size: 12px;
     }
     .post-content img {
@@ -230,7 +260,7 @@
     .photo-post-photo, .video-post-video {
         margin: 0 -20px;
         width: 600px;
-        background-color: #ddd;
+        background-color: rgba({RGBcolor:Content Text}, 0.05);
     }
     .photo-post-photo img {
         max-width: 100%;
@@ -240,6 +270,7 @@
     .video-post-video iframe {
         width: 600px;
         height: 337px;
+        display: block;
     }
     .video-post-video .vine-embed {
         width: 600px;
@@ -248,10 +279,21 @@
     .video-post-video .instagram-media {
         height: 580px;
     }
+    .tumblr_audio_player {
+        width: 560px;
+    }
     .quote-text {
-        color: #777;
+        color: rgba({RGBcolor:Content Text}, 0.75);
         font-weight: 400;
         font-style: italic;
+    }
+    .link-domain {
+        font-size: 12px;
+        color: rgba({RGBcolor:Content Text}, 0.75);
+    }
+    .link-container p {
+        font-size: 14px;
+        line-height: 150%;
     }
     ul.chat-lines {
         list-style-type: none;
@@ -264,42 +306,26 @@
     .chat-label {
         font-weight: 600;
     }
-    ul.chat-lines .user_1 .chat-label {
-        color: #3498db;
-    }
-    ul.chat-lines .user_2 .chat-label {
-        color: #e74c3c;
-    }
-    ul.chat-lines .user_3 .chat-label {
-        color: #f39c12;
-    }
-    ul.chat-lines .user_4 .chat-label {
-        color: #27ae60;
-    }
-    ul.chat-lines .user_5 .chat-label {
-        color: #8773be;
-    }
     .question-box, .asker-box {
         margin: 0 -20px;
         padding: 5px 20px;
     }
     .asker-box {
-        background-color: #fafafa;
+        background-color: rgba({RGBcolor:Content Text}, 0.05);
         font-size: 12px;
     }
     .question-box {
-        background-color: white;
-        color: #999;
-        border-bottom: 1px solid #fafafa;
+        background-color: {color:Content Background};
+        color: rgba({RGBcolor:Content Text}, 0.75);
+        border-bottom: 1px solid rgba({RGBcolor:Content Text}, 0.05);
     }
     .read_more:after {
         content: " \2192";
     }
     hr.separator {
-        margin-top: 70px;
-        margin-bottom: 70px;
+        margin: 70px 210px;
         border: 0;
-        border-bottom: 8px solid #fafafa;
+        border-bottom: 4px solid rgba({RGBcolor:Content Text},0.05);
     }
     
 
@@ -311,7 +337,8 @@
         margin-top: 0px;
     }
     .widget {
-        background-color: #eee;
+        background-color: {color:Sidebar Background};
+        color: {color:Sidebar Text};
     	text-align: left;
     	clear: both;
     	width: 300px;
@@ -319,12 +346,11 @@
     	margin-bottom: 20px;
     }
     .widget p {
-    	padding: 4px;
     	font-size: 12px;
     	line-height: 14px;
     }
     .widget ul {
-    	background-color: #eee;
+    	background-color: {color:Sidebar Background};
     	padding-left: 0;
     	margin-bottom: 0;
     	margin-top: 0;
@@ -335,36 +361,88 @@
     	font-size: 12px;
     }
     .widget ul li a {
-    	color: #333;
-    	background-color: #fafafa;
+    	color: {color:Sidebar Text};
+    	background-color: {color:Sidebar Background};
     	display: block;
     	font-size: 12px;
     	font-weight: normal;
-    	padding: 10px;
-    	margin-bottom: 1px;
+    	padding: 10px 15px;
     	text-transform: lowercase;
     	text-decoration: none;
+    	border-bottom: 1px solid rgba({RGBcolor:Sidebar Text},0.07);
+    }
+    .widget ul li:last-child a {
+        border-bottom: 0;
+    }
+    .widget-about ul li:first-child a {
+        border-top: 1px solid rgba({RGBcolor:Sidebar Text},0.07);
     }
     .widget ul li a:hover {
-    	color: white;
-    	background-color: {color:Accent};
+        color: {color:Sidebar Text};
+    	background-color: rgba({RGBcolor:Sidebar Text},0.07);
     	text-decoration: none;
+    }
+    .social-link {
+        margin-right: 10px;
     }
     .sidebar-header {
         background-color: {color:Headers};
-        border-bottom: 4px solid {color:Accent};
-        color: white;
+        {block:IfShowAccentLines}border-bottom: 4px solid {color:Accent};{/block:IfShowAccentLines}
+        color: {color:Header Text};
     	display: block;
     	font-weight: 400;
     	font-size: 14px;
     	line-height: 30px;
     	text-align: left;
     	letter-spacing: 1px;
-    	padding: 0 8px;
+    	padding: 0 12px;
     	text-transform: uppercase;
     }
+    .widget ul li.like_post {
+        margin: 15px 10px;
+    }
+    .widget-likes img {
+        max-width: 100%;
+        border-radius: 2px;
+    }
+    .widget-likes .post_info_bottom {
+        display: block !important;
+        padding: 10px 0;
+    }
+    .widget-likes .like_title {
+        font-weight: 700;
+    }
+    .widget-likes .like_quote {
+        font-style: italic;
+        margin-bottom: 10px;
+    }
+    .widget-likes .like_link:after {
+        font-family: FontAwesome;
+        content: '\f105';
+        margin-left: 5px;
+    }
+    .widget-likes .like_audio .audio_player {
+        display: none;
+    }
+    .widget-likes ul li a {
+        color: {color:Accent};
+        display: inline;
+        padding: 0;
+        background: transparent;
+        text-transform: none;
+        border-bottom: 0;
+    }
+    .widget-likes ul li a:hover {
+        color: {color:Content Text};
+        background: transparent;
+    }
+    .widget-likes blockquote {
+        border-left: 2px solid {color:Content Text};
+        margin-left: 0;
+        padding-left: 8px;
+    }
     .widget-about, .widget-following {
-	    background-color: #fafafa;
+	    background-color: {color:Sidebar Background};
 	}
 	.widget-following img {
 	    width: 30px;
@@ -379,11 +457,11 @@
 	    padding: 10px 15px;
 	}
 	.sidebar-content a {
-    	color: #555;
+    	color: {color:Accent};
     	text-decoration: none;
     }
     .sidebar-content a:hover {
-    	color: #111;
+    	color: {color:Accent};
     	text-decoration: underline;
     }
 	.about-avatar {
@@ -408,64 +486,109 @@
     /* =Pagination=
 -------------------------------------------------------------- */
     .pagination {
-        text-align: center;
         font-size: 14px;
-        padding: 30px;
+        padding: 30px 0;
     }
     #previous, #next, .jump-page {
-        background-color: white;
-        color: {color:Headers}; !important;
+        background-color: {color:Content Background};
+        color: {color:Content Text}; !important;
         padding: 5px 8px;
-        margin-right: 10px;
         border-radius: 2px;
     }
+    .jump-page {
+        margin: 0 3px;
+    }
     #previous:hover, #next:hover {
-        background-color: {color:Headers};
-        color: white !important;
+        background-color: {color:Accent};
+        color: {color:Text on Accent} !important;
     }
     .jump-page:hover {
-        background-color: {color:Headers};
-        color: white !important;
+        background-color: {color:Accent};
+        color: {color:Text on Accent} !important;
         text-decoration: none;
     }
     .current-page {
         padding: 5px 8px;
-        background-color: {color:Headers};
-        color: white !important;
+        background-color: {color:Accent};
+        color: {color:Text on Accent} !important;
         font-weight: 700;
     }
     .page-info {
-        color: #999;
+        color: rgba({RGBcolor:Content Text}, 0.6);
         text-align: center;
     }
     .page-info-1 {
         display: none;
     }
+    .span25 {
+        float: left;
+        width: 25%;
+        min-height: 1px;
+    }
+    .span50 {
+        float: left;
+        width: 50%;
+        min-height: 1px;
+    }
 	
 	
 	/* =Post Meta and Notes
 -------------------------------------------------------------- */
+    .post-meta {
+        position: relative;
+        width: 518px;
+    }
 	.post-meta a, .post-meta a:hover {
 	    background-color: {color:Accent};
 	    padding: 8px 12px;
 	    font-size: 11px;
-	    text-transform: uppercase;
 	    font-weight: 600;
 	    text-decoration: none !important;
-	    color: white !important;
+	    color: {color:Text on Accent}; !important;
 	    display: inline-block;
 	}
 	a.post-date {
-	    margin-left: -40px;
+	    margin-left: -37px;
 	}
-	a.post-note-count, a.post-via, a.post-source, a.post-note-count:hover, a.post-via:hover, a.post-source:hover {
+	a.post-date:after {
+	    position: absolute;
+	    top: 44px;
+	    left: -43px;
+	    width: 100px;
+	    height: 24px;
+	    background-color: {color:Accent};
+	    transform: rotate(45deg);
+	    z-index: -1000;
+	    content: ' ';
+	    display: block;
+	    -webkit-filter: brightness(0.75);
+	    filter: brightness(0.75);
+	}
+	a.post-note-count, a.post-via, a.post-source {
 	    padding: 8px 0;
 	    margin-left: 12px;
 	    background-color: transparent;
-	    color: {color:Accent} !important;
+	    color: rgba({RGBcolor:Content Text}, 0.66) !important;
 	}
+	a.post-note-count:hover, a.post-via:hover, a.post-source:hover {
+	    padding: 8px 0;
+	    margin-left: 12px;
+	    color: {color:Content Text} !important;
+	    background-color: transparent;
+	}
+	{block:IndexPage}{block:IfNotShowTagsOnIndex}
+	.tags-list {
+	    display: none;   
+	}
+	{/block:IfNotShowTagsOnIndex}{/block:IndexPage}
 	.tags-list p {
 	    font-size: 12px;
+	}
+	a.tag {
+	    color: rgba({RGBcolor:Content Text}, 0.66);
+	}
+	a.tag:hover {
+	    color: {color:Content Text};
 	}
 	.tag:before {
         content: "#";
@@ -474,20 +597,86 @@
 	    font-size: 13px;
 	    padding-left: 0;
 	    list-style-type: none;
+	    color: rgba({RGBcolor:Content Text}, 0.5);
 	}
 	.note {
 	    padding: 8px 0;
-	    border-top: 1px solid #f7f7f7;
+	    border-top: 1px solid rgba({RGBcolor:Content Text}, 0.05);
 	}
 	.note .avatar, .asker-avatar {
 	    vertical-align: middle;
 	    border-radius: 2px;
-	    margin-right: 7px;
+	    margin-right: 14px;
+	}
+	.note a {
+	    color: {color:Content Text};
+	}
+	.note a:hover {
+	    color: {color:Content Text};
+	    text-decoration: underline;
+	}
+	.note blockquote {
+	    font-size: 11px;
 	}
     
-	ol.notes .reblog {background: transparent url('//static.tumblr.com/anzluor/Gw5n6ay0z/reblog.png') right center no-repeat;}
-	ol.notes .like {background: transparent url('//static.tumblr.com/anzluor/0yrn6ay0n/like.png') right center no-repeat;}
-	ol.notes .reply {background: transparent url('//static.tumblr.com/anzluor/n70n6ay1a/reply.png') right center no-repeat;}
+	.note.like:after {
+        content: '\f004';
+        font-family: FontAwesome;
+        font-size: 10px;
+        float: right;
+        margin-top: -16px;
+    }
+    .note.reblog:after {
+        content: '\f079';
+        font-family: FontAwesome;
+        font-size: 10px;
+        float: right;
+        margin-top: -16px;
+    }
+    .note.reply:after {
+        content: '\f075';
+        font-family: FontAwesome;
+        font-size: 10px;
+        float: right;
+        margin-top: -16px;
+    }
+    .note.answer:after {
+        content: '\f112';
+        font-family: FontAwesome;
+        font-size: 10px;
+        float: right;
+        margin-top: -16px;
+    }
+    
+    .float-right {
+        float: right;
+    }
+    .like-reblog-buttons {
+        margin-top: 7px;
+        font-size: 12px;
+        opacity: 0.33;
+    }
+    .like-reblog-buttons:hover {
+        opacity: 0.66;
+    }
+    .like-button-parent {
+        display: inline-block !important;
+        float: right;
+    }
+    .reblog-button {
+        margin-right: 0.75em;
+    }
+    .like-button-parent {
+        position: relative;
+    }
+    .like-button-parent .like_button {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+    }
+    .like-button-parent .like_button.liked + span {
+        color: #d95e40;
+    }
     
     .clearfix:before,
     .clearfix:after {
@@ -507,8 +696,9 @@
 <div id="wrapper" class="clearfix">
 
     <a href="/">
-        <header class="clearfix">
-            <h1 class="blog-title">{Title}</h1>
+        <header class="clearfix background-{select:Header Image Style}">
+            {block:ShowTitle}<h1 class="blog-title">{Title}</h1>{/block:ShowTitle}
+            {block:HideTitle}<h1 class="blog-title">&nbsp;</h1>{/block:HideTitle}
         </header>
     </a>
 	<div id="content" role="main">
@@ -556,7 +746,20 @@
     		{/block:Post1}
     		{/block:IndexPage}
         
-            {block:Date}<p class="post-meta"><a class="post-date" href="{Permalink}">{block:IfUseRealDates}{Month} {DayOfMonth}, {Year}{/block:IfUseRealDates}{block:IfNotUseRealDates}{TimeAgo}{/block:IfNotUseRealDates}</a> <a class="post-note-count" href="{Permalink}#notes">{NoteCountWithLabel}</a>
+            {block:Date}
+            {block:IfShowLikeandReblogButtons}
+            <div class="float-right like-reblog-buttons">
+                <div class="float-right like-button-parent">
+				    {LikeButton color="gray" size="16"}
+				    <span><i class="fa fa-lg fa-heart"></i></span>
+				</div>
+				<div class="float-right reblog-button">
+                    <a href="{ReblogURL}"><i class="fa fa-lg fa-refresh"></i></a>
+                </div>
+            </div>
+            {/block:IfShowLikeandReblogButtons}
+            
+            <p class="post-meta"><a class="post-date" href="{Permalink}">{block:IfUseRealDates}{Month} {DayOfMonth}<span class="year_{Year}">, {Year}</span>{/block:IfUseRealDates}{block:IfNotUseRealDates}{TimeAgo}{/block:IfNotUseRealDates}</a>{block:NoteCount} <a class="post-note-count" href="{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}
             
             {block:Submission}
             <a title="" class="post-source" href="{SubmitterURL}"><i class="fa fa-fw fa-envelope-o"></i> {Submitter}</a>
@@ -567,14 +770,13 @@
             {/block:RebloggedFrom}
             
             {block:ContentSource}
-            <a class="post-source" href="{SourceURL}"><i class="fa fa-fw fa-globe"></i> {lang:Source}</a>
+            <a class="post-source" href="{SourceURL}">{lang:Source}</a>
             {/block:ContentSource}
-            
             </p>
             {/block:Date}
         
             {block:Text}
-            {block:Title}<h2 class="post-title">{Title}</h2>{/block:Title}
+            {block:Title}<a href="{Permalink}"><h2 class="post-title">{Title}</h2></a>{/block:Title}
             <div class="post-content">{Body}</div>
             {/block:Text}
             
@@ -608,8 +810,17 @@
             {/block:Quote}
             
             {block:Link}
-            <h2><a href="{URL}" class="link-post-link"{block:Host} title="{Host}"{/block:Host} {Target}>{Name} &raquo;</a></h2>
-            {block:Description}<div class="post-content">{Description}</div>{/block:Description}
+            <div class="link-container">
+            {block:Thumbnail}
+            <div class="link-thumbnail" style="float:right; width: 90px; height: 90px; background-image: url({Thumbnail}); background-size: cover; background-position: center center; border-radius: 2px"></div>
+            {/block:Thumbnail}
+            <h2><a href="{URL}" class="link-post-link" {Target}>{Name} <i class="fa fa-fw fa-angle-right"></i></a></h2>
+            {block:Host}<p class="link-domain">{Host}{block:Excerpt} - <em>{Excerpt}</em>{/block:Excerpt}</p>{/block:Host}
+            
+            </div>
+            <div class="post-content">
+            {block:Description}{Description}{/block:Description}
+            </div>
             {/block:Link}
             
             {block:Chat}
@@ -618,7 +829,7 @@
                 <ul class="chat-lines">
                     {block:Lines}
                     <li class="{Alt} user_{UserNumber}">
-                        {block:Label}<span class="chat-label">{Label}</span>{/block:Label}
+                        {block:Label}<span class="chat-label">{Label} </span>{/block:Label}
                         <span class="chat-line">{Line}</span>
                     </li>
                     {/block:Lines}
@@ -638,22 +849,16 @@
             </div>
             {/block:Audio}
             
-            {block:PermalinkPage}
+            
             {block:HasTags}
             <section class="tags-list">
-                <p>{lang:Tagged}: 
+                <p>
                 {block:Tags}
                     <a class="tag" href="{TagURL}">{Tag}</a>&nbsp;
                 {/block:Tags}
                 </p>
             </section>
             {/block:HasTags}
-            {block:PostNotes}
-            <section class="notes-list">
-                {PostNotes}
-            </section>
-            {/block:PostNotes}
-            {/block:PermalinkPage}
         </article>
         
         {block:IndexPage}<hr class="separator inf-scroll-item">{/block:IndexPage}
@@ -661,8 +866,12 @@
         
         {block:Pagination}
         <nav class="pagination">
+        
+            <div class="span25 text-left">
+    		    {block:PreviousPage}<a href="{PreviousPage}" id="previous"><i class="fa fa-angle-left"></i> {lang:Previous}</a>{/block:PreviousPage}
+    		</div>
     		
-    		{block:PreviousPage}<a href="{PreviousPage}" id="previous"><i class="fa fa-angle-left"></i></a>{/block:PreviousPage}
+    		<div class="span50 text-center">
     		
     		{block:JumpPagination length="5"}
 
@@ -675,18 +884,27 @@
             {/block:JumpPage}
             
             {/block:JumpPagination}
+            
+            </div>
     		
-    		{block:NextPage}<a href="{NextPage}" id="next"><i class="fa fa-angle-right"></i></a>{/block:NextPage}
+    		<div class="span25 text-right">
+    		    {block:NextPage}<a href="{NextPage}" id="next">{lang:Next} <i class="fa fa-angle-right"></i></a>{/block:NextPage}
+    		</div>
     		
         </nav>
         {/block:Pagination}
         
         {block:PermalinkPagination}
+        <hr class="separator">
         <nav class="pagination">
     		
-    		{block:PreviousPost}<a href="{PreviousPost}" class="jump-page" id="previous"><i class="fa fa-angle-left"></i> {lang:Previous Post}</a>{/block:PreviousPost}
+    		<div class="span50 text-left">
+        		{block:PreviousPost}<a href="{PreviousPost}" class="jump-page" id="previous"><i class="fa fa-angle-left"></i> {lang:Previous Post}</a>{/block:PreviousPost}
+    		</div>
     		
-    		{block:NextPost}<a href="{NextPost}" class="jump-page" id="next">{lang:Next Post} <i class="fa fa-angle-right"></i></a>{/block:NextPost}
+    		<div class="span50 text-right">
+        		{block:NextPost}<a href="{NextPost}" class="jump-page" id="next">{lang:Next Post} <i class="fa fa-angle-right"></i></a>{/block:NextPost}
+    		</div>
     		
         </nav>
         {/block:PermalinkPagination}
@@ -695,16 +913,28 @@
         {block:DayPagination}
         <nav class="pagination">
     		
-    		{block:PreviousDayPage}<a href="{PreviousDayPage}" class="jump-page" id="previous"><i class="fa fa-angle-left"></i> {ShortMonth} {DayOfMonth}</a>{/block:PreviousDayPage}
+    		<div class="span50 text-left">
+        		{block:PreviousDayPage}<a href="{PreviousDayPage}" class="jump-page" id="previous"><i class="fa fa-angle-left"></i> {ShortMonth} {DayOfMonth}</a>{/block:PreviousDayPage}
+    		</div>
     		
-    		{block:NextDayPage}<a href="{NextDayPage}" class="jump-page" id="next">{ShortMonth} {DayOfMonth} <i class="fa fa-angle-right"></i></a>{/block:NextDayPage}
+    		<div class="span50 text-right">
+        		{block:NextDayPage}<a href="{NextDayPage}" class="jump-page" id="next">{ShortMonth} {DayOfMonth} <i class="fa fa-angle-right"></i></a>{/block:NextDayPage}
+    		</div>
     		
         </nav>
         {/block:DayPagination}
         {/block:DayPage}
+        
+        {block:PermalinkPage}
+        {block:PostNotes}
+        <section class="notes-list">
+            {PostNotes}
+        </section>
+        {/block:PostNotes}
+        {/block:PermalinkPage}
 	</div>
 	
-	<div class="sidebar" role="complimentary">
+	<div id="sidebar" class="sidebar" role="complimentary">
 	    
 	    <div class="widget widget-about">
 	        <span class="sidebar-header">{lang:About}</span>
@@ -719,28 +949,31 @@
 	       
 	       <div class="sidebar-content">
     	       {block:IfFacebookUsername}
-    	       <a class="social-link" href="https://www.facebook.com/{text:Facebook Username}" title="Facebook"><i class="fa fa-fw fa-facebook-square fa-lg"></i></a>
+    	       <a class="social-link" href="https://www.facebook.com/{text:Facebook Username}" title="Facebook"><i class="fa fa-facebook-square fa-lg"></i></a>
     	       {/block:IfFacebookUsername}
     	       {block:Twitter}
-    	       <a class="social-link" href="https://twitter.com/{TwitterUsername}" title="Twitter"><i class="fa fa-fw fa-twitter-square fa-lg"></i></a>
+    	       <a class="social-link" href="https://twitter.com/{TwitterUsername}" title="Twitter"><i class="fa fa-twitter-square fa-lg"></i></a>
     	       {/block:Twitter}
     	       {block:IfFlickrUsername}
-    	       <a class="social-link" href="https://www.flickr.com/photos/{text:Flickr Username}" title="Flickr"><i class="fa fa-fw fa-flickr fa-lg"></i></a>
+    	       <a class="social-link" href="https://www.flickr.com/photos/{text:Flickr Username}" title="Flickr"><i class="fa fa-flickr fa-lg"></i></a>
     	       {/block:IfFlickrUsername}
     	       {block:IfInstagramUsername}
-    	       <a class="social-link" href="https://instagram.com/{text:Instagram Username}" title="Instagram"><i class="fa fa-fw fa-instagram fa-lg"></i></a>
+    	       <a class="social-link" href="https://instagram.com/{text:Instagram Username}" title="Instagram"><i class="fa fa-instagram fa-lg"></i></a>
     	       {/block:IfInstagramUsername}
     	       {block:IfPinterestUsername}
-    	       <a class="social-link" href="https://www.pinterest.com/{text:Pinterest Username}" title="Pinterest"><i class="fa fa-fw fa-pinterest-square fa-lg"></i></a>
+    	       <a class="social-link" href="https://www.pinterest.com/{text:Pinterest Username}" title="Pinterest"><i class="fa fa-pinterest-square fa-lg"></i></a>
     	       {/block:IfPinterestUsername}
     	       {block:IfSoundCloudUsername}
-    	       <a class="social-link" href="https://soundcloud.com/{text:SoundCloud Username}" title="SoundCloud"><i class="fa fa-fw fa-soundcloud fa-lg"></i></a>
+    	       <a class="social-link" href="https://soundcloud.com/{text:SoundCloud Username}" title="SoundCloud"><i class="fa fa-soundcloud fa-lg"></i></a>
     	       {/block:IfSoundCloudUsername}
+    	       {block:IfTwitchUsername}
+    	       <a class="social-link" href="https://www.twitch.tv/{text:Twitch Username}" title="Twitch"><i class="fa fa-twitch fa-lg"></i></a>
+    	       {/block:IfTwitchUsername}
     	       {block:IfVineUsername}
-    	       <a class="social-link" href="https://vine.co/{text:Vine Username}" title="Vine"><i class="fa fa-fw fa-vine fa-lg"></i></a>
+    	       <a class="social-link" href="https://vine.co/{text:Vine Username}" title="Vine"><i class="fa fa-vine fa-lg"></i></a>
     	       {/block:IfVineUsername}
     	       {block:IfYouTubeUsername}
-    	       <a class="social-link" href="https://www.youtube.com/user/{text:YouTube Username}" title="YouTube"><i class="fa fa-fw fa-youtube-square fa-lg"></i></a>
+    	       <a class="social-link" href="https://www.youtube.com/user/{text:YouTube Username}" title="YouTube"><i class="fa fa-youtube-square fa-lg"></i></a>
     	       {/block:IfYouTubeUsername}
             </div>
 	            
@@ -760,12 +993,24 @@
 		
 		{block:HasPages}
 		<div class="widget widget-pages">
-		    <span class="sidebar-header">{lang:Pages}</span>
+		    <span class="sidebar-header"> {lang:Pages}</span>
 		    <ul>
 				{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
 			</ul>
 		</div>
 		{/block:HasPages}
+		
+		{block:IfFeaturedTag1}
+		<div class="widget widget-tags">
+		    <span class="sidebar-header">{lang:Tags}</span>
+		    <ul>
+				<li><a href="/tagged/{text:Featured Tag 1}">{text:Featured Tag 1}</a></li>
+				{block:IfFeaturedTag2}<li><a href="/tagged/{text:Featured Tag 2}">{text:Featured Tag 2}</a></li>{/block:IfFeaturedTag2}
+				{block:IfFeaturedTag3}<li><a href="/tagged/{text:Featured Tag 3}">{text:Featured Tag 3}</a></li>{/block:IfFeaturedTag3}
+				{block:IfFeaturedTag4}<li><a href="/tagged/{text:Featured Tag 4}">{text:Featured Tag 4}</a></li>{/block:IfFeaturedTag4}
+			</ul>
+		</div>
+		{/block:IfFeaturedTag1}
 		
 		{block:Twitter}
 		<div class="widget widget-twitter">
@@ -790,7 +1035,7 @@
         </div>
 		{/block:Twitter}
 		
-        {block:IfShowFollowedBlogs}
+		{block:IfShowFollowedBlogs}
         {block:Following}
         <div class="widget widget-following">
             <span class="sidebar-header">{lang:Following}</span>
@@ -799,21 +1044,45 @@
         {/block:Following}
         {/block:IfShowFollowedBlogs}
 		
-	</div>
+		{block:IfShowLikedPosts}
+        {block:Likes}
+        <div class="widget widget-likes">
+            <span class="sidebar-header">{lang:Liked posts}</span>
+            <div class="sidebar-content">
+                {block:NoLikes}<p>{lang:This Tumblr hasnt liked any posts yet}</p>{/block:NoLikes}
 
-    <footer>
-        <p>&copy; {CopyrightYears} {Title} &mdash;
-        <a target="_blank" href="http://adorablethemes.com/theme/solar">Solar Theme by Adorable Themes</a></p>
-    </footer>
+                {Likes limit="4" summarize="100" width="250"}
+                
+                <p style="text-align:center"><a href="https://www.tumblr.com/liked/by/{Name}">{lang:See more stuff I like} <i class="fa fa-angle-right"></i></a></p>
+            </div>
+        </div>
+        {/block:Likes}
+        {/block:IfShowLikedPosts}
+        
+        <div class="widget widget-footer">
+            <div class="sidebar-content">
+                <p>&copy; {CopyrightYears} {block:IfCopyrightText}{text:Copyright Text}{/block:IfCopyrightText}{block:IfNotCopyrightText}{Title}{/block:IfNotCopyrightText}</p>
+                <p><b><a target="_blank" href="http://adorablethemes.com/theme/solar">Solar Theme</a></b></p>
+            </div>
+        </div>
+		
+	</div>
 
 </div>
 
-{block:IndexPage}
-{block:IfInfiniteScrolling}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>
+{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
 <script>
+function matchContentAndSidebar() {
+    $("#content").css("minHeight",($("#sidebar").height()-60).toString()+"px");
+}
 $(function(){
+    var theYear = new Date().getFullYear();
+    $(".year_"+theYear).css("display", "none");
+    matchContentAndSidebar();
+    timeoutID = window.setTimeout(matchContentAndSidebar, 500);
+    
+    {block:IndexPage}{block:IfInfiniteScrolling}
 	var container = $('#content');
 	
 	container.infinitescroll({
@@ -826,11 +1095,20 @@ $(function(){
 			finishedMsg: '<div class="page-info">{lang:No more posts}</div>',
 			maxPage: {TotalPages}
 		}
-	});
+		},
+		function( newElements ) {
+			var $newElems = $( newElements );
+            var $newElemsIDs = $newElems.map(function () { 
+                return this.id; 
+            }).get();
+			Tumblr.LikeButton.get_status_by_post_ids($newElemsIDs);
+		}
+	);
+	{/block:IfInfiniteScrolling}{/block:IndexPage}
 });
 </script>
-{/block:IfInfiniteScrolling}
-{/block:IndexPage}
+
+
 
 {block:IfGoogleAnalyticsID}
 <script>
