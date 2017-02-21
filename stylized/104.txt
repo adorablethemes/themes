@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Blush Theme by stylizedthemes.tumblr.com -->
+        <!-- Splash Theme by stylizedthemes.tumblr.com -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -26,26 +26,25 @@
         
         <style type="text/css">
         body {
-            color: #eee;
+            color: #222;
             font-size: 12px;
             line-height: 100%;
             font-weight: normal;
             letter-spacing: 0px;
-            background: #ff8484 url('http://static.tumblr.com/ohnymtu/oMXoewbik/20.png');
-            background-repeat: repeat-x;
+            background: #89bee0 url('http://static.tumblr.com/ohnymtu/bXMolou6l/water.jpg');
+            background-repeat: no-repeat;
             background-position: top left;
             background-attachment: fixed;
-            background-size: contain;
+            background-size: cover;
             font-family: {font:Body};
         }
         
-        /* three columns */
         .wrapper {
-            width: 1328px;
+            width: 1202px;
             margin: 0;
         }
         .main {
-            width: 1056px;
+            width: 882px;
             float: right;
         }
         
@@ -54,12 +53,12 @@
         }
         
         a {
-            color: #eee;
+            color: #222;
             text-decoration: none;
         }
         
         a:hover {
-            color: #ddd;
+            color: #222;
             text-decoration: none;
         }
         
@@ -73,7 +72,7 @@
             font-size: 20px;
             line-height: 20px;
             font-family: {font:Body};
-            color: #ff88b8;
+            color: #89bee0;
             background-color: transparent;
             margin-top: 15px;
             margin-left: 0px;
@@ -84,12 +83,16 @@
             text-transform: uppercase;
             text-decoration: none;
         }
-        h1 a, h1 a:hover, h3 a, h3 a:hover, h4 a, h4 a:hover {
-            color: #ff88b8;
+        h1 a, h1 a:hover {
+            color: #89bee0;
+            text-decoration: none;
+        }
+        h3 a, h3 a:hover, h4 a, h4 a:hover {
+            color: #222;
             text-decoration: none;
         }
         h2, h3 {
-            color: #ff88b8;
+            color: #222;
             font-size: 14px;
             line-height: 14px;
             padding: 5px 15px 0px 15px;
@@ -100,7 +103,7 @@
             text-transform: uppercase;
         }
         h4 {
-            color: #ff88b8;
+            color: #222;
             font-size: 14px;
             line-height: 14px;
             padding: 5px 18px 20px 18px;
@@ -113,7 +116,7 @@
         
         /* header */
         header {
-            background-color: #222;
+            background-color: rgba(34,34,34,0.9);
             width: 220px;
             height: 100%;
             float: left;
@@ -126,14 +129,14 @@
         .profile-photo {
             width: 100px;
             height: 100px;
-            border-radius: 50% 50% 0px 50%;
-            border: 2px solid #ff88b8;
+            margin-top: 13px;
+            border: 3px solid #89bee0;
         }
         
         p#description {
             font-size: 12px;
             line-height: 100%;
-            color: #eee;
+            color: #fff;
             text-align: center;
             margin-left: 0px;
             padding: 10px 0px;
@@ -142,7 +145,7 @@
         }
         
         nav {
-            color: #eee;
+            color: #fff;
             background-color: transparent;
             padding: 0px;
             clear: both;
@@ -150,7 +153,7 @@
         }
         
         ul.sidelinks li {
-            color: #eee;
+            color: #fff;
             display: block;
         }
         a.sidelink {
@@ -172,15 +175,15 @@
             -ms-transition: all 0.5s ease;
             -o-transition: all 0.5s ease;
             transition: all 0.5s ease;
-            border-bottom: 2px solid #ff88b8;
+            border-bottom: 2px solid #89bee0;
             border-radius: 0px 25px 25px 0px;
         }
         a.sidelink:hover {
             width: 218px;
-            color: #eee;
+            color: #fff;
             background-color: #252525;
             text-decoration: none;
-            border-bottom: 2px solid #ff8484;
+            border-bottom: 2px solid #fff;
             margin: 0px 0px 0px -18px;
         }
         
@@ -189,19 +192,17 @@
             max-width: 100%;
         }
         
-        .photo iframe {
-            background: url('http://static.tumblr.com/ohnymtu/oMXoewbik/20.png') !important;
-        }
-        
+
         /* main post styles */
         .post {
-            background-color: #222;
+            background-color: rgba(255,255,255,0.6);
             width: 250px;
             float: left;
             position: relative;
-            margin-bottom: 14px;
-            margin-left: 7px;
-            margin-right: 7px;
+            margin-bottom: 24px;
+            margin-left: 12px;
+            margin-right: 12px;
+            padding: 10px;
             overflow: hidden;
             -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.3);
             -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.3);
@@ -243,7 +244,7 @@
             padding-left: 20px;
         }
         blockquote {
-            color: #eee;
+            color: #222;
             background-color: transparent;
             font-family: {font:Body};
             text-align: center;
@@ -251,7 +252,7 @@
             line-height: 100%;
             padding: 10px;
             margin: 8px 2px 2px 2px;
-            border: 1px solid #ff88b8;
+            border: 1px solid #222;
         }
         
         .post img {
@@ -294,7 +295,7 @@
         
         /* if upscale small images is off, under 400px/700px wide images will have a background */
         .imgback {
-            background-color: {color:Background};
+            background-color: none;
         }
         
         /* contain text images */
@@ -304,7 +305,7 @@
         
         /* shown on the permalink page; has notes, source, and time posted */
         .perma-info {
-            color: #eee;
+            color: #222;
             background-color: transparent;
             font-size: 12px;
             line-height: 14px;
@@ -312,11 +313,11 @@
             overflow: hidden;
         }
         .perma-info a {
-            color: #eee;
+            color: #222;
             text-decoration: none;
         }
         .perma-info a:hover {
-            color: #eee;
+            color: #222;
             text-decoration: none;
         }
         
@@ -333,7 +334,7 @@
             margin-bottom: 10px;
         }
          .note blockquote {
-            color: #eee;
+            color: #222;
             background-color: transparent;
             border: none;
         }
@@ -345,16 +346,16 @@
             text-align: left;
             font-size: 18px;
             line-height: 24px;
-            color: #eee;
+            color: #fff;
             padding: 10px 20px;
-            border-bottom: 2px solid #ff88b8;
+            border-bottom: 2px solid #89bee0;
         }
 
         .index-info a {
-            color: #eee;
+            color: #fff;
         }
         .index-info a:hover {
-            color: #d5d5d5;
+            color: #ddd;
             text-decoration: none;
         }  
         
@@ -364,8 +365,8 @@
 
          .post .index-info {
             position: absolute;
-            top: 0px;
-            left: 0px;
+            top: 10px;
+            left: 10px;
             width: 210px;
             height: 24px;
             -webkit-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.3);
@@ -419,33 +420,33 @@
         
         /* previous and next page buttons */
         #previous, #next, .page-info {
-            color: #eee;
+            color: #fff;
             font-family: {font:Body};
             font-size: 10px;
             font-weight: normal;
             padding: 7px 10px;
             text-transform: uppercase;
             text-decoration: none;
-            background-color: #222; 
+            background-color: rgba(34,34,34,0.9); 
             border-radius: 25px;
         }
         #previous:hover, #next:hover {
-            background-color: #383838; 
+            background-color: #222; 
         }
         
         /* icons next to notes */
-        .reblog {background: transparent url('http://static.tumblr.com/ohnymtu/Vo3oewol9/reblog-white.png') right center no-repeat;}
-        .like {background: transparent url('http://static.tumblr.com/ohnymtu/5lvoewokz/like-white.png') right center no-repeat;}
+        .reblog {background: transparent url('//static.tumblr.com/anzluor/nF5ml4elu/reblog.png') right center no-repeat;}
+        .like {background: transparent url('//static.tumblr.com/anzluor/O7Nml4ekz/like.png') right center no-repeat;}
         
         /* special styling for permalink pages */
         {block:PermalinkPage}
 
             .wrapper {
-                width: 782px;
+                width: 840px;
             }
 
             .main {
-                width: 510px; 
+                width: 520px; 
                 border: none;
             }
             .post {
@@ -472,7 +473,7 @@
             display: inline;
             margin-right: 5px;
             border-radius: 50% 50% 0px 50%;
-            border: 2px solid #ff88b8;
+            border: 2px solid #89bee0;
         }
         
         {CustomCSS}
