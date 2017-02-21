@@ -133,7 +133,7 @@
             border: 3px solid #89bee0;
         }
         
-        p#description {
+        p#description, p#description a, p#description a:hover {
             font-size: 12px;
             line-height: 100%;
             color: #fff;
