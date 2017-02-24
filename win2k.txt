@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 
+        
+        theme:      Win2K
+        version:    1.0 (February 24, 2017)
+        from:       adorablethemes.com
+        
+        -->
+        <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="{MetaDescription}">
+    	<meta name="viewport" content="width=768">
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="apple-touch-icon" href="{PortraitURL-128}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Hidden}
+        <meta name="image:Wallpaper" content="">
+        
+        <meta name="color:Background" content="#386ca0">
+        <meta name="color:Title Bar Left" content="#082468">
+        <meta name="color:Title Bar Right" content="#a0c8f0">
+        <meta name="color:Title Bar Text" content="#ffffff">
+        
+        <meta name="if:Show Archive Link" content="1">
+        <meta name="if:Show Random Link" content="0">
+        <meta name="if:Cool Notes" content="1">
+        
+        <meta name="select:Post Body Font" content="arial" title="Arial">
+        <meta name="select:Post Body Font" content="comic-sans" title="Comic Sans">
+        <meta name="select:Post Body Font" content="courier" title="Courier New">
+        <meta name="select:Post Body Font" content="times" title="Times New Roman">
+        <meta name="select:Post Body Font" content="verdana" title="Verdana">
+        
+        <meta name="select:Background Image Style" content="tile" title="tile">
+        
+        <meta name="select:Background Image Style" content="cover" title="cover">
+        <meta name="select:Background Image Style" content="center" title="center">
+        {/block:Hidden}
+        <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        ::-moz-selection { background: {color:Title Bar Left}; color:#fff; text-shadow: none; }
+        ::selection { background: {color:Title Bar Left}; color:#fff; text-shadow: none; }
+        .background-cover {
+            background-position: center center;
+            background-size: cover;
+        }
+        .background-tile {
+            background-repeat: repeat;
+        }
+        .background-center {
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        body {
+            background-color: {color:Background};
+            {block:IfWallpaperImage}
+            background-image: url('{image:Wallpaper}');
+            background-attachment: fixed;
+            {/block:IfWallpaperImage}
+            font-family: Tahoma, 'MS Sans Serif', sans-serif;
+            width: 690px;
+            margin: 0 auto;
+        }
+        a, a:hover {
+            text-decoration: none;
+        }
+        main {
+            float: left;
+            width: 510px;
+        }
+        .sidebar {
+            position: fixed;
+            margin-left: 550px;
+            width: 136px;
+            font-size: 12px;
+        }
+        .sidebar-links {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 4px 0;
+        }
+        .button-border {
+            border: 1px solid #404040;
+            border-top-color: white;
+            border-left-color: white;
+            margin-bottom: 4px;
+        }
+        .sidebar-links li {
+            border: 1px solid #808080;
+            border-top-color: #d0d0c8;
+            border-left-color: #d0d0c8;
+            text-align: center;
+            color: black;
+            font-size: 11px;
+            padding: 4px 0;
+        }
+        .window-border {
+            margin: 48px auto;
+            width: 100%;
+            border: 1px solid #d0d0c8;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+        }
+        .window {
+            background-color: #d0d0c8;
+            padding: 2px;
+            border: 1px solid #d0d0c8;
+            border-left-color: white;
+            border-top-color: white;
+            border-right-color: #808080;
+            border-bottom-color: #808080;
+        }
+        .title-bar {
+            background: -moz-linear-gradient(left, {color:Title Bar Left} 0%, {color:Title Bar Right} 100%);
+            background: -webkit-linear-gradient(left, {color:Title Bar Left} 0%, {color:Title Bar Right} 100%);
+            background: linear-gradient(to right, {color:Title Bar Left};, {color:Title Bar Right});
+            color: {color:Title Bar Text};
+            font-size: 11px;
+            font-weight: bold;
+            padding: 1px;
+            overflow-y: hidden;
+            cursor: default;
+            min-height: 16px;
+        }
+        .title-bar-buttons {
+            float: right;
+            width: 50px;
+            height: 15px;
+            background-image: url('//static.tumblr.com/anzluor/Fgkolwea1/m56u7v9.png');
+            background-repeat: no-repeat;
+            background-position: -2px -33px;
+        }
+        .title-bar img {
+            margin-right: 2px;
+            vertical-align: middle;
+        }
+        .title-bar .icon {
+            width: 16px;
+            height: 16px;
+            background-image: url('//static.tumblr.com/anzluor/Fgkolwea1/m56u7v9.png');
+            background-repeat: no-repeat;
+            background-position: -64px -16px;
+            float: left;
+            margin-right: 2px;
+        }
+        .link .title-bar .icon {
+            background-position: 0 0;
+        }
+        .photo .title-bar .icon {
+            background-position: -16px 0;
+        }
+        .chat .title-bar .icon {
+            background-position: -32px 0;
+        }
+        .text .title-bar .icon {
+            background-position: -96px 0;
+        }
+        .quote .title-bar .icon {
+            background-position: -48px 0;
+        }
+        .answer .title-bar .icon {
+            background-position: -160px 0;
+        }
+        .video .title-bar .icon {
+            background-position: -80px 0;
+        }
+        .audio .title-bar .icon {
+            background-position: -80px -16px;
+        }
+        .menu-bar {
+            padding-bottom: 1px;
+        }
+        .menu-items {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .menu-items li {
+            color: black;
+            font-size: 11px;
+            display: inline-block;
+            padding: 1px 6px;
+            cursor: default;
+            border: 1px solid #d0d0c8;
+        }
+        .menu-items li:hover {
+            color: black;
+            cursor: default;
+            border: 1px outset #d0d0c8;
+        }
+        .text-area {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            border: 1px inset #d0d0c8;
+            border-left-color: #404040;
+            border-top-color: #404040;
+            border-right-color: white;
+            border-bottom-color: white;
+            background-color: white;
+            padding: 10px 20px;
+        }
+        .font-arial .text-area {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .font-comic-sans .text-area {
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+        }
+        .font-courier .text-area {
+            font-family: 'Courier New', Monaco, monospace;
+        }
+        .font-times .text-area {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .font-verdana .text-area {
+            font-family: Verdana, sans-serif;
+        }
+        .text-area:blank {
+            display: none;
+        }
+        .text-area:-moz-only-whitespace {
+            display: none;
+        }
+        .text-area a {
+            color: black;
+            text-decoration: underline;
+        }
+        .text-area a:hover {
+            color: #444;
+            text-decoration: underline;
+        }
+        .text-area hr {
+            border: 0;
+            border-top: 1px dotted #444;
+        }
+        .text-area img {
+            max-width: 100%;
+            height: auto;
+        }
+        .text-area iframe {
+            max-width: 100%;
+        }
+        .status-bar {
+            padding: 4px 2px;
+            margin-top: 2px;
+            border: 1px solid #d0d0c8;
+            border-left-color: #808080;
+            border-top-color: #808080;
+            border-right-color: white;
+            border-bottom-color: white;
+            font-size: 11px;
+        }
+        .status-bar a {
+            color: black;
+        }
+        
+        .media-container {
+            border: 1px inset #d0d0c8;
+            border-left-color: #404040;
+            border-top-color: #404040;
+            border-right-color: white;
+            border-bottom-color: white;
+            margin-bottom: 2px;
+        }
+        .photo-post-photo {
+            display: block;
+        }
+        .media-container iframe {
+            display: block;
+        }
+        
+        ul.chat {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        
+        .chat .chat-label {
+            font-size: 18px;
+            margin-right: 8px;
+        }
+        
+        .chat .user_1 .chat-label {
+            color: red;
+        }
+        .chat .user_2 .chat-label {
+            color: blue;
+        }
+        .chat .user_3 .chat-label {
+            color: green;
+        }
+        .chat .user_4 .chat-label {
+            color: purple;
+        }
+        .chat .user_5 .chat-label {
+            color: orange;
+        }
+        .chat .chat-line {
+            font-family: arial;
+            font-size: 14px;
+        }
+        
+        .video .text-area {
+            font-family: Tahoma, sans-serif;
+            background-color: black;
+            color: white;
+        }
+        .video .text-area a, .video .text-area a:hover {
+            color: white;   
+        }
+        
+        /* Keep reading link arrow */
+        a.read_more:after {
+            content: " \2192";
+        }
+        
+        {block:IfCoolNotes}
+        .note-window {
+            max-height: 400px;
+            overflow-y: scroll;
+        }
+        ol.notes {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            font-family: Tahoma, 'MS Sans Serif', sans-serif;
+        }
+        ol.notes li {
+            width: 96px;
+            height: 96px;
+            float: left;
+            text-align: center;
+            margin-top: 12px;
+            padding-left: 6px;
+            padding-right: 6px;
+            overflow: hidden;
+        }
+        ol.notes .action {
+            display:block;
+            margin-top: 6px;
+            word-wrap: break-word;
+        }
+        ol.notes .avatar_frame {
+            width: 32px;
+            height: 32px;
+            clear: both;
+        }
+        ol.notes img {
+            width: 32px;
+            height: 32px;
+            vertical-align: middle;
+        }
+        ol.notes blockquote {
+            display: none;
+        }
+        .more_notes_link {
+            display: none;
+        }
+        {/block:IfCoolNotes}
+        {block:IfNotCoolNotes}
+        ol.notes {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        ol.notes li {
+            margin-bottom: 2px;
+        }
+        ol.notes .avatar {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 8px;
+            border-radius: 2px;
+        }
+        {/block:IfNotCoolNotes}
+        
+        .pagination {
+            padding: 10px 0;
+        }
+        
+        .pagination .button-border {
+            float: left;
+            width: 50%;
+        }
+        .pagination .button {
+            border: 1px solid #808080;
+            border-top-color: #d0d0c8;
+            border-left-color: #d0d0c8;
+            text-align: center;
+            color: black;
+            font-size: 12px;
+            padding: 4px 12px;
+        }
+        .page-1 #previous, .page-{TotalPages} #next {
+            cursor: default;
+        }
+        .page-1 #previous .button, .page-{TotalPages} #next .button {
+            color: #808080;
+            text-shadow: 1px 1px 0px white;
+        }
+        a.tag {
+            color: #888;
+        }
+        .tag:before {
+            content: "#";
+        }
+        
+        .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+        .clearfix:after { clear: both; }
+        .clearfix { zoom: 1; }
+        </style>
+    </head>
+    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} font-{select:Post Body Font} background-{select:Background Image Style}">
+    <main>
+    {block:Posts}
+        <div class="window-border">
+            <div class="window {PostType}">
+                <div class="title-bar">
+                    <div class="icon"></div>
+                    {block:Text}
+                    <span class="title">{lang:Text}</span>
+                    {/block:Text}
+                    {block:Answer}
+                    <span class="title">{lang:Answer}</span>
+                    {/block:Answer}
+                    {block:Chat}
+                    <span class="title">{lang:Chat}</span>
+                    {/block:Chat}
+                    {block:Quote}
+                    <span class="title">{lang:Quote}</span>
+                    {/block:Quote}
+                    {block:Photo}
+                    <span class="title">{lang:Photo}</span>
+                    {/block:Photo}
+                    {block:Photoset}
+                    <span class="title">{lang:Photoset}</span>
+                    {/block:Photoset}
+                    {block:Link}
+                    <span class="title">{lang:Link}</span>
+                    {/block:Link}
+                    {block:Video}
+                    <span class="title">{lang:Video}</span>
+                    {/block:Video}
+                    {block:Audio}
+                    <span class="title">{lang:Audio}</span>
+                    {/block:Audio}
+                    <div class="title-bar-buttons"></div>
+                </div>
+                {block:Date}
+                <div class="menu-bar">
+                    <ul class="menu-items">
+                        <a href="{ReblogURL}"><li>Reblog</li></a><a href="{Permalink}"><li>Permalink</li></a>{block:Photo}{block:HighRes}<a target="_blank" href="{PhotoURL-1280}"><li>Zoom</li></a>{/block:HighRes}{block:Photo}{block:ContentSource}<a href="{SourceURL}"><li>{lang:Source}</li></a>{/block:ContentSource}
+                    </ul>
+                </div>
+                {/block:Date}
+                {block:Photo}<div class="media-container">{LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}</div>{/block:Photo}
+                {block:Photoset}<div class="media-container">{Photoset-500}</div>{/block:Photoset}
+                {block:Video}<div class="media-container">{VideoEmbed-500}</div>{/block:Video}
+                <div class="text-area">
+                    {block:Text}
+                        {block:Title}<h2>{Title}</h2>{/block:Title}
+                        {Body}
+                    {/block:Text}
+                    {block:Answer}
+                        <p><b>{Asker}:</b></p><p>{Question}</p><hr>
+    					
+    					{block:Answerer}
+        					<p><b>{Answerer}:</b></p>
+        					{Answer}
+        					<hr>
+    					{/block:Answerer}
+    
+    					{Replies}
+                    {/block:Answer}
+                    {block:Photo}
+                        {Caption}
+                    {/block:Photo}
+                    {block:Photoset}
+                        {Caption}
+                    {/block:Photoset}
+                    {block:Link}
+                        <p><a href="{URL}" class="link-post-link"{block:Host} title="{Host}"{/block:Host} {Target}>{Name} &rarr;</a></p>
+                        {Host}{block:Excerpt} &mdash; <em>{Excerpt}</em>{/block:Excerpt}
+                        {block:Description}<hr>{Description}{/block:Description}
+                    {/block:Link}
+                    {block:Quote}
+                        <p style="text-style: italic">{Quote}</p>
+                        <p style="text-align: right">&mdash; {Source}</p>
+                    {/block:Quote}
+                    {block:Chat}
+                        {block:Title}<h2>{Title}</h2>{/block:Title}
+    					<ul class="chat">
+    						{block:Lines}
+    							<li class="{Alt} user_{UserNumber}">
+    								{block:Label}
+    									<span class="chat-label">{Label}</span>
+    								{/block:Label}
+    
+    								<span class="chat-line">{Line}</span>
+    							</li>
+    						{/block:Lines}
+    					</ul>
+                    {/block:Chat}
+                    {block:Video}
+                        {Caption}
+                    {/block:Video}
+                    {block:Audio}
+                        {AudioEmbed}
+                        {Caption}
+                    {/block:Audio}
+                    {block:HasTags}
+                        <p>
+                        {block:Tags}
+                            <a class="tag" href="{TagURL}">{Tag}</a>&nbsp;
+                        {/block:Tags}
+                        </p>
+                    {/block:HasTags}
+                </div>
+                {block:Date}
+                <div class="status-bar">
+                    <a href="{Permalink}">{lang:Posted TimeAgo with NoteCount notes}</a>
+                </div>
+                {/block:Date}
+            </div>
+        </div>
+        
+        {block:PermalinkPage}
+        {block:PostNotes}
+        <div class="window-border">
+            <div class="window">
+                <div class="title-bar">
+                    <div class="icon"></div>
+                    Notes
+                    <div class="title-bar-buttons"></div>
+                </div>
+                <div class="text-area note-window clearfix">
+                    {PostNotes-64}
+                </div>
+                <div id="note_count" class="status-bar">
+                    {NoteCountWithLabel}
+                </div>
+            </div>
+        </div>
+        {/block:PostNotes}
+        {/block:PermalinkPage}
+    {/block:Posts}
+    
+    {block:Pagination}
+    <div class="window-border">
+        <div class="window">
+            <div class="title-bar">
+                {lang:Pages}
+            </div>
+                <div class="pagination clearfix">
+            		<a href="{block:PreviousPage}{PreviousPage}{/block:PreviousPage}" id="previous"><div class="button-border"><div class="button">{lang:Previous page}</div></div></a>
+            		<a href="{block:NextPage}{NextPage}{/block:NextPage}" id="next"><div class="button-border"><div class="button">{lang:Next page}</div></div></a>
+            	</div>
+    	    <div class="status-bar">
+                Page {CurrentPage} of {TotalPages}
+            </div>
+        </div>
+    </div>
+	{/block:Pagination}
+	
+	</main>
+	
+	<div class="sidebar">
+    	<div class="window-border">
+            <div class="window">
+                <div class="title-bar">
+                    {block:ShowTitle}{Title}{/block:ShowTitle}
+                </div>
+                {block:ShowAvatar}<img src="{PortraitURL-128}" />{/block:ShowAvatar}
+                
+                <ul class="sidebar-links">
+                    <a href="/"><div class="button-border"><li>{lang:Home}</li></div></a>
+                    {block:IfShowArchiveLink}<a href="/archive"><div class="button-border"><li>{lang:Archive}</li></div></a>{/block:IfShowArchiveLink}
+                    {block:IfShowRandomLink}<a href="/random"><div class="button-border"><li>{lang:Random}</li></div></a>{/block:IfShowRandomLink}
+                    {block:AskEnabled}
+                    <a href="/ask"><div class="button-border"><li>{AskLabel}</li></div></a>
+                    {/block:AskEnabled}
+                    {block:SubmissionsEnabled}
+                    <a href="/submit"><div class="button-border"><li>{SubmitLabel}</li></div></a>
+                    {/block:SubmissionsEnabled}
+                    {block:HasPages}
+                    {block:Pages}<a href="{URL}"><div class="button-border"><li>{Label}</li></div></a>{/block:Pages}
+                    {/block:HasPages}
+                    <a href="http://adorablethemes.com/theme/win2k"><div class="button-border"><li>Theme</li></div></a>
+                </ul>
+            </div>
+        </div>
+	</div>
+	
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    $(function(){
+        var nc = note_count.innerHTML;
+        nc = nc.replace('notes', 'object(s)');
+        note_count.innerHTML = nc;
+        
+        {block:IfCoolNotes}
+        
+        $(".action").each(function(index) {
+            var cl = $(this).parent()[0].classList.toString().split(" ");
+            cl[2] = cl[2].replace('tumblelog_', '');
+            console.log(cl[2]);
+            
+            var exts = ".exe";
+            var extn = Math.floor(Math.random()*14);
+            if (extn == 0) { exts = ".exe"; }
+            else if (extn == 1) { exts = ".jpg"; }
+            else if (extn == 2) { exts = ".gif"; }
+            else if (extn == 3) { exts = ".png"; }
+            else if (extn == 4) { exts = ".bmp"; }
+            else if (extn == 5) { exts = ".tga"; }
+            else if (extn == 6) { exts = ".doc"; }
+            else if (extn == 7) { exts = ".psd"; }
+            else if (extn == 8) { exts = ".wav"; }
+            else if (extn == 9) { exts = ".mp3"; }
+            else if (extn == 10) { exts = ".mov"; }
+            else if (extn == 11) { exts = ".wmv"; }
+            else if (extn == 12) { exts = ".avi"; }
+            else if (extn == 13) { exts = ".mid"; }
+            $(this).text(cl[2]+exts);
+        });
+        
+        {/block:IfCoolNotes}
+    });
+    </script>
+    </body>
+</html>
