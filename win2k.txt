@@ -44,8 +44,8 @@
             -moz-box-sizing: border-box;
             box-sizing: border-box;
         }
-        ::-moz-selection { background: {color:Title Bar Left}; color:#fff; text-shadow: none; }
-        ::selection { background: {color:Title Bar Left}; color:#fff; text-shadow: none; }
+        ::-moz-selection { background: {color:Title Bar Left}; color:{color:Title Bar Text}; text-shadow: none; }
+        ::selection { background: {color:Title Bar Left}; color:{color:Title Bar Text}; text-shadow: none; }
         .background-cover {
             background-position: center center;
             background-size: cover;
@@ -456,7 +456,7 @@
                 {block:Date}
                 <div class="menu-bar">
                     <ul class="menu-items">
-                        <a href="{ReblogURL}"><li>Reblog</li></a><a href="{Permalink}"><li>Permalink</li></a>{block:Photo}{block:HighRes}<a target="_blank" href="{PhotoURL-1280}"><li>Zoom</li></a>{/block:HighRes}{block:Photo}{block:ContentSource}<a href="{SourceURL}"><li>{lang:Source}</li></a>{/block:ContentSource}
+                        <a href="{ReblogURL}"><li>Reblog</li></a><a href="{Permalink}"><li>{lang:Permalink}</li></a>{block:Photo}{block:HighRes}<a target="_blank" href="{PhotoURL-1280}"><li>{lang:Zoom}</li></a>{/block:HighRes}{block:Photo}{block:ContentSource}<a target="_blank" href="{SourceURL}"><li>{lang:Source}</li></a>{/block:ContentSource}
                     </ul>
                 </div>
                 {/block:Date}
@@ -525,7 +525,7 @@
                 </div>
                 {block:Date}
                 <div class="status-bar">
-                    <a href="{Permalink}">{lang:Posted TimeAgo with NoteCount notes}</a>
+                    {block:Reblog}<a href="{ReblogParentURL}">{lang:Reblogged from ReblogParentName}</a>{/block:Reblog}{block:NotReblog}<a href="{Permalink}">{lang:Posted TimeAgo}</a>{/block:NotReblog}{block:NoteCount} - <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
                 </div>
                 {/block:Date}
             </div>
