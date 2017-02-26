@@ -12,7 +12,7 @@
         {block:Hidden}
         <meta name="font:Body" content="georgia, times, serif"/>
         <meta name="color:Background" content="#ffffff"/>
-        <meta name="color:Accent" content="#adcef3"/> 
+        <meta name="color:Accent" content="#ffa4c2"/> 
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>
         <meta name="text:Facebook URL" content=""/>
