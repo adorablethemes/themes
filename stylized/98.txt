@@ -11,7 +11,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {block:Hidden}
         <meta name="image:Profile Photo" content=""/>
-        <meta name="font:Heading" content="avalon, helvetica, arial, sans-serif"/>
         <meta name="font:Body" content="avalon, helvetica, arial, sans-serif"/>
         <meta name="color:Background" content="#ffffff"/>
         <meta name="color:Text" content="#222222"/> 
@@ -93,7 +92,7 @@
         }
         
         a:hover {
-            color: {color:Hover};
+            color: {color:Text};
             text-decoration: none;
         }
         
@@ -104,16 +103,14 @@
         
         /* headings */
         h1 {
-            float: left;
+            display: block;
             font-size: 30px;
             line-height: 30px;
-            font-family: {font:Heading};
+            font-family: {font:Body};
             color: {color:Text};
             background-color: transparent;
             margin-top: 25px;
-            margin-bottom: 0px;
-            padding: 0px;
-            text-align: left;
+            text-align: center;
             font-weight: normal;
         }
         h1 a, h1 a:hover, h3 a, h3 a:hover, h4 a, h4 a:hover {
@@ -323,7 +320,7 @@
             color: {color:Text};
         }
         .perma-info a:hover {
-            color: {color:Hover};
+            color: {color:Text};
             text-decoration: none;
         }
         
