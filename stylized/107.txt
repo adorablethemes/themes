@@ -412,11 +412,17 @@
                 font-size: 20px;
                 line-height: 20px;
             }
+            nav {
+                height: auto;
+            }
             ul.sidelinks li {
                 display: block;
             }
-            a.sidelink {
+             a.sidelink {
                 display: block;
+                padding: 5px;
+                font-size: 11px;
+                line-height: 12px;
             }
         }
         
@@ -470,20 +476,18 @@
         
         /* make sure avatars don't get huge */
         img.avatar {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             vertical-align: middle;
             display: inline;
             margin-right: 5px;
-            border-radius: 50%;
         }
         img.avatar-ask {
-            width: 64px;
-            height: 64px;
+            width: 48px;
+            height: 48px;
             vertical-align: middle;
             display: inline;
             margin-right: 5px;
-            border-radius: 50%;
         }
         
         {CustomCSS}
