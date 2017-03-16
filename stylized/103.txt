@@ -685,9 +685,7 @@
                 },
                 function( newElements ) {
                     var $newElems = $( newElements ).css({ opacity: 0 });
-                    $newElems.imagesLoaded(function(){
                         $newElems.animate({ opacity: 1 });
-                    });
                 }
             );
             {/block:IfInfiniteScrolling}

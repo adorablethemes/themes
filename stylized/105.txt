@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Peak Theme by stylizedthemes.tumblr.com -->
+        <!-- Accentuate Theme by stylizedthemes.tumblr.com -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -10,26 +10,25 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {block:Hidden}
-        <meta name="image:Profile Photo" content=""/>
-        <meta name="font:Body" content="avalon, helvetica, arial, sans-serif"/>
+        <meta name="font:Body" content="georgia, times, serif"/>
         <meta name="color:Background" content="#ffffff"/>
-        <meta name="color:Text" content="#222222"/> 
-        <meta name="image:Background" content=""/>
+        <meta name="color:Accent" content="#ffa4c2"/> 
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>
-        <meta name="text:Custom Link 2 URL" content=""/>
-        <meta name="text:Custom Link 2 Name" content=""/>
-        <meta name="text:Custom Link 3 URL" content=""/>
-        <meta name="text:Custom Link 3 Name" content=""/>
+        <meta name="text:Facebook URL" content=""/>
+        <meta name="text:Instagram URL" content=""/>
+        <meta name="text:Twitter URL" content=""/>
         <meta name="if:Show Archive Link" content="1"/>
         <meta name="if:Show Random Link" content="0"/>
         <meta name="if:Infinite Scrolling" content="0"/>
         {/block:Hidden}
         <!--[if (lte IE 8)]><script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet"> 
         <style type="text/css">
         body {
-            color: {color:Text};
-            background: {color:Background} url('{image:Background}');
+            color: {color:Accent};
+            background: {color:Background} url('');
             background-repeat: repeat;
             background-position: bottom left;
             background-attachment: fixed;
@@ -39,61 +38,37 @@
         
         /* containers */
         .wrapper {
-            width: 1300px;
-            margin: 0 auto;
+            width: 100%;
         }
         .main {
-            background-color: transparent;
-            width: 1300px;
-            padding-top: 40px;
+            background-color: {color:Background};
+            width: 500px;
+            margin: 0 auto;
         }
         
-        
-        @media screen and (max-width:1400px) {
-            .wrapper {
-                width: 1040px;
-            }
+        @media screen and (max-width:560px) {
             .main {
-                width: 1040px;
+                width: 250px;
+            }
+            .post {
+                max-width: 250px;
+            }
+            .post img {
+                max-width: 250px;
+            }
+            .post .index-info {
+                max-width: 230px;
             }
         }
-    
-        @media screen and (max-width:1125px) {
-            .wrapper {
-                width: 780px;
-            }
-            .main {
-                width: 780px;
-            }
-        }
-    
-        @media screen and (max-width:768px) {
-            .wrapper {
-                width: 520px;
-            }
-            .main {
-                width: 520px;
-            }
-        }
-        
-        @media screen and (max-width:500px) {
-            .wrapper {
-                width: 260px;
-            }
-            .main {
-                width: 260px;
-            }
-        }
-        
         
         a {
-            color: {color:Text};
+            color: {color:Accent};
             text-decoration: none;
         }
         
         a:hover {
-            color: {color:Text};
-            text-decoration: none;
+            color: {color:Accent};
+            text-decoration: underline;
         }
         
         ul {
@@ -103,97 +78,85 @@
         
         /* headings */
         h1 {
+            font-size: 36px;
+            line-height: 36px;
             display: block;
-            font-size: 30px;
-            line-height: 30px;
-            font-family: {font:Body};
-            color: {color:Text};
+            font-family: 'Homemade Apple', cursive;
+            color: {color:Accent};
             background-color: transparent;
-            margin-top: 25px;
+            margin: 20px 0px;
             text-align: center;
             font-weight: normal;
         }
         h1 a, h1 a:hover, h3 a, h3 a:hover, h4 a, h4 a:hover {
-            color: {color:Text};
+            color: {color:Accent};
             text-decoration: none;
         }
-        h2, h3 {
-            color: {color:Text};
-            font-size: 14px;
-            line-height: 14px;
-            padding: 5px 15px 0px 15px;
+        h2, h3, h4 {
+            color: {color:Accent};
+            font-size: 18px;
+            line-height: 150%;
+            padding: 5px;
             margin-bottom: 0px;
             text-align: center;
-            font-family: {font:Body};
+            font-family: 'Homemade Apple', cursive;
             font-weight: normal;
-            text-transform: uppercase;
-        }
-        h4 {
-            color: {color:Text};
-            font-size: 14px;
-            line-height: 14px;
-            padding: 5px 15px 20px 15px;
-            margin-bottom: 0px;
-            text-align: center;
-            font-family: {font:Body};
-            font-weight: normal;
-            text-transform: uppercase;
+            text-transform: normal;
         }
         
         /* header */
         header {
             width: 100%;
-            height: 100px;
+            height: 125px;
             text-align: left;
-            background-color: #222;
-            margin: 0;
+            background-color: {color:Background};
+            padding-top: 50px;
         }
         
          .profile-photo {
-            background: {color:Background};
-            display: block;
-            margin: 20px 0px 5px 0px;
-            width: 55px;
-            height: 55px;
+            position: relative;
+            background: {color:Accent};
+            margin: 12px 0px 0px 0px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            border: 3px solid {color:Background};
+            border: 3px solid {color:Accent};
+            z-index: 1;
         }
 
         nav {
             display: block;
-            color: #fff;
+            color: {color:Accent};
             background-color: none;
-            padding: 0px;
-            padding-top: 25px;
         }
         
         ul.sidelinks {
-            font-size: 10px;
+            font-size: 14px;
             text-align: center;
         }
         ul.sidelinks li {
-            color: {color:Text};
+            color: {color:Accent};
             text-align: right;  
             display: inline;
         }
         a.sidelink {
-            color: #fff;
+            color: {color:Accent};
             background-color: none;
             text-align: right;
             display: inline;
             padding: 1px 7px 1px 7px;
             margin-bottom: 1px;
             margin-left: 0px;
-            font-size: 10px;
+            font-size: 14px;
             line-height: 14px;
             font-weight: normal;
             text-transform: uppercase;
         }
         a.sidelink:hover {
-            color: #ddd;
+            color: rgba({RGBcolor:Accent}, 0.8);
             background-color: none;
             text-align: right;
-            text-decoration: none;
+            text-decoration: underline;
             display: inline;
             padding: 1px 7px 1px 7px;
             margin-bottom: 1px;
@@ -212,11 +175,11 @@
         
         /* main post styles */
         .post {
-            width: 250px;
+            width: 500px;
             float: left;
             position: relative;
-            background-color: transparent;
-            margin: 5px;
+            background-color: {color:Background};
+            margin: 40px 0px 40px 0px;
             overflow: hidden;
         }
         
@@ -249,25 +212,28 @@
             padding-left: 20px;
         }
         blockquote {
-            color: {color:Text};
+            font-family: 'Homemade Apple', cursive;;
+            color: {color:Accent};
             background-color: transparent;
-            font-size: 13px;
-            line-height: 110%;
-            padding: 4px;
-            margin: 6px 1px;
-            font-style: italic;
+            font-size: 18px;
+            line-height: 175%;
+            padding: 10px 5px;
+            margin: 5px 1px;
         }
+        
+        /*stylizedthemes.tumblr.com*/
         
         .post img {
             background-color: none;
-            width: 250px;
+            width: 500px;
             height: auto;
             display: block;
             opacity: 1;
+            padding-bottom: 0px;
         }
         
         .photo-post-photo img {
-            width: 250px;
+            width: 500px;
             max-width: 100%;
             height: auto;
             display: block;
@@ -308,7 +274,7 @@
         
         /* shown on the permalink page; has notes, source, and time posted */
         .perma-info {
-            color: {color:Text};
+            color: {color:Accent};
             background-color: transparent;
             font-size: 11px;
             line-height: 13px;
@@ -317,11 +283,11 @@
             overflow:hidden;
         }
         .perma-info a {
-            color: {color:Text};
+            color: {color:Accent};
         }
         .perma-info a:hover {
-            color: {color:Text};
-            text-decoration: none;
+            color: {color:Accent};
+            text-decoration: underline;
         }
         
         /* notes stuff */
@@ -337,18 +303,49 @@
             margin-bottom: 15px;
         }
          .note blockquote {
-            color: {color:Text};
-            background-color: rgba(48,48.48,0.1);
+            color: {color:Accent};
+            background-color: none;
             border: none;
         }
         
         .post .index-info {
-            background-color: transparent;
+            font-family: {font:Body};
+            font-size: 11px;
+            line-height: 13px;
+            color: {color:Accent};
+            background-color: none;
+            position: relative;
+            width: 480px;
+            height: 100%;
+            padding: 5px 10px 7px 10px;
+            border-top: 1px solid {color:Accent};
+        }
+        
+        .post .photo-hover {
+            background-color: rgba(255,255,255,0.1);
             position: absolute;
             top: 0px;
             left: 0px;
-            width: 250px;
+            width: 500px;
             height: 100%;
+            padding: 15px;
+            -webkit-opacity: 0;
+            -moz-opacity: 0;
+            opacity: 0;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+         .post:hover .photo-hover {
+            -webkit-opacity: 1;
+            -moz-opacity: 1;
+            opacity: 1;
+        }
+        
+        .photo .index-info {
+            display:none;
         }
         
         /* remove blank space from bottom of photoset posts */
@@ -360,7 +357,7 @@
         hr {
             clear: both;
             border: 0;
-            border-bottom: 1px solid rgba(48,48,48,0.3);
+            border-bottom: 1px solid rgba({RGBcolor:Accent}, 0.5);
             margin: 15px 0px;
         }
         
@@ -377,19 +374,25 @@
         /* you shouldn't see this div if infinite scroll is on */
         div.pagination {
             background-color: none;
-            margin-bottom: 10px;
+            padding: 20px 0px 40px 0px;
             clear: both;
             text-align: center;
         }
         
         /* previous and next page buttons */
         #previous, #next, .page-info {
-            color: {color:Text};
+            background-color: none;
+            color: {color:Accent};
             font-family: {font:Body};
             font-size: 11px;
-            background: transparent; 
             font-weight: normal;
-            padding: 5px 7px 5px 7px;
+            padding: 7px 10px;
+            margin: 1px;
+            text-decoration: none;
+        }
+        #previous:hover, #next:hover {
+            color: {color:Accent};
+            text-decoration: underline;
         }
         
         /* Note icons */
@@ -397,56 +400,21 @@
         ol.notes .like {background: transparent url('//static.tumblr.com/anzluor/0yrn6ay0n/like.png') right center no-repeat;}
         ol.notes .reply {background: transparent url('//static.tumblr.com/anzluor/n70n6ay1a/reply.png') right center no-repeat;}
         
-        /* tumblr reblog button */
-        .reblog_button {
-            float: right;
-            margin-left: 8px;
-            margin-top: 1px;
-        }
+        /*tumblr reblog button */
+            .reblog-button {
+                font-size: 14px;
+                float: right;
+                margin-top: 0px;
+                margin-left: 12px;
+            }
         
         /* special styling for permalink pages */
         {block:PermalinkPage}
-            .wrapper {
-                width: 510px;
-                margin: 0 auto;
-            }
-            .main {
-                width: 510px;
-            }
-            .post {
-                float: none;
-                padding: 5px;
-                width: 500px;
-            }
-            .post img {
-                width: 500px;
-                height: auto;
-            }
-            .reblog_button {
-                margin-left: 10px;
-                margin-top: 0px;
-            }
+        
+        .post:hover .photo-hover {
+            display:none;
+        }
             
-            @media screen and (max-width:500px) {
-                .wrapper {
-                    width: 260px;   
-                }
-                .main {
-                    width: 260px; 
-                }
-                .post {
-                    width: 250px;
-                    float: left;
-                    position: relative;
-                    margin-bottom: 10px;
-                    margin-left: 5px;
-                    margin-right: 5px;
-                    overflow: hidden;
-                }
-                .post img {
-                    width: 250px;   
-                }
-            }
         {/block:PermalinkPage}
         
         /* make sure avatars don't get huge */
@@ -456,7 +424,6 @@
             vertical-align: middle;
             display: inline;
             margin-right: 5px;
-            border-radius: 50%;
         }
         
         {CustomCSS}
@@ -465,50 +432,50 @@
     <body>
     
         <header class="clearfix">
-
-            
+        
+        <h1>{Title}</h1>
+        
         <nav>   
         <center>
             <ul class="sidelinks">
             
-            <a class="sidelink" href="/">Home</a>
+            <a class="sidelink" href="/" title="home"><i class="fa fa-home"></i></a>
             
                 {block:HasPages}
                     {block:Pages}
-                    <a class="sidelink" href="{URL}">{Label}</a>
+                    <a class="sidelink" href="{URL}" title="{Label}"><i class="fa fa-file"></i></a>
                     {/block:Pages}
                 {/block:HasPages}
                 
-                {block:AskEnabled}<a class="sidelink" href="/ask">{AskLabel}</a>{/block:AskEnabled}
+                {block:AskEnabled}<a class="sidelink" href="/ask" title="ask"><i class="fa fa-envelope-o"></i></a>{/block:AskEnabled}
                 
-                {block:SubmissionsEnabled}<a class="sidelink" href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+                {block:SubmissionsEnabled}<a class="sidelink" href="/submit" title="submit"><i class="fa fa-cog"></i></a>{/block:SubmissionsEnabled}
                 
-                {block:IfShowArchiveLink}<a class="sidelink" href="/archive">{lang:Archive}</a>{/block:IfShowArchiveLink}
+                {block:IfShowArchiveLink}<a class="sidelink" href="/archive" title="archive"><i class="fa fa-archive"></i></a>{/block:IfShowArchiveLink}
                 
-                {block:IfShowRandomLink}<a class="sidelink" href="/random">{lang:Random}</a>{/block:IfShowRandomLink}
+                {block:IfShowRandomLink}<a class="sidelink" href="/random" title="random"><i class="fa fa-random"></i></a>{/block:IfShowRandomLink}
                 
                 {block:IfCustomLink1URL}
-                    <a class="sidelink" href="{text:Custom Link 1 URL}" target="_blank">{text:Custom Link 1 Name}</a>
+                    <a class="sidelink" href="{text:Custom Link 1 URL}"  title="{text:Custom Link 1 Name}"><i class="fa fa-circle-o"></i></a>
                 {/block:IfCustomLink1URL}
                 
-                {block:IfCustomLink2URL}
-                    <a class="sidelink" href="{text:Custom Link 2 URL}" target="_blank">{text:Custom Link 2 Name}</a>
-                {/block:IfCustomLink2URL}
+                {block:IfFacebookURL}
+                    <a class="sidelink" href="{text:Facebook URL}" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a>
+                {/block:IfFacebookURL}
                 
-                {block:IfCustomLink3URL}
-                    <a class="sidelink" href="{text:Custom Link 3 URL}" target="_blank">{text:Custom Link 3 Name}</a>
-                {/block:IfCustomLink3URL}
+                {block:IfInstagramURL}
+                    <a class="sidelink" href="{text:Instagram URL}" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a>
+                {/block:IfInstagramURL}
                 
-                <a class="sidelink" href="http://stylizedthemes.tumblr.com/" target="_blank" title="Get this theme!">Theme</a>
+                {block:IfTwitterURL}
+                    <a class="sidelink" href="{text:Twitter URL}" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a>
+                {/block:IfTwitterURL}
+                
+                    <a class="sidelink" href="http://stylizedthemes.tumblr.com/" target="_blank" title="get this theme!"><i class="fa fa-code"></i></a>
+    
             </ul>
             </center>
         </nav>
-        
-        
-                <center>
-        {block:IfProfilePhotoImage}<img class="profile-photo" src         ="{image:Profile Photo}" alt="" />{/block:IfProfilePhotoImage}
-        {block:IfNotProfilePhotoImage}<img class="profile-photo" src              ="{PortraitURL-128}" alt="" />{/block:IfNotProfilePhotoImage}
-        </center>
         
 
         </header>
@@ -519,6 +486,9 @@
         <ul id="posts">
             {block:Posts}
                 <li class="post {PostType}">
+                
+               {block:Photo}<a href="{Permalink}"><div class="photo-hover"></div></a>{/block:Photo}
+               {block:Photoset}<a href="{Permalink}"><div class="photo-hover"></div></a>{/block:Photoset}
                                 
                 {block:Text}
                     {block:Title}
@@ -541,7 +511,7 @@
 
                 {block:Photo}
                     {block:IndexPage}
-                        <div class="imgback"><center><a href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" alt="{PhotoAlt}" /></a></center></div>
+                        <div class="imgback"><center><a href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-500}" alt="{PhotoAlt}" /></a></center></div>
                     {/block:IndexPage}
                     {block:PermalinkPage}
                         <div class="imgback"><center>{LinkOpenTag}<img src="{PhotoURL-1280}" class="photo-post-photo" alt="{PhotoAlt}" />{LinkCloseTag}</center></div>
@@ -555,7 +525,7 @@
 
                 {block:Photoset}
                     {block:IndexPage}
-                        {Photoset-250}
+                        {Photoset-500}
                     {/block:IndexPage}
                     {block:PermalinkPage}
                         {Photoset-500}
@@ -607,7 +577,7 @@
 
                 {block:Video}
                     {block:IndexPage}
-                        {VideoEmbed-250}
+                        {VideoEmbed-500}
                     {/block:IndexPage}
                     {block:PermalinkPage}
                         {VideoEmbed-500}
@@ -620,7 +590,7 @@
                 
 
                 {block:Audio}
-                    {AudioEmbed-250}
+                    {AudioEmbed-500}
 
                     {block:PermalinkPage}{block:Caption}
                         <div class="content">{Caption}</div>
@@ -628,20 +598,28 @@
                 {/block:Audio}
                 
                 {block:IndexPage}
-                <a href='{Permalink}'>
                 <div class="index-info">
+                <a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>
+                {block:ContentSource}&nbsp;&mdash;&nbsp;<a href="{SourceURL}">Source</a>{/block:ContentSource}
+                {block:RebloggedFrom} (<a href="{ReblogParentURL}">via</a>){/block:RebloggedFrom}
+                <div class="reblog-button">
+                    <a href="{ReblogURL}"><i class="fa fa-retweet"></i>
                 </div>
-                </a>
+
+                {block:Date}<a style="float:right; text-align: right" class="timeago" href='{Permalink}'>{TimeAgo}</a>{/block:Date}
+                </div>
                 {/block:IndexPage}
                 
                 {block:PermalinkPage}
                 {block:PermalinkPagination}
                 <div class="perma-info">
                 
-                {block:PostNotes}<a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>{/block:PostNotes}
+                <a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>
                 {block:ContentSource}&nbsp;&mdash;&nbsp;<a href="{SourceURL}">Source</a>{/block:ContentSource}
                 {block:RebloggedFrom} (<a href="{ReblogParentURL}">via</a>){/block:RebloggedFrom}
-                    {ReblogButton size="14" color="black"}
+                <div class="reblog-button">
+                    <a href="{ReblogURL}"><i class="fa fa-retweet"></i>
+                </div>
 
                 {block:Date}<a style="float:right; text-align: right" class="timeago" href='{Permalink}'>{TimeAgo}</a>{/block:Date}
                 
@@ -655,7 +633,7 @@
                 </li>
             {/block:Posts}
         </ul>
-        <div class="pagination">
+            <div class="pagination">
             {block:Pagination}{block:PreviousPage}<a href="{PreviousPage}" id="next">&laquo; {lang:Previous Page}</a> {/block:PreviousPage}
             
             <span class="page-info">{lang:CurrentPage of TotalPages}</span>
@@ -668,16 +646,9 @@
     {block:IndexPage}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-        <script src="//static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
         <script>
         $(function(){
             var container = $('ul#posts');
-
-            container.imagesLoaded( function(){
-                container.masonry({
-                    itemSelector : 'li.post'
-                });
-            });
             
             {block:IfInfiniteScrolling}
             container.infinitescroll({
@@ -687,10 +658,7 @@
                 },
                 function( newElements ) {
                     var $newElems = $( newElements ).css({ opacity: 0 });
-                    $newElems.imagesLoaded(function(){
-                        $newElems.animate({ opacity: 1 });
-                        container.masonry( 'appended', $newElems, true ); 
-                    });
+                    $newElems.animate({ opacity: 1 });
                 }
             );
             {/block:IfInfiniteScrolling}

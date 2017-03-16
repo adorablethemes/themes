@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Peak Theme by stylizedthemes.tumblr.com -->
+        <!-- The Daily Theme by stylizedthemes.tumblr.com -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -10,11 +10,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {block:Hidden}
-        <meta name="image:Profile Photo" content=""/>
+        <meta name="font:Heading" content="grumpy, helvetica, arial, sans-serif"/>
         <meta name="font:Body" content="avalon, helvetica, arial, sans-serif"/>
         <meta name="color:Background" content="#ffffff"/>
         <meta name="color:Text" content="#222222"/> 
-        <meta name="image:Background" content=""/>
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>
         <meta name="text:Custom Link 2 URL" content=""/>
@@ -29,7 +28,7 @@
         <style type="text/css">
         body {
             color: {color:Text};
-            background: {color:Background} url('{image:Background}');
+            background: {color:Background} url('');
             background-repeat: repeat;
             background-position: bottom left;
             background-attachment: fixed;
@@ -39,52 +38,14 @@
         
         /* containers */
         .wrapper {
-            width: 1300px;
+            width: 1200px;
             margin: 0 auto;
         }
         .main {
             background-color: transparent;
-            width: 1300px;
-            padding-top: 40px;
+            width: 1200px;
+            padding-top: 20px;
         }
-        
-        
-        @media screen and (max-width:1400px) {
-            .wrapper {
-                width: 1040px;
-            }
-            .main {
-                width: 1040px;
-            }
-        }
-    
-        @media screen and (max-width:1125px) {
-            .wrapper {
-                width: 780px;
-            }
-            .main {
-                width: 780px;
-            }
-        }
-    
-        @media screen and (max-width:768px) {
-            .wrapper {
-                width: 520px;
-            }
-            .main {
-                width: 520px;
-            }
-        }
-        
-        @media screen and (max-width:500px) {
-            .wrapper {
-                width: 260px;
-            }
-            .main {
-                width: 260px;
-            }
-        }
-        
         
         a {
             color: {color:Text};
@@ -93,7 +54,7 @@
         
         a:hover {
             color: {color:Text};
-            text-decoration: none;
+            text-decoration: underline;
         }
         
         ul {
@@ -104,13 +65,15 @@
         /* headings */
         h1 {
             display: block;
-            font-size: 30px;
-            line-height: 30px;
-            font-family: {font:Body};
+            font-size: 64px;
+            line-height: 64px;
+            font-family: {font:Heading};
             color: {color:Text};
             background-color: transparent;
-            margin-top: 25px;
+            margin: 30px 100px 20px 100px;
+            padding: 15px 0px 10px 0px;
             text-align: center;
+            text-transform: normal;
             font-weight: normal;
         }
         h1 a, h1 a:hover, h3 a, h3 a:hover, h4 a, h4 a:hover {
@@ -119,14 +82,17 @@
         }
         h2, h3 {
             color: {color:Text};
-            font-size: 14px;
-            line-height: 14px;
-            padding: 5px 15px 0px 15px;
+            font-size: 24px;
+            line-height: 24px;
+            padding: 10px 15px 5px 15px;
+            margin-top: 0px;
             margin-bottom: 0px;
             text-align: center;
-            font-family: {font:Body};
+            font-family: {font:Heading};
             font-weight: normal;
-            text-transform: uppercase;
+            text-transform: normal;
+            border-top: 1px solid {color:Text};
+            border-bottom: 1px solid {color:Text};
         }
         h4 {
             color: {color:Text};
@@ -143,91 +109,97 @@
         /* header */
         header {
             width: 100%;
-            height: 100px;
-            text-align: left;
-            background-color: #222;
+            height: 100%;
+            text-align: center;
+            background-color: {color:Background};
             margin: 0;
-        }
-        
-         .profile-photo {
-            background: {color:Background};
-            display: block;
-            margin: 20px 0px 5px 0px;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: 3px solid {color:Background};
         }
 
         nav {
             display: block;
-            color: #fff;
-            background-color: none;
-            padding: 0px;
-            padding-top: 25px;
-        }
-        
-        ul.sidelinks {
-            font-size: 10px;
-            text-align: center;
-        }
-        ul.sidelinks li {
             color: {color:Text};
-            text-align: right;  
-            display: inline;
+            background-color: none;
+            margin: 20px;
+            border-top: 1px solid {color:Text};
+            border-bottom: 1px solid {color:Text};
+        }
+
+        ul.sidelinks, ul.sidelinks li {
+            font-size: 11px;
+            color: {color:Text};
+            text-align: center;  
         }
         a.sidelink {
-            color: #fff;
-            background-color: none;
-            text-align: right;
+            color: {color:Text};
+            background-color: transparent;
+            text-align: center;
             display: inline;
-            padding: 1px 7px 1px 7px;
+            padding: 5px 10px;
             margin-bottom: 1px;
             margin-left: 0px;
-            font-size: 10px;
+            font-size: 11px;
             line-height: 14px;
             font-weight: normal;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
         a.sidelink:hover {
-            color: #ddd;
-            background-color: none;
-            text-align: right;
             text-decoration: none;
-            display: inline;
-            padding: 1px 7px 1px 7px;
-            margin-bottom: 1px;
-            margin-left: 0px;
         }
         
-        ul.sidelinks li {
-            text-align: right;  
-            display: block;
+        a.sidelink::before,
+        a.sidelink::after {
+            display: inline-block;
+            opacity: 0;
+            -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+            -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+            transition: transform 0.3s, opacity 0.2s;
         }
         
+        a.sidelink::before {
+            margin-right: 10px;
+            content: '[';
+            -webkit-transform: translateX(20px);
+            -moz-transform: translateX(20px);
+            transform: translateX(20px);
+        }
+        
+        a.sidelink::after {
+            margin-left: 10px;
+            content: ']';
+            -webkit-transform: translateX(-20px);
+            -moz-transform: translateX(-20px);
+            transform: translateX(-20px);
+        }
+        
+        a.sidelink:hover::before,
+        a.sidelink:hover::after,
+        a.sidelink:focus::before,
+        a.sidelink:focus::after {
+            opacity: 1;
+            -webkit-transform: translateX(0px);
+            -moz-transform: translateX(0px);
+            transform: translateX(0px);
+        }
+            
+        /* main post styles */
+        .post {
+            width: 250px;
+            height: auto;
+            float: left;
+            position: relative;
+            background-color: transparent;
+            padding: 25px;
+            overflow: hidden;
+        }
         .post iframe {
             display: block;
             max-width: 100%;
         }
         
-        /* main post styles */
-        .post {
-            width: 250px;
-            float: left;
-            position: relative;
-            background-color: transparent;
-            margin: 5px;
-            overflow: hidden;
-        }
-        
         /* adds padding to things in a post */
         .content {
-            padding: 10px 20px;
-            font-size: 11px;
-            line-height: 120%;
-        }
-        .content2 {
-            padding: 0px 20px 10px 20px;
+            padding: 0px 20px;
             font-size: 11px;
             line-height: 120%;
         }
@@ -260,16 +232,34 @@
         
         .post img {
             background-color: none;
-            width: 250px;
+            max-width: 100%;
             height: auto;
             display: block;
             opacity: 1;
         }
         
-        .photo-post-photo img {
-            width: 250px;
-            max-width: 100%;
+        .photo-post-photo {
+            background-color: none;
+            width: 85%;
             height: auto;
+            display: block;
+            opacity: 1;
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+        
+        .post:hover .photo-post-photo {
+            transform: scale(1.1,1.1);
+        }
+        
+        /* Only show first photoset photo */
+        .photoset-content a {
+            display: none;
+        }
+        .photoset-content a:first-child {
             display: block;
         }
         
@@ -306,6 +296,10 @@
             background-color: transparent;
         }
         
+        .spotify_audio_player {
+            height: 80px;
+        }
+    
         /* shown on the permalink page; has notes, source, and time posted */
         .perma-info {
             color: {color:Text};
@@ -314,14 +308,15 @@
             line-height: 13px;
             font-weight: normal;
             padding: 5px 0px;
-            overflow:hidden;
+            overflow: hidden;
         }
         .perma-info a {
             color: {color:Text};
+            text-decoration: none;
         }
         .perma-info a:hover {
             color: {color:Text};
-            text-decoration: none;
+            text-decoration: underline;
         }
         
         /* notes stuff */
@@ -330,7 +325,7 @@
             padding-left: 0;
         }
         .note {
-            padding: 2px 0px;
+            padding: 1px 0px;
         }
         .note:last-child {
             border-bottom: 0;
@@ -338,29 +333,29 @@
         }
          .note blockquote {
             color: {color:Text};
-            background-color: rgba(48,48.48,0.1);
+            background-color: transparent;
             border: none;
         }
         
         .post .index-info {
             background-color: transparent;
             position: absolute;
-            top: 0px;
-            left: 0px;
+            top: 5px;
+            left: 25px;
             width: 250px;
             height: 100%;
         }
         
         /* remove blank space from bottom of photoset posts */
         iframe.photoset {
-            display: block;   
+            display: block;
         }
         
         /* line */
         hr {
             clear: both;
             border: 0;
-            border-bottom: 1px solid rgba(48,48,48,0.3);
+            border-bottom: 1px solid {color:Text};
             margin: 15px 0px;
         }
         
@@ -392,16 +387,51 @@
             padding: 5px 7px 5px 7px;
         }
         
-        /* Note icons */
-        ol.notes .reblog {background: transparent url('//static.tumblr.com/anzluor/Gw5n6ay0z/reblog.png') right center no-repeat;}
-        ol.notes .like {background: transparent url('//static.tumblr.com/anzluor/0yrn6ay0n/like.png') right center no-repeat;}
-        ol.notes .reply {background: transparent url('//static.tumblr.com/anzluor/n70n6ay1a/reply.png') right center no-repeat;}
+        @media screen and (max-width:1198px) {
+            .wrapper {
+                width: 900px;
+            }
+            .main {
+                width: 900px;
+            }
+        }
+    
+        @media screen and (max-width:898px) {
+            .wrapper {
+                width: 600px;
+            }
+            .main {
+                width: 600px;
+            }
+            h1 {
+                font-size: 60px;
+                line-height: 60px;
+                margin: 30px 50px 20px 50px;
+            }
+        }
         
-        /* tumblr reblog button */
-        .reblog_button {
-            float: right;
-            margin-left: 8px;
-            margin-top: 1px;
+        @media screen and (max-width:598px) {
+            .wrapper {
+                width: 300px;
+            }
+            .main {
+                width: 300px;
+            }
+            h1 {
+                font-size: 32px;
+                line-height: 32px;
+                margin: 30px 25px 20px 25px;
+            }
+            h2, h3 {
+                font-size: 20px;
+                line-height: 20px;
+            }
+            ul.sidelinks li {
+                display: block;
+            }
+            a.sidelink {
+                display: block;
+            }
         }
         
         /* special styling for permalink pages */
@@ -421,6 +451,9 @@
             .post img {
                 width: 500px;
                 height: auto;
+            }
+            .post:hover .photo-post-photo {
+                transform: none;
             }
             .reblog_button {
                 margin-left: 10px;
@@ -458,6 +491,14 @@
             margin-right: 5px;
             border-radius: 50%;
         }
+        img.avatar-ask {
+            width: 64px;
+            height: 64px;
+            vertical-align: middle;
+            display: inline;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
         
         {CustomCSS}
         </style>
@@ -465,8 +506,10 @@
     <body>
     
         <header class="clearfix">
-
-            
+        
+        {block:ShowTitle}<h1>{Title}</h1>{/block:ShowTitle}
+        {block:HideTitle}<h1>&nbsp;</h1>{/block:HideTitle}
+        
         <nav>   
         <center>
             <ul class="sidelinks">
@@ -504,12 +547,6 @@
             </center>
         </nav>
         
-        
-                <center>
-        {block:IfProfilePhotoImage}<img class="profile-photo" src         ="{image:Profile Photo}" alt="" />{/block:IfProfilePhotoImage}
-        {block:IfNotProfilePhotoImage}<img class="profile-photo" src              ="{PortraitURL-128}" alt="" />{/block:IfNotProfilePhotoImage}
-        </center>
-        
 
         </header>
         <div class="wrapper">
@@ -531,7 +568,7 @@
                 
                 {block:Answer}
                     <div class="content">
-                        <img class="avatar" style="float:left" src="{AskerPortraitURL-30}"/>
+                        <img class="avatar-ask" style="float:left" src="{AskerPortraitURL-64}"/>
                         <p>{lang:Asker asked}: <b>{Question}</b></p>
                     </div>
 
@@ -555,7 +592,11 @@
 
                 {block:Photoset}
                     {block:IndexPage}
-                        {Photoset-250}
+                        <figure class="photoset-content">
+                        <center>
+                        {block:Photos}<a href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" alt="{PhotoAlt}" /></a>{/block:Photos}</center>
+                        
+                    </figure>
                     {/block:IndexPage}
                     {block:PermalinkPage}
                         {Photoset-500}
@@ -580,7 +621,7 @@
                 <h4><a href="{URL}" class="link" {Target}>{Name} &rarr;</a></h4>
 
                     {block:Description}
-                        <div class="content2">{Description}</div>
+                        <div class="content">{Description}</div>
                     {/block:Description}
                 {/block:Link}
                 
@@ -620,12 +661,21 @@
                 
 
                 {block:Audio}
-                    {AudioEmbed-250}
-
-                    {block:PermalinkPage}{block:Caption}
-                        <div class="content">{Caption}</div>
-                    {/block:Caption}{/block:PermalinkPage}
-                {/block:Audio}
+                    {block:IndexPage}
+                        <div class="content">
+                        {AudioEmbed}
+                        </div>
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                    {AudioEmbed-500}
+                    {/block:PermalinkPage}
+            {block:PermalinkPage}
+            {block:Caption}
+                {Caption}
+            {/block:Caption}
+            {/block:PermalinkPage}
+    {/block:Audio}
+                
                 
                 {block:IndexPage}
                 <a href='{Permalink}'>
@@ -641,7 +691,6 @@
                 {block:PostNotes}<a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>{/block:PostNotes}
                 {block:ContentSource}&nbsp;&mdash;&nbsp;<a href="{SourceURL}">Source</a>{/block:ContentSource}
                 {block:RebloggedFrom} (<a href="{ReblogParentURL}">via</a>){/block:RebloggedFrom}
-                    {ReblogButton size="14" color="black"}
 
                 {block:Date}<a style="float:right; text-align: right" class="timeago" href='{Permalink}'>{TimeAgo}</a>{/block:Date}
                 
