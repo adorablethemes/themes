@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Copycat
-        version:    2.1.5 (April 7, 2016)
+        version:    2.2 (March 16, 2017)
         from:       adorablethemes.com
         
         -->
@@ -35,9 +35,11 @@
         <meta name="select:Title Font" content="Domine" title="Domine">
         <meta name="select:Title Font" content="Oxygen" title="Oxygen">
         <meta name="select:Title Font" content="Titillium Web" title="Titillium Web">
+        <meta name="select:Title Font" content="Pacifico" title="Pacifico">
         
         <meta name="select:Post Body Font" content="sans-serif" title="sans-serif">
         <meta name="select:Post Body Font" content="serif" title="serif">
+        <meta name="select:Post Body Font" content="monospace" title="monospace">
         
         <meta name="select:Background Image Style" content="tile" title="tile">
         <meta name="select:Background Image Style" content="cover" title="cover">
@@ -61,7 +63,6 @@
 		
 		<meta name="text:Copyright Text" content="">
 		<meta name="text:Header Height" content="250">
-		<meta name="text:Separator" content="&bull;">
 		<meta name="text:Header Opacity" content="1.0">
 		<meta name="text:Post Opacity" content="1.0">
 		
@@ -70,6 +71,7 @@
 		<meta name="text:Instagram Username" content="">
 		<meta name="text:Pinterest Username" content="">
 		<meta name="text:SoundCloud Username" content="">
+		<meta name="text:Twitch Username" content="">
 		<meta name="text:Vine Username" content="">
 		<meta name="text:YouTube Username" content="">
 		<meta name="text:Store URL" content="">
@@ -78,33 +80,33 @@
         <meta name="text:Google Analytics ID" content="">
 		
         <meta name="if:Show Title" content="1">
-        <meta name="if:Show Description" content="1">
+        <meta name="if:Show Description" content="0">
         <meta name="if:Show Archive Link" content="1">
         <meta name="if:Show Random Link" content="0">
+        <meta name="if:Show Liked Posts Link" content="0">
         <meta name="if:Show Search Box" content="1">
         <meta name="if:Show Header Navbar" content="1">
         <meta name="if:Index Photo Captions" content="0">
         <meta name="if:Index Video Captions" content="1">
         <meta name="if:Infinite Scrolling" content="1">
         <meta name="if:Use Real Dates" content="0">
-        <meta name="if:Alternate Photo Meta" content="1">
         <meta name="if:Photoset Only First" content="1">
-        <meta name="if:Colorize Social Links" content="1">
+        <meta name="if:Colorize Social Links" content="0">
         <meta name="if:Rounded Corners" content="1">
-        <meta name="if:Permalink New Window" content="1">
+        <meta name="if:Permalink New Window" content="0">
         {/block:Hidden}
         
         <!--[if lt IE 9]><script src="//static.tumblr.com/hriofhd/Qj0m8pn7q/html5shiv.js"></script><![endif]-->
         
-        <link href="//fonts.googleapis.com/css?family={select:Title Font}" rel="stylesheet" type="text/css">
+        {block:IfShowTitle}<link href="//fonts.googleapis.com/css?family={select:Title Font}" rel="stylesheet" type="text/css">{/block:IfShowTitle}
         
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         
         <style type="text/css">
         body {
 			color: {color:Post Text};
 			background-color: {color:Background};
-			background-image: url('{image:Background}');
+			{block:IfBackgroundImage}background-image: url('{image:Background}');{/block:IfBackgroundImage}
 			background-position: center center;
 			background-attachment: fixed;
 			font-family: Helvetica, Arial, sans-serif;
@@ -196,8 +198,8 @@
         .blog-description {
             color: {color:Description};
 			font-size: 13px;
-			margin-top: 12px;
-			margin-bottom: 12px;
+			margin: 12px auto;
+			width: 75%;
         }
         
         ul {
@@ -208,7 +210,7 @@
         header {
 			text-align: center;
 			background-color: {color:Header};
-			background-color: rgba({RGBcolor:Header}, {text:Header Opacity});
+			{block:IfHeaderOpacity}background-color: rgba({RGBcolor:Header}, {text:Header Opacity});{/block:IfHeaderOpacity}
 			{block:IfHeaderImage}
 			background-image: url('{image:Header}');
 			{/block:IfHeaderImage}
@@ -289,12 +291,12 @@
         
         .search-info {
 			background-color: {color:Post Background};
-			background-color: rgba({RGBcolor:Post Background}, {text:Post Opacity});
+			{block:IfPostOpacity}background-color: rgba({RGBcolor:Post Background}, {text:Post Opacity});{/block:IfPostOpacity}
 			margin-bottom: 16px;
 			margin-left: 8px;
 			margin-right: 8px;
 			overflow: hidden;
-			border-radius: 2px;
+			{block:IfRoundedCorners}border-radius: 2px;{/block:IfRoundedCorners}
 			text-align: center;
         }
         
@@ -302,14 +304,12 @@
 			width: 250px;
 			float: left;
 			background-color: {color:Post Background};
-			background-color: rgba({RGBcolor:Post Background}, {text:Post Opacity});
+			{block:IfPostOpacity}background-color: rgba({RGBcolor:Post Background}, {text:Post Opacity});{/block:IfPostOpacity}
 			margin-bottom: 16px;
 			margin-left: 8px;
 			margin-right: 8px;
 			overflow: hidden;
-			{block:IfRoundedCorners}
-			border-radius: 2px;
-			{/block:IfRoundedCorners}
+			{block:IfRoundedCorners}border-radius: 2px;{/block:IfRoundedCorners}
         }
         
 		.post-content {
@@ -323,6 +323,9 @@
         }
         .font-serif .post-content {
             font-family: Georgia, serif;
+        }
+        .font-monospace .post-content {
+            font-family: Consolas, 'Courier New', Monaco, monospace;
         }
         
         .post a, .post a:hover {
@@ -407,6 +410,12 @@
         .post-share {
             border-top: 0;
         }
+        .share-item {
+            margin-right: 15px;
+        }
+        .share-item .fa {
+            margin-right: 2px;
+        }
         
         .tag:before {
             content: "#";
@@ -442,7 +451,7 @@
             color: rgba({RGBcolor:Post Text}, 0.75);
         }
         
-        {block:IfAlternatePhotoMeta}
+        {block:IfNotIndexPhotoCaptions}
         .photo .post-hover-info {
 			position: absolute;
 			top: -30px;
@@ -469,7 +478,7 @@
 			color: white;
 			text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
         }
-        {/block:IfAlternatePhotoMeta}
+        {/block:IfNotIndexPhotoCaptions}
         
         /* Remove blank space from bottom of iframes */
         .post iframe, figure img {
@@ -527,9 +536,38 @@
         }
         
         /* Note icons */
-        ol.notes .reblog {background: transparent url('//static.tumblr.com/anzluor/Gw5n6ay0z/reblog.png') right center no-repeat;}
-    	ol.notes .like {background: transparent url('//static.tumblr.com/anzluor/0yrn6ay0n/like.png') right center no-repeat;}
-    	ol.notes .reply {background: transparent url('//static.tumblr.com/anzluor/n70n6ay1a/reply.png') right center no-repeat;}
+        .note.like:after {
+            content: '\f004';
+            font-family: FontAwesome;
+            font-size: 10px;
+            float: right;
+            margin-top: -16px;
+            color: rgba({RGBcolor:Post Text},0.6);
+        }
+        .note.reblog:after {
+            content: '\f079';
+            font-family: FontAwesome;
+            font-size: 10px;
+            float: right;
+            margin-top: -16px;
+            color: rgba({RGBcolor:Post Text},0.6);
+        }
+        .note.reply:after {
+            content: '\f075';
+            font-family: FontAwesome;
+            font-size: 10px;
+            float: right;
+            margin-top: -16px;
+            color: rgba({RGBcolor:Post Text},0.6);
+        }
+        .note.answer:after {
+            content: '\f112';
+            font-family: FontAwesome;
+            font-size: 10px;
+            float: right;
+            margin-top: -16px;
+            color: rgba({RGBcolor:Post Text},0.6);
+        }
     	
     	.note blockquote {
     	    border: 0;
@@ -541,17 +579,36 @@
         .pagination {
 			clear: both;
 			text-align: center;
+			margin: 0 auto;
+			margin-bottom: 80px;
         }
         #previous, #next, .page-info {
-            font-size: 13px;
-            background-color: rgba({RGBcolor:Post Background},0.8);
-            color: {color:Post Text};
+            font-size: 11px;
+            text-transform: uppercase;
+            background-color: {color:Post Background};
+            color: rgba({RGBcolor:Post Text},0.75);
             padding: 10px 15px;
-            border-radius: 2px;
+            {block:IfRoundedCorners}border-radius: 2px;{/block:IfRoundedCorners}
         }
         #previous:hover, #next:hover {
-            background-color: rgba({RGBcolor:Post Background},1);
+            color: {color:Post Text};
         }
+        .align-left {
+            text-align: left;
+        }
+        .align-right {
+            text-align: right;
+        }
+        .span33 {
+            width: 33.33%;
+            float: left;
+            min-height: 1px;
+        }
+        {block:IfInfiniteScrolling}
+        .page-1 .pagination {
+            display: none;
+        }
+        {/block:IfInfiniteScrolling}
         
         {block:IfColorizeSocialLinks}
         /* Colorize social links */
@@ -570,6 +627,9 @@
         .link-soundcloud i, .link-soundcloud i:hover {
             color: #e98d42;
         }
+        .link-twitch i, .link-twitch i:hover {
+            color: #8663c5;
+        }
         .link-vine i, .link-vine i:hover {
             color: #00bf8f;
         }
@@ -579,16 +639,21 @@
         {/block:IfColorizeSocialLinks}
         
         /* Infinite scroll loading indicator */
-        .loading {
+        #loading {
             background: white;
             color: black;
-            box-shadow: 0px 0px 25px rgba(0,0,0,0.15);
-            border-radius: 5px;
-            padding: 10px;
+            box-shadow: 0px 0px 45px rgba(0,0,0,0.12);
+            {block:IfRoundedCorners}border-radius: 5px;{/block:IfRoundedCorners}
+            padding: 20px;
             position: fixed;
             top: 49%;
             left: 49%;
             z-index: 999;
+            margin-top: -30px;
+            margin-left: -30px;
+        }
+        .loaded {
+            display: none;
         }
         
         /* Button to open/close the sidebar */
@@ -601,10 +666,13 @@
             left: 0;
             z-index: 999;
             padding: 10px;
-            border-radius: 0 0 3px 0;
+            {block:IfRoundedCorners}border-radius: 0 0 3px 0;{/block:IfRoundedCorners}
             -webkit-transition: left 0.1s ease-in;
             transition: left 0.1s ease-in;
             cursor: pointer;
+        }
+        .tmblr-iframe-pushdown #openMenu {
+            top: 54px;
         }
         
         /* Back-to-top button */
@@ -617,8 +685,8 @@
             bottom: 12px;
             right: 12px;
             z-index: 100;
-            padding: 10px;
-            border-radius: 3px;
+            padding: 5px 10px;
+            {block:IfRoundedCorners}border-radius: 3px;{/block:IfRoundedCorners}
             cursor: pointer;
         }
         
@@ -654,7 +722,7 @@
             background-color: rgba({RGBcolor:Sidebar Text},0.15);
             color: {color:Sidebar Text};
             border: 0;
-            border-radius: 2px;
+            {block:IfRoundedCorners}border-radius: 2px;{/block:IfRoundedCorners}
             padding: 5px;
             margin: 20px;
             width: 190px;
@@ -686,20 +754,21 @@
         /* Indicator for photosets */
         .photoset-note {
             position: absolute;
-            {block:IfAlternatePhotoMeta}
-            bottom: 0;
-            border-radius: 0 5px 0 0;
-            {/block:IfAlternatePhotoMeta}
-            {block:IfNotAlternatePhotoMeta}
-            top: 0;
-            border-radius: 0 0 5px 0;
-            {/block:IfNotAlternatePhotoMeta}
-            left: 0;
+            {block:IfNotIndexPhotoCaptions}
+            bottom: 10px;
+            {/block:IfNotIndexPhotoCaptions}
+            {block:IfIndexPhotoCaptions}
+            top: 10px;
+            {/block:IfIndexPhotoCaptions}
+            left: 10px;
+            {block:IfRoundedCorners}border-radius: 3px;{/block:IfRoundedCorners}
             background-color: black;
             background-color: rgba(0,0,0,0.33);
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.66);
             color: white;
             font-size: 11px;
-            padding: 15px;
+            font-weight: bold;
+            padding: 7px 10px;
         }
         
         /* Audio player sizing */
@@ -766,6 +835,12 @@
     		.post ol.notes {
     		    font-size: 10px;
     		}
+    		.span33 {
+    		    width: 50%;
+    		}
+    		.hide-on-mobile {
+    		    display: none;
+    		}
 		}
 		@media screen and (min-width:1050px) {
 		    .permalink-page .wrapper {
@@ -792,13 +867,15 @@
         <script type="text/javascript">
             var copycat = {{block:IfInfiniteScrolling}infScroll: true,{/block:IfInfiniteScrolling}{block:IfNotInfiniteScrolling}infScroll: false,{/block:IfNotInfiniteScrolling} {block:IndexPage}indexPage: true{/block:IndexPage}{block:PermalinkPage}indexPage: false{/block:PermalinkPage}, prefill: false};
         </script>
+        <noscript><style>.posts-hidden {opacity: 1;} #loading {display: none;}</style></noscript>
     </head>
-    <body class="{block:IndexPage}index-page{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} font-{select:Post Body Font} layout-{select:Max Columns} background-{select:Background Image Style}">
+    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} font-{select:Post Body Font} layout-{select:Max Columns} background-{select:Background Image Style}">
         
         {block:IndexPage}
         <div id="backToTop" class="back-to-top" title="Back to top">
             <i class="fa fa-2x fa-angle-up"></i>
         </div>
+        <div id="loading"><i class="fa fa-lg fa-circle-o-notch fa-spin"></i></div>
         {/block:IndexPage}
         
         <div id="sidebar" class="sidebar">
@@ -815,6 +892,7 @@
                     {block:IfStoreURL}<a class="sidebar-link link-store" href="{text:Store URL}"><li><i class="fa fa-fw fa-shopping-cart"></i> Store</li></a>{/block:IfStoreURL}
                     {block:IfShowArchiveLink}<a class="sidebar-link" href="/archive"><li><i class="fa fa-fw fa-calendar-o"></i> {lang:Archive}</li></a>{/block:IfShowArchiveLink}
                     {block:IfShowRandomLink}<a class="sidebar-link" href="/random"><li><i class="fa fa-fw fa-question-circle"></i> {lang:Random}</li></a>{/block:IfShowRandomLink}
+                    {block:IfShowLikedPostsLink}<a class="sidebar-link" href="https://www.tumblr.com/liked/by/{Name}"><li><i class="fa fa-fw fa-heart-o"></i> {lang:Liked posts}</li></a>{/block:IfShowLikedPostsLink}
                     {block:AskEnabled}<a class="sidebar-link" href="/ask"><li><i class="fa fa-fw fa-envelope-o"></i> {AskLabel}</li></a>{/block:AskEnabled}
                     {block:SubmissionsEnabled}<a class="sidebar-link" href="/submit"><li><i class="fa fa-fw fa-download"></i> {SubmitLabel}</li></a>{/block:SubmissionsEnabled}
                     {block:HasPages}
@@ -843,6 +921,10 @@
                 {block:IfSoundCloudUsername}
                 <a target="_blank" class="sidebar-link link-soundcloud" href="https://soundcloud.com/{text:SoundCloud Username}" title="SoundCloud: {text:SoundCloud Username}"><li><i class="fa fa-fw fa-soundcloud"></i> SoundCloud</li></a>
                 {/block:IfSoundCloudUsername}
+                
+                {block:IfTwitchUsername}
+                <a target="_blank" class="sidebar-link link-twitch" href="https://twitch.tv/{text:Twitch Username}" title="Twitch: {text:Twitch Username}"><li><i class="fa fa-fw fa-twitch"></i> Twitch</li></a>
+                {/block:IfTwitchUsername}
                 
                 {block:IfVineUsername}
                 <a target="_blank" class="sidebar-link link-vine" href="https://vine.co/{text:Vine Username}" title="Vine: {text:Vine Username}"><li><i class="fa fa-fw fa-vine"></i> Vine</li></a>
@@ -891,6 +973,7 @@
             {block:IfStoreURL}<a class="header-link link-store" href="{text:Store URL}"><li>Store</li></a>{/block:IfStoreURL}
             {block:IfShowArchiveLink}<a class="header-link" href="/archive"><li>{lang:Archive}</li></a>{/block:IfShowArchiveLink}
             {block:IfShowRandomLink}<a class="header-link" href="/random"><li>{lang:Random}</li></a>{/block:IfShowRandomLink}
+            {block:IfShowLikedPostsLink}<a class="header-link" href="https://www.tumblr.com/liked/by/{Name}"><li>{lang:Likes}</li></a>{/block:IfShowLikedPostsLink}
             {block:AskEnabled}<a class="header-link" href="/ask"><li>{AskLabel}</li></a>{/block:AskEnabled}
             {block:SubmissionsEnabled}<a class="header-link" href="/submit"><li>{SubmitLabel}</li></a>{/block:SubmissionsEnabled}
             {block:HasPages}
@@ -947,12 +1030,12 @@
                 
                 {block:Answer}
                     <div class="post-content">
-					<p><img class="asker-avatar" src="{AskerPortraitURL-16}" /> <b>{Asker}:</b></p><p>{Question}</p>
+					<p><img class="asker-avatar" src="{AskerPortraitURL-16}" srcset="{AskerPortraitURL-30} 2x" /> <b>{Asker}:</b></p><p>{Question}</p>
 					
 					<hr>
 					
 					{block:Answerer}
-    					<p><img class="asker-avatar" src="{AnswererPortraitURL-16}" /> <b>{Answerer}:</b></p>
+    					<p><img class="asker-avatar" src="{AnswererPortraitURL-16}" srcset="{AnswererPortraitURL-30} 2x" /> <b>{Answerer}:</b></p>
     					
     					{Answer}
     					
@@ -965,11 +1048,11 @@
                 
 
                 {block:Photo}
-                    <figure class="photo-content" width="{PhotoWidth-250}" height="{PhotoHeight-250}">
+                    <figure class="photo-content"{block:IndexPage} width="{PhotoWidth-250}" height="{PhotoHeight-250}"{/block:IndexPage}>
 					{block:PermalinkPage}
-                    {LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-500}" data-retina="{PhotoURL-1280}" alt="{PhotoAlt}" />{LinkCloseTag}
+                    {LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-500}" srcset="{PhotoURL-1280} 2x" alt="{PhotoAlt}" />{LinkCloseTag}
                     {/block:PermalinkPage}
-					{block:IndexPage}<a{block:IfPermalinkNewWindow} target="_blank"{/block:IfPermalinkNewWindow} href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" data-retina="{PhotoURL-500}" alt="{PhotoAlt}" /></a>{/block:IndexPage}
+					{block:IndexPage}<a{block:IfPermalinkNewWindow} target="_blank"{/block:IfPermalinkNewWindow} href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" srcset="{PhotoURL-500} 2x" alt="{PhotoAlt}" /></a>{/block:IndexPage}
 					</figure>
 					
 					{block:IfIndexPhotoCaptions}
@@ -991,10 +1074,10 @@
                 {block:Photoset}
 					{block:IndexPage}
 					{block:IfPhotosetOnlyFirst}
-					<div class="photoset-note"><i class="fa fa-picture-o"></i> Photoset ({PhotoCount} images)</div>
+					<div class="photoset-note">{PhotoCount}</div>
 					<figure class="photoset-content" width="{PhotoWidth-250}" height="{PhotoHeight-250}">
 					    
-					    {block:Photos}<a{block:IfPermalinkNewWindow} target="_blank"{/block:IfPermalinkNewWindow} href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" data-retina="{PhotoURL-500}" alt="{PhotoAlt}" /></a>{/block:Photos}
+					    {block:Photos}<a{block:IfPermalinkNewWindow} target="_blank"{/block:IfPermalinkNewWindow} href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" srcset="{PhotoURL-500} 2x" alt="{PhotoAlt}" /></a>{/block:Photos}
 					    
 					</figure>
 					{/block:IfPhotosetOnlyFirst}
@@ -1033,6 +1116,8 @@
                 {block:Link}
                     <div class="post-content">
 					<h3><a href="{URL}" class="link-post-link"{block:Host}title="{Host}"{/block:Host} {Target}>{Name} &raquo;</a></h3>
+					
+					{Host}{block:Excerpt} &mdash; <em>{Excerpt}</em>{/block:Excerpt}
 
 					{block:Description}<hr>{Description}{/block:Description}
 					</div>
@@ -1105,7 +1190,7 @@
                 
                 {block:IndexPage}
                 <div class="post-hover-info">
-                    {block:Date}<a title="{lang:Permalink}"{block:IfPermalinkNewWindow} target="_blank"{/block:IfPermalinkNewWindow} class="timeago" href="{Permalink}">{block:IfUseRealDates}{ShortMonth} {DayOfMonth}<span class="year_{Year}"> {Year}</span>{/block:IfUseRealDates}{block:IfNotUseRealDates}{TimeAgo}</span>{/block:IfNotUseRealDates} {text:Separator} {NoteCountWithLabel}</a>{/block:Date}
+                    {block:Date}<a title="{lang:Permalink}"{block:IfPermalinkNewWindow} target="_blank"{/block:IfPermalinkNewWindow} class="timeago" href="{Permalink}">{block:IfUseRealDates}{ShortMonth} {DayOfMonth}<span class="year_{Year}"> {Year}</span>{/block:IfUseRealDates}{block:IfNotUseRealDates}{TimeAgo}</span>{/block:IfNotUseRealDates}{block:NoteCount} &bull; {NoteCountWithLabel}{/block:NoteCount}</a>{/block:Date}
                     
                     <a title="Reblog" target="_blank" style="float:right; text-align: right" class="reblog-button" href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
                 </div>
@@ -1119,16 +1204,19 @@
                 <article class="post sidecar not-page">
                 
                 <div class="post-meta post-share">
-                    <a href="{ReblogURL}" class="share-item link-tumblr-reblog" target="_blank"><i class="fa fa-retweet"></i> Reblog</a> {text:Separator} 
-                    <a href="https://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" class="share-item link-facebook-share" target="_blank"><i class="fa fa-facebook"></i> Share</a> {text:Separator} <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" class="share-item link-twitter-tweet" target="_blank"><i class="fa fa-twitter"></i> Tweet</a>
+                    <a href="{ReblogURL}" class="share-item link-tumblr-reblog" target="_blank"><i class="fa fa-retweet"></i> Reblog</a>
+                    <a href="https://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" class="share-item link-facebook-share" target="_blank"><i class="fa fa-facebook-square"></i> Share</a>
+                    <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" class="share-item link-twitter-tweet" target="_blank"><i class="fa fa-twitter"></i> Tweet</a>
+                    {block:NoteCount}
                     <span style="float:right; text-align: right">
                         <span class="postnotes">{NoteCountWithLabel}</span>{/block:PostNotes}
                     </span>
+                    {/block:NoteCount}
                 </div>
 				
                 <div class="post-meta">
                 {block:IfUseRealDates}
-				    <span class="timeago" title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}, {Year}">{ShortMonth} {DayOfMonth} {Year}</span>
+				    <span class="timeago" title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}{DayOfMonthSuffix}, {Year}">{Month} {DayOfMonth}{DayOfMonthSuffix}, {Year}</span>
                 {/block:IfUseRealDates}
                 {block:IfNotUseRealDates}
 				    <span class="timeago">{TimeAgo}</span>
@@ -1136,7 +1224,7 @@
 				
 				<span style="float:right; text-align: right">
 				{block:ContentSource}{lang:Source}: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}
-				{block:RebloggedFrom}{block:ContentSource} {text:Separator} {/block:ContentSource}{lang:Via}: <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}
+				{block:RebloggedFrom}{block:ContentSource} &bull; {/block:ContentSource}{lang:Via}: <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}
 				</span>
 				
                 </div>
@@ -1163,16 +1251,25 @@
             {/block:Posts}
         </div>
       </div>
-    </div>
-    <div class="pagination">
-		{block:Pagination}{block:PreviousPage}<a href="{PreviousPage}" id="previous">&larr; {lang:Previous}</a>{/block:PreviousPage}
-		<span class="page-info">{lang:Page CurrentPage of TotalPages}</span>
-		{block:NextPage}<a href="{NextPage}" id="next">{lang:Next} &rarr;</a>{/block:NextPage}{/block:Pagination}
+    
+        {block:Pagination}
+        <div class="pagination clearfix">
+            <div class="span33 align-left">
+    		{block:PreviousPage}<a href="{PreviousPage}" id="previous">&larr; {lang:Previous}</a>{/block:PreviousPage}
+    		</div>
+    		<div class="span33 hide-on-mobile">
+    		<span class="page-info">{lang:Page CurrentPage of TotalPages}</span>
+    		</div>
+    		<div class="span33 align-right">
+    		{block:NextPage}<a href="{NextPage}" id="next">{lang:Next} &rarr;</a>{/block:NextPage}
+    		</div>
+    	</div>
+    	{/block:Pagination}
 	</div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="//static.tumblr.com/anzluor/z2tn74e8h/masonry.pkgd.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="//static.tumblr.com/anzluor/hJIomvwis/masonry.js"></script>
 	{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-    <script src="//static.tumblr.com/anzluor/Jwrn7rcyd/copycat.min.js"></script>
+    <script src="//static.tumblr.com/anzluor/5thomx8pc/copycat.js"></script>
         {block:IfGoogleAnalyticsID}
             <script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
