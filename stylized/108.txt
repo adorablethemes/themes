@@ -502,7 +502,7 @@
         
         <a href="/">
     {block:IfProfilePhotoImage}<img class="profile-photo" src="{image:Profile Photo}" alt="" />{/block:IfProfilePhotoImage}
-        {block:IfNotProfilePhotoImage}<img class="profile-photo" src="{PortraitURL}" alt="" />{/block:IfNotProfilePhotoImage}
+        {block:IfNotProfilePhotoImage}<img class="profile-photo" src="{PortraitURL-128}" alt="" />{/block:IfNotProfilePhotoImage}
         </a>
             
         {block:Description}
