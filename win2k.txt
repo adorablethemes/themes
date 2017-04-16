@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win2K
-        version:    1.0.1 (March 16, 2017)
+        version:    1.1 (April 12, 2017)
         from:       adorablethemes.com
         
         -->
@@ -25,6 +25,7 @@
         
         <meta name="if:Show Archive Link" content="1">
         <meta name="if:Show Random Link" content="0">
+        <meta name="if:Show Search Box" content="1">
         <meta name="if:Cool Notes" content="1">
         
         <meta name="select:Post Body Font" content="arial" title="Arial">
@@ -413,6 +414,20 @@
             content: "#";
         }
         
+        .search-container {
+            border: 1px solid #808080;
+            border-bottom-color: white;
+            border-right-color: white;
+            width: 100%;
+        }
+        input.search {
+            border: 1px solid #404040;
+            border-bottom-color: #d0d0c8;
+            border-right-color: #d0d0c8;
+            padding: 3px;
+            width: 100%;
+        }
+        
         .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
         .clearfix:after { clear: both; }
         .clearfix { zoom: 1; }
@@ -579,6 +594,13 @@
                     {block:ShowTitle}{Title}{/block:ShowTitle}
                 </div>
                 {block:ShowAvatar}<img src="{PortraitURL-128}" />{/block:ShowAvatar}
+                {block:IfShowSearchBox}
+                <form action="/search" method="get" id="search-form">
+                    <div class="search-container">
+            			<input class="search" type="text" placeholder="{lang:Search}" name="q" value="{SearchQuery}" />
+        			</div>
+    			</form>
+    			{/block:IfShowSearchBox}
                 
                 <ul class="sidebar-links">
                     <a href="/"><div class="button-border"><li>{lang:Home}</li></div></a>
@@ -595,6 +617,8 @@
                     {/block:HasPages}
                     <a href="http://adorablethemes.com/theme/win2k"><div class="button-border"><li>Theme</li></div></a>
                 </ul>
+                
+                
             </div>
         </div>
 	</div>
