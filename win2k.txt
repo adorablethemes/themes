@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win2K
-        version:    1.1 (April 12, 2017)
+        version:    1.2 (July 11, 2017)
         from:       adorablethemes.com
         
         -->
@@ -222,11 +222,11 @@
         .font-verdana .text-area {
             font-family: Verdana, sans-serif;
         }
-        .text-area:blank {
+        .photo .text-area, .video .text-area {
             display: none;
         }
-        .text-area:-moz-only-whitespace {
-            display: none;
+        .photo .text-area.has-caption, .video .text-area.has-caption {
+            display: block;
         }
         .text-area a {
             color: black;
@@ -479,7 +479,7 @@
                 {block:Photo}<div class="media-container">{LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}</div>{/block:Photo}
                 {block:Photoset}<div class="media-container">{Photoset-500}</div>{/block:Photoset}
                 {block:Video}<div class="media-container">{VideoEmbed-500}</div>{/block:Video}
-                <div class="text-area">
+                <div class="text-area{block:Photo}{block:Caption} has-caption{/block:Caption}{/block:Photo}{block:Video}{block:Caption} has-caption{/block:Caption}{/block:Video}">
                     {block:Text}
                         {block:Title}<h2>{Title}</h2>{/block:Title}
                         {Body}
