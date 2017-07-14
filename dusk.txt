@@ -271,7 +271,7 @@
 				{/block:Pages}
 			{/block:HasPages}
 			
-			<a class="header-link" href="http://adorablethemes.com/theme/dusk"><li>Theme</li></a>
+			<a class="header-link" href="http://adorablethemes.com/"><li>Theme</li></a>
 			
         </ul>
 

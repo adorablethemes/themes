@@ -407,7 +407,7 @@ ol.notes .reply {background: transparent url('//static.tumblr.com/anzluor/n70n6a
 			<li><a class="sidebar-link" href="/random">{lang:Random}</a></li>
 		{/block:IfShowRandomLink}
 		
-		<li><a class="sidebar-link" href="http://adorablethemes.com/theme/mini-grid">Tumblr Themes</a></li>
+		<li><a class="sidebar-link" href="http://adorablethemes.com/">Tumblr Themes</a></li>
 		
 	</ul>
     
