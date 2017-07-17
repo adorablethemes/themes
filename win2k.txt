@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win2K
-        version:    1.2 (July 11, 2017)
+        version:    1.2.1 (July 17, 2017)
         from:       adorablethemes.com
         
         -->
@@ -479,7 +479,7 @@
                 {block:Photo}<div class="media-container">{LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}</div>{/block:Photo}
                 {block:Photoset}<div class="media-container">{Photoset-500}</div>{/block:Photoset}
                 {block:Video}<div class="media-container">{VideoEmbed-500}</div>{/block:Video}
-                <div class="text-area{block:Photo}{block:Caption} has-caption{/block:Caption}{/block:Photo}{block:Video}{block:Caption} has-caption{/block:Caption}{/block:Video}">
+                <div class="text-area{block:Photo}{block:Caption} has-caption{/block:Caption}{/block:Photo}{block:Photoset}{block:Caption} has-caption{/block:Caption}{/block:Photoset}{block:Video}{block:Caption} has-caption{/block:Caption}{/block:Video}">
                     {block:Text}
                         {block:Title}<h2>{Title}</h2>{/block:Title}
                         {Body}
