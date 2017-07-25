@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Splash Theme by stylizedthemes.tumblr.com -->
+        <!-- Splash Theme by stylized.adorablethemes.com -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -31,7 +31,7 @@
             line-height: 100%;
             font-weight: normal;
             letter-spacing: 0px;
-            background: #89bee0 url('http://static.tumblr.com/ohnymtu/bXMolou6l/water.jpg');
+            background: #89bee0 url('//static.tumblr.com/ohnymtu/bXMolou6l/water.jpg');
             background-repeat: no-repeat;
             background-position: top left;
             background-attachment: fixed;
@@ -702,7 +702,7 @@
         </div>
       </div>
     </div>
-    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="http://i.imgur.com/0jHzlR4.jpg" alt="" /></a>
+    <a href="http://stylized.adorablethemes.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//i.imgur.com/0jHzlR4.jpg" alt="" /></a>
     {block:IndexPage}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Acrylic Theme by stylizedthemes.tumblr.com -->
+        <!-- Acrylic Theme by stylized.adorablethemes.com -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -16,7 +16,7 @@
         <meta name="color:Background" content="#ffffff"/>
         <meta name="color:Text" content="#222222"/> 
         <meta name="color:Accent" content="#ffbcdf"/> 
-        <meta name="image:Background" content="http://static.tumblr.com/ohnymtu/iYAonc5tc/paint-pink.jpg"/>
+        <meta name="image:Background" content="//static.tumblr.com/ohnymtu/iYAonc5tc/paint-pink.jpg"/>
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>
         <meta name="text:Custom Link 2 URL" content=""/>
@@ -224,7 +224,7 @@
         }
         blockquote {
             color: {color:Text};
-            background-image: url('http://static.tumblr.com/ohnymtu/1q0on2p2b/quotes-mark.png');
+            background-image: url('//static.tumblr.com/ohnymtu/1q0on2p2b/quotes-mark.png');
             background-position: top left;
             background-repeat: no-repeat;
             background-color: rgba({RGBcolor:Accent}, 0.4);
@@ -475,7 +475,7 @@
         <div class="wrapper">
         <header class="clearfix">
         
-        {block:IfProfilePhotoImage}<a href="/"><img class="profile-photo" src         ="{image:Profile Photo}" alt="" /></a>{/block:IfProfilePhotoImage}
+        {block:IfProfilePhotoImage}<a href="/"><img class="profile-photo" src="{image:Profile Photo}" alt="" /></a>{/block:IfProfilePhotoImage}
         {block:IfNotProfilePhotoImage}{/block:IfNotProfilePhotoImage}
                           
         
@@ -514,7 +514,7 @@
                 {block:IfCustomLink3URL}
                     <a class="sidelink" href="{text:Custom Link 3 URL}" target="_blank">{text:Custom Link 3 Name}</a>
                 {/block:IfCustomLink3URL}
-                <a class="sidelink" href="http://stylizedthemes.tumblr.com/" target="_blank" title="Get this theme!">Theme</a>
+                <a class="sidelink" href="http://stylized.adorablethemes.com/" target="_blank" title="Get this theme!">Theme</a>
             </ul>
         </nav>
 
@@ -681,7 +681,7 @@
         </div>
       </div>
     </div>
-                    <!--stylizedthemes.tumblr.com-->
+                    <!--stylized.adorablethemes.com-->
     {block:IndexPage}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
