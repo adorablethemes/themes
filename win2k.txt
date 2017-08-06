@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win2K
-        version:    1.2.1 (July 17, 2017)
+        version:    1.3 (August 6, 2017)
         from:       adorablethemes.com
         
         -->
@@ -22,17 +22,23 @@
         <meta name="color:Title Bar Left" content="#082468">
         <meta name="color:Title Bar Right" content="#a0c8f0">
         <meta name="color:Title Bar Text" content="#ffffff">
-        
+        <meta name="color:Photo Background" content="#d0d0c8">
+
         <meta name="if:Show Archive Link" content="1">
         <meta name="if:Show Random Link" content="0">
+        <meta name="if:Show Liked Posts Link" content="0">
         <meta name="if:Show Search Box" content="1">
+        <meta name="if:Stretch Images" content="1">
         <meta name="if:Cool Notes" content="1">
+        <meta name="if:Infinite Scrolling" content="0">
         
         <meta name="select:Post Body Font" content="arial" title="Arial">
         <meta name="select:Post Body Font" content="comic-sans" title="Comic Sans">
         <meta name="select:Post Body Font" content="courier" title="Courier New">
         <meta name="select:Post Body Font" content="times" title="Times New Roman">
         <meta name="select:Post Body Font" content="verdana" title="Verdana">
+        <meta name="select:Post Body Font" content="consolas" title="Consolas">
+        <meta name="select:Post Body Font" content="tahoma" title="Tahoma">
         
         <meta name="select:Background Image Style" content="tile" title="tile">
         
@@ -100,6 +106,12 @@
             color: black;
             font-size: 11px;
             padding: 4px 0;
+        }
+        .blog-description {
+            text-align: center;
+            padding: 10px;
+            font-size: 10px;
+            word-wrap: break-word;
         }
         .window-border {
             margin: 48px auto;
@@ -207,6 +219,9 @@
             background-color: white;
             padding: 10px 20px;
         }
+        .text-area a.tumblr_blog {
+            text-decoration: none;
+        }
         .font-arial .text-area {
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -222,10 +237,16 @@
         .font-verdana .text-area {
             font-family: Verdana, sans-serif;
         }
-        .photo .text-area, .video .text-area {
+        .font-consolas .text-area {
+            font-family: Consolas, monospace;
+        }
+        .font-tahoma .text-area {
+            font-family: Tahoma, sans-serif;
+        }
+        .photo .text-area, .video .text-area, .audio .text-area {
             display: none;
         }
-        .photo .text-area.has-caption, .video .text-area.has-caption {
+        .photo .text-area.has-caption, .video .text-area.has-caption, .audio .text-area.has-caption {
             display: block;
         }
         .text-area a {
@@ -247,6 +268,11 @@
         .text-area iframe {
             max-width: 100%;
         }
+        .text-area blockquote {
+            border-left: 2px solid black;
+            margin-left: 2px;
+            padding-left: 8px;
+        }
         .status-bar {
             padding: 4px 2px;
             margin-top: 2px;
@@ -260,6 +286,14 @@
         .status-bar a {
             color: black;
         }
+        .grip {
+            float: right;
+            width: 16px;
+            height: 16px;
+            background-image: url('//static.tumblr.com/anzluor/Fgkolwea1/m56u7v9.png');
+            background-repeat: no-repeat;
+            background-position: -160px -32px;
+        }
         
         .media-container {
             border: 1px inset #d0d0c8;
@@ -268,9 +302,14 @@
             border-right-color: white;
             border-bottom-color: white;
             margin-bottom: 2px;
+            background-color: {color:Photo Background};
         }
         .photo-post-photo {
             display: block;
+            {block:IfStretchImages}
+            width: 500px;
+            height: auto;
+            {/block:IfStretchImages}
         }
         .media-container iframe {
             display: block;
@@ -307,18 +346,34 @@
             font-size: 14px;
         }
         
-        .video .text-area {
-            font-family: Tahoma, sans-serif;
+        .video .text-area, .audio .text-area {
             background-color: black;
             color: white;
         }
-        .video .text-area a, .video .text-area a:hover {
+        .video .text-area a, .video .text-area a:hover, .audio .text-area a, .audio .text-area a:hover {
             color: white;   
+        }
+        .video .text-area blockquote, .audio .text-area blockquote {
+            border-left: 2px solid white;
         }
         
         /* Keep reading link arrow */
         a.read_more:after {
             content: " \2192";
+        }
+        
+        .reblog-header {
+            font-weight: bold;
+        }
+        .reblog-header a {
+            text-decoration: none;
+        }
+        .reblog-header img {
+            width: 24px;
+            height: 24px;
+            border-radius: 2px;
+            vertical-align: middle;
+            margin-right: 10px;
         }
         
         {block:IfCoolNotes}
@@ -383,6 +438,12 @@
         }
         {/block:IfNotCoolNotes}
         
+        {block:IfInfiniteScrolling}
+        .pagenav {
+            display: none;
+        }
+        {/block:IfInfiniteScrolling}
+        
         .pagination {
             padding: 10px 0;
         }
@@ -406,6 +467,12 @@
         .page-1 #previous .button, .page-{TotalPages} #next .button {
             color: #808080;
             text-shadow: 1px 1px 0px white;
+        }
+        .intro-page-1 {
+            display: none;
+        }
+        .tag-page .intro-page-1, .search-page .intro-page-1 {
+            display: block;   
         }
         a.tag {
             color: #888;
@@ -432,12 +499,35 @@
         .clearfix:after { clear: both; }
         .clearfix { zoom: 1; }
         </style>
+        {block:IfInfiniteScrolling}<noscript><style>.pagenav{display:block;}</style></noscript>{/block:IfInfiniteScrolling}
     </head>
-    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} font-{select:Post Body Font} background-{select:Background Image Style}">
+    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage}{block:TagPage} tag-page{/block:TagPage}{block:SearchResults} search-page{/block:SearchResults}{block:NoSearchResults} search-page{/block:NoSearchResults} font-{select:Post Body Font} background-{select:Background Image Style}">
     <main>
+    {block:IndexPage}
+    <div class="window-border intro intro-page-{CurrentPage}">
+        <div class="window text">
+            <div class="title-bar">
+                &nbsp;
+            </div>
+            <div class="text-area">
+                {block:TagPage}
+                <p><b><center>{lang:Posts tagged Tag}</center></b></p>
+                {/block:TagPage}
+                {block:SearchResults}
+                <p><b><center>{lang:SearchResultCount results for SearchQuery 2}</center></b></p>
+                {/block:SearchResults}
+                {block:NoSearchResults}
+                <p><b><center>{lang:No results found}</center></b></p>
+                {/block:NoSearchResults}
+                <p><b><center>{lang:Page CurrentPage of TotalPages}</center></b></p>
+            </div>
+        </div>
+    </div>
+    {/block:IndexPage}
+    
     {block:Posts}
-        <div class="window-border">
-            <div class="window {PostType}">
+        <div class="window-border inf-scroll-item">
+            <div id="{PostID}" class="window {PostType}">
                 <div class="title-bar">
                     <div class="icon"></div>
                     {block:Text}
@@ -472,14 +562,15 @@
                 {block:Date}
                 <div class="menu-bar">
                     <ul class="menu-items">
-                        <a href="{ReblogURL}"><li>Reblog</li></a><a href="{Permalink}"><li>{lang:Permalink}</li></a>{block:Photo}{block:HighRes}<a target="_blank" href="{PhotoURL-1280}"><li>{lang:Zoom}</li></a>{/block:HighRes}{block:Photo}{block:ContentSource}<a target="_blank" href="{SourceURL}"><li>{lang:Source}</li></a>{/block:ContentSource}
+                        <a href="{ReblogURL}"><li>Reblog</li></a><a href="{Permalink}"><li>{lang:Permalink}</li></a>{block:Photo}{block:HighRes}<a target="_blank" href="\image\{PostID}"><li>{lang:Zoom}</li></a>{/block:HighRes}{block:Photo}{block:ContentSource}<a target="_blank" href="{SourceURL}"><li>{lang:Source}</li></a>{/block:ContentSource}
                     </ul>
                 </div>
                 {/block:Date}
                 {block:Photo}<div class="media-container">{LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}</div>{/block:Photo}
                 {block:Photoset}<div class="media-container">{Photoset-500}</div>{/block:Photoset}
                 {block:Video}<div class="media-container">{VideoEmbed-500}</div>{/block:Video}
-                <div class="text-area{block:Photo}{block:Caption} has-caption{/block:Caption}{/block:Photo}{block:Photoset}{block:Caption} has-caption{/block:Caption}{/block:Photoset}{block:Video}{block:Caption} has-caption{/block:Caption}{/block:Video}">
+                {block:Audio}<div class="media-container">{AudioEmbed}</div>{/block:Audio}
+                <div class="text-area{block:Photo}{block:Caption} has-caption{/block:Caption}{/block:Photo}{block:Photoset}{block:Caption} has-caption{/block:Caption}{/block:Photoset}{block:Video}{block:Caption} has-caption{/block:Caption}{/block:Video}{block:Audio}{block:Caption} has-caption{/block:Caption}{/block:Audio}">
                     {block:Text}
                         {block:Title}<h2>{Title}</h2>{/block:Title}
                         {Body}
@@ -528,9 +619,9 @@
                         {Caption}
                     {/block:Video}
                     {block:Audio}
-                        {AudioEmbed}
                         {Caption}
                     {/block:Audio}
+                    
                     {block:HasTags}
                         <p>
                         {block:Tags}
@@ -541,7 +632,8 @@
                 </div>
                 {block:Date}
                 <div class="status-bar">
-                    {block:Reblog}<a href="{ReblogParentURL}">{lang:Reblogged from ReblogParentName}</a>{/block:Reblog}{block:NotReblog}<a href="{Permalink}">{lang:Posted TimeAgo}</a>{/block:NotReblog}{block:NoteCount} - <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+                    <div class="grip"></div>
+                    {block:Reblog}<a href="{ReblogParentURL}">{lang:Reblogged from ReblogParentName}</a>{/block:Reblog}{block:NotReblog}<a href="{Permalink}">{lang:Posted TimeAgo}</a>{/block:NotReblog}{block:NoteCount} - <a href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}{block:Audio}{block:PlayCount} - {PlayCountWithLabel}{/block:PlayCount}{/block:Audio}
                 </div>
                 {/block:Date}
             </div>
@@ -569,7 +661,7 @@
     {/block:Posts}
     
     {block:Pagination}
-    <div class="window-border">
+    <div class="window-border pagenav">
         <div class="window">
             <div class="title-bar">
                 {lang:Pages}
@@ -593,7 +685,10 @@
                 <div class="title-bar">
                     {block:ShowTitle}{Title}{/block:ShowTitle}
                 </div>
-                {block:ShowAvatar}<img src="{PortraitURL-128}" />{/block:ShowAvatar}
+                {block:ShowAvatar}<a href="/"><img src="{PortraitURL-128}" /></a>{/block:ShowAvatar}
+                
+                {block:ShowDescription}<div class="blog-description">{Description}</div>{/block:ShowDescription}
+                
                 {block:IfShowSearchBox}
                 <form action="/search" method="get" id="search-form">
                     <div class="search-container">
@@ -606,6 +701,7 @@
                     <a href="/"><div class="button-border"><li>{lang:Home}</li></div></a>
                     {block:IfShowArchiveLink}<a href="/archive"><div class="button-border"><li>{lang:Archive}</li></div></a>{/block:IfShowArchiveLink}
                     {block:IfShowRandomLink}<a href="/random"><div class="button-border"><li>{lang:Random}</li></div></a>{/block:IfShowRandomLink}
+                    {block:IfShowLikedPostsLink}<a href="https://www.tumblr.com/liked/by/{Name}"><div class="button-border"><li>{lang:Liked posts}</li></div></a>{/block:IfShowLikedPostsLink}
                     {block:AskEnabled}
                     <a href="/ask"><div class="button-border"><li>{AskLabel}</li></div></a>
                     {/block:AskEnabled}
@@ -618,14 +714,33 @@
                     <a href="http://adorablethemes.com/theme/win2k"><div class="button-border"><li>Theme</li></div></a>
                 </ul>
                 
-                
             </div>
         </div>
 	</div>
 	
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
     <script>
     $(function(){
+        {block:IndexPage}
+        {block:IfInfiniteScrolling}
+    	var container = $('main');
+    	
+    	container.infinitescroll({
+    		navSelector: '.pagination',    
+    		nextSelector: '.pagination a#next',
+    		itemSelector: '.inf-scroll-item',
+    		loading: {
+    			img: 'data:image/gif;base64,R0lGODlhAQABAHAAACH5BAUAAAAALAAAAAABAAEAAAICRAEAOw==',
+    			msgText: '',
+    			finishedMsg: '',
+    			maxPage: {TotalPages}
+    		}
+    		}
+    	);
+    	{/block:IfInfiniteScrolling}
+    	{/block:IndexPage}
+    	{block:PermalinkPage}
         var nc = note_count.innerHTML;
         nc = nc.replace('notes', 'object(s)');
         note_count.innerHTML = nc;
@@ -638,7 +753,7 @@
             console.log(cl[2]);
             
             var exts = ".exe";
-            var extn = Math.floor(Math.random()*14);
+            var extn = Math.floor(Math.random()*26);
             if (extn == 0) { exts = ".exe"; }
             else if (extn == 1) { exts = ".jpg"; }
             else if (extn == 2) { exts = ".gif"; }
@@ -653,10 +768,23 @@
             else if (extn == 11) { exts = ".wmv"; }
             else if (extn == 12) { exts = ".avi"; }
             else if (extn == 13) { exts = ".mid"; }
+            else if (extn == 14) { exts = ".rar"; }
+            else if (extn == 15) { exts = ".zip"; }
+            else if (extn == 16) { exts = ".mpg"; }
+            else if (extn == 17) { exts = ".xls"; }
+            else if (extn == 18) { exts = ".ppt"; }
+            else if (extn == 19) { exts = ".rtf"; }
+            else if (extn == 20) { exts = ".dll"; }
+            else if (extn == 21) { exts = ".htm"; }
+            else if (extn == 22) { exts = ".scr"; }
+            else if (extn == 23) { exts = ".ico"; }
+            else if (extn == 24) { exts = ".bin"; }
+            else if (extn == 25) { exts = ".ini"; }
             $(this).text(cl[2]+exts);
         });
         
         {/block:IfCoolNotes}
+        {/block:PermalinkPage}
     });
     </script>
     </body>
