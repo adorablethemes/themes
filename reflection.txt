@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Reflection
-        version:    1.4.2 (June 30, 2016)
+        version:    1.4.3 (August 7, 2017)
         from:       adorablethemes.com
         
         -->
@@ -37,6 +37,7 @@
         <meta name="text:Pinterest URL" content="">
         <meta name="text:SoundCloud URL" content="">
         <meta name="text:Steam URL" content="">
+        <meta name="text:Twitch URL" content="">
         <meta name="text:Vine URL" content="">
         <meta name="text:YouTube URL" content="">
     	<meta name="text:Custom Link 1 URL" content="">
@@ -61,7 +62,7 @@
         <meta name="if:Show Header Link Icons" content="1">
         {/block:Hidden}
         
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <style type="text/css">
         body {
 			color: #555;
@@ -74,7 +75,6 @@
             padding-bottom: 0;
         }
         
-        /* Background settings */
         .background-cover {
             background-position: center center;
             background-size: cover;
@@ -87,7 +87,6 @@
             background-repeat: no-repeat;
         }
         
-        /* Containers */
         .wrapper {
             background: white;
 			width: 972px;
@@ -103,7 +102,6 @@
 			width: 972px;
         }
         
-        /* Header images */
         .img-circle {
             border-radius: 96px;
         }
@@ -151,6 +149,10 @@
             letter-spacing: 1px;
         }
         
+        h1.blog-title {
+            font-family: {TitleFont};
+            font-weight: {TitleFontWeight};
+        }
         .blog-description {
             color: #555;
 			font-size: 11px;
@@ -165,7 +167,6 @@
             margin-top: 25px;   
         }
         
-        /* Header styles */
         .header {
 			margin-left: 12px;
 			margin-right: 12px;
@@ -233,7 +234,6 @@
         }
         {/block:IfNotShowHeaderLinkIcons}
         
-        /* footer styles */
         .footer {
             margin-left: 12px;
 			margin-right: 12px;
@@ -244,7 +244,6 @@
             clear: both;
         }
         
-        /* main post styles */
         .post {
 			width: 300px;
 			float: left;
@@ -255,7 +254,6 @@
 			overflow: hidden;
         }
         
-        /* adds padding to things in a post */
 		.index-page .post-content {
 			padding: 20px;
 			font-size: 12px;
@@ -267,7 +265,6 @@
 			line-height: 150%;
         }
         
-        /* text post styles */
         .index-page .post-content p {
 			font-size: 12px;
 			line-height: 150%;
@@ -283,8 +280,8 @@
         }
         .index-page .post-content blockquote {
 			font-size: 12px;
-			padding: 4px;
-			margin: 16px 10px;
+			padding: 0 8px;
+			margin: 16px 0;
 			font-style: italic;
 			border-left: 2px solid {color:Accent};
         }
@@ -304,19 +301,17 @@
         }
         .permalink-page .post-content blockquote {
 			font-size: 13px;
-			padding: 4px;
-			margin: 16px 10px;
+			padding: 0 8px;
+			margin: 16px 0;
 			font-style: italic;
 			border-left: 2px solid {color:Accent};
         }
         
-        /* Control images in non-photo posts */
         .post-content img {
     		max-width: 100%;
     		height: auto;
         }
         
-        /* Contains the title for text posts, the link for link posts, the question for answer posts */
         .post-header {
 			margin: 0;
 			padding: 10px;
@@ -337,7 +332,6 @@
 			display: block;
         }
         
-        /* Chat posts */
         ul.chat {
             list-style-type: none !important;
             padding-left: 0 !important;
@@ -371,7 +365,6 @@
 			margin-left: 5px;
 		}
         
-        /* Shown on the permalink page, has notes, source, and time posted */
         .post-meta {
             color: #999;
 			font-size: 13px;
@@ -389,7 +382,6 @@
             clear: both;
         }
         
-        /* Notes stuff */
         ol.notes {
 			list-style-type: none;
 			padding-left: 0 !important;
@@ -406,7 +398,6 @@
             text-align: right;
         }
         
-        /* Info bar on index page posts */
         .post .post-index-info {
 			width: 290px;
 			font-size: 10px;
@@ -420,7 +411,6 @@
             color: #555;
         }
         
-        /* Drop-down info bar on index page photos */
         .photo .post-index-info {
             color: white;
 			position: absolute;
@@ -448,7 +438,6 @@
 			color: white;   
         }
         
-        /* Remove blank space from bottom of iframes */
         .post iframe {
 			display: block;
             max-width: 100%;
@@ -463,7 +452,6 @@
             height: 533px;
         }
         
-        /* Permalink page */
         {block:PermalinkPage}
 			.main {
 			    float: none;
@@ -489,7 +477,6 @@
 			margin: 15px 10px;
         }
         
-        /* Post note avatars */
         .post .avatar {
 			width: 30px;
 			height: 30px;
@@ -499,7 +486,6 @@
             margin-right: 8px;
         }
         
-        /* Post note like and reblog icons */
         .reblog {background: transparent url('//static.tumblr.com/anzluor/P2qn26w91/fa-retweet.png') right center no-repeat;}
     	.like {background: transparent url('//static.tumblr.com/anzluor/1PQn26wfb/fa-heart.png') right center no-repeat;}
     	.reply {background: transparent url('//static.tumblr.com/anzluor/67En26wkv/fa-reply.png') right center no-repeat;}
@@ -508,7 +494,6 @@
     	    text-transform: lowercase;
     	}
         
-        /* Clearfix */
         .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
         .clearfix:after { clear: both; }
         .clearfix { zoom: 1; }
@@ -516,12 +501,10 @@
 			display: none;
         }
         
-        /* Remove border on linked images in IE */
         a img {
 			border: 0;   
         }
         
-        /* page navigation */
         div.pagination {
             color: #999;
             font-size: 12px;
@@ -554,6 +537,9 @@
         .fa-steam-square {
             color: #1D324A;
         }
+        .fa-twitch {
+            color: #8663c5;
+        }
         .fa-vine {
             color: #16a085;
         }
@@ -577,21 +563,21 @@
         
         <div class="post-content">
             {block:IfNotBannerImage}
+            {block:ShowAvatar}
             <a href="/"><img class="img-{AvatarShape}" src="{PortraitURL-96}" alt="" title="{Title}" /></a>
+            {/block:ShowAvatar}
             {/block:IfNotBannerImage}
             {block:IfBannerImage}
             <a href="/"><img class="img-banner" src="{image:Banner}" alt="" title="{Title}" /></a>
             {/block:IfBannerImage}
         
-            {block:IfShowTitle}
-        	<h1 class="blog-title"><a href="/">{Title}</a></h1>
-        	{/block:IfShowTitle}
+            {block:ShowTitle}
+        	    <h1 class="blog-title"><a href="/">{Title}</a></h1>
+        	{/block:ShowTitle}
         
-            {block:IfShowDescription}
-            {block:Description}
+            {block:ShowDescription}
         		<div class="blog-description">{Description}</div>
-            {/block:Description}
-            {/block:IfShowDescription}
+            {/block:ShowDescription}
         </div>
         
         <nav class="menu clearfix">
@@ -614,6 +600,8 @@
 				{block:IfCustomLink2URL}
 					<li><a class="header-link" href="{text:Custom Link 2 URL}"><i class="fa fa-fw fa-external-link"></i> {text:Custom Link 2 Name}</a></li>
 				{/block:IfCustomLink2URL}
+				
+				<li><a class="header-link" href="http://adorablethemes.com/"><i class="fa fa-fw fa-heart"></i> Theme</a></li>
 			</ul>
 			
 			<ul class="social-links">
@@ -638,6 +626,9 @@
 				{block:IfSteamURL}
 				<li><a class="header-link" href="{text:Steam URL}" title="Steam"><i class="fa fa-fw fa-steam-square fa-lg"></i></a></li>
 				{/block:IfSteamURL}
+				{block:IfTwitchURL}
+				<li><a class="header-link" href="{text:Twitch URL}" title="Twitch"><i class="fa fa-fw fa-twitch fa-lg"></i></a></li>
+				{/block:IfTwitchURL}
 				{block:IfVineURL}
 				<li><a class="header-link" href="{text:Vine URL}" title="Vine"><i class="fa fa-fw fa-vine fa-lg"></i></a></li>
 				{/block:IfVineURL}
@@ -786,7 +777,8 @@
                 
 
                 {block:Video}
-					{Video-700}
+					{block:PermalinkPage}{VideoEmbed-700}{/block:PermalinkPage}
+					{block:IndexPage}{VideoEmbed-400}{/block:IndexPage}
 
 					{block:Caption}
 						<div class="post-content">{Caption}</div>
@@ -864,11 +856,11 @@
 		</div>
       </div>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-	<script src="//static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
+	<script src="//static.tumblr.com/anzluor/hJIomvwis/masonry.js"></script>
 	<script src="//static.tumblr.com/anzluor/HAXmxj1fs/photoset-grid.js"></script>
-	<script src="//static.tumblr.com/anzluor/dOsntb1u4/reflection.min.js"></script>
+	<script src="//static.tumblr.com/anzluor/mi6oubujm/reflection.min.js"></script>
     {block:IfGoogleAnalyticsID}
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
