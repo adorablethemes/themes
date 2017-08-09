@@ -11,7 +11,6 @@
         <meta name="viewport" content="width=1200"/>
         <meta name="image:Profile Photo" content=""/>
         <meta name="font:Body" content="Avalon, Arial, Helvetica, Sans-serif"/>
-        <meta name="color:Text" content="#111111"/>
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>
         <meta name="text:Custom Link 2 URL" content=""/>
