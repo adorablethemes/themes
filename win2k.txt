@@ -864,11 +864,13 @@
                 }).get();
 				$newElems.imagesLoaded(function(){
 					$newElems.css({ opacity: 1 });
-					if (win2k.layout != 'one-column') { container.masonry( 'appended', $newElems, true ); }
-					setTimeout(function(){ container.masonry({
-        				itemSelector : '.inf-scroll-item',
-        				transitionDuration: 0
-        			}); }, 750);
+					if (win2k.layout != 'one-column') {
+    					container.masonry( 'appended', $newElems, true );
+    					setTimeout(function(){ container.masonry({
+            				itemSelector : '.inf-scroll-item',
+            				transitionDuration: 0
+            			}); }, 750);
+					}
 				});
 			}
     	);
