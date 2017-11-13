@@ -4,14 +4,14 @@
         <!-- 
         
         theme:      Win2K
-        version:    1.3 (August 6, 2017)
+        version:    2.0 (November 12, 2017)
         from:       adorablethemes.com
         
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <meta charset="UTF-8">
         <meta name="description" content="{MetaDescription}">
-    	<meta name="viewport" content="width=768">
+    	<meta name="viewport" content="width=1152">
         <link rel="shortcut icon" href="{Favicon}">
         <link rel="apple-touch-icon" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
@@ -31,6 +31,10 @@
         <meta name="if:Stretch Images" content="1">
         <meta name="if:Cool Notes" content="1">
         <meta name="if:Infinite Scrolling" content="0">
+        
+        <meta name="select:Layout" content="one-column" title="One column">
+        <meta name="select:Layout" content="two-column" title="Two columns">
+        <meta name="select:Layout" content="three-column" title="Three columns">
         
         <meta name="select:Post Body Font" content="arial" title="Arial">
         <meta name="select:Post Body Font" content="comic-sans" title="Comic Sans">
@@ -74,18 +78,39 @@
             width: 690px;
             margin: 0 auto;
         }
+        body.layout-two-column {
+            width: 1064px;
+        }
+        body.layout-three-column {
+            width: 1107px;
+        }
         a, a:hover {
             text-decoration: none;
         }
         main {
             float: left;
             width: 510px;
+            margin-top: 64px;
+            margin-bottom: 32px;
+        }
+        .layout-two-column main {
+            width: 884px;
+        }
+        .layout-three-column main {
+            width: 927px;
         }
         .sidebar {
             position: fixed;
             margin-left: 550px;
+            margin-top: 64px;
             width: 136px;
             font-size: 12px;
+        }
+        .layout-two-column .sidebar {
+            margin-left: 884px;
+        }
+        .layout-three-column .sidebar {
+            margin-left: 927px;
         }
         .sidebar-links {
             list-style-type: none;
@@ -114,11 +139,26 @@
             word-wrap: break-word;
         }
         .window-border {
-            margin: 48px auto;
+            margin-bottom: 48px;
+            margin-right: 48px;
             width: 100%;
             border: 1px solid #d0d0c8;
             border-right-color: #404040;
             border-bottom-color: #404040;
+        }
+        main .window-border {
+            width: 510px;
+            float: left;
+        }
+        .layout-two-column main .window-border {
+            width: 410px;
+            margin-right: 32px;
+            margin-bottom: 32px;
+        }
+        .layout-three-column main .window-border {
+            width: 285px;
+            margin-right: 24px;
+            margin-bottom: 24px;
         }
         .window {
             background-color: #d0d0c8;
@@ -273,6 +313,11 @@
             margin-left: 2px;
             padding-left: 8px;
         }
+        .quote-text {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 16px;
+            font-style: italic;
+        }
         .status-bar {
             padding: 4px 2px;
             margin-top: 2px;
@@ -305,14 +350,42 @@
             background-color: {color:Photo Background};
         }
         .photo-post-photo {
-            display: block;
-            {block:IfStretchImages}
-            width: 500px;
+            max-width: 100%;
             height: auto;
-            {/block:IfStretchImages}
+            display: block;
         }
+        {block:IfStretchImages}
+        .layout-one-column .photo-post-photo {
+            width: 500px;
+        }
+        .layout-two-column .photo-post-photo {
+            width: 400px;
+        }
+        .layout-three-column .photo-post-photo {
+            width: 275px;
+        }
+        {/block:IfStretchImages}
+        
         .media-container iframe {
             display: block;
+            max-width: 100%;
+        }
+        .layout-two-column .video .media-container iframe {
+            width: 400px;
+            height: 225px;
+        }
+        .layout-three-column .video .media-container iframe {
+            width: 275px;
+            height: 154px;
+        }
+        
+        .layout-two-column .soundcloud_audio_player {
+            width: 400px;
+            height: 400px;
+        }
+        .layout-three-column .soundcloud_audio_player {
+            width: 275px;
+            height: 275px;
         }
         
         ul.chat {
@@ -444,35 +517,30 @@
         }
         {/block:IfInfiniteScrolling}
         
-        .pagination {
-            padding: 10px 0;
+        .pagenav {
+            float: none !important;
+            margin: 0 auto !important;
+            clear: both;
+            min-width: 400px;
         }
         
-        .pagination .button-border {
-            float: left;
-            width: 50%;
-        }
-        .pagination .button {
-            border: 1px solid #808080;
-            border-top-color: #d0d0c8;
-            border-left-color: #d0d0c8;
+        .pagination {
+            padding: 10px 0;
             text-align: center;
-            color: black;
+        }
+        
+        .pagination a, .pagination span {
             font-size: 12px;
-            padding: 4px 12px;
+            color: black;
+            padding: 3px 6px;
         }
-        .page-1 #previous, .page-{TotalPages} #next {
-            cursor: default;
+        .pagination a:hover {
+            color: {color:Title Bar Text} !important;
+            background-color: {color:Title Bar Left};
         }
-        .page-1 #previous .button, .page-{TotalPages} #next .button {
-            color: #808080;
-            text-shadow: 1px 1px 0px white;
-        }
-        .intro-page-1 {
-            display: none;
-        }
-        .tag-page .intro-page-1, .search-page .intro-page-1 {
-            display: block;   
+        .current-page {
+            color: {color:Title Bar Text} !important;
+            background-color: {color:Title Bar Left};
         }
         a.tag {
             color: #888;
@@ -500,29 +568,56 @@
         .clearfix { zoom: 1; }
         </style>
         {block:IfInfiniteScrolling}<noscript><style>.pagenav{display:block;}</style></noscript>{/block:IfInfiniteScrolling}
+        <script type="text/javascript">
+            var win2k = {{block:IfInfiniteScrolling}infScroll: true,{/block:IfInfiniteScrolling}{block:IfNotInfiniteScrolling}infScroll: false,{/block:IfNotInfiniteScrolling} {block:IndexPage}indexPage: true{/block:IndexPage}{block:PermalinkPage}indexPage: false{/block:PermalinkPage}, layout: '{select:Layout}', prefill: false};
+        </script>
     </head>
-    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage}{block:TagPage} tag-page{/block:TagPage}{block:SearchResults} search-page{/block:SearchResults}{block:NoSearchResults} search-page{/block:NoSearchResults} font-{select:Post Body Font} background-{select:Background Image Style}">
+    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage}{block:TagPage} tag-page{/block:TagPage}{block:SearchResults} search-page{/block:SearchResults}{block:NoSearchResults} search-page{/block:NoSearchResults} font-{select:Post Body Font} background-{select:Background Image Style}{block:IndexPage} layout-{select:Layout}{/block:IndexPage}">
     <main>
+    
+    <div class="posts-container">
+    
     {block:IndexPage}
-    <div class="window-border intro intro-page-{CurrentPage}">
+    
+    {block:TagPage}
+    <div class="window-border intro inf-scroll-item">
         <div class="window text">
             <div class="title-bar">
                 &nbsp;
             </div>
             <div class="text-area">
-                {block:TagPage}
                 <p><b><center>{lang:Posts tagged Tag}</center></b></p>
-                {/block:TagPage}
-                {block:SearchResults}
-                <p><b><center>{lang:SearchResultCount results for SearchQuery 2}</center></b></p>
-                {/block:SearchResults}
-                {block:NoSearchResults}
-                <p><b><center>{lang:No results found}</center></b></p>
-                {/block:NoSearchResults}
-                <p><b><center>{lang:Page CurrentPage of TotalPages}</center></b></p>
             </div>
         </div>
     </div>
+    {/block:TagPage}
+    
+    {block:SearchResults}
+    <div class="window-border intro inf-scroll-item">
+        <div class="window text">
+            <div class="title-bar">
+                &nbsp;
+            </div>
+            <div class="text-area">
+                <p><b><center>{lang:SearchResultCount results for SearchQuery 2}</center></b></p>
+            </div>
+        </div>
+    </div>
+    {/block:SearchResults}
+    
+    {block:NoSearchResults}
+    <div class="window-border intro inf-scroll-item">
+        <div class="window text">
+            <div class="title-bar">
+                &nbsp;
+            </div>
+            <div class="text-area">
+                <p><b><center>{lang:No results found}</center></b></p>
+            </div>
+        </div>
+    </div>
+    {/block:NoSearchResults}
+    
     {/block:IndexPage}
     
     {block:Posts}
@@ -593,12 +688,12 @@
                         {Caption}
                     {/block:Photoset}
                     {block:Link}
-                        <p><a href="{URL}" class="link-post-link"{block:Host} title="{Host}"{/block:Host} {Target}>{Name} &rarr;</a></p>
+                        <h2><a href="{URL}" class="link-post-link"{block:Host} title="{Host}"{/block:Host} {Target}>{Name} &rarr;</a></h2>
                         {Host}{block:Excerpt} &mdash; <em>{Excerpt}</em>{/block:Excerpt}
                         {block:Description}<hr>{Description}{/block:Description}
                     {/block:Link}
                     {block:Quote}
-                        <p style="text-style: italic">{Quote}</p>
+                        <p class="quote-text">{Quote}</p>
                         <p style="text-align: right">&mdash; {Source}</p>
                     {/block:Quote}
                     {block:Chat}
@@ -659,25 +754,35 @@
         {/block:PostNotes}
         {/block:PermalinkPage}
     {/block:Posts}
+    </div>
     
     {block:Pagination}
     <div class="window-border pagenav">
         <div class="window">
-            <div class="title-bar">
-                {lang:Pages}
-            </div>
-                <div class="pagination clearfix">
-            		<a href="{block:PreviousPage}{PreviousPage}{/block:PreviousPage}" id="previous"><div class="button-border"><div class="button">{lang:Previous page}</div></div></a>
-            		<a href="{block:NextPage}{NextPage}{/block:NextPage}" id="next"><div class="button-border"><div class="button">{lang:Next page}</div></div></a>
-            	</div>
-    	    <div class="status-bar">
-                Page {CurrentPage} of {TotalPages}
-            </div>
+            <div class="pagination clearfix">
+        		{block:PreviousPage}<a href="{PreviousPage}" id="previous">&laquo; {lang:Previous}</a>{/block:PreviousPage}
+        		
+        		{block:JumpPagination length="5"}
+                
+                {block:CurrentPage}
+                    <span class="but jump-page current-page">{PageNumber}</span>
+                {/block:CurrentPage}
+            
+                {block:JumpPage}
+                    <a class="but jump-page" href="{URL}">{PageNumber}</a>
+                {/block:JumpPage}
+                
+                {/block:JumpPagination}
+                
+        		{block:NextPage}<a href="{NextPage}" id="next">{lang:Next} &raquo;</a>{/block:NextPage}
+        	</div>
         </div>
     </div>
 	{/block:Pagination}
 	
 	</main>
+	
+
 	
 	<div class="sidebar">
     	<div class="window-border">
@@ -719,10 +824,25 @@
 	</div>
 	
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
     {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
     <script>
     $(function(){
         {block:IndexPage}
+        if (win2k.layout != 'one-column') {
+            var container = $('.posts-container');
+    
+    		container.imagesLoaded( function(){
+    			container.masonry({
+    				itemSelector : '.inf-scroll-item',
+    				transitionDuration: 0
+    			});
+    			setTimeout(function(){ container.masonry({
+    				itemSelector : '.inf-scroll-item',
+    				transitionDuration: 0
+    			}); }, 750);
+    		});
+        }
         {block:IfInfiniteScrolling}
     	var container = $('main');
     	
@@ -736,7 +856,21 @@
     			finishedMsg: '',
     			maxPage: {TotalPages}
     		}
-    		}
+    	    },
+			function( newElements ) {
+				var $newElems = $( newElements ).css({ opacity: 0 });
+                var $newElemsIDs = $newElems.map(function () { 
+                    return this.id; 
+                }).get();
+				$newElems.imagesLoaded(function(){
+					$newElems.css({ opacity: 1 });
+					if (win2k.layout != 'one-column') { container.masonry( 'appended', $newElems, true ); }
+					setTimeout(function(){ container.masonry({
+        				itemSelector : '.inf-scroll-item',
+        				transitionDuration: 0
+        			}); }, 750);
+				});
+			}
     	);
     	{/block:IfInfiniteScrolling}
     	{/block:IndexPage}
