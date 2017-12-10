@@ -251,7 +251,7 @@
             text-align: center;
             letter-spacing: 5px;
             font-size: 22px;
-            color: #b2daf1;
+            color: #c1e1f4;
             margin-top: -5px;
             margin-bottom: -10px;
         }
@@ -372,7 +372,7 @@
         hr {
             clear: both;
             border: 0;
-            border-bottom: 1px solid rgba(178,218,241,0.3);
+            border-bottom: 1px solid #c1e1f4;
             margin: 15px 0px;
         }
         
