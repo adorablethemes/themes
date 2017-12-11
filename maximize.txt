@@ -4,7 +4,7 @@
         <!-- 
 
         theme:      Maximize
-        version:    1.0.1 (March 20, 2015)
+        version:    1.1 (December 11, 2017)
         from:       adorablethemes.com
 
         -->
@@ -15,8 +15,6 @@
         <link rel="apple-touch-icon" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
-        {block:PermalinkPagination}{block:PreviousPost}<link rel="prev" href="{PreviousPost}">{/block:PreviousPost}
-        {block:NextPost}<link rel="next" href="{NextPost}">{/block:NextPost}{/block:PermalinkPagination}
 
         {block:Hidden}
         <meta name="select:Header Image Style" content="cover" title="cover">
@@ -35,6 +33,8 @@
         <meta name="color:Quote Post Tiles" content="#645a4c">
         <meta name="color:Link Post Tiles" content="#4a6658">
         <meta name="color:Audio Post Tiles" content="#5d4f6b">
+        <meta name="color:Hover" content="#000000">
+        <meta name="color:Hover Text" content="#ffffff">
 
         <meta name="text:Google Analytics ID" content="">
         <meta name="text:Header Height" content="220">
@@ -45,7 +45,7 @@
         <meta name="if:Show Header Navbar" content="1">
         {/block:Hidden}
 
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="//static.tumblr.com/anzluor/fwbngv12n/magnific-popup.css" rel="stylesheet">
 
         <style type="text/css">
@@ -201,6 +201,9 @@
         .post img, .post iframe, .mfp-content iframe {
             max-width: 100%;
         }
+        .post img {
+            height: auto;
+        }
         .post figure {
             margin: 0;
             text-align: center;
@@ -282,20 +285,20 @@
             font-size: 11px;
             line-height: 30px;
             font-weight: normal;
-            background: rgba(0,0,0,0);
+            background: rgba({RGBcolor:Hover},0);
             border-top: 0;
-            z-index: 100;
+            z-index: 99;
             opacity: 0;
             -webkit-transition: all 0.15s ease-in-out;
             transition: all 0.15s ease-in-out;
         }
         .photo:hover .photo-hover, .video:hover .photo-hover {
-            background: rgba(0,0,0,0.7);
+            background: rgba({RGBcolor:Hover},0.7);
             opacity: 1;
         }
         .photo-hover a, .photo-hover a:hover {
             font-size: 18px;
-            color: white;
+            color: {color:Hover Text};
             text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
         }
 
@@ -460,6 +463,9 @@
             .span33 {
                 width: 100%;
             }
+            .post {
+                padding: 10px;
+            }
         }
 
         @media only screen and (min-width:361px) and (max-width: 768px) {
@@ -469,6 +475,9 @@
             }
             .tile-image {
                 height: 200px;
+            }
+            .post {
+                padding: 10px;
             }
         }
 
@@ -547,10 +556,10 @@
             {/block:ShowTitle}
             
             {block:ShowDescription}
-            {block:Description}
                 <div class="blog-description">{Description}</div>
-            {/block:Description}
             {/block:ShowDescription}
+            
+            {block:HideTitle}{block:HideDescription}&nbsp;{/block:HideDescription}{/block:HideTitle}
             
         </div>
 
@@ -578,7 +587,7 @@
 
         {block:Posts}
             {block:IndexPage}
-            <article id="{PostID}" class="tile {PostType}">
+            <article id="{PostID}" class="tile {PostType}" data-perma="{Permalink}">
             {/block:IndexPage}
             {block:PermalinkPage}
             <article id="{PostID}" class="post">
@@ -743,14 +752,14 @@
             <div class="photo-hover">
                 <div class="inside">
                 {block:Photo}
-                    <a class="photo-zoom" href="{Permalink}" data-mfp-src="{PhotoURL-1280}"><i class="fa fa-fw fa-search-plus fa-lg"></i></a>
+                    <a class="photo-zoom" href="#" data-mfp-src="{PhotoURL-1280}"><i class="fa fa-fw fa-search-plus fa-lg"></i></a>
                     <a class="permalink" href="{Permalink}" title="{lang:Permalink}"><i class="fa fa-fw fa-link fa-lg"></i></a><br>
                     <a class="time-ago" href="{Permalink}">{TimeAgo}</a>
                 {/block:Photo}
                 {block:Photoset}
                 <div class="photoset-photos">
                     {block:Photos}
-                    <a class="photoset-zoom" href="{Permalink}" data-mfp-src="{PhotoURL-1280}"><i class="fa fa-search-plus fa-lg"></i></a>
+                    <a class="photoset-zoom" href="#" data-mfp-src="{PhotoURL-1280}"><i class="fa fa-search-plus fa-lg"></i></a>
                     {/block:Photos}
                 </div>
                 <a class="permalink" href="{Permalink}" title="{lang:Permalink}"><i class="fa fa-fw fa-link fa-lg"></i></a><br>
@@ -818,8 +827,8 @@
         
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="//static.tumblr.com/anzluor/sn4n7owrz/jquery.maginific-popup.min.js"></script>
-        {block:IfInfiniteScrolling}<script type="text/javascript" src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-        <script type="text/javascript" src="//static.tumblr.com/anzluor/3sXnhd3yr/maximize.min.js"></script>
+        {block:IfInfiniteScrolling}<script type="text/javascript" src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
+        <script type="text/javascript" src="//static.tumblr.com/anzluor/oC6p0s4ek/maximize.min.js"></script>
 
         {block:IfGoogleAnalyticsID}
         <script>
