@@ -9,6 +9,7 @@
         {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=1024"/>
+        <meta name="font:Title" content="Helvetica"/>
         <meta name="font:Body" content="Helvetica"/>
         <meta name="image:Profile Photo" content=""/>
         <meta name="color:Background" content="#c5deed"/>
@@ -71,7 +72,7 @@
             width: 270px;
             font-size: 32px;
             line-height: 32px;
-            font-family: {font:Body};
+            font-family: {font:Title};
             color: {color:Text};
             background-color: transparent;
             margin: 10px 2px -5px 2px;
