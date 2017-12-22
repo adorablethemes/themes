@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Jubilee Theme by stylized.adorablethemes.com -->
+        <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+        <link rel="shortcut icon" href="{Favicon}"/>
+        <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+        <link rel="alternate" type="application/rss+xml" href="{RSS}"/>
+        {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {block:Hidden}
+        <meta name="image:Profile Photo" content=""/>
+        <meta name="font:Body" content="georgia, times, serif"/>
+        <meta name="text:Custom Link 1 URL" content=""/>
+        <meta name="text:Custom Link 1 Name" content=""/>
+        <meta name="text:Facebook URL" content=""/>
+        <meta name="text:Instagram URL" content=""/>
+        <meta name="text:Twitter URL" content=""/>
+        <meta name="if:Show Archive Link" content="1"/>
+        <meta name="if:Show Random Link" content="0"/>
+        {/block:Hidden}
+        <!--[if (lte IE 8)]><script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas" rel="stylesheet"> 
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <style type="text/css">
+        body {
+            color: #8d89ce;
+            background: #fff url('https://static.tumblr.com/ohnymtu/kKNp1c87d/snowflakes2.png');
+            background-repeat: repeat;
+            background-position: top left;
+            background-attachment: fixed;
+            font-family: {font:Body};
+            margin: 0;
+        }
+        
+        /* containers */
+        .wrapper {
+            width: 100%;
+        }
+        .main {
+            background-color: #fff;
+            width: 530px;
+            margin: 50px auto;
+            padding-bottom: 20px;
+            -webkit-box-shadow: 0px 3px 15px 1px rgba(48,48,48,0.20);
+            -moz-box-shadow: 0px 3px 15px 1px rgba(48,48,48,0.20);
+            box-shadow: 0px 3px 15px 1px rgba(48,48,48,0.20);
+        }
+        
+        @media screen and (max-width:562px) {
+            .main {
+                width: 280px;
+            }
+            .post {
+                max-width: 250px;
+            }
+            .post img {
+                max-width: 250px;
+            }
+            .post .index-info {
+                max-width: 230px;
+            }
+        }
+        
+        a {
+            color: #8d89ce;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #b5b2e7;
+            text-decoration: none;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        /* headings */
+        h1 {
+            font-size: 36px;
+            line-height: 36px;
+            display: block;
+            font-family: 'Mountains of Christmas', cursive;
+            color: #fff;
+            background-color: transparent;
+            margin-top: 10px;
+            padding: 0px;
+            text-align: center;
+            font-weight: normal;
+        }
+        h1 a, h1 a:hover, h3 a, h3 a:hover, h4 a, h4 a:hover {
+            color: #8d89ce;
+            text-decoration: none;
+        }
+        h2, h3 {
+            color: #8d89ce;
+            font-size: 24px;
+            line-height: 24px;
+            padding: 5px;
+            margin-bottom: 0px;
+            text-align: center;
+            font-family: 'Mountains of Christmas', cursive;
+            font-weight: normal;
+            text-transform: normal;
+        }
+        h4 {
+            color: #8d89ce;
+            font-size: 22px;
+            line-height: 22px;
+            padding: 5px 15px 20px 15px;
+            margin-bottom: 0px;
+            text-align: center;
+            font-family: 'Mountains of Christmas', cursive;
+            font-weight: normal;
+            text-transform: normal;
+        }
+        
+        /* header */
+        header {
+            width: 100%;
+            height: 127px;
+            text-align: left;
+            background-color: #b5b2e7;
+            padding-top: 20px;
+        }
+        
+         .profile-photo {
+            background: #b5b2e7;
+            margin: 6px 0px 5px 0px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            border: 3px solid #b5b2e7;
+        }
+
+        nav {
+            display: block;
+            background-color: none;
+            margin-top: -8px;
+        }
+        
+        ul.sidelinks {
+            font-size: 10px;
+            text-align: center;
+        }
+        a.sidelink {
+            color: #fff;
+            background-color: none;
+            text-align: right;
+            display: inline;
+            padding: 1px 7px 1px 7px;
+            margin-bottom: 1px;
+            margin-left: 0px;
+            font-size: 10px;
+            line-height: 14px;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+        a.sidelink:hover {
+            color: rgba(255,255,255,0.7);
+            background-color: none;
+            text-align: right;
+            text-decoration: none;
+            display: inline;
+            padding: 1px 7px 1px 7px;
+            margin-bottom: 1px;
+            margin-left: 0px;
+        }
+        
+        .post iframe {
+            display: block;
+            max-width: 100%;
+        }
+        
+        /* main post styles */
+        .post {
+            width: 500px;
+            float: left;
+            position: relative;
+            background-color: transparent;
+            margin: 15px 15px 0px 15px;
+            overflow: hidden;
+        }
+        
+        /* adds padding to things in a post */
+        .content {
+            padding: 10px 20px;
+            font-size: 11px;
+            line-height: 120%;
+        }
+        .content2 {
+            padding: 0px 20px 10px 20px;
+            font-size: 11px;
+            line-height: 120%;
+        }
+        
+        /* text post styles */
+        .text p {
+            font-size: 11px;
+            line-height: 120%;
+            text-align: justify;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            -ms-hyphens: auto;
+            -o-hyphens: auto;
+            hyphens: auto;
+        }
+        .text ul {
+            list-style-type: square;
+            font-size: 10px;
+            padding-left: 20px;
+        }
+        blockquote {
+            color: #8d89ce;
+            background-color: transparent;
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 20px;
+            line-height: 130%;
+            padding: 20px 5px;
+            margin: 6px 1px;
+        }
+        .source, .source p, .source a, .source a:hover {
+            color: #8d89ce;
+            font-size: 11px;
+            line-height: 120%;
+            text-align: right;
+            text-transform: normal;
+        }
+        
+        /*stylizedthemes.tumblr.com*/
+        
+        .post img {
+            background-color: none;
+            width: 500px;
+            height: auto;
+            display: block;
+            opacity: 1;
+        }
+        
+        .photo-post-photo img {
+            width: 500px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .chat {
+            font-size: 13px;
+            line-height: 16px;
+        }
+        .chat .label {
+            font-weight: bold;
+            text-align: right;
+        }
+        .chat li {
+            border-bottom: none;
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+        .chat li:last-child {
+            border-bottom: none;   
+        }
+        
+        .answer img {
+            width: 100%;
+            height: auto;
+            margin-left: 0px;
+        }
+        
+        a img.credit {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+        
+        .imgback {
+            background-color: transparent;
+        }
+        
+        /* shown on the permalink page; has notes, source, and time posted */
+        .perma-info {
+            color: #8d89ce;
+            background-color: transparent;
+            font-size: 11px;
+            line-height: 13px;
+            font-weight: normal;
+            padding: 5px 0px;
+            overflow:hidden;
+        }
+        .perma-info a {
+            color: #8d89ce;
+        }
+        .perma-info a:hover {
+            color: #8d89ce;
+            text-decoration: none;
+        }
+        
+        /* notes stuff */
+        ol.notes {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .note {
+            padding: 2px 0px;
+        }
+        .note:last-child {
+            border-bottom: 0;
+            margin-bottom: 15px;
+        }
+         .note blockquote {
+            color: #8d89ce;
+            background-color: transparent;
+            border: none;
+        }
+        
+        .post .index-info {
+            font-family: {font:Body};
+            font-size: 11px;
+            line-height: 13px;
+            color: #8d89ce;
+            background-color: transparent;
+            position: relative;
+            width: 498px;
+            height: 100%;
+            padding: 5px 1px;
+        }
+        
+        .post .photo-hover {
+            background-color: rgba(255,255,255,0.1);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 500px;
+            height: 100%;
+            padding: 15px;
+            -webkit-opacity: 0;
+            -moz-opacity: 0;
+            opacity: 0;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+         .post:hover .photo-hover {
+            -webkit-opacity: 1;
+            -moz-opacity: 1;
+            opacity: 1;
+        }
+        
+        /* remove blank space from bottom of photoset posts */
+        iframe.photoset {
+            display: block;   
+        }
+        /* remove blank space from bottom of audio posts */
+        .tumblr_audio_player { 
+            height: 85px; 
+        }
+        
+        /* line */
+        hr {
+            clear: both;
+            border: 0;
+            border-bottom: 1px solid rgba(141,137,206,0.3);
+            margin: 15px 0px;
+        }
+        
+        /* fix height of element with floats inside */
+        .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+        .clearfix:after { clear: both; }
+        .clearfix { zoom: 1; }
+        
+        /* remove border on linked images in IE */
+        a img {
+            border: 0;   
+        }
+        
+        /* you shouldn't see this div if infinite scroll is on */
+        div.pagination {
+            background-color: none;
+            padding-top: 15px;
+            clear: both;
+            text-align: center;
+        }
+        
+        /* previous and next page buttons */
+        div.pagination a{
+            background-color: #aaa7db;
+            color: #fff;
+            border: 1px solid #8d89ce;
+            font-family: {font:Body};
+            font-size: 11px;
+            font-weight: normal;
+            padding: 5px 7px;
+            margin: 1px;
+        }
+        div.pagination a:hover, .current-page {
+            background-color: #b5b2e7;
+            color: #fff;
+            border: 1px solid #8d89ce; 
+            font-family: {font:Body};
+            font-size: 11px;
+            font-weight: normal;
+            padding: 5px 7px;
+            margin: 1px;
+        }
+        
+        /* special styling for permalink pages */
+        {block:PermalinkPage}
+        .post:hover .photo-hover {
+            display:none;
+        }
+        {/block:PermalinkPage}
+        
+        /* make sure avatars don't get huge */
+        img.avatar {
+            width: 25px;
+            height: 25px;
+            vertical-align: middle;
+            display: inline;
+            margin-right: 5px;
+            border-radius: 50%;
+            border: 2px solid #b5b2e7;
+        }
+        {CustomCSS}
+        </style>
+    </head>
+    <body>
+    
+        <header class="clearfix">
+        
+            <a href="/"><h1>{Title}</h1></a>
+
+        <nav>   
+        <center>
+            <ul class="sidelinks">
+            
+            <a class="sidelink" href="/" title="home"><i class="fa fa-home"></i></a>
+            
+                {block:HasPages}
+                    {block:Pages}
+                    <a class="sidelink" href="{URL}" title="{Label}"><i class="fa fa-file"></i></a>
+                    {/block:Pages}
+                {/block:HasPages}
+                
+                {block:AskEnabled}<a class="sidelink" href="/ask" title="ask"><i class="fa fa-envelope-o"></i></a>{/block:AskEnabled}
+                
+                {block:SubmissionsEnabled}<a class="sidelink" href="/submit" title="submit"><i class="fa fa-cog"></i></a>{/block:SubmissionsEnabled}
+                
+                {block:IfShowArchiveLink}<a class="sidelink" href="/archive" title="archive"><i class="fa fa-folder-open"></i></a>{/block:IfShowArchiveLink}
+                
+                {block:IfShowRandomLink}<a class="sidelink" href="/random" title="random"><i class="fa fa-random"></i></a>{/block:IfShowRandomLink}
+                
+                {block:IfCustomLink1URL}
+                    <a class="sidelink" href="{text:Custom Link 1 URL}"  title="{text:Custom Link 1 Name}"><i class="fa fa-snowflake-o"></i></a>
+                {/block:IfCustomLink1URL}
+                
+                {block:IfFacebookURL}
+                    <a class="sidelink" href="{text:Facebook URL}" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a>
+                {/block:IfFacebookURL}
+                
+                {block:IfInstagramURL}
+                    <a class="sidelink" href="{text:Instagram URL}" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a>
+                {/block:IfInstagramURL}
+                
+                {block:IfTwitterURL}
+                    <a class="sidelink" href="{text:Twitter URL}" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a>
+                {/block:IfTwitterURL}
+                
+                    <a class="sidelink" href="http://stylized.adorablethemes.com/" target="_blank" title="get this theme!"><i class="fa fa-copyright"></i></a>
+            </ul>
+            </center>
+        </nav>
+        
+            <center>
+        {block:IfProfilePhotoImage}<img class="profile-photo" src="{image:Profile Photo}" alt="" />{/block:IfProfilePhotoImage}
+            </center>
+
+        </header>
+        
+        <div class="wrapper">
+        <div class="main">
+
+        <ul id="posts">
+            {block:Posts}
+                <li class="post {PostType}">
+                
+               {block:Photo}<a href="{Permalink}"><div class="photo-hover"></div></a>{/block:Photo}
+               {block:Photoset}<a href="{Permalink}"><div class="photo-hover"></div></a>{/block:Photoset}
+                                
+                {block:Text}
+                    {block:Title}
+                        <h3>{Title}</h3>
+                    {/block:Title}
+
+                    <div class="content">{Body}</div>
+                {/block:Text}
+                
+                
+                {block:Answer}
+                    <div class="content">
+                        <img class="avatar" style="float:left" src="{AskerPortraitURL-30}"/>
+                        <p>{lang:Asker asked}: <b>{Question}</b></p>
+                    </div>
+
+                    <div class="content">{Answer}</div>
+                {/block:Answer}
+                
+
+                {block:Photo}
+                    {block:IndexPage}
+                        <div class="imgback"><center><a href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-500}" alt="{PhotoAlt}" /></a></center></div>
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                        <div class="imgback"><center>{LinkOpenTag}<img src="{PhotoURL-1280}" class="photo-post-photo" alt="{PhotoAlt}" />{LinkCloseTag}</center></div>
+                    {/block:PermalinkPage}
+
+                    {block:PermalinkPage}{block:Caption}
+                        <div class="content">{Caption}</div>
+                    {/block:Caption}{/block:PermalinkPage}
+                {/block:Photo}
+                
+
+                {block:Photoset}
+                    {block:IndexPage}
+                        {Photoset-500}
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                        {Photoset-500}
+                    {/block:PermalinkPage}
+
+                    {block:PermalinkPage}{block:Caption}
+                        <div class="content">{Caption}</div>
+                    {/block:Caption}{/block:PermalinkPage}
+                {/block:Photoset}
+                
+
+                {block:Quote}
+                    <div class="content"><blockquote>"{Quote}"</blockquote>
+
+                    {block:Source}
+                        <div class="source"><i class="fa fa-snowflake-o"></i> {Source}</div>
+                    {/block:Source}
+                    </div>
+                {/block:Quote}
+                
+
+                {block:Link}
+                <h4><a href="{URL}" class="link" {Target}>{Name} &rarr;</a></h4>
+
+                    {block:Description}
+                        <div class="content2">{Description}</div>
+                    {/block:Description}
+                {/block:Link}
+                
+
+                {block:Chat}
+                    {block:Title}
+                        <h3><a href="{Permalink}">{Title}</a></h3>
+                    {/block:Title}
+                    <div class="content">
+                    <ul class="chat">
+                        {block:Lines}
+                            <li class="{Alt} user_{UserNumber}">
+                                {block:Label}
+                                    <span class="label">{Label}</span>
+                                {/block:Label}
+
+                                <span class="line">{Line}</span>
+                            </li>
+                        {/block:Lines}
+                    </ul>
+                    </div>
+                {/block:Chat}
+                
+
+                {block:Video}
+                    {block:IndexPage}
+                        {VideoEmbed-500}
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                        {VideoEmbed-500}
+                    {/block:PermalinkPage}
+
+                    {block:PermalinkPage}{block:Caption}
+                        <div class="content">{Caption}</div>
+                    {/block:Caption}{/block:PermalinkPage}
+                {/block:Video}
+                
+
+                {block:Audio}
+                    {AudioEmbed-500}
+
+                    {block:PermalinkPage}{block:Caption}
+                        <div class="content">{Caption}</div>
+                    {/block:Caption}{/block:PermalinkPage}
+                {/block:Audio}
+                
+                {block:IndexPage}
+                <div class="index-info">
+
+                <a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>
+                {block:ContentSource}&nbsp;&mdash;&nbsp;<a href="{SourceURL}">Source</a>{/block:ContentSource}
+                {block:RebloggedFrom} (<a href="{ReblogParentURL}">via</a>){/block:RebloggedFrom}
+                {block:Date}<a style="float:right; text-align: right" class="timeago" href='{Permalink}'>{TimeAgo}</a>{/block:Date}
+                </div>
+                {/block:IndexPage}
+                
+                {block:PermalinkPage}
+                {block:PermalinkPagination}
+                <div class="perma-info">
+                
+                <a class="postnotes" href='{Permalink}'>{NoteCountWithLabel}</a>
+                {block:ContentSource}&nbsp;&mdash;&nbsp;<a href="{SourceURL}">Source</a>{/block:ContentSource}
+                {block:RebloggedFrom} (<a href="{ReblogParentURL}">via</a>){/block:RebloggedFrom}
+
+                {block:Date}<a style="float:right; text-align: right" class="timeago" href='{Permalink}'>{TimeAgo}</a>{/block:Date}
+                
+                {block:PostNotes}
+                    <hr />
+                    {PostNotes-64}
+                {/block:PostNotes}
+                </div>
+                {/block:PermalinkPagination}
+                {/block:PermalinkPage}
+                </li>
+            {/block:Posts}
+        </ul>
+        
+        <div class="pagination">
+            {block:Pagination}
+                  {block:PreviousPage}
+                        <a href="{PreviousPage}" id="next"><i class="fa fa-caret-left"></i></a>
+                  {/block:PreviousPage}
+            
+                  {block:JumpPagination length="5"}
+                        {block:CurrentPage}
+                              <span class="current-page">{PageNumber}</span>
+                        {/block:CurrentPage}
+            
+                        {block:JumpPage}
+                              <a class="jump-page" href="{URL}">{PageNumber}</a>
+                        {/block:JumpPage}
+                  {/block:JumpPagination}
+            
+                  {block:NextPage}
+                        <a href="{NextPage}" id="next"><i class="fa fa-caret-right"></i></a>
+                  {/block:NextPage}
+            {/block:Pagination}
+        </div>
+        
+      </div>
+    </div>
+    <a href="http://stylized.adorablethemes.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/fmJoejmpk/credit3.jpg" alt="" /></a>
+    </body>
+</html>
