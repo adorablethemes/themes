@@ -767,7 +767,7 @@
             <a target="_blank" class="link-youtube" href="{text:YouTube URL}"><i class="fa fa-fw fa-youtube"></i></a>
             {/block:IfYouTubeURL}
         </div>
-        <a class="theme-link" href="http://adorablethemes.com/theme/castle">theme</a>
+        <a class="theme-link" href="https://adorablethemes.com/theme/castle">theme</a>
         
         </div>
         

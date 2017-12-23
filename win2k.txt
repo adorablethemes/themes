@@ -816,14 +816,14 @@
                     {block:HasPages}
                     {block:Pages}<a href="{URL}"><div class="button-border"><li>{Label}</li></div></a>{/block:Pages}
                     {/block:HasPages}
-                    <a href="http://adorablethemes.com/theme/win2k"><div class="button-border"><li>Theme</li></div></a>
+                    <a href="https://adorablethemes.com/theme/win2k"><div class="button-border"><li>Theme</li></div></a>
                 </ul>
                 
             </div>
         </div>
 	</div>
 	
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
     {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
     <script>

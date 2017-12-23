@@ -569,7 +569,7 @@
                         
                         {block:IfShowLikedPostsLink}<li><a class="sidebar-link link-likes" href="https://www.tumblr.com/liked/by/{Name}"> {lang:Liked posts}</a></li>{/block:IfShowLikedPostsLink}
                         
-                        <li><a class="sidebar-link" href="http://adorablethemes.com/"> Theme</a></li>
+                        <li><a class="sidebar-link" href="https://adorablethemes.com/"> Theme</a></li>
                     </ul>
                 </nav>
 				

@@ -601,7 +601,7 @@
 					<li><a class="header-link" href="{text:Custom Link 2 URL}"><i class="fa fa-fw fa-external-link"></i> {text:Custom Link 2 Name}</a></li>
 				{/block:IfCustomLink2URL}
 				
-				<li><a class="header-link" href="http://adorablethemes.com/"><i class="fa fa-fw fa-heart"></i> Theme</a></li>
+				<li><a class="header-link" href="https://adorablethemes.com/"><i class="fa fa-fw fa-heart"></i> Theme</a></li>
 			</ul>
 			
 			<ul class="social-links">

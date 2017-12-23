@@ -38,7 +38,7 @@
         <meta name="text:Google Analytics ID" content="">
         {/block:Hidden}
         
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='//fonts.googleapis.com/css?family=Titillium+Web:400,400italic,700|Noto+Serif:400,400italic,700' rel='stylesheet' type='text/css'>
         <!--[if (lte IE 8)]><script src="//static.tumblr.com/hriofhd/Qj0m8pn7q/html5shiv.js"></script><![endif]-->
 
@@ -502,7 +502,7 @@
     {/block:PermalinkPagination}
 	
     <footer>
-        Powered by <a href="https://www.tumblr.com/">Tumblr</a> &amp; <a href="http://adorablethemes.com/theme/big-text">Big Text Theme</a>
+        Powered by <a href="https://www.tumblr.com/">Tumblr</a> &amp; <a href="https://adorablethemes.com/theme/big-text">Big Text Theme</a>
     </footer>
       </div>
 		{block:IfInfiniteScrolling}

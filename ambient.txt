@@ -494,7 +494,7 @@
 				<a class="sidebar-link" href="https://twitter.com/{text:Twitter Username}"><li><i class="fa fa-fw fa-twitter"></i> Twitter</li></a>
 			{/block:IfTwitterUsername}
 			
-			<a class="sidebar-link" href="http://adorablethemes.com/"><li><i class="fa fa-fw fa-heart"></i> Theme</li></a>
+			<a class="sidebar-link" href="https://adorablethemes.com/"><li><i class="fa fa-fw fa-heart"></i> Theme</li></a>
 			
         </ul>
         

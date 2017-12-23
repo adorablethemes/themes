@@ -422,7 +422,7 @@
                     {block:IfCustomLink2URL}
                         <a class="header-link" href="{text:Custom Link 2 URL}"><li>{text:Custom Link 2 Name}</li></a>
                     {/block:IfCustomLink2URL}
-                    <a class="header-link" href="http://adorablethemes.com/"><li>Theme</li></a>
+                    <a class="header-link" href="https://adorablethemes.com/"><li>Theme</li></a>
                 </ul>
             </nav>
 

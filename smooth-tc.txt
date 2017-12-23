@@ -833,7 +833,7 @@
     {block:NextPage}<a href="{NextPage}" class="but" id="next">{lang:Next Page} &raquo;</a>{/block:NextPage}
 </div>
 {/block:Pagination}
-			<div class="footer"><span class="footer-text">{lang:Powered by Tumblr 2} & <a href="http://adorablethemes.com/theme/smooth-tc">Smooth TC Theme</a></span></div>
+			<div class="footer"><span class="footer-text">{lang:Powered by Tumblr 2} & <a href="https://adorablethemes.com/theme/smooth-tc">Smooth TC Theme</a></span></div>
 		</div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         {block:IndexPage}

@@ -524,7 +524,7 @@
 				<li><a class="sidebar-link" href="{text:Custom Link 3 URL}">{text:Custom Link 3 Name}</a></li>
 			{/block:IfCustomLink3URL}
 			
-			<li><a class="sidebar-link" title="Get this theme!" href="http://adorablethemes.com/">Theme</a></li>
+			<li><a class="sidebar-link" title="Get this theme!" href="https://adorablethemes.com/">Theme</a></li>
 			
         </ul>
         

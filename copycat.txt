@@ -942,7 +942,7 @@
             {block:IfNotCopyrightText}
                 <p>&copy; {CopyrightYears} {Title}</p>
             {/block:IfNotCopyrightText}
-            <p><a target="_blank" href="http://adorablethemes.com/theme/copycat">Copycat Theme</a></p>
+            <p><a target="_blank" href="https://adorablethemes.com/theme/copycat">Copycat Theme</a></p>
         </div>
         
         <div id="openMenu"><i class="fa fa-lg fa-bars"></i></div>
@@ -979,7 +979,7 @@
             {block:HasPages}
                 {block:Pages}<a class="header-link" href="{URL}"><li>{Label}</li></a>{/block:Pages}
             {/block:HasPages}
-            <a class="header-link" target="_blank" href="http://adorablethemes.com/"><li>Theme</li></a>
+            <a class="header-link" target="_blank" href="https://adorablethemes.com/"><li>Theme</li></a>
         </ul>
         </div>
         {/block:IfShowHeaderNavbar}

@@ -32,7 +32,7 @@
 		{/block:Hidden}
         
         <link href="//fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         
         <style type="text/css">
         body {
@@ -300,7 +300,7 @@
 				<li><a class="header-link" href="https://twitter.com/{TwitterUsername}"><i class="fa fa-fw fa-twitter"></i> Twitter</a></li>
 			{/block:Twitter}
 			
-			<li><a class="header-link" href="http://adorablethemes.com/theme/blend"><i class="fa fa-fw fa-heart-o"></i> Theme</a></li>
+			<li><a class="header-link" href="https://adorablethemes.com/"><i class="fa fa-fw fa-heart-o"></i> Theme</a></li>
 			
         </ul>
 

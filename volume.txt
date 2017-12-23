@@ -620,7 +620,7 @@
                 {block:HasPages}
                 {block:Pages}<a class="pages-link" href="{URL}"><li>{Label}</li></a>{/block:Pages}
                 {/block:HasPages}
-                <a class="pages-link" href="http://adorablethemes.com/theme/volume"><li>Theme</li></a>
+                <a class="pages-link" href="https://adorablethemes.com/"><li>Theme</li></a>
             </ul>
 
         </header>
@@ -886,7 +886,7 @@
 	</nav>
 	{/block:Pagination}
 	</div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="//static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
 	{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
 	<script src="//static.tumblr.com/anzluor/fDNnypiui/volume.min.js"></script>

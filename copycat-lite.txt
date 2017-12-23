@@ -435,7 +435,7 @@
                         <li><a class="header-link" href="{text:Custom Link 2 URL}">{text:Custom Link 2 Name}</a></li>
                     {/block:IfCustomLink2URL}
                     
-                    <li><a class="header-link" href="http://adorablethemes.com/">Theme</a></li>
+                    <li><a class="header-link" href="https://adorablethemes.com/">Theme</a></li>
                     
                 </ul>
                 
@@ -593,7 +593,7 @@
     {block:IndexPage}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-	<script src="//static.tumblr.com/anzluor/3H8mp4qek/masonry.pkgd.min.js"></script>
+	<script src="//static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
 		<script>
 		$(function(){
 			var container = $('ul#posts');
