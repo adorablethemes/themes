@@ -4,7 +4,7 @@
     <!-- 
     
     theme:      Solar
-    version:    2.0 (January 16, 2017)
+    version:    2.0.1 (December 26, 2017)
     from:       adorablethemes.com
     
     -->
@@ -243,6 +243,9 @@
     .post-content img {
     	max-width: 100%;
     	height: auto;
+    }
+    .photoset {
+        width: 560px;
     }
     .photo-post-photo, .video-post-video {
         margin: 0 -20px;
@@ -1057,7 +1060,7 @@
 
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
 <script>
 function matchContentAndSidebar() {
