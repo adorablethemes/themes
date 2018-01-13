@@ -766,7 +766,7 @@
                     {block:HasPages}
                     {block:Pages}<a href="{URL}"><div class="button-border"><li>{Label}</li></div></a>{/block:Pages}
                     {/block:HasPages}
-                    <a href="https://adorablethemes.com/theme/win31"><div class="button-border"><li>Theme</li></div></a>
+                    <a href="https://adorablethemes.com/post/169643063092/win31-theme"><div class="button-border"><li>Theme</li></div></a>
                 </ul>
                 
             </div>
