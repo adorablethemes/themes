@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win3.1
-        version:    1.0 (January 12, 2018)
+        version:    1.0.1 (January 20, 2018)
         from:       adorablethemes.com
         
         -->
@@ -12,6 +12,7 @@
         <meta charset="UTF-8">
         <meta name="description" content="{MetaDescription}">
     	<meta name="viewport" content="width=1152">
+    	<meta name="theme-color" content="{color:Title Bar}">
         <link rel="shortcut icon" href="{Favicon}">
         <link rel="apple-touch-icon" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
@@ -516,6 +517,11 @@
         .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
         .clearfix:after { clear: both; }
         .clearfix { zoom: 1; }
+        
+        .npf_quirky {
+            font-family: Gabriola, serif;
+            font-size: 17px;
+        }
         </style>
         {block:IfInfiniteScrolling}<noscript><style>.pagenav{display:block;}</style></noscript>{/block:IfInfiniteScrolling}
         <script type="text/javascript">
