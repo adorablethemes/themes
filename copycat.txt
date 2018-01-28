@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Copycat
-        version:    2.2 (March 16, 2017)
+        version:    2.2.1 (January 28, 2018)
         from:       adorablethemes.com
         
         -->
@@ -18,6 +18,7 @@
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="{color:Header}">
         
         {block:Hidden}
         <meta name="image:Background" content="">
@@ -734,10 +735,10 @@
         }
         
         /* Only show first photoset photo */
-        .index-page .photoset-content a {
+        .index-page .photoset-container figure {
             display: none;
         }
-        .index-page .photoset-content a:first-child {
+        .index-page .photoset-container figure:first-child {
             display: block;
         }
         
@@ -859,6 +860,10 @@
         /* Remove border on linked images in IE */
         a img {
 			border: 0;   
+        }
+        
+        .npf_quirky {
+            font-family: serif;
         }
         
         {CustomCSS}
@@ -1048,7 +1053,7 @@
                 
 
                 {block:Photo}
-                    <figure class="photo-content"{block:IndexPage} width="{PhotoWidth-250}" height="{PhotoHeight-250}"{/block:IndexPage}>
+                    <figure class="photo-content"{block:IndexPage} style="width: {PhotoWidth-250}px; height: {PhotoHeight-250}px"{/block:IndexPage}>
 					{block:PermalinkPage}
                     {LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-500}" srcset="{PhotoURL-1280} 2x" alt="{PhotoAlt}" />{LinkCloseTag}
                     {/block:PermalinkPage}
@@ -1075,11 +1080,15 @@
 					{block:IndexPage}
 					{block:IfPhotosetOnlyFirst}
 					<div class="photoset-note">{PhotoCount}</div>
-					<figure class="photoset-content" width="{PhotoWidth-250}" height="{PhotoHeight-250}">
+					<div class="photoset-container">
+					{block:Photos}
+					<figure class="photoset-content" style="width: {PhotoWidth-250}px; height: {PhotoHeight-250}px">
 					    
-					    {block:Photos}<a{block:IfPermalinkNewWindow} target="_blank"{/block:IfPermalinkNewWindow} href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" srcset="{PhotoURL-500} 2x" alt="{PhotoAlt}" /></a>{/block:Photos}
+					    <a{block:IfPermalinkNewWindow} target="_blank"{/block:IfPermalinkNewWindow} href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" srcset="{PhotoURL-500} 2x" alt="{PhotoAlt}" /></a>
 					    
 					</figure>
+					{/block:Photos}
+					</div>
 					{/block:IfPhotosetOnlyFirst}
 					{block:IfNotPhotosetOnlyFirst}
 					<figure class="photoset-content">{Photoset-250}</figure>
@@ -1266,8 +1275,8 @@
     	</div>
     	{/block:Pagination}
 	</div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="//static.tumblr.com/anzluor/hJIomvwis/masonry.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="//static.tumblr.com/anzluor/jA5p3abax/masonry.js"></script>
 	{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
     <script src="//static.tumblr.com/anzluor/5thomx8pc/copycat.js"></script>
         {block:IfGoogleAnalyticsID}
