@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Impulse
-        version:    2.0.5 (April 7, 2016)
+        version:    2.1 (January 31, 2018)
         from:       adorablethemes.com
         
         -->
@@ -18,6 +18,7 @@
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="{AccentColor}">
         
         {block:Hidden}
         <meta name="image:Background" content="">
@@ -31,11 +32,14 @@
 
         <meta name="color:Post Borders" content="#ffffff">
         <meta name="color:Post Background" content="#f6f6f6">
-        <meta name="color:Post Text" content="#444444">
+        <meta name="color:Post Text" content="#000000">
 		
 		<meta name="text:Disqus Shortname" content="">
         <meta name="text:Google Analytics ID" content="">
 		
+		<meta name="if:Post Borders" content="1">
+		<meta name="if:Post Shadows" content="1">
+		<meta name="if:Nav Bar Icons" content="1">
         <meta name="if:Collapse Photosets" content="1">
         <meta name="if:Show Archive Link" content="1">
         <meta name="if:Show Random Link" content="0">
@@ -48,7 +52,7 @@
         
         <!--[if lt IE 9]><script src="//static.tumblr.com/hriofhd/Qj0m8pn7q/html5shiv.js"></script><![endif]-->
         
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         
         <style type="text/css">
         body {
@@ -96,10 +100,10 @@
         /* Avatar styles */
         .avatar-header {
             margin: 20px 0;
-            box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.25);
+            {block:IfPostShadows}box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.25);{/block:IfPostShadows}
         }
         .avatar-header:hover {
-            box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.33);
+            {block:IfPostShadows}box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.33);{/block:IfPostShadows}
         }
         .avatar-square {
             border-radius: 3px;
@@ -180,6 +184,7 @@
 			text-align: center;
 			clear: both;
 			width: 100%;
+			margin-bottom: 40px;
         }
         ul.header-links {
             margin: 0 auto;
@@ -187,7 +192,7 @@
         ul.header-links li {
             text-align: center;  
             display: inline-block;
-            padding: 15px 10px;
+            padding: 12px 10px;
             border-radius: 2px;
         }
         ul.header-links li:hover {
@@ -201,15 +206,26 @@
 			padding: 7px;
 			clear: both;
         }
+        {block:IfNotNavBarIcons}
+        .header-navbar .fa {
+            display: none;
+        }
+        {/block:IfNotNavBarIcons}
         
         .search-info {
 			background-color: {color:Post Background};
-			border: 8px solid white;
+			{block:IfPostBorders}border: 8px solid {color:Post Borders};
 			margin-bottom: 12px;
 			margin-left: 6px;
 			margin-right: 6px;
+			{/block:IfPostBorders}
+			{block:IfNotPostBorders}
+			margin-bottom: 28px;
+			margin-left: 14px;
+			margin-right: 14px;
+			{/block:IfNotPostBorders}
 			overflow: hidden;
-			box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.25);
+			{block:IfPostShadows}box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.25);{/block:IfPostShadows}
 			text-align: center;
         }
         
@@ -217,12 +233,18 @@
 			width: 250px;
 			float: left;
 			background-color: {color:Post Background};
-			border: 8px solid {color:Post Borders};
+			{block:IfPostBorders}border: 8px solid {color:Post Borders};
 			margin-bottom: 12px;
 			margin-left: 6px;
 			margin-right: 6px;
+			{/block:IfPostBorders}
+			{block:IfNotPostBorders}
+			margin-bottom: 28px;
+			margin-left: 14px;
+			margin-right: 14px;
+			{/block:IfNotPostBorders}
 			overflow: hidden;
-			box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.25);
+			{block:IfPostShadows}box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.25);{/block:IfPostShadows}
         }
         
 		.post-content {
@@ -284,10 +306,14 @@
             height: auto;
         }
         
+        figure.photo-content {
+            margin: 0 auto;
+        }
+        
         .index-page .photo-post-photo {
 			max-width: 250px;
-			width: 250px;
-			height: auto;
+			width: 100%;
+			height: 100%;
 			display: block;
         }
         
@@ -321,6 +347,12 @@
         .post-share {
             border-top: 0;
         }
+        .share-item {
+            margin-right: 15px;
+        }
+        .share-item .fa {
+            margin-right: 2px;
+        }
         
         .tag:before {
             content: "#";
@@ -342,12 +374,12 @@
         
         .post .post-index-meta {
 			width: 230px;
-			font-size: 11px;
+			font-size: 13px;
 			line-height: 25px;
 			font-weight: normal;
 			padding-left: 10px;
 			padding-right: 10px;
-            background-color: rgba({RGBcolor:Post Text},0.03);
+            border-top: 1px solid rgba({RGBcolor:Post Text},0.1);
         }
         .post-index-meta a {
             color: rgba({RGBcolor:Post Text}, 0.5);
@@ -355,7 +387,12 @@
         .post-index-meta a:hover {
             color: rgba({RGBcolor:Post Text}, 0.75);
         }
+        .note-count {
+            font-size: 11px;
+            font-weight: bold;
+        }
         
+        {block:IfNotIndexPhotoCaptions}
         .photo .post-index-meta {
             display: none;
         }
@@ -374,17 +411,24 @@
             border-top: 0;
 			z-index: 100;
 			opacity: 0;
-			-webkit-transition: all 0.15s ease-in-out;
 			transition: all 0.15s ease-in-out;
         }
         .photo:hover .photo-hover {
             background: rgba(0,0,0,0.45);
             opacity: 1;
         }
-        .photo-hover a, .photo-hover a:hover {
-            font-size: 18px;
+        .photo-hover a {
+            font-size: 17px;
 			color: white;
 			text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
+			background: rgba(0,0,0,0.25);
+			border: 1px solid rgba(255,255,255,0.05);
+			padding: 10px;
+        }
+        .photo-hover a:hover {
+            color: white;
+			background: rgba(0,0,0,0.5);
+			border: 1px solid rgba(255,255,255,0.25);
         }
         
         .photo-hover .inside {
@@ -392,12 +436,21 @@
             position: absolute;
             top: 50%;
             width: 100%;
-            transform: scale(0.5, 0.5);
-            transition: all 0.15s ease-in-out;
             margin-top: -18px;
         }
-        .photo:hover .photo-hover .inside {
-            transform: scale(1, 1);
+        
+        .inside .note-count {
+            font-size: 11px;
+            background: transparent;
+            border: 0;
+        }
+        .inside .note-count:hover {
+            background: transparent;
+            border: 0;
+        }
+        {/block:IfNotIndexPhotoCaptions}
+        .has-lightbox {
+            cursor: pointer;
         }
         
         /* Remove blank space from bottom of iframes */
@@ -456,9 +509,38 @@
         }
         
         /* Note icons */
-        ol.notes .reblog {background: transparent url('//static.tumblr.com/anzluor/Gw5n6ay0z/reblog.png') right center no-repeat;}
-    	ol.notes .like {background: transparent url('//static.tumblr.com/anzluor/0yrn6ay0n/like.png') right center no-repeat;}
-    	ol.notes .reply {background: transparent url('//static.tumblr.com/anzluor/n70n6ay1a/reply.png') right center no-repeat;}
+        .note.like:after {
+            content: '\f004';
+            font-family: FontAwesome;
+            font-size: 10px;
+            float: right;
+            margin-top: -16px;
+            color: rgba({RGBcolor:Post Text},0.6);
+        }
+        .note.reblog:after {
+            content: '\f079';
+            font-family: FontAwesome;
+            font-size: 10px;
+            float: right;
+            margin-top: -16px;
+            color: rgba({RGBcolor:Post Text},0.6);
+        }
+        .note.reply:after {
+            content: '\f075';
+            font-family: FontAwesome;
+            font-size: 10px;
+            float: right;
+            margin-top: -16px;
+            color: rgba({RGBcolor:Post Text},0.6);
+        }
+        .note.answer:after {
+            content: '\f112';
+            font-family: FontAwesome;
+            font-size: 10px;
+            float: right;
+            margin-top: -16px;
+            color: rgba({RGBcolor:Post Text},0.6);
+        }
     	
     	.note blockquote {
     	    border: 0;
@@ -483,7 +565,7 @@
         }
         
         /* Infinite scroll loading indicator */
-        .loading {
+        #loading {
             background: white;
             color: black;
             box-shadow: 0px 0px 25px rgba(0,0,0,0.15);
@@ -493,6 +575,9 @@
             top: 49%;
             left: 49%;
             z-index: 999;
+        }
+        #loading.loaded {
+            display: none;
         }
         
         /* Button to open/close the search box */
@@ -510,10 +595,13 @@
             cursor: pointer;
             height: 20px;
         }
+        .tmblr-iframe-pushdown #openMenu {
+            top: 54px;
+        }
         
         /* Back-to-top button */
         .back-to-top {
-            box-shadow: 0px 0px 25px rgba(0,0,0,0.15);
+            {block:IfPostShadows}box-shadow: 0px 0px 25px rgba(0,0,0,0.15);{/block:IfPostShadows}
             display: none;
             background-color: black;
             color: white;
@@ -521,7 +609,7 @@
             bottom: 12px;
             right: 12px;
             z-index: 100;
-            padding: 10px;
+            padding: 5px 10px;
             border-radius: 3px;
             cursor: pointer;
         }
@@ -538,6 +626,9 @@
             overflow: hidden;
             -webkit-transition: left 0.1s ease-in;
             transition: left 0.1s ease-in;
+        }
+        .tmblr-iframe-pushdown .sidebar {
+            top: 54px;
         }
         
         /* Open state for search box */
@@ -566,12 +657,14 @@
         }
         
         /* Only show first photoset photo */
-        .index-page .photoset-content a {
+        .index-page .photoset-container figure {
             display: none;
         }
-        .index-page .photoset-content a:first-child {
+        {block:IfCollapsePhotosets}
+        .index-page .photoset-container figure:first-child {
             display: block;
         }
+        {/block:IfCollapsePhotosets}
         
         /* Keep reading link arrow */
         a.read_more:after {
@@ -583,18 +676,23 @@
             opacity: 0.01;
         }
         
-        /* Indicator for collapsed photosets */
+        /* Indicator for photosets */
         .photoset-note {
             position: absolute;
-            top: 0;
-            border-radius: 0 0 5px 0;
-            left: 0;
+            top: 10px;
+            left: 10px;
+            border-radius: 2px;
             background-color: black;
-            background-color: rgba(0,0,0,0.33);
+            background-color: rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.66);
             color: white;
             font-size: 11px;
-            padding: 15px;
+            font-weight: bold;
+            padding: 7px 10px;
         }
+        {block:IfNotCollapsePhotosets}
+        .photoset-note { display: none; }
+        {/block:IfNotCollapsePhotosets}
         
         /* Audio player sizing */
         .index-page .spotify_audio_player {
@@ -691,12 +789,17 @@
 			border: 0;   
         }
         
+        .npf_quirky {
+            font-family: serif;
+        }
+        
         {CustomCSS}
         </style>
         
         <script type="text/javascript">
             var impulse = {{block:IfInfiniteScrolling}infScroll: true,{/block:IfInfiniteScrolling}{block:IfNotInfiniteScrolling}infScroll: false,{/block:IfNotInfiniteScrolling} {block:IndexPage}indexPage: true{/block:IndexPage}{block:PermalinkPage}indexPage: false{/block:PermalinkPage}, prefill: false};
         </script>
+        <noscript><style>.posts-hidden {opacity: 1;} #loading {display: none;}</style></noscript>
     </head>
     <body class="{block:IndexPage}index-page{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} font-{select:Post Body Font} layout-3col background-{select:Background Image Style}">
     
@@ -717,6 +820,7 @@
         <div id="backToTop" class="back-to-top" title="Back to top">
             <i class="fa fa-2x fa-angle-up"></i>
         </div>
+        <div id="loading"><i class="fa fa-lg fa-circle-o-notch fa-spin"></i></div>
         {/block:IndexPage}
         
         <header class="header clearfix">
@@ -788,7 +892,7 @@
         <div id="adorablethemesdotcom"{block:IndexPage} class="posts-hidden"{/block:IndexPage}>
         
             {block:Posts}
-				<article id="post-{PostID}" class="post {PostType}{block:PermalinkPage} {block:Date}not-{/block:Date}page{/block:PermalinkPage}">
+				<article id="post_{PostID}" class="post {PostType}{block:PermalinkPage} {block:Date}not-{/block:Date}page{/block:PermalinkPage}">
 								
                 {block:Text}
                     <div class="post-content">
@@ -801,12 +905,12 @@
                 
                 {block:Answer}
                     <div class="post-content">
-					<p><img class="asker-avatar" src="{AskerPortraitURL-16}" /> <b>{Asker}:</b></p><p>{Question}</p>
+					<p><img class="asker-avatar" src="{AskerPortraitURL-16}"  srcset="{AskerPortraitURL-30} 2x" /> <b>{Asker}:</b></p><p>{Question}</p>
 					
 					<hr>
 					
 					{block:Answerer}
-    					<p><img class="asker-avatar" src="{AnswererPortraitURL-16}" /> <b>{Answerer}:</b></p>
+    					<p><img class="asker-avatar" src="{AnswererPortraitURL-16}" srcset="{AnswererPortraitURL-30} 2x" /> <b>{Answerer}:</b></p>
     					
     					{Answer}
     					
@@ -819,11 +923,11 @@
                 
 
                 {block:Photo}
-                    <figure class="photo-content" width="{PhotoWidth-250}" height="{PhotoHeight-250}">
+                    <figure data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}"class="photo-content"{block:IndexPage} style="width: {PhotoWidth-250}px; height: {PhotoHeight-250}px"{/block:IndexPage}>
 					{block:PermalinkPage}
-                    {LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-500}" data-retina="{PhotoURL-1280}" alt="{PhotoAlt}" />{LinkCloseTag}
+                    {LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-500}" srcset="{PhotoURL-1280} 2x" alt="{PhotoAlt}" />{LinkCloseTag}
                     {/block:PermalinkPage}
-					{block:IndexPage}<a target="_blank" href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" data-retina="{PhotoURL-500}" alt="{PhotoAlt}" /></a>{/block:IndexPage}
+					{block:IndexPage}<a target="_blank" href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" srcset="{PhotoURL-500} 2x" alt="{PhotoAlt}" /></a>{/block:IndexPage}
 					</figure>
 					
 					{block:IfIndexPhotoCaptions}
@@ -844,14 +948,16 @@
 
                 {block:Photoset}
 					{block:IndexPage}
-					{block:IfCollapsePhotosets}
-					<div class="photoset-note"><i class="fa fa-picture-o"></i> Photoset ({PhotoCount} images)</div>
-					<figure class="photoset-content" width="{PhotoWidth-250}" height="{PhotoHeight-250}">
+					<div class="photoset-note">{PhotoCount}</div>
+					<div class="photoset-container">
+					{block:Photos}
+					<figure data-width="{PhotoWidth-HighRes}"data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" data-caption="{Caption}" class="photo-content photoset-content" width="{PhotoWidth-250}" height="{PhotoHeight-250}">
 					    
-					    {block:Photos}<a target="_blank" href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" data-retina="{PhotoURL-500}" alt="{PhotoAlt}" /></a>{/block:Photos}
+					    <a target="_blank" href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" srcset="{PhotoURL-500} 2x" alt="{PhotoAlt}" /></a>
 					    
 					</figure>
-					{/block:IfCollapsePhotosets}
+					{/block:Photos}
+					</div>
 					{block:IfNotCollapsePhotosets}
 					<figure class="photoset-content">{Photoset-250}</figure>
 					{/block:IfNotCollapsePhotosets}
@@ -887,6 +993,8 @@
                 {block:Link}
                     <div class="post-content">
 					<h3><a href="{URL}" class="link-post-link"{block:Host}title="{Host}"{/block:Host} {Target}>{Name} &raquo;</a></h3>
+					
+					{Host}{block:Excerpt} &mdash; <em>{Excerpt}</em>{/block:Excerpt}
 
 					{block:Description}<hr>{Description}{/block:Description}
 					</div>
@@ -959,24 +1067,34 @@
                 
                 {block:IndexPage}
                 <div class="post-index-meta">
-                    {block:Date}<a href="{Permalink}">{NoteCount}</a>{/block:Date}
+                    {block:NoteCount}<a href="{Permalink}" class="note-count" data-notes="{NoteCount}">{NoteCount}</a>{/block:NoteCount}
                     
                     <a title="Reblog" target="_blank" style="float:right; text-align: right" class="reblog-button" href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+                    
+                    <a title="{lang:Permalink}" style="float:right; text-align: right; margin-right: 8px" class="reblog-button" href="{Permalink}"><i class="fa fa-link"></i></a>
+                    
+                    {block:Photo}<a style="float:right; text-align: right; margin-right: 8px" class="has-lightbox" data-postid="{PostID}" title="{lang:Zoom}"><i class="fa fa-search-plus"></i></a>{/block:Photo}
+                    
+                    {block:Photoset}<a style="float:right; text-align: right; margin-right: 8px" class="has-lightbox" data-postid="{PostID}" title="{lang:Zoom}"><i class="fa fa-search-plus"></i></a>{/block:Photoset}
                 </div>
+                {block:IfNotIndexPhotoCaptions}
                 {block:Photo}
                 <div class="photo-hover">
                     <div class="inside">
-                        <a href="{Permalink}">{NoteCount}&nbsp;&nbsp;&nbsp;<i class="fa fa-link"></i></a>&nbsp;&nbsp;&nbsp;<a href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+                        <a class="has-lightbox" data-postid="{PostID}" title="{lang:Zoom}"><i class="fa fa-fw fa-search-plus"></i></a><a href="{Permalink}" title="{lang:Permalink}"><i class="fa fa-fw fa-link"></i></a><a href="{ReblogURL}" title="Reblog"><i class="fa fa-fw fa-retweet"></i></a>
+                        {block:NoteCount}<br><a href="{Permalink}" class="note-count" data-notes="{NoteCount}">{NoteCount}</a>{/block:NoteCount}
                     </div>
                 </div>
                 {/block:Photo}
                 {block:Photoset}
                 <div class="photo-hover">
                     <div class="inside">
-                        <a href="{Permalink}">{NoteCount}&nbsp;&nbsp;&nbsp;<i class="fa fa-link"></i></a>&nbsp;&nbsp;&nbsp;<a href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+                        <a class="has-lightbox" data-postid="{PostID}" title="{lang:Zoom}"><i class="fa fa-search-plus"></i></a><a href="{Permalink}" title="{lang:Permalink}"><i class="fa fa-link"></i></a><a href="{ReblogURL}" title="Reblog"><i class="fa fa-retweet"></i></a>
+                        {block:NoteCount}<br><a href="{Permalink}" class="note-count" data-notes="{NoteCount}">{NoteCount}</a>{/block:NoteCount}
                     </div>
                 </div>
                 {/block:Photoset}
+                {/block:IfNotIndexPhotoCaptions}
                 {/block:IndexPage}
                 
                 </article>
@@ -987,7 +1105,7 @@
                 <article class="post sidecar not-page">
                 
                 <div class="post-meta post-share">
-                    <a href="{ReblogURL}" class="share-item link-tumblr-reblog" target="_blank"><i class="fa fa-retweet"></i> Reblog</a> &bull; <a href="https://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" class="share-item link-facebook-share" target="_blank"><i class="fa fa-facebook"></i> Share</a> &bull; <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" class="share-item link-twitter-tweet" target="_blank"><i class="fa fa-twitter"></i> Tweet</a>
+                    <a href="{ReblogURL}" class="share-item link-tumblr-reblog" target="_blank"><i class="fa fa-retweet"></i> Reblog</a> <a href="https://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" class="share-item link-facebook-share" target="_blank"><i class="fa fa-facebook"></i> Share</a> <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" class="share-item link-twitter-tweet" target="_blank"><i class="fa fa-twitter"></i> Tweet</a>{block:Photo} <a href="https://pinterest.com/pin/create/link/?url={URLEncodedPermalink}&media={URLEncodedPhotoURL-1280}" class="share-item link-pinterest" target="_blank"><i class="fa fa-pinterest"></i> Pin</a>{/block:Photo}
                     <span style="float:right; text-align: right">
                         <span class="postnotes">{NoteCountWithLabel}</span>{/block:PostNotes}
                     </span>
@@ -1036,10 +1154,10 @@
 		<span class="page-info">{lang:Page CurrentPage of TotalPages}</span>
 		{block:NextPage}<a href="{NextPage}" id="next">{lang:Next} &rarr;</a>{/block:NextPage}{/block:Pagination}
 	</div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="//static.tumblr.com/anzluor/z2tn74e8h/masonry.pkgd.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//static.tumblr.com/anzluor/jA5p3abax/masonry.js"></script>
 	{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-    <script src="//static.tumblr.com/anzluor/lmen89y2n/impulse.min.js"></script>
+    <script src="//static.tumblr.com/anzluor/ilip3fqzd/impulse.min.js"></script>
         {block:IfGoogleAnalyticsID}
             <script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
