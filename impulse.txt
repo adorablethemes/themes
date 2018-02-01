@@ -732,6 +732,10 @@
     			width: auto;
     			height: auto;
     		}
+    		.permalink-page img.photo-post-photo {
+    			width: 100%;
+    			height: auto;
+    		}
     		h1.blog-title {
     		    font-size: 24px;
     		    padding: 0 10px;
