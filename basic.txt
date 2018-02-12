@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Basic
-        version:    4.0 (February 10, 2018)
+        version:    4.0.1 (February 11, 2018)
         from:       adorablethemes.com
         
         -->
@@ -846,7 +846,7 @@
                     <div class="post-section">
                     <h2><a href="{URL}" class="link-post-link"{block:Host} title="{Host}"{/block:Host} {Target}>{Name} &rarr;</a></h2>
                     
-                    {block:Excerpt}<p class="link-excerpt">{Excerpt}</p>{block:Excerpt}</div>
+                    {block:Excerpt}<p class="link-excerpt">{Excerpt}</p>{/block:Excerpt}</div>
 
                     {block:NotReblog}
                         {block:Description}
