@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win2K
-        version:    2.0.1 (January 20, 2018)
+        version:    2.1 (February 16, 2018)
         from:       adorablethemes.com
         
         -->
@@ -49,6 +49,9 @@
         
         <meta name="select:Background Image Style" content="cover" title="cover">
         <meta name="select:Background Image Style" content="center" title="center">
+        
+        <meta name="text:Custom Ask Page Text" content="">
+        <meta name="text:Google Analytics ID" content="">
         {/block:Hidden}
         <style>
         * {
@@ -290,6 +293,9 @@
         .photo .text-area.has-caption, .video .text-area.has-caption, .audio .text-area.has-caption {
             display: block;
         }
+        .photo .text-area.has-tags, .video .text-area.has-tags, .audio .text-area.has-tags {
+            display: block;
+        }
         .text-area a {
             color: black;
             text-decoration: underline;
@@ -356,13 +362,13 @@
             display: block;
         }
         {block:IfStretchImages}
-        .layout-one-column .photo-post-photo {
+        .stretch-images .photo-post-photo {
             width: 500px;
         }
-        .layout-two-column .photo-post-photo {
+        .stretch-images.layout-two-column .photo-post-photo {
             width: 400px;
         }
-        .layout-three-column .photo-post-photo {
+        .stretch-images.layout-three-column .photo-post-photo {
             width: 275px;
         }
         {/block:IfStretchImages}
@@ -568,6 +574,38 @@
         .clearfix:after { clear: both; }
         .clearfix { zoom: 1; }
         
+        .reblog-avatar {
+            border-radius: 2px;
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+        .reblog-avatar.deleted {
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+        }
+        a.reblog-username {
+            color: black;
+            text-decoration: none;
+        }
+        .asker a, .answerer a {
+            color: black;
+            text-decoration: none;
+        }
+        .post-section {
+            border-bottom: 1px solid #ddd;
+        }
+        .video .post-section, .audio .post-section {
+            border-bottom: 1px solid #222;
+        }
+        .post-section:last-child {
+            border-bottom: 0;
+        }
+        p.tmblr-attribution {
+            font-size: 11px;
+        }
+        
         .npf_quirky {
             font-family: Gabriola, serif;
             font-size: 17px;
@@ -578,7 +616,7 @@
             var win2k = {{block:IfInfiniteScrolling}infScroll: true,{/block:IfInfiniteScrolling}{block:IfNotInfiniteScrolling}infScroll: false,{/block:IfNotInfiniteScrolling} {block:IndexPage}indexPage: true{/block:IndexPage}{block:PermalinkPage}indexPage: false{/block:PermalinkPage}, layout: '{select:Layout}', prefill: false};
         </script>
     </head>
-    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage}{block:TagPage} tag-page{/block:TagPage}{block:SearchResults} search-page{/block:SearchResults}{block:NoSearchResults} search-page{/block:NoSearchResults} font-{select:Post Body Font} background-{select:Background Image Style}{block:IndexPage} layout-{select:Layout}{/block:IndexPage}">
+    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage}{block:TagPage} tag-page{/block:TagPage}{block:SearchResults} search-page{/block:SearchResults}{block:NoSearchResults} search-page{/block:NoSearchResults} font-{select:Post Body Font} background-{select:Background Image Style}{block:IndexPage} layout-{select:Layout}{/block:IndexPage}{block:IfStretchImages} stretch-images{/block:IfStretchImages}">
     <main>
     
     <div class="posts-container">
@@ -671,32 +709,119 @@
                 {block:Photoset}<div class="media-container">{Photoset-500}</div>{/block:Photoset}
                 {block:Video}<div class="media-container">{VideoEmbed-500}</div>{/block:Video}
                 {block:Audio}<div class="media-container">{AudioEmbed}</div>{/block:Audio}
-                <div class="text-area{block:Photo}{block:Caption} has-caption{/block:Caption}{/block:Photo}{block:Photoset}{block:Caption} has-caption{/block:Caption}{/block:Photoset}{block:Video}{block:Caption} has-caption{/block:Caption}{/block:Video}{block:Audio}{block:Caption} has-caption{/block:Caption}{/block:Audio}">
+                <div class="text-area{block:Photo}{block:Caption} has-caption{/block:Caption}{block:HasTags} has-tags{/block:HasTags}{/block:Photo}{block:Photoset}{block:Caption} has-caption{/block:Caption}{block:HasTags} has-tags{/block:HasTags}{/block:Photoset}{block:Video}{block:Caption} has-caption{/block:Caption}{block:HasTags} has-tags{/block:HasTags}{/block:Video}{block:Audio}{block:Caption} has-caption{/block:Caption}{block:HasTags} has-tags{/block:HasTags}{/block:Audio}">
                     {block:Text}
                         {block:Title}<h2>{Title}</h2>{/block:Title}
-                        {Body}
+                        {block:NotReblog}
+        					<div class="post-section">
+        					    {block:IfCustomAskPageText}{block:AskPage}<p>{text:Custom Ask Page Text}</p>{/block:AskPage}{/block:IfCustomAskPageText}
+            					{Body}
+        					</div>
+    					{/block:NotReblog}
+                        {block:RebloggedFrom}
+                            {block:Reblogs}
+                                <div class="post-section">
+                                    <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                    {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                    {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                    </p>
+                                    {Body}
+                                </div>
+                            {/block:Reblogs}
+                        {/block:RebloggedFrom}
                     {/block:Text}
                     {block:Answer}
-                        <p><b>{Asker}:</b></p><p>{Question}</p><hr>
-    					
+                        <div class="post-section asker">
+                            <p><img class="reblog-avatar" src="{AskerPortraitURL-64}"> <b>{Asker} asked</b></p>
+                            <p>{Question}</p>
+    					</div>
     					{block:Answerer}
-        					<p><b>{Answerer}:</b></p>
-        					{Answer}
-        					<hr>
+    					    <div class="post-section answerer">
+            					<p><img class="reblog-avatar" src="{AnswererPortraitURL-64}"> <b>{Answerer}</b></p>
+            					{Answer}
+        					</div>
     					{/block:Answerer}
     
-    					{Replies}
+    					{block:NotReblog}
+        					<div class="post-section">
+            					{Replies}
+        					</div>
+    					{/block:NotReblog}
+                        {block:RebloggedFrom}
+                            {block:Reblogs}
+                                <div class="post-section">
+                                    <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                    {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                    {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                    </p>
+                                    {Body}
+                                </div>
+                            {/block:Reblogs}
+                        {/block:RebloggedFrom}
                     {/block:Answer}
                     {block:Photo}
-                        {Caption}
+                        {block:NotReblog}
+                            {block:Caption}
+            					<div class="post-section">
+                					{Caption}
+            					</div>
+        					{/block:Caption}
+    					{/block:NotReblog}
+                        {block:RebloggedFrom}
+                            {block:Reblogs}
+                                <div class="post-section">
+                                    <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                    {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                    {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                    </p>
+                                    {Body}
+                                </div>
+                            {/block:Reblogs}
+                        {/block:RebloggedFrom}
                     {/block:Photo}
                     {block:Photoset}
-                        {Caption}
+                        {block:NotReblog}
+                            {block:Caption}
+                                <div class="post-section">
+                                    {Caption}
+                                </div>
+                            {/block:Caption}
+                        {/block:NotReblog}
+                        {block:RebloggedFrom}
+                            {block:Reblogs}
+                                <div class="post-section">
+                                    <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                    {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                    {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                    </p>
+                                    {Body}
+                                </div>
+                            {/block:Reblogs}
+                        {/block:RebloggedFrom}
                     {/block:Photoset}
                     {block:Link}
-                        <h2><a href="{URL}" class="link-post-link"{block:Host} title="{Host}"{/block:Host} {Target}>{Name} &rarr;</a></h2>
-                        {Host}{block:Excerpt} &mdash; <em>{Excerpt}</em>{/block:Excerpt}
-                        {block:Description}<hr>{Description}{/block:Description}
+                        <div class="post-section">
+                            <h2><a href="{URL}" class="link-post-link"{block:Host} title="{Host}"{/block:Host} {Target}>{Name} &rarr;</a></h2>
+                            <p>{Host}{block:Excerpt} &mdash; <em>{Excerpt}</em>{/block:Excerpt}</p>
+                        </div>
+                        {block:NotReblog}
+                            {block:Description}
+            					<div class="post-section">
+                					{Description}
+            					</div>
+        					{/block:Description}
+    					{/block:NotReblog}
+                        {block:RebloggedFrom}
+                            {block:Reblogs}
+                                <div class="post-section">
+                                    <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                    {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                    {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                    </p>
+                                    {Body}
+                                </div>
+                            {/block:Reblogs}
+                        {/block:RebloggedFrom}
                     {/block:Link}
                     {block:Quote}
                         <p class="quote-text">{Quote}</p>
@@ -717,10 +842,44 @@
     					</ul>
                     {/block:Chat}
                     {block:Video}
-                        {Caption}
+                        {block:NotReblog}
+                            {block:Caption}
+            					<div class="post-section">
+                					{Caption}
+            					</div>
+        					{/block:Caption}
+    					{/block:NotReblog}
+                        {block:RebloggedFrom}
+                            {block:Reblogs}
+                                <div class="post-section">
+                                    <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                    {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                    {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                    </p>
+                                    {Body}
+                                </div>
+                            {/block:Reblogs}
+                        {/block:RebloggedFrom}
                     {/block:Video}
                     {block:Audio}
-                        {Caption}
+                        {block:NotReblog}
+                            {block:Caption}
+            					<div class="post-section">
+                					{Caption}
+            					</div>
+        					{/block:Caption}
+    					{/block:NotReblog}
+                        {block:RebloggedFrom}
+                            {block:Reblogs}
+                                <div class="post-section">
+                                    <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                    {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                    {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                    </p>
+                                    {Body}
+                                </div>
+                            {/block:Reblogs}
+                        {/block:RebloggedFrom}
                     {/block:Audio}
                     
                     {block:HasTags}
@@ -829,8 +988,8 @@
         </div>
 	</div>
 	
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="//static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//static.tumblr.com/anzluor/jA5p3abax/masonry.js"></script>
     {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
     <script>
     $(function(){
@@ -929,5 +1088,17 @@
         {/block:PermalinkPage}
     });
     </script>
+    {block:IfGoogleAnalyticsID}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', '{text:Google Analytics ID}', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+    {/block:IfGoogleAnalyticsID}
     </body>
 </html>
