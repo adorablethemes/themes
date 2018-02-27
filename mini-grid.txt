@@ -1,627 +1,1000 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- 
+    <head>
+        <!-- 
+        
+        theme:      Mini Grid
+        version:    2.0 (February 26, 2018)
+        from:       adorablethemes.com
+        
+        -->
+        <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="apple-touch-icon" href="{PortraitURL-128}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=840">
+        <meta name="theme-color" content="{color:Sidebar Links}">
+        
+        {block:Hidden}
+        <meta name="image:Sidebar Photo" content="">
+        
+        <meta name="select:Font" content="sans-serif" title="sans-serif">
+        <meta name="select:Font" content="serif" title="serif">
+        <meta name="select:Font" content="monospace" title="monospace">
+        <meta name="select:Font" content="comic-sans" title="comic sans">
+        
+        <meta name="color:Background" content="#111111">
+        <meta name="color:Post Text" content="#eeeeee">
+        <meta name="color:Post Background" content="#222222">
+        <meta name="color:Post Borders" content="#333333">
+        <meta name="color:Sidebar Text" content="#dddddd">
+        <meta name="color:Sidebar Links" content="#dddddd">
+        
+        <meta name="text:Custom Ask Page Text" content="">
+        <meta name="text:Facebook URL" content="">
+        <meta name="text:Instagram URL" content="">
+        <meta name="text:Pinterest URL" content="">
+        <meta name="text:SoundCloud URL" content="">
+        <meta name="text:Steam URL" content="">
+        <meta name="text:Twitch URL" content="">
+        <meta name="text:Twitter URL" content="">
+        <meta name="text:Vine URL" content="">
+        <meta name="text:YouTube URL" content="">
+        <meta name="text:Google Analytics ID" content="">
+        
+        <meta name="if:Load More Button" content="0">
+        <meta name="if:Post Borders" content="0">
+        <meta name="if:Post Shadows" content="0">
+        <meta name="if:Show Archive Link" content="1">
+        <meta name="if:Show Random Link" content="1">
+        <meta name="if:Text Post Previews" content="1">
+        {/block:Hidden}
 
-theme:      Mini Grid
-version:    1.0.8 (June 9, 2016)
-from:       adorablethemes.com
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
--->
-<title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
-<link rel="shortcut icon" href="{Favicon}">
-<link rel="apple-touch-icon" href="{PortraitURL-128}">
-<link rel="alternate" type="application/rss+xml" href="{RSS}">
-{block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
-<meta charset="UTF-8">
-<meta name="viewport" content="width=1060">
+        <style type="text/css">
+            
+            ::selection{
+            	background: {color:Post Text};
+            	color: {color:Post Background};
+            }
+            ::-moz-selection{
+            	background: {color:Post Text};
+            	color: {color:Post Background};
+            }
+            
+            body {
+                color: {color:Post Text};
+                background-color: {color:Background};
+                font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            }
+            
+            body.font-serif {
+                font-family: Georgia, serif;
+            }
+            body.font-monospace {
+                font-family: Consolas, Menlo, Monaco, monospace;
+            }
+            body.font-comic-sans {
+                font-family: 'Comic Sans MS', Chalkboard, sans-serif;
+            }
+            
+            .wrapper {
+                width: 1092px;
+            	margin: 54px auto;
+            }
+            .sidebar {
+                float: left;
+                padding-top: 4px;
+                padding-left: 24px;
+                padding-right: 20px;
+                width: 200px;
+                position: fixed;
+                color: {color:Sidebar Text};
+            }
+            .main {
+                width: 824px;
+            	float: right;
+            }
+            
+            .permalink-page .wrapper {
+                width: 818px;
+            }
+            .permalink-page .main {
+                width: 550px;
+            }
+            
+            h1,h2,h3 {
+            	font-weight: 400;
+            	font-size: 20px;
+            }
+            h4,h5,h6 {
+            	font-weight: 400;
+            	font-size: 17px;
+            }
+            .blog-title {
+                font-family: {TitleFont};
+                font-weight: {TitleFontWeight};
+            }
+            .blog-description {
+            	font-size: 12px; 
+            }
+            
+            a {
+            	color: {color:Post Text};
+            	text-decoration: none;
+            }
+            a:hover {
+            	color: {color:Post Text};
+                text-decoration: none;
+            }
+            
+            .blog-description a, .blog-description a:hover {
+                color: {color:Sidebar Text};
+                text-decoration: underline;
+            }
+            
+            .sidebar-links {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .sidebar-link {
+            	font-size: 11px;
+            	display: block;
+            	padding: 6px 0;
+            	color: {color:Sidebar Links};
+            	text-decoration: none;
+            }
+            .sidebar-link:hover {
+                color: rgba({RGBcolor:Sidebar Links},0.85);
+                text-decoration: none;
+            }
+            .social-links {
+                margin-top: 16px;
+            }
+            .social-link {
+                color: {color:Sidebar Links};
+                padding: 1px 0;
+            }
+            .social-link:hover {
+                color: rgba({RGBcolor:Sidebar Links},0.85);
+            }
+            
+            .sidebar-photo {
+            	width: 96px;
+            	height: auto;
+            	border-radius: 3px;
+            	margin-bottom: 16px;
+            }
+            .sidebar-photo.circle {
+                border-radius: 96px;
+            }
+            
+            ul {
+            	list-style-type: none;
+            	padding-left: 0;
+            }
+            ul#posts {
+            	margin-top: 0px;
+            }
+            ol.notes {
+            	list-style-type: none;
+            	padding-left: 0;
+            }
+            
+            .post-section {
+            	padding: 8px 12px;
+            }
+            
+            .post-section a {
+                text-decoration: underline;
+            }
+            
+            .post p {
+            	font-size: 13px;
+            	line-height: 20px;
+            }
+            .post ul {
+            	list-style-type: square;
+            	font-size: 12px;
+            	line-height: 18px;
+            	padding-left: 20px;
+            }
+            .post ol {
+                font-size: 12px;
+            }
+            .post blockquote {
+            	font-size: 12px;
+            	padding: 0 8px;
+            	margin: 0 2px;
+                border-left: 2px solid {color:Post Text};
+            	font-style: italic;
+            }
+            .post img {
+            	max-width: 100%;
+            	height: auto;
+            }
+            .post code, .post pre {
+                font-family: Consolas, Menlo, Monaco, monospace;
+            }
+            
+            /* Quote posts */
+            .quote-text {
+                font-style: italic;
+            }
+            .quote-source {
+                font-weight: bold;
+                text-align: right;
+            }
+            
+            .chat {
+            	font-size: 13px;
+            	line-height: 16px;
+            }
+            .chat .label {
+            	font-weight: bold;
+            }
+            .chat ul {
+                padding-left: 0;
+                list-style-type: none;   
+            }
+            .chat ul li {
+                border-bottom: 1px solid rgba(0,0,0,0.1);   
+                padding: 8px 0;
+            }
+            .chat ul li:last-child {
+                border-bottom: 0   
+            }
+            
+            .index-page .post {
+                {block:IfPostBorders}
+                border: 4px solid {color:Post Borders};
+                margin-right: 16px;
+                margin-bottom: 16px;
+                {/block:IfPostBorders}
+                {block:IfNotPostBorders}
+                margin-right: 24px;
+                margin-bottom: 24px;
+                {/block:IfNotPostBorders}
+                float: left;
+                background: {color:Post Background};
+                width: 250px;
+                height: 250px;
+                overflow: hidden;
+                position: relative;
+                {block:IfPostShadows}box-shadow: 0px 2px 7px rgba(0,0,0,0.15);{/block:IfPostShadows}
+            }
+            
+            .permalink-page .post {
+                {block:IfPostBorders}
+                border: 4px solid {color:Post Borders};
+                margin-right: 16px;
+                margin-bottom: 16px;
+                {/block:IfPostBorders}
+                {block:IfNotPostBorders}
+                margin-right: 24px;
+                margin-bottom: 24px;
+                {/block:IfNotPostBorders}
+                background: {color:Post Background};
+                float: left;
+                width: 524px;
+                height: auto;
+                {block:IfPostShadows}box-shadow: 0px 2px 7px rgba(0,0,0,0.15);{/block:IfPostShadows}
+            }
+            
+            .index-page .post:hover {
+                -webkit-filter: brightness(1.07);
+                filter: brightness(1.07);
+            }
+            
+            .permalink-page .post img {
+                max-width: 100%;
+            	height: auto;
+            }
+            
+            .post-section figure img {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            .post iframe {
+                max-width: 100%;
+            }
+            
+            .photo-post-photo, .photoset-container, .video-post-video, .audio-post-audio {
+                margin: 12px;
+                margin-bottom: 0;
+                display: block;
+            }
+            
+            .square-inner {
+                display: table;
+                width: 250px;
+                height: 250px;
+            }
+            .square-inner-content {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                padding: 20px;
+            }
+            .square-inner-content p {
+                max-height: 120px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .video .square-inner-content {
+                background-color: rgba(0,0,0,0.33);
+                color: white;
+                text-shadow: 0px 2px 10px black;
+            }
+            
+            hr {
+            	clear: both;
+            	border: 0;
+            	border-bottom: 1px solid rgba({RGBcolor:Post Text},0.25);
+            	margin: 15px 0;
+            }
+            
+            .post-meta {
+                font-size: 12px;
+                padding: 12px;
+                color: rgba({RGBcolor:Post Text},0.66);
+            }
+            .post-meta a {
+                color: rgba({RGBcolor:Post Text},0.66);
+            }
+            .post-meta a:hover {
+                color: rgba({RGBcolor:Post Text},0.8);
+            }
+            .post-tags {
+                font-size: 11px;
+            }
+            ol.notes {
+                padding-left: 0;
+                list-style-type: none;
+            }
+            .note {
+                padding: 8px 0;
+            }
+            .note:last-child {
+                border-bottom: 0;
+            }
+            .note .avatar {
+                vertical-align: middle;
+                border-radius: 2px;
+                margin-right: 8px;
+            }
+            .note blockquote {
+                border-left: 0;
+                margin: 8px 16px;
+            }
+            
+            .but img {
+                border-radius: 2px;
+            }
+            
+            a img {
+            	border: none;   
+            }
+            
+            .pagination {
+            	clear: both;
+            	text-align: center;
+            	padding-top: 30px;
+            	margin-right: 24px;
+            }
+            .pagination a, .pagination a:hover {
+                font-size: 15px;
+                color: {color:Sidebar Text};
+                padding: 10px 0;
+                text-decoration: none;
+            }
+            .span33, .span50 {
+                float: left;
+                min-height: 1px;
+            }
+            .span33 {
+                width: 33.33%;
+            }
+            .span50 {
+                width: 50%;
+            }
+            #view_more_button {
+                cursor: pointer;
+            }
+            #view_more_button:hover {
+                color: rgba({RGBcolor:Sidebar Text},0.85);
+            }
+            {block:IfLoadMoreButton}
+            #previous, #next, .page-info {
+                display: none;
+            }
+            {/block:IfLoadMoreButton}
+            {block:IfNotLoadMoreButton}
+            #view_more_button {
+                display: none;
+            }
+            {/block:IfNotLoadMoreButton}
+            
+            .tag:before {
+                content: "#";
+            }
+            
+            .reblog-avatar {
+                border-radius: 2px;
+                width: 16px;
+                height: 16px;
+                margin-right: 7px;
+                vertical-align: middle;
+            }
+            .reblog-avatar.deleted {
+                -webkit-filter: grayscale(1);
+                filter: grayscale(1);
+            }
+            a.reblog-username {
+                color: {color:Post Text};
+                text-decoration: none;
+            }
+            .asker-username a, .answerer-username a {
+                text-decoration: none;
+            }
+            .post-section {
+                border-bottom: 1px solid rgba({RGBcolor:Post Text},0.1);
+            }
+            .post-section:last-child {
+                border-bottom: 0;
+            }
+            p.tmblr-attribution {
+                font-size: 10px;
+            }
+            .npf_quirky {
+                font-family: serif;
+            }
+            
+            .align-left {
+                text-align: left;
+            }
+            .align-center {
+                text-align: center;
+            }
+            .align-right {
+                text-align: right;
+            }
+            .float-right{
+                float: right;
+            }
+            
+            .clearfix:before,
+            .clearfix:after {
+            	content: " ";
+            	display: table;
+            }
+            .clearfix:after {
+            	clear: both;
+            }
+            .clearfix {
+            	*zoom: 1;
+            }
+            
+            .tmblr-iframe--app-cta-button {
+                display: none !important;
+            }
+            
+            @media screen and (min-width: 1380px) {
+                .index-page .wrapper {
+                    width: 1366px;
+                }
+                .index-page .main {
+                    width: 1098px;
+                }
+            }
+            @media screen and (max-width: 1090px) {
+                .index-page .wrapper {
+                    width: 816px;
+                }
+                .index-page .main {
+                    width: 548px;
+                }
+            }
+            
+            {CustomCSS}
+        </style>
+        {block:IfLoadMoreButton}<noscript><style>#view_more_button {display: none}#previous, #next, .page-info {display: inline}</style></noscript>{/block:IfLoadMoreButton}
+    </head>
+    <body class="{block:IndexPage}index-page{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} font-{select:Font}">
+        <div class="wrapper clearfix">
+            <div class="sidebar">
+                
+                {block:IfNotSidebarPhotoImage}
+                {block:ShowAvatar}
+                <a href="/">
+            	    <img class="sidebar-photo {AvatarShape}" src="{PortraitURL-96}" alt="{Name}" />
+                </a>
+                {/block:ShowAvatar}
+                {/block:IfNotSidebarPhotoImage}
+                
+                {block:IfSidebarPhotoImage}
+                <a href="/">
+            	    <img class="sidebar-photo" src="{image:Sidebar Photo}" alt="{Name}" />
+                </a>
+                {/block:IfSidebarPhotoImage}
 
-{block:Hidden}
-<meta name="select:Columns" content="3col" title="3 columns">
-<meta name="select:Columns" content="2col" title="2 columns">
+            	{block:ShowTitle}
+            		<h1 class="blog-title">{Title}</h1>
+            	{/block:ShowTitle}
 
-<meta name="font:Headings" content="Helvetica">
-<meta name="font:Body" content="Helvetica">
+            	{block:ShowDescription}
+            		<div class="blog-description">{Description}</div>
+            	{/block:ShowDescription}
+            	
+            	<div class="social-links">
+                	{block:IfFacebookURL}
+                    <a class="social-link" target="_blank" href="{text:Facebook URL}" title="Facebook"><i class="fa fa-fw fa-facebook-square"></i></a>
+                    {/block:IfFacebookURL}
+                    
+                    {block:IfTwitterURL}
+                    <a class="social-link" target="_blank" href="{text:Twitter URL}" title="Twitter"><i class="fa fa-fw fa-twitter-square"></i></a>
+                    {/block:IfTwitterURL}
+                    
+                    {block:IfInstagramURL}
+                    <a class="social-link" target="_blank" href="{text:Instagram URL}" title="Instagram"><i class="fa fa-fw fa-instagram"></i></a>
+                    {/block:IfInstagramURL}
+                    
+                    {block:IfPinterestURL}
+                    <a class="social-link" target="_blank" href="{text:Pinterest URL}" title="Pinterest"><i class="fa fa-fw fa-pinterest-square"></i></a>
+                    {/block:IfPinterestURL}
+                    
+                    {block:IfSoundCloudURL}
+                    <a class="social-link" target="_blank" href="{text:SoundCloud URL}" title="SoundCloud"><i class="fa fa-fw fa-soundcloud"></i></a>
+                    {/block:IfSoundCloudURL}
+                    
+                    {block:IfSteamURL}
+                    <a class="social-link" target="_blank" href="{text:Steam URL}" title="Steam"><i class="fa fa-fw fa-steam-square"></i></a>
+                    {/block:IfSteamURL}
+                    
+                    {block:IfTwitchURL}
+                    <a class="social-link" target="_blank" href="{text:Twitch URL}" title="Twitch"><i class="fa fa-fw fa-twitch"></i></a>
+                    {/block:IfTwitchURL}
+                    
+                    {block:IfVineURL}
+                    <a class="social-link" target="_blank" href="{text:Vine URL}" title="Vine"><i class="fa fa-fw fa-vine"></i></a>
+                    {/block:IfVineURL}
+                    
+                    {block:IfYouTubeURL}
+                    <a class="social-link" target="_blank" href="{text:YouTube URL}" title="YouTube"><i class="fa fa-fw fa-youtube-square"></i></a>
+                    {/block:IfYouTubeURL}
+                </div>
 
-<meta name="image:Sidebar Photo" content="">
-<meta name="image:Background" content="">
-
-<meta name="color:Background" content="#eeeeee">
-<meta name="color:Text" content="#555555">
-<meta name="color:Post Background" content="#f8f8f8">
-<meta name="color:Borders" content="#ffffff">
-<meta name="color:Sidebar" content="#f8f8f8">
-<meta name="color:Links" content="#888888">
-
-<meta name="text:Facebook URL" content="">
-<meta name="text:Flickr URL" content="">
-<meta name="text:Instagram URL" content="">
-<meta name="text:Pinterest URL" content="">
-<meta name="text:SoundCloud URL" content="">
-<meta name="text:Steam URL" content="">
-<meta name="text:Vine URL" content="">
-<meta name="text:YouTube URL" content="">
-<meta name="text:Google Analytics ID" content="">
-
-<meta name="if:Infinite Scrolling" content="0">
-<meta name="if:Show Archive Link" content="1">
-<meta name="if:Show Random Link" content="0">
-<meta name="if:Show Title" content="1">
-{/block:Hidden}
-
-<style type="text/css">
-
-body {
-    color: {color:Text};
-    background: {color:Background} url('{image:Background}');
-    background-attachment: fixed;
-    font-family: {font:Body};
-}
-.wrapper {
-	width: 774px;
-	margin: 0 auto;
-}
-.sidebar {
-    float:left;
-    background: {color:Sidebar};
-    border: 8px solid {color:Borders};
-    padding: 20px;
-    width: 160px;
-    position: fixed;
-    text-align: center;
-}
-.main {
-	float:right;
-	width: 550px;
-}
-
-.layout-3col .wrapper {
-    width: 1048px;
-}
-.layout-3col .main {
-    width: 824px;
-}
-
-.permalink-page .wrapper {
-    width: 774px;
-}
-.permalink-page .main {
-    width: 550px;
-}
-
-/* Title and description */
-h1,h2,h3,h4,h5,h6 {
-	font-family: {font:Headings};
-	font-weight: 400;
-}
-h1 {
-	font-size: 20px;
-}
-.description {
-	font-size: 12px; 
-}
-
-/* Links */
-a {
-	color: {color:Links};
-	text-decoration: none;
-}
-a:hover {
-	color: {color:Links};
-    text-decoration: underline;
-}
-
-/* sidebar link styles */
-.sidebar-links {
-    list-style-type: none;
-    padding-left: 0;
-}
-.sidebar-link {
-    text-align: center;
-	font-size: 11px;
-	color: {color:Links};
-	background-color: rgba({RGBcolor:Links}, 0.05);
-	display: block;
-	padding: 4px;
-	margin-bottom: 1px;
-	text-transform: uppercase;
-	text-decoration: none;
-}
-.sidebar-link:hover {
-    background-color: rgba({RGBcolor:Links}, 0.15);
-    text-decoration: none;
-}
-
-.sidebar-photo {
-	max-width: 160px;
-	height: auto;
-	border-radius: 3px;
-}
-
-/* adorablethemes.com */
-
-/* Lists */
-ul {
-	list-style-type: none;
-	padding-left: 0;
-}
-ul#posts {
-	margin-top: 0px;
-}
-ol.notes {
-	list-style-type: none;
-	padding-left: 0;
-}
-
-/* Post things */
-.content {
-	padding: 10px;
-}
-
-/* Text posts */
-.post p {
-	font-size: 13px;
-	line-height: 20px;
-}
-.post ul {
-	list-style-type: square;
-	font-size: 12px;
-	padding-left: 20px;
-}
-.post blockquote {
-	font-size: 12px;
-	padding: 4px;
-	margin: 16px 10px;
-    border-left: 2px solid {color:Text};
-	font-style: italic;
-}
-.post img {
-	max-width: 100%;
-	height: auto;
-}
-
-/* Quote posts */
-.quote-text {
-    font-style: italic;
-}
-.quote-source {
-    font-weight: bold;
-    text-align: right;
-}
-
-/* Chat posts */
-.chat {
-	font-size: 13px;
-	line-height: 16px;
-}
-.chat .label {
-	font-weight: bold;
-}
-.chat ul {
-    padding-left: 0;
-    list-style-type: none;   
-}
-.chat ul li {
-    border-bottom: 1px solid rgba(0,0,0,0.1);   
-    padding: 2px 0;
-}
-.chat ul li:last-child {
-    border-bottom: 0   
-}
-
-.index-page .post {
-    border: 8px solid {color:Borders};
-    float: left;
-    background: {color:Post Background};
-    margin-right: 8px;
-    margin-bottom: 8px;
-    width: 250px;
-    height: 250px;
-    overflow: hidden;
-}
-
-/* show full images on the permalink */
-.permalink-page .post {
-    border: 8px solid {color:Borders};
-    background: {color:Post Background};
-    margin-right: 8px;
-    margin-bottom: 8px;
-    float: left;
-    width: 500px;
-    height: auto;
-}
-
-/* adorablethemes.com */
-
-.photo img {
-    max-width: 500px;
-	height: auto;
-}
-
-.content figure img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* video and audio players */
-.post iframe {
-    max-width: 100%;
-}
-.index-page .video iframe {
-    height: 250px;
-}
-
-/* block on permalink pages showing notes and info */
-.post-meta {
-	float: left;
-	color: {color:Text};
-	font-size: 12px;
-	background: {color:Post Background};
-	width: 480px;
-	padding: 10px;
-    border: 8px solid {color:Borders};
-    margin-bottom: 8px;
-}
-.note-count {
-	float: right;   
-}
-
-/* post hover links */
-.post-hover {
-    position: absolute;
-    opacity: 0;
-    width: 250px;
-    height: 250px;
-    -webkit-transition: opacity 0.1s ease-in;
-    -moz-transition: opacity 0.1s ease-in;
-    transition: opacity 0.1s ease-in;
-    background-color: rgba(0,0,0,0.2);
-}
-.post:hover .post-hover {
-	opacity: 1;
-}
-hr {
-	clear: both;
-	border: 0;
-	border-bottom: 1px solid rgba({RGBcolor:Text},0.25);
-	margin: 15px 0;
-}
-
-.note {
-    border-bottom: 1px solid rgba({RGBcolor:Text},0.1);
-    padding: 8px 0;
-}
-.note:last-child {
-    border-bottom: 0;
-}
-.note .avatar {
-    vertical-align: middle;
-    border-radius: 2px;
-    margin-right: 8px;
-}
-
-.but img {
-    border-radius: 2px;
-}
-
-/* adorablethemes.com */
-
-/* remove link image border in IE */
-a img {
-	border: none;   
-}
-
-.pagination {
-	margin: 0 auto;
-	clear: both;
-	text-align: center;
-	{block:IfInfiniteScrolling}
-	display: none;
-	{/block:IfInfiniteScrolling}
-}
-.pagination a, .pagination a:hover {
-    font-size: 12px;
-    background: {color:Post Background};
-    color: {color:Text};
-    padding: 5px;
-    text-decoration: none;
-}
-
-/* clearfix */
-.clearfix:before,
-.clearfix:after {
-	content: " ";
-	display: table;
-}
-.clearfix:after {
-	clear: both;
-}
-.clearfix {
-	*zoom: 1;
-}
-
-/* selection colors */
-::selection{
-	background: {color:Text};
-	color: {color:Post Background};
-}
-::-moz-selection{
-	background: {color:Text};
-	color: {color:Post Background};
-}
-
-/* note icons */
-ol.notes .reblog {background: transparent url('//static.tumblr.com/anzluor/Gw5n6ay0z/reblog.png') right center no-repeat;}
-ol.notes .like {background: transparent url('//static.tumblr.com/anzluor/0yrn6ay0n/like.png') right center no-repeat;}
-ol.notes .reply {background: transparent url('//static.tumblr.com/anzluor/n70n6ay1a/reply.png') right center no-repeat;}
-
-.tag:before {
-    content: "#";
-}
-
-{CustomCSS}
-</style>
-</head>
-<body class="{block:IndexPage}index-page{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} layout-{select:Columns}">
-<div class="wrapper clearfix">
-<div class="sidebar">
-    
-    {block:IfSidebarPhotoImage}
-    <a href="/">
-	    <img class="sidebar-photo" src="{image:Sidebar Photo}" title="{Title}" alt="" />
-    </a>
-    {/block:IfSidebarPhotoImage}
-
-	{block:IfShowTitle}
-		<h1>{Title}</h1>
-	{/block:IfShowTitle}
-
-
-	{block:Description}
-		<div class="description">{Description}</div>
-	{/block:Description}
-
-	<ul class="sidebar-links">
+	            <ul class="sidebar-links">
 	
-	    <li><a class="sidebar-link" href="/">{lang:Home}</a></li>
+	                <li><a class="sidebar-link" href="/">{lang:Home}</a></li>
 	    
-		{block:HasPages}
-			{block:Pages}
-			<li><a class="sidebar-link" href="{URL}">{Label}</a></li>
-			{/block:Pages}
-		{/block:HasPages}
+            		{block:HasPages}
+            			{block:Pages}
+            			<li><a class="sidebar-link" href="{URL}">{Label}</a></li>
+            			{/block:Pages}
+            		{/block:HasPages}
 		
-		{block:AskEnabled}
-			<li><a class="sidebar-link" href="/ask">{AskLabel}</a></li>
-		{/block:AskEnabled}
+            		{block:AskEnabled}
+            			<li><a class="sidebar-link" href="/ask">{AskLabel}</a></li>
+            		{/block:AskEnabled}
 		
-		{block:SubmissionsEnabled}
-			<li><a class="sidebar-link" href="/submit">{SubmitLabel}</a></li>
-		{/block:SubmissionsEnabled}
+            		{block:SubmissionsEnabled}
+            			<li><a class="sidebar-link" href="/submit">{SubmitLabel}</a></li>
+            		{/block:SubmissionsEnabled}
 		
-		{block:IfShowArchiveLink}
-    		<li><a class="sidebar-link" href="/archive">{lang:Archive}</a></li>
-		{/block:IfShowArchiveLink}
+            		{block:IfShowArchiveLink}
+                		<li><a class="sidebar-link" href="/archive">{lang:Archive}</a></li>
+            		{/block:IfShowArchiveLink}
 		
-		{block:IfShowRandomLink}
-			<li><a class="sidebar-link" href="/random">{lang:Random}</a></li>
-		{/block:IfShowRandomLink}
+            		{block:IfShowRandomLink}
+            			<li><a class="sidebar-link" href="/random">{lang:Random}</a></li>
+            		{/block:IfShowRandomLink}
 		
-		<li><a class="sidebar-link" href="https://adorablethemes.com/">Theme</a></li>
+		            <li><a class="sidebar-link" href="https://adorablethemes.com/">Theme</a></li>
 		
-	</ul>
-    
-    {block:IfFacebookURL}
-        <a target="_blank" href="{text:Facebook URL}" title="Facebook" class="but but-facebook"><img src="//static.tumblr.com/anzluor/XEumnhtgn/facebook.png" /></a>
-    {/block:IfFacebookURL}
-    
-    {block:IfFlickrURL}
-        <a target="_blank" href="{text:Flickr URL}" title="Flickr" class="but but-flickr"><img src="//static.tumblr.com/anzluor/A4Bmnhthe/flickr.png" /></a>
-    {/block:IfFlickrURL}
-    
-    {block:IfInstagramURL}
-        <a target="_blank" href="{text:Instagram URL}" title="Instagram" class="but but-instagram"><img src="//static.tumblr.com/anzluor/Agkmnmmp7/insta.png" /></a>
-    {/block:IfInstagramURL}
-    
-    {block:IfPinterestURL}
-		<a target="_blank" href="{text:Pinterest URL}" title="Pinterest" class="but but-pinterest"><img src="//static.tumblr.com/anzluor/w7zmnmmpi/pinterest.png" /></a>
-	{/block:IfPinterestURL}
-	
-    {block:IfSoundCloudURL}
-        <a target="_blank" href="{text:SoundCloud URL}" title="SoundCloud" class="but but-soundcloud"><img src="//static.tumblr.com/anzluor/wf4o10sf8/sc.png"/></a>
-    {/block:IfSoundCloudURL}
-	
-	{block:IfSteamURL}
-        <a target="_blank" href="{text:Steam URL}" title="Steam" class="but but-steam"><img src="//static.tumblr.com/anzluor/vg2mnhtib/steam.png" /></a>
-    {/block:IfSteamURL}
-    
-    {block:IfVineURL}
-        <a target="_blank" href="{text:Vine URL}" title="Vine" class="but but-vine"><img src="//static.tumblr.com/anzluor/fupn6d305/vine.png"/></a>
-    {/block:IfVineURL}
-    
-    {block:Twitter}
-        <a target="_blank" href="https://twitter.com/{TwitterUsername}" title="Twitter" class="but but-twitter"><img src="//static.tumblr.com/anzluor/666mnhtip/twitter.png" /></a>
-    {/block:Twitter}
-    
-    {block:IfYouTubeURL}
-        <a target="_blank" href="{text:YouTube URL}" title="YouTube" class="but but-youtube"><img src="//static.tumblr.com/anzluor/Ea9mnhtjd/youtube.png" /></a>
-    {/block:IfYouTubeURL}
+	            </ul>
 
-</div>
-
-<div class="main clearfix">
-
-<ul id="posts">
-<div class="autopagerize_page_element">
-
-{block:Posts}
-    <li id="{PostID}" class="post {PostType}">
-    {block:IndexPage}
-    <div class="post-hover">
-        <a title="{TimeAgo} - {NoteCountWithLabel}" href="{Permalink}" style="display: block; width: 250px; height: 250px">&nbsp;</a>
-	</div>
-    {/block:IndexPage}
-    
-	{block:Text}
-        <div class="content">
-		{block:Title}
-		<h3>{Title}</h3>
-		{/block:Title}
-
-		{Body}
-        </div>
-	{/block:Text}
-    
-    {block:Answer}
-		<div class="content">
-		<p><b>{Asker}: </b> {Question} </p>
-        <hr />
-
-		{Answer}
-		</div>
-	{/block:Answer}
-
-	{block:Photo}
-		{block:PermalinkPage}
-			{LinkOpenTag}
-				<img class="photo-post-photo" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-			{LinkCloseTag}
-			{block:Caption}
-			<div class="content">{Caption}</div>
-			{/block:Caption}
-		{/block:PermalinkPage}
-		{block:IndexPage}
-			<div style="background-image: url('{PhotoURL-500}'); background-size: cover; background-position: center center; width: 250px; height: 250px">
-			</div>
-		{/block:IndexPage}
-	{/block:Photo}
-
-	{block:Photoset}
-		{block:PermalinkPage}
-			{Photoset-500}
-			<div class="content">{Caption}</div>
-		{/block:PermalinkPage}
-		{block:IndexPage}
-			{block:Photos}
-			<div style="background-image: url('{PhotoURL-500}'); background-size: cover; background-position: center center; width: 250px; height: 250px">
-			</div>
-			{/block:Photos}
-		{/block:IndexPage}
-	{/block:Photoset}
-
-	{block:Quote}
-		<div class="content">
-			<p class="quote-text">"{Quote}"</p>
-			{block:Source}
-				<div class="quote-source"><p>&mdash; {Source}</p></div>
-			{/block:Source}
-		</div>
-	{/block:Quote}
-
-	{block:Link}
-		<div class="content">
-			<h3><a class="link-post-link" href="{URL}" {Target}>{Name} &rarr;</a></h3>
-			{block:Description}
-				{Description}
-			{/block:Description}
-		</div>
-	{/block:Link}
-
-	{block:Chat}
-		<div class="content">
-			{block:Title}
-				<h3>{Title}</h3>
-			{/block:Title}
-			<ul class="chat">
-				{block:Lines}
-					<li class="{Alt} user_{UserNumber}">
-					    {block:Label}<span class="label">{Label}</span>{/block:Label} {Line}
-                    </li>
-				{/block:Lines}
-			</ul>
-		</div>
-	{/block:Chat}
-
-	{block:Video}
-		{block:PermalinkPage}
-			{VideoEmbed-500}
-			<div class="content">
-				{block:Caption}
-					{Caption}
-				{/block:Caption}
-			</div>
-		{/block:PermalinkPage}
-		{block:IndexPage}
-			{block:VideoThumbnail}
-			<div style="background-image: url('{VideoThumbnailURL}'); background-size: cover; background-position: center center; width: 250px; height: 250px">
-			</div>
-			{/block:VideoThumbnail}
-		{/block:IndexPage}
-	{/block:Video}
-
-	{block:Audio}
-		<div class="content">
-			{AudioEmbed}
-			{block:Caption}
-				{Caption}
-			{/block:Caption}
-		</div>
-	{/block:Audio}
-	
-	</li>
-	
-	{block:PermalinkPage}
-	    {block:HasTags}
-            <div class="post-meta tags-list">
-                {block:Tags}
-                    <a class="tag" href="{TagURL}">{Tag}</a>&nbsp;&nbsp;
-                {/block:Tags}
             </div>
-            {/block:HasTags}
-            {block:Date}
-        	<div class="post-meta">
-        	    <a class="time-posted" href="{Permalink}">{lang:Posted TimeAgo}</a>
-        	    <a class="note-count" href="{Permalink}#notes">{NoteCountWithLabel}</a>
-        	</div>
-        	{block:PostNotes}
-        	<div class="post-meta notes-list">
-        		{PostNotes-16}
-        	</div>
-        	{/block:PostNotes}
-        	{/block:Date}
-	{/block:PermalinkPage}
 
-{/block:Posts}
-</div>
-</ul>
-{block:Pagination}
-<div class="pagination">
-{block:PreviousPage}<a href="{PreviousPage}" id="previous">&larr; {lang:Previous}</a> {/block:PreviousPage}
+            <div class="main clearfix">
 
-<a class="page-info" href="/archive">{lang:CurrentPage of TotalPages}</a>
+                <div id="posts">
 
-{block:NextPage}<a href="{NextPage}" id="next">{lang:Next} &rarr;</a>{/block:NextPage}
-</div>
-{/block:Pagination}
-</div>
+                {block:Posts}
+                    <div id="{PostID}" class="post {PostType}">
+    
+                        <div class="post-main">
+                        
+                    	{block:Text}
+                    	    {block:IndexPage}
+                    	    <a href="{Permalink}">
+                        	    <div class="square-inner">
+                        	        <div class="square-inner-content">
+                        	            <h2 class="post-title"><span {block:Title}style="display:none"{/block:Title}>{lang:Text}</span>{Title}</h2>
+                        	            {block:IfTextPostPreviews}<p>{PlaintextBody}</p>{/block:IfTextPostPreviews}
+                        	        </div>
+                        	    </div>
+                    	    </a>
+                    	    {/block:IndexPage}
+                    	    {block:PermalinkPage}
+                            {block:Title}
+                                <div class="post-section"><h2 class="post-title">{Title}</h2></div>
+                            {/block:Title}
+                    
+                            {block:NotReblog}
+                    			<div class="post-section">
+                    			    {block:IfCustomAskPageText}{block:AskPage}<p>{text:Custom Ask Page Text}</p>{/block:AskPage}{/block:IfCustomAskPageText}
+                    				{Body}
+                    			</div>
+                    		{/block:NotReblog}
+                            {block:RebloggedFrom}
+                                {block:Reblogs}
+                                    <div class="post-section">
+                                        <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                        {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                        {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                        </p>
+                                        {Body}
+                                    </div>
+                                {/block:Reblogs}
+                            {/block:RebloggedFrom}
+                            {/block:PermalinkPage}
+                    	{/block:Text}
+    
+                        {block:Answer}
+                            {block:IndexPage}
+                            <a href="{Permalink}">
+                        	    <div class="square-inner">
+                        	        <div class="square-inner-content">
+                        	            <h2 class="post-title">{lang:Asker asked}</h2>
+                        	            <p>{Question}</p>
+                        	        </div>
+                        	    </div>
+                    	    </a>
+                    	    {/block:IndexPage}
+                            {block:PermalinkPage}
+                            <div class="post-section asker">
+                    		<p class="asker-username"><img class="reblog-avatar" src="{AskerPortraitURL-64}" /> <b>{lang:Asker asked 2}</b></p><p>{Question}</p>
+                    		
+                    		</div>
+                    		
+                    		{block:Answerer}
+                    		    <div class="post-section answerer">
+                    			<p class="answerer-username"><img class="reblog-avatar" src="{AnswererPortraitURL-64}" /> <b>{Answerer}</b></p>
+                    			
+                    			{Answer}
+                    			
+                    			</div>
+                    		{/block:Answerer}
+                    
+                    		{block:NotReblog}<div class="post-section">{Replies}</div>{/block:NotReblog}
+                    		{block:RebloggedFrom}
+                                {block:Reblogs}
+                                    <div class="post-section">
+                                        <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                        {block:IsActive}<a class="reblog-username" target="_blank" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                        {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                        </p>
+                                        {Body}
+                                    </div>
+                                {/block:Reblogs}
+                            {/block:RebloggedFrom}
+                            {/block:PermalinkPage}
+                    	{/block:Answer}
 
+                    	{block:Photo}
+                    	    {block:IndexPage}
+                    		<a href="{Permalink}">
+                    			<div class="square-inner" style="background-image: url('{PhotoURL-500}'); background-size: cover; background-position: center center">
+                    			</div>
+                    		</a>
+                    		{/block:IndexPage}
+                    		{block:PermalinkPage}
+                    		    <figure>
+                    			{LinkOpenTag}
+                    				<img class="photo-post-photo" src="{PhotoURL-500}" srcset="{PhotoURL-1280} 2x" alt="{PhotoAlt}" style="width:{PhotoWidth-500}px;height:{PhotoHeight-500}px" />
+                    			{LinkCloseTag}
+                    			</figure>
+                    			{block:NotReblog}
+                                    {block:Caption}
+                    					<figcaption class="post-section">
+                        					{Caption}
+                    					</figcaption>
+                    				{/block:Caption}
+                    			{/block:NotReblog}
+                                {block:RebloggedFrom}
+                                    {block:Reblogs}
+                                        <div class="post-section">
+                                            <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                            {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                            {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                            </p>
+                                            {Body}
+                                        </div>
+                                    {/block:Reblogs}
+                                {/block:RebloggedFrom}
+                    		{/block:PermalinkPage}
+                    	{/block:Photo}
 
+                    	{block:Photoset}
+                    	    {block:IndexPage}
+                    			{block:Photos}
+                    			<a href="{Permalink}">
+                        			<div class="square-inner" style="background-image: url('{PhotoURL-500}'); background-size: cover; background-position: center center">
+                        			</div>
+                    			</a>
+                    			{/block:Photos}
+                    		{/block:IndexPage}
+                    		{block:PermalinkPage}
+                    			<figure class="photoset-container">
+                    			    {Photoset-500}
+                    			</figure>
+                    			{block:NotReblog}
+                                    {block:Caption}
+                    					<figcaption class="post-section">
+                        					{Caption}
+                    					</figcaption>
+                    				{/block:Caption}
+                    			{/block:NotReblog}
+                                {block:RebloggedFrom}
+                                    {block:Reblogs}
+                                        <div class="post-section">
+                                            <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                            {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                            {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                            </p>
+                                            {Body}
+                                        </div>
+                                    {/block:Reblogs}
+                                {/block:RebloggedFrom}
+                    		{/block:PermalinkPage}
+                    	{/block:Photoset}
 
-</div>
-{block:IfInfiniteScrolling}
-	<script type="text/javascript" src="//static.tumblr.com/q0etgkr/ytzm5f1ke/infinitescrolling.js"></script>
-{/block:IfInfiniteScrolling}
-{block:IfGoogleAnalyticsID}
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                    	{block:Quote}
+                    	    {block:IndexPage}
+                    	    <a href="{Permalink}">
+                        	    <div class="square-inner">
+                        	        <div class="square-inner-content">
+                        	            <p class="quote-text">"{Quote}"</p>
+                        			{block:Source}
+                        				<div class="quote-source"><p>&mdash; {Source}</p></div>
+                        			{/block:Source}
+                        	        </div>
+                        	    </div>
+                    	    </a>
+                    	    {/block:IndexPage}
+                    	    {block:PermalinkPage}
+                    		<div class="post-section">
+                    			<p class="quote-text">"{Quote}"</p>
+                    			{block:Source}
+                    				<div class="quote-source"><p>&mdash; {Source}</p></div>
+                    			{/block:Source}
+                    		</div>
+                    		{/block:PermalinkPage}
+                    	{/block:Quote}
 
-  ga('create', '{text:Google Analytics ID}', 'auto');
-  ga('send', 'pageview');
+                    	{block:Link}
+                    	    {block:IndexPage}
+                    	    <a href="{URL}">
+                    	    <div class="square-inner">
+                    	        <div class="square-inner-content">
+                    	            <h2 class="post-title">{Name} <i class="fa fa-fw fa-angle-right"></i></h2>
+                    	            <p>{Host}</p>
+                    	        </div>
+                    	    </div>
+                    	    </a>
+                    	    {/block:IndexPage}
+                    	    {block:PermalinkPage}
+                    		<div class="post-section">
+                    		    <h2><a class="link-post-link" href="{URL}" {Target}>{Name} <i class="fa fa-fw fa-angle-right"></i></a></h2>
+                    		    {block:Excerpt}<p class="link-excerpt">{Excerpt}</p>{/block:Excerpt}
+                    		</div>
+                    		{block:NotReblog}
+                                {block:Description}
+                    				<div class="post-section">
+                    					{Description}
+                    				</div>
+                    			{/block:Description}
+                    		{/block:NotReblog}
+                            {block:RebloggedFrom}
+                                {block:Reblogs}
+                                    <div class="post-section">
+                                        <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                        {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                        {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                        </p>
+                                        {Body}
+                                    </div>
+                                {/block:Reblogs}
+                            {/block:RebloggedFrom}
+                            {/block:PermalinkPage}
+                    	{/block:Link}
 
-</script>
-{/block:IfGoogleAnalyticsID}
-</body>
+                    	{block:Chat}
+                    	    {block:IndexPage}
+                    	    <a href="{Permalink}">
+                        	    <div class="square-inner">
+                        	        <div class="square-inner-content">
+                        	            <h2 class="post-title"><span {block:Title}style="display:none"{/block:Title}>{lang:Chat}</span>{Title}</h2>
+                        	        </div>
+                        	    </div>
+                    	    </a>
+                    	    {/block:IndexPage}
+                    	    {block:PermalinkPage}
+                    		
+                    			{block:Title}
+                    				<div class="post-section"><h2>{Title}</h2></div>
+                    			{/block:Title}
+                    			<div class="post-section">
+                        			<ul class="chat">
+                        				{block:Lines}
+                        					<li class="{Alt} user_{UserNumber}">
+                        					    {block:Label}<span class="label">{Label}</span>{/block:Label} {Line}
+                                            </li>
+                        				{/block:Lines}
+                        			</ul>
+                    		    </div>
+                    		{/block:PermalinkPage}
+                    	{/block:Chat}
+
+                    	{block:Video}
+                    	    {block:IndexPage}
+                    		<a href="{Permalink}">
+                    		<div class="square-inner"{block:VideoThumbnail} style="background-image: url('{VideoThumbnailURL}');background-size:cover;background-position:center center"{/block:VideoThumbnail}>
+                    	        <div class="square-inner-content">
+                    	            <h2 class="post-title"><i class="fa fa-play fa-lg"></i></h2>
+                    	        </div>
+                    	    </div>
+                    	    </a>
+                    	    {/block:IndexPage}
+                    		{block:PermalinkPage}
+                    			<figure class="video-post-video">{VideoEmbed-500}</figure>
+                    			{block:NotReblog}
+                                    {block:Caption}
+                    					<figcaption class="post-section">
+                        					{Caption}
+                    					</figcaption>
+                    				{/block:Caption}
+                    			{/block:NotReblog}
+                                {block:RebloggedFrom}
+                                    {block:Reblogs}
+                                        <div class="post-section">
+                                            <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                            {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                            {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                            </p>
+                                            {Body}
+                                        </div>
+                                    {/block:Reblogs}
+                                {/block:RebloggedFrom}
+                    		{/block:PermalinkPage}
+                    	{/block:Video}
+
+                    	{block:Audio}
+                    	    {block:IndexPage}
+                    	    <a href="{Permalink}">
+                        	    <div class="square-inner">
+                        	        <div class="square-inner-content">
+                        	            <h2 class="post-title"><span {block:TrackName}style="display:none"{/block:TrackName}>{lang:Audio}</span>{block:Artist}{Artist} - {/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}</h2>
+                        	            <p>{lang:Audio}</p>
+                        	        </div>
+                        	    </div>
+                    	    </a>
+                    	    {/block:IndexPage}
+                    	    {block:PermalinkPage}
+                            {block:AudioEmbed}
+                            <figure class="audio-post-audio">
+                                {AudioEmbed}
+                            </figure>
+                            {/block:AudioEmbed}
+                    
+                            {block:NotReblog}
+                                {block:Caption}
+                    				<figcaption class="post-section">
+                    					{Caption}
+                    				</figcaption>
+                    			{/block:Caption}
+                    		{/block:NotReblog}
+                            {block:RebloggedFrom}
+                                {block:Reblogs}
+                                    <div class="post-section">
+                                        <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                                        {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                        {block:IsDeactivated}<b>{Username}</b>{/block:IsDeactivated}
+                                        </p>
+                                        {Body}
+                                    </div>
+                                {/block:Reblogs}
+                            {/block:RebloggedFrom}
+                            {/block:PermalinkPage}
+                        {/block:Audio}
+                        
+	                    </div>
+	
+	                    {block:PermalinkPage}
+	
+                    	{block:HasTags}
+                        <div class="post-meta post-tags">
+                            {block:Tags}
+                                <a class="tag" href="{TagURL}">{Tag}</a>&nbsp;&nbsp;
+                            {/block:Tags}
+                        </div>
+                        {/block:HasTags}
+        
+                        {block:Date}
+                        <div class="post-meta">
+                            <a class="time-posted" href="{Permalink}">{ShortMonth} {DayOfMonth} {Year}</a>
+                            <span class="float-right">{block:Submission}Submitted by: <a href="{SubmitterURL}">{Submitter}</a>{/block:Submission}
+                            {block:ContentSource}{lang:Source}: <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}
+                            {block:RebloggedFrom}{block:ContentSource} &bull; {/block:ContentSource}{lang:Via}: <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}</span>
+                        </div>
+                        {/block:Date}
+                        
+                        {/block:PermalinkPage}
+	
+                    </div>
+                    
+                    {block:PostNotes}
+                    <div class="post">
+                        <div class="post-meta">
+                            <h2>{NoteCountWithLabel}</h2>
+                            {PostNotes-16}
+                        </div>
+                    </div>
+                    {/block:PostNotes}
+
+                    {/block:Posts}
+                </div>
+                {block:Pagination}
+                <div class="pagination">
+                    <div class="span33 align-left">
+                	    {block:PreviousPage}<a href="{PreviousPage}" id="previous"><i class="fa fa-angle-left"></i> {lang:Previous}</a>{/block:PreviousPage}
+                	</div>
+                	<div class="span33 align-center">
+                	    <span id="view_more_button" title="{lang:Load more posts}"><i class="fa fa-plus fa-lg"></i></span>
+                	    <a href="/archive" class="page-info">{CurrentPage} / {TotalPages}</a>
+                	</div>
+                	<div class="span33 align-right">
+                	    {block:NextPage}<a href="{NextPage}" id="next">{lang:Next} <i class="fa fa-angle-right"></i></a>{/block:NextPage}
+                	</div>
+                </div>
+                {/block:Pagination}
+            </div>
+        </div>
+
+    {block:IndexPage}
+    {block:IfLoadMoreButton}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/infinite-scroll@3.0.3/dist/infinite-scroll.pkgd.min.js" integrity="sha384-SpHS3ahBNOa97uGbif91UXZ7WShL+CdO3tkOFKrJquA31QgXeSJHhrMxOT3EQKSp" crossorigin="anonymous"></script>
+    <script>
+    var container = $('#posts');
+    
+    container.infiniteScroll({
+    	path: 'div.pagination a#next',
+    	append: '.post',
+    	button: '#view_more_button',
+    	history: false,
+    	scrollThreshold: false
+    });
+    </script>
+    {/block:IfLoadMoreButton}
+    {/block:IndexPage}
+
+    {block:IfGoogleAnalyticsID}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', '{text:Google Analytics ID}', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+    {/block:IfGoogleAnalyticsID}
+    </body>
 </html>
