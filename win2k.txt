@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win2K
-        version:    2.1 (February 16, 2018)
+        version:    2.2 (February 27, 2018)
         from:       adorablethemes.com
         
         -->
@@ -610,6 +610,8 @@
             font-family: Gabriola, serif;
             font-size: 17px;
         }
+        
+        {CustomCSS}
         </style>
         {block:IfInfiniteScrolling}<noscript><style>.pagenav{display:block;}</style></noscript>{/block:IfInfiniteScrolling}
         <script type="text/javascript">
@@ -988,9 +990,9 @@
         </div>
 	</div>
 	
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="//static.tumblr.com/anzluor/jA5p3abax/masonry.js"></script>
-    {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script src="https://static.tumblr.com/anzluor/jA5p3abax/masonry.js" integrity="sha384-QSR8IMziiyR2er9+g5wUifaM6vkO1GA6cAcGnHiX4AirDJeZoNgokDHdz2QesnU2" crossorigin="anonymous"></script>
+    {block:IfInfiniteScrolling}<script src="https://static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js" integrity="sha384-DCHLD93QqUyWYMNlPlQ7qsaHYiMCzBiQPhi1uREwPnF3cW8CpyzzdSW2xLHlEh2B" crossorigin="anonymous"></script>{/block:IfInfiniteScrolling}
     <script>
     $(function(){
         {block:IndexPage}
