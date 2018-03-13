@@ -5,7 +5,7 @@
         <!-- 
         
         theme:      nano
-        version:    1.0 (March 8, 2018)
+        version:    1.1 (March 13, 2018)
         from:       adorablethemes.com
         
         -->
@@ -34,6 +34,12 @@
         
         <meta name="text:Custom Ask Page Text" content="">
         <meta name="text:Google Analytics ID" content="">
+        
+        <meta name="text:Featured Tag 1" content="">
+        <meta name="text:Featured Tag 2" content="">
+        <meta name="text:Featured Tag 3" content="">
+        <meta name="text:Featured Tag 4" content="">
+        <meta name="text:Featured Tag 5" content="">
         
         <meta name="if:Show Random Link" content="0">
         <meta name="if:Show Liked Posts Link" content="0">
@@ -125,6 +131,15 @@
 			margin-bottom: 6em;
 			padding-bottom: 6em;
 			border-bottom: 1px dotted rgba({RGBcolor:Text},0.15);
+        }
+        .post.search-results {
+            margin-bottom: 3em;
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+        .post.page {
+            padding-bottom: 0;
+            border-bottom: 0;
         }
         figure {
             margin: 0;
@@ -588,6 +603,19 @@
 			
 			<a class="sidebar-link" href="https://adorablethemes.com/"><li>Theme</li></a>
 			
+			{block:IfFeaturedTag1}
+			
+			<span class="sidebar-link"><li>&nbsp;</li></span>
+			
+			<a class="sidebar-link" href="/tagged/{text:Featured Tag 1}"><li>#{text:Featured Tag 1}</li></a>
+			
+			{block:IfFeaturedTag2}<a class="sidebar-link" href="/tagged/{text:Featured Tag 2}"><li>#{text:Featured Tag 2}</li></a>{/block:IfFeaturedTag2}
+			{block:IfFeaturedTag3}<a class="sidebar-link" href="/tagged/{text:Featured Tag 3}"><li>#{text:Featured Tag 3}</li></a>{/block:IfFeaturedTag3}
+			{block:IfFeaturedTag4}<a class="sidebar-link" href="/tagged/{text:Featured Tag 4}"><li>#{text:Featured Tag 4}</li></a>{/block:IfFeaturedTag4}
+			{block:IfFeaturedTag5}<a class="sidebar-link" href="/tagged/{text:Featured Tag 5}"><li>#{text:Featured Tag 5}</li></a>{/block:IfFeaturedTag5}
+			
+			{/block:IfFeaturedTag1}
+			
         </ul>
 
         </div>
@@ -596,15 +624,15 @@
         
         {block:SearchPage}
             {block:SearchResults}
-			<div class="post">
+			<div class="post search-results">
 			    <div class="post-section">
-				    <h2 class="post-title">{lang:SearchResultCount results for SearchQuery 2}</h23>
+				    <h2 class="post-title">{lang:SearchResultCount results for SearchQuery 2}</h2>
 				</div>
 			</div>
             {/block:SearchResults}
             
             {block:NoSearchResults}
-			<div class="post">
+			<div class="post search-results">
 			    <div class="post-section">
 				    <h2 class="post-title">{lang:No search results for SearchQuery 2}</h2>
 				</div>
@@ -613,7 +641,7 @@
         {/block:SearchPage}
             
         {block:TagPage}
-            <div class="post">
+            <div class="post search-results">
                 <div class="post-section">
 				    <h2 class="post-title">#{Tag}</h2>
 				</div>
@@ -624,7 +652,7 @@
 
             {block:Posts}
             
-            <article id="{PostID}" class="post {PostType}">
+            <article id="{PostID}" class="post {PostType} {block:Date}not-{/block:Date}page">
                 
                 <div class="post-main">
                 {block:Text}
