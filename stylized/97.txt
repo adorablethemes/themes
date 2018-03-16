@@ -89,26 +89,10 @@
             color: #ddd;
             font-size: 14px;
             line-height: 14px;
-            padding: 10px;
-            margin-bottom: -10px;
             text-align: center;
             font-family: {font:Body};
             font-weight: normal;
             text-transform: uppercase;
-        }
-        
-        h2.sidebar {
-            color: #ddd;
-            font-size: 13px;
-            line-height: 14px;
-            padding: 5px;
-            margin-left: 1px;
-            margin-bottom: -5px;
-            text-align: left;
-            font-family: {font:Body};
-            font-weight: normal;
-            background-color: #272727;
-            border-bottom: 1px solid #444;
         }
         
         /* header */
@@ -175,6 +159,7 @@
         
         .post iframe {
             display: block;
+            max-width: 100%;
         }
         
         /* main post styles */
@@ -190,12 +175,8 @@
             padding: 15px;
         }
         
-        .answer .content {
-            background-color: rgba(0,0,0,0.1);
-        }
-        
         /* adds padding to things in a post */
-        .content, .content2 {
+        .content {
             padding: 20px;
             font-size: 11px;
             line-height: 120%;
@@ -260,6 +241,11 @@
             position: fixed;
             bottom: 0;
             right: 0;
+        }
+        
+        /* remove blank space from bottom of audio posts */
+        .tumblr_audio_player { 
+            height: 85px; 
         }
         
         /* if upscale small images is off, under 400px/700px wide images will have a background */
@@ -356,7 +342,6 @@
             border-bottom: 1px solid rgba(255,255,255,0.2);
             margin: 25px 10px 15px 10px;
         }
-        
         
         /* fix height of element with floats inside */
         .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
@@ -520,7 +505,7 @@
                         <p>{lang:Asker asked}: <b>{Question}</b></p>
                     </div>
 
-                    <div class="content2">{Answer}</div>
+                    <div class="content">{Answer}</div>
                 {/block:Answer}
                 
 
