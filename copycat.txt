@@ -1275,7 +1275,7 @@
     	</div>
     	{/block:Pagination}
 	</div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="//static.tumblr.com/anzluor/jA5p3abax/masonry.js"></script>
 	{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
     <script src="//static.tumblr.com/anzluor/5thomx8pc/copycat.js"></script>
