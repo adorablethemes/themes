@@ -725,7 +725,7 @@
             position: fixed;
             bottom: 12px;
             right: 12px;
-            z-index: 100;
+            z-index: 101;
             padding: 5px 10px;
             {block:IfRoundedCorners}border-radius: 3px;{/block:IfRoundedCorners}
             cursor: pointer;
