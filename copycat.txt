@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Copycat
-        version:    2.2.1 (January 28, 2018)
+        version:    3.0 (March 28, 2018)
         from:       adorablethemes.com
         
         -->
@@ -17,7 +17,7 @@
         <link rel="apple-touch-icon" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="theme-color" content="{color:Header}">
         
         {block:Hidden}
@@ -59,8 +59,8 @@
         <meta name="color:Title" content="#ffffff">
         <meta name="color:Description" content="#888888">
         <meta name="color:Post Background" content="#ffffff">
-        <meta name="color:Post Text" content="#444444">
-        <meta name="color:Post Links" content="#529ecc">
+        <meta name="color:Post Text" content="#000000">
+        <meta name="color:Post Links" content="#666666">
 		
 		<meta name="text:Copyright Text" content="">
 		<meta name="text:Header Height" content="250">
@@ -79,6 +79,7 @@
 		
 		<meta name="text:Disqus Shortname" content="">
         <meta name="text:Google Analytics ID" content="">
+        <meta name="text:Custom Ask Page Text" content="">
 		
         <meta name="if:Show Title" content="1">
         <meta name="if:Show Description" content="0">
@@ -90,18 +91,17 @@
         <meta name="if:Index Photo Captions" content="0">
         <meta name="if:Index Video Captions" content="1">
         <meta name="if:Infinite Scrolling" content="1">
-        <meta name="if:Use Real Dates" content="0">
+        <meta name="if:Use Real Dates" content="1">
         <meta name="if:Photoset Only First" content="1">
         <meta name="if:Colorize Social Links" content="0">
         <meta name="if:Rounded Corners" content="1">
-        <meta name="if:Permalink New Window" content="0">
         {/block:Hidden}
         
         <!--[if lt IE 9]><script src="//static.tumblr.com/hriofhd/Qj0m8pn7q/html5shiv.js"></script><![endif]-->
         
         {block:IfShowTitle}<link href="//fonts.googleapis.com/css?family={select:Title Font}" rel="stylesheet" type="text/css">{/block:IfShowTitle}
         
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
         <style type="text/css">
         body {
@@ -115,7 +115,7 @@
             padding: 0;
         }
         
-        #adorablethemesdotcom {
+        #posts {
             margin-bottom: 80px;
             -webkit-transition: opacity 0.1s linear;
             transition: opacity 0.1s linear;
@@ -313,19 +313,20 @@
 			{block:IfRoundedCorners}border-radius: 2px;{/block:IfRoundedCorners}
         }
         
-		.post-content {
-			padding: 20px;
+		.post-section {
+			padding: 10px 20px;
 			font-size: 13px;
 			line-height: 140%;
         }
         
-        .font-sans-serif .post-content {
+        
+        .font-sans-serif .post-section {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
-        .font-serif .post-content {
+        .font-serif .post-section {
             font-family: Georgia, serif;
         }
-        .font-monospace .post-content {
+        .font-monospace .post-section {
             font-family: Consolas, 'Courier New', Monaco, monospace;
         }
         
@@ -333,7 +334,7 @@
     		color: {color:Post Links};
 			text-decoration: none;
         }
-        .post-content a:hover {
+        .post-section a:hover {
     		background-color: rgba({RGBcolor:Post Links},0.25);
         }
         .post h1, .post h2, .post h3, .post h4, .post h5, .post h6 {
@@ -369,16 +370,19 @@
             font-style: italic;
         }
         
-        .post-content img {
+        .post-section img {
             max-width: 100%;
             height: auto;
         }
         
         .index-page .photo-post-photo {
 			max-width: 250px;
-			width: 250px;
-			height: auto;
+			width: 100%;
+			height: 100%;
 			display: block;
+        }
+        figure.photo-content {
+            margin: 0 auto;
         }
         
         ul.chat {
@@ -399,16 +403,23 @@
 		.chat-label {
 			font-weight: bold;
 		}
+		
+		.link-info p {
+		    font-size: 11px !important;
+		}
         
         .post-meta {
 			font-size: 13px;
-			padding: 8px;
+			padding: 10px 20px;
 			line-height: 15px;
 			font-style: normal;
             min-height: 16px;
             border-top: 1px solid rgba({RGBcolor:Post Text},0.1);
         }
         .post-share {
+            border-top: 0;
+        }
+        .post-tags {
             border-top: 0;
         }
         .share-item {
@@ -430,56 +441,94 @@
 			padding-left: 0;
         }
         .note {
-			padding: 4px;
+			padding: 5px 0;
         }
         .note:last-child {
             margin-bottom: 10px;
         }
         
-        .post .post-hover-info {
+        .post .post-index-meta {
 			width: 230px;
-			font-size: 11px;
+			font-size: 13px;
 			line-height: 25px;
 			font-weight: normal;
 			padding-left: 10px;
 			padding-right: 10px;
-            border-top: 1px solid rgba({RGBcolor:Post Text},0.05);
         }
-        .post-hover-info a {
-            color: rgba({RGBcolor:Post Text}, 0.4);
+        .post-index-meta a {
+            color: rgba({RGBcolor:Post Text}, 0.5);
         }
-        .post-hover-info a:hover {
+        .post-index-meta a:hover {
             color: rgba({RGBcolor:Post Text}, 0.75);
+        }
+        .note-count {
+            font-size: 11px;
         }
         
         {block:IfNotIndexPhotoCaptions}
-        .photo .post-hover-info {
+        .photo .post-index-meta {
+            display: none;
+        }
+        
+        .photo-hover {
 			position: absolute;
-			top: -30px;
-			left: 0px;
-			width: 234px;
-			height: 30px;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			padding: 0;
 			font-size: 11px;
 			line-height: 30px;
 			font-weight: normal;
-			background: transparent;
-			padding-left: 8px;
-			padding-right: 8px;
+			background: rgba(0,0,0,0);
             border-top: 0;
 			z-index: 100;
-			-webkit-transition: all 0.1s ease-out;
-			transition: all 0.1s ease-out;
+			opacity: 0;
+			transition: all 0.15s ease-in-out;
         }
-        .photo:hover .post-hover-info {
-			top: 0px;
-			background: black;
-			background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+        .photo:hover .photo-hover {
+            background: rgba(0,0,0,0.6);
+            opacity: 1;
         }
-        .photo .post-hover-info a, .photo .post-hover-info a:hover {
+        .photo-hover a {
+            font-size: 17px;
 			color: white;
 			text-shadow: 1px 2px 5px rgba(0,0,0,0.5);
+			background: rgba(0,0,0,0.25);
+			border: 1px solid rgba(255,255,255,0.05);
+			padding: 10px;
+        }
+        .photo-hover a:hover {
+            color: white;
+			background: rgba(0,0,0,0.5);
+			border: 1px solid rgba(255,255,255,0.25);
+        }
+        
+        .photo-hover .inside {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            margin-top: -25px;
+        }
+        
+        .inside .note-count {
+            font-size: 11px;
+            background: transparent;
+            border: 0;
+        }
+        .inside .note-count:hover {
+            background: transparent;
+            border: 0;
+        }
+        .touch .photo-hover {
+            display: none;
         }
         {/block:IfNotIndexPhotoCaptions}
+	    
+        .has-lightbox {
+            cursor: pointer;
+        }
         
         /* Remove blank space from bottom of iframes */
         .post iframe, figure img {
@@ -516,24 +565,15 @@
         .post hr {
 			clear: both;
 			border: 0;
-			border-bottom: 1px solid rgba(0,0,0,0.05);
+			border-bottom: 1px solid rgba(0,0,0,0.07);
         }
         
-        .post .asker-avatar {
+        .post .asker-avatar, .post .reblog-avatar, .note img.avatar {
             width: 16px;
             height: 16px;
             vertical-align: middle;
             border-radius: 2px;
-            margin-right: 5px;
-        }
-        
-        .post img.avatar {
-			width: 16px;
-			height: 16px;
-			vertical-align: middle;
-			display: inline;
-            border-radius: 3px;
-            margin-right: 10px;
+            margin-right: 8px;
         }
         
         /* Note icons */
@@ -738,9 +778,11 @@
         .index-page .photoset-container figure {
             display: none;
         }
+        {block:IfPhotosetOnlyFirst}
         .index-page .photoset-container figure:first-child {
             display: block;
         }
+        {/block:IfPhotosetOnlyFirst}
         
         /* Keep reading link arrow */
         a.read_more:after {
@@ -752,6 +794,7 @@
             opacity: 0.01;
         }
         
+        {block:IfPhotosetOnlyFirst}
         /* Indicator for photosets */
         .photoset-note {
             position: absolute;
@@ -771,13 +814,31 @@
             font-weight: bold;
             padding: 7px 10px;
         }
+        {/block:IfPhotosetOnlyFirst}
+        {block:IfNotPhotosetOnlyFirst}
+        .photoset-note {
+            display: none;
+        }
+        {/block:IfNotPhotosetOnlyFirst}
         
-        /* Audio player sizing */
+        /* Media player sizing */
         .index-page .spotify_audio_player {
             height: 290px;
         }
         .index-page .soundcloud_audio_player {
             height: 230px;
+        }
+        .index-page iframe.instagram-media {
+            height: 470px;
+            margin-bottom: 0 !important;
+        }
+        .index-page .tmblr-embed #youtube_iframe {
+            width: 210px;
+            height: 118px;
+        }
+        
+        a.reblog-username, a.reblog-username:hover, .asker a, .asker a:hover, .answerer- a, .answerer a:hover {
+            color: {color:Post Text};
         }
         
         /* Responsive styles */
@@ -789,7 +850,14 @@
 		@media screen and (max-width:768px) {
 		    .header-navbar {
 		        display: none;
-		    }   
+		    }
+		    {block:IfNotIndexPhotoCaptions}
+		    {block:IfNotPhotosetOnlyFirst}
+            .post.photoset .post-index-meta {
+                display: block;
+            }
+            {/block:IfNotPhotosetOnlyFirst}
+            {/block:IfNotIndexPhotoCaptions}
 		}
 		@media screen and (max-width:550px) {
 		    .permalink-page .wrapper {
@@ -800,7 +868,9 @@
     		.permalink-page .main {
     		    -moz-box-sizing: border-box;
                 box-sizing: border-box;
-    			width: 100%;   
+    			width: 100%;
+    			padding-left: 16px;
+    			padding-right: 16px;
     		}
     		.permalink-page .post {
     		    -moz-box-sizing: border-box;
@@ -808,12 +878,9 @@
     			width: 100%;
     			margin-left: 0;
     			margin-right: 0;
-    			border-radius: 0;
     		}
-    		.permalink-page .post img {
-    			max-width: 100%;
-    			width: auto;
-    			height: auto;
+    		.permalink-page .photo-post-photo {
+    			width: 100%;
     		}
     		.blog-title, .blog-title:hover {
     		    font-size: 24px;
@@ -851,6 +918,10 @@
     			width: 1032px;   
     		}
 		}
+		
+		.tmblr-iframe--app-cta-button {
+            display: none !important;
+        }
         
         /* Clearfix */
         .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
@@ -865,6 +936,26 @@
         .npf_quirky {
             font-family: serif;
         }
+        .post-section {
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+        .post-section:last-child {
+            border-bottom: 0;
+        }
+        p.tmblr-attribution {
+            font-size: 10px;
+        }
+        
+        {block:IfNotIndexPhotoCaptions}
+        .index-page .photo .post-section {
+            display: none;
+        }
+        {/block:IfNotIndexPhotoCaptions}
+        {block:IfNotIndexVideoCaptions}
+        .index-page .video .post-section {
+            display: none;
+        }
+        {/block:IfNotIndexVideoCaptions}
         
         {CustomCSS}
         </style>
@@ -872,9 +963,9 @@
         <script type="text/javascript">
             var copycat = {{block:IfInfiniteScrolling}infScroll: true,{/block:IfInfiniteScrolling}{block:IfNotInfiniteScrolling}infScroll: false,{/block:IfNotInfiniteScrolling} {block:IndexPage}indexPage: true{/block:IndexPage}{block:PermalinkPage}indexPage: false{/block:PermalinkPage}, prefill: false};
         </script>
-        <noscript><style>.posts-hidden {opacity: 1;} #loading {display: none;}</style></noscript>
+        <noscript><style>.posts-hidden {opacity: 1;} #loading {display: none;}{block:IfInfiniteScrolling}.page-1 .pagination { display: block !important; }{/block:IfInfiniteScrolling}</style></noscript>
     </head>
-    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} font-{select:Post Body Font} layout-{select:Max Columns} background-{select:Background Image Style}">
+    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} font-{select:Post Body Font} layout-{select:Max Columns} background-{select:Background Image Style} no-touch">
         
         {block:IndexPage}
         <div id="backToTop" class="back-to-top" title="Back to top">
@@ -996,7 +1087,7 @@
         {block:SearchPage}
             {block:SearchResults}
 			<div class="search-info">
-			    <div class="post-content">
+			    <div class="post-section">
 				    <h2>{lang:SearchResultCount results for SearchQuery 2}</h2>
 				</div>
 			</div>
@@ -1004,7 +1095,7 @@
             
             {block:NoSearchResults}
 			<div class="search-info">
-			    <div class="post-content">
+			    <div class="post-section">
 				    <h2>{lang:No search results for SearchQuery 2}</h2>
 				</div>
 			</div>
@@ -1013,107 +1104,136 @@
             
         {block:TagPage}
             <div class="search-info">
-                <div class="post-content">
+                <div class="post-section">
 				    <h2>#{Tag}</h2>
 				</div>
             </div>
         {/block:TagPage}
 
-        <div id="adorablethemesdotcom"{block:IndexPage} class="posts-hidden"{/block:IndexPage}>
+        <div id="posts"{block:IndexPage} class="posts-hidden"{/block:IndexPage}>
         
-            {block:Posts}
-				<article class="post {PostType}{block:PermalinkPage} {block:Date}not-{/block:Date}page{/block:PermalinkPage}">
+            {block:Posts inlineMediaWidth="460" inlineNestedMediaWidth="460"}
+				<article id="post_{PostID}" class="post {PostType}{block:PermalinkPage} {block:Date}not-{/block:Date}page{/block:PermalinkPage}{block:Photoset} photoset{/block:Photoset}">
 								
                 {block:Text}
-                    <div class="post-content">
-					{block:Title}<h2>{Title}</h2><hr>{/block:Title}
-
-					{Body}
-					</div>
+                    
+                    {block:Title}<div class="post-section"><h2>{Title}</h2></div>{/block:Title}
+                    
+					{block:NotReblog}
+    					<div class="post-section">
+        					{block:IfCustomAskPageText}{block:AskPage}<p>{text:Custom Ask Page Text}</p>{/block:AskPage}{/block:IfCustomAskPageText}
+        					{Body}
+    					</div>
+					{/block:NotReblog}
+                    {block:RebloggedFrom}
+                        {block:Reblogs}
+                            <div class="post-section">
+                                <p><img class="reblog-avatar" src="{PortraitURL-64}">
+                                {block:IsActive}<a class="reblog-username" target="_blank" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                                </p>
+                                {Body}
+                            </div>
+                        {/block:Reblogs}
+                    {/block:RebloggedFrom}
+					
                 {/block:Text}
                 
                 
                 {block:Answer}
-                    <div class="post-content">
-					<p><img class="asker-avatar" src="{AskerPortraitURL-16}" srcset="{AskerPortraitURL-30} 2x" /> <b>{Asker}:</b></p><p>{Question}</p>
+                    <div class="post-section">
+					<p class="asker"><img class="asker-avatar" src="{AskerPortraitURL-64}" /> <b>{lang:Asker asked 2}</b></p><p>{Question}</p>
 					
-					<hr>
+					</div>
 					
 					{block:Answerer}
-    					<p><img class="asker-avatar" src="{AnswererPortraitURL-16}" srcset="{AnswererPortraitURL-30} 2x" /> <b>{Answerer}:</b></p>
+					    <div class="post-section">
+    					<p class="answerer-"><img class="asker-avatar" src="{AnswererPortraitURL-64}" /> <b>{Answerer}</b></p>
     					
     					{Answer}
     					
-    					<hr>
+    					</div>
 					{/block:Answerer}
 
-					{Replies}
-					</div>
+					{block:NotReblog}<div class="post-section">{Replies}</div>{/block:NotReblog}
+					{block:RebloggedFrom}
+                        {block:Reblogs}
+                            <div class="post-section">
+                                <p><img class="reblog-avatar" src="{PortraitURL-64}">
+                                {block:IsActive}<a class="reblog-username" target="_blank" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                                </p>
+                                {Body}
+                            </div>
+                        {/block:Reblogs}
+                    {/block:RebloggedFrom}
                 {/block:Answer}
                 
 
                 {block:Photo}
-                    <figure class="photo-content"{block:IndexPage} style="width: {PhotoWidth-250}px; height: {PhotoHeight-250}px"{/block:IndexPage}>
+                    <figure data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" class="photo-content">
 					{block:PermalinkPage}
-                    {LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-500}" srcset="{PhotoURL-1280} 2x" alt="{PhotoAlt}" />{LinkCloseTag}
+                    {LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-500}"{block:HighRes} srcset="{PhotoURL-1280} 2x"{/block:HighRes} alt="{PhotoAlt}" />{LinkCloseTag}
                     {/block:PermalinkPage}
-					{block:IndexPage}<a{block:IfPermalinkNewWindow} target="_blank"{/block:IfPermalinkNewWindow} href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" srcset="{PhotoURL-500} 2x" alt="{PhotoAlt}" /></a>{/block:IndexPage}
+					{block:IndexPage}<a href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" srcset="{PhotoURL-500} 2x" alt="{PhotoAlt}" /></a>{/block:IndexPage}
 					</figure>
 					
-					{block:IfIndexPhotoCaptions}
-					{block:IndexPage}
-                    {block:Caption}
-						<div class="post-content"><figcaption>{Caption}</figcaption></div>
-					{/block:Caption}
-                    {/block:IndexPage}
-                    {/block:IfIndexPhotoCaptions}
-
-					{block:PermalinkPage}
-                    {block:Caption}
-						<div class="post-content"><figcaption>{Caption}</figcaption></div>
-					{/block:Caption}
-                    {/block:PermalinkPage}
+					{block:NotReblog}
+                        {block:Caption}<figcaption class="post-section">{Caption}</figcaption>{/block:Caption}
+                    {/block:NotReblog}
+                    {block:RebloggedFrom}
+                        {block:Reblogs}
+                            <div class="post-section">
+                                <p><img class="reblog-avatar" src="{PortraitURL-64}">
+                                {block:IsActive}<a class="reblog-username" target="_blank" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                                </p>
+                                {Body}
+                            </div>
+                        {/block:Reblogs}
+                    {/block:RebloggedFrom}
                 {/block:Photo}
                 
 
                 {block:Photoset}
 					{block:IndexPage}
-					{block:IfPhotosetOnlyFirst}
 					<div class="photoset-note">{PhotoCount}</div>
 					<div class="photoset-container">
 					{block:Photos}
-					<figure class="photoset-content" style="width: {PhotoWidth-250}px; height: {PhotoHeight-250}px">
+					<figure data-width="{PhotoWidth-HighRes}"data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" data-caption="{Caption}" class="photo-content photoset-content">
 					    
-					    <a{block:IfPermalinkNewWindow} target="_blank"{/block:IfPermalinkNewWindow} href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" srcset="{PhotoURL-500} 2x" alt="{PhotoAlt}" /></a>
+					    <a href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" srcset="{PhotoURL-500} 2x" alt="{PhotoAlt}" /></a>
 					    
 					</figure>
 					{/block:Photos}
 					</div>
-					{/block:IfPhotosetOnlyFirst}
 					{block:IfNotPhotosetOnlyFirst}
 					<figure class="photoset-content">{Photoset-250}</figure>
 					{/block:IfNotPhotosetOnlyFirst}
 					{/block:IndexPage}
-					
-					{block:IfIndexPhotoCaptions}
-					{block:IndexPage}
-                    {block:Caption}
-						<div class="post-content"><figcaption>{Caption}</figcaption></div>
-					{/block:Caption}
-                    {/block:IndexPage}
-                    {/block:IfIndexPhotoCaptions}
-
 					{block:PermalinkPage}
-						<div class="post-content">
-						<figure class="photoset-content">{Photoset}</figure>
-						{block:Caption}<figcaption>{Caption}</figcaption>{/block:Caption}
-						</div>
+					<figure class="photoset-content">{Photoset-500}</figure>
 					{/block:PermalinkPage}
+					
+					{block:NotReblog}
+                        {block:Caption}<figcaption class="post-section">{Caption}</figcaption>{/block:Caption}
+                    {/block:NotReblog}
+                    {block:RebloggedFrom}
+                        {block:Reblogs}
+                            <div class="post-section">
+                                <p><img class="reblog-avatar" src="{PortraitURL-64}">
+                                {block:IsActive}<a class="reblog-username" target="_blank" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                                </p>
+                                {Body}
+                            </div>
+                        {/block:Reblogs}
+                    {/block:RebloggedFrom}
                 {/block:Photoset}
                 
 
                 {block:Quote}
-					<div class="post-content"><h2 class="quote-text">"{Quote}"</h2>
+					<div class="post-section"><h2 class="quote-text">"{Quote}"</h2>
 
 					{block:Source}
 						<p style="text-align: right">&mdash; {Source}</p>
@@ -1123,68 +1243,93 @@
                 
 
                 {block:Link}
-                    <div class="post-content">
-					<h3><a href="{URL}" class="link-post-link"{block:Host}title="{Host}"{/block:Host} {Target}>{Name} &raquo;</a></h3>
-					
-					{Host}{block:Excerpt} &mdash; <em>{Excerpt}</em>{/block:Excerpt}
-
-					{block:Description}<hr>{Description}{/block:Description}
+                    <div class="post-section">
+					    <h3><a href="{URL}" class="link-post-link"{block:Host}title="{Host}"{/block:Host} {Target}>{Name} <i class="fa fa-angle-right  fa-fw"></i></a></h3>
+					    <div class="link-info">
+        					{block:Excerpt}<p>{Excerpt}</p>{/block:Excerpt}
+        					<p>({Host})</p>
+    					</div>
 					</div>
+
+					{block:NotReblog}
+                        {block:Description}<div class="post-section">{Description}</div>{/block:Description}
+                    {/block:NotReblog}
+                    {block:RebloggedFrom}
+                        {block:Reblogs}
+                            <div class="post-section">
+                                <p><img class="reblog-avatar" src="{PortraitURL-64}">
+                                {block:IsActive}<a class="reblog-username" target="_blank" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                                </p>
+                                {Body}
+                            </div>
+                        {/block:Reblogs}
+                    {/block:RebloggedFrom}
                 {/block:Link}
                 
 
                 {block:Chat}
-					<div class="post-content">
-					{block:Title}<h2>{Title}</h2><hr>{/block:Title}
-					<ul class="chat">
-						{block:Lines}
-							<li class="{Alt} user_{UserNumber}">
-								{block:Label}
-									<span class="chat-label">{Label}</span>
-								{/block:Label}
-
-								<span class="chat-line">{Line}</span>
-							</li>
-						{/block:Lines}
-					</ul>
+					{block:Title}<div class="post-section"><h2>{Title}</h2></div>{/block:Title}
+					<div class="post-section">
+    					<ul class="chat">
+    						{block:Lines}
+    							<li class="{Alt} user_{UserNumber}">
+    								{block:Label}
+    									<span class="chat-label">{Label}</span>
+    								{/block:Label}
+    
+    								<span class="chat-line">{Line}</span>
+    							</li>
+    						{/block:Lines}
+    					</ul>
 					</div>
                 {/block:Chat}
                 
 
                 {block:Video}
                     <figure class="video-content">
-					{block:IndexPage}
-					    {VideoEmbed-250}
-					{/block:IndexPage}
-					{block:PermalinkPage}{VideoEmbed-500}{/block:PermalinkPage}
+    					{block:IndexPage}{VideoEmbed-250}{/block:IndexPage}
+    					{block:PermalinkPage}{VideoEmbed-500}{/block:PermalinkPage}
 					</figure>
 					
-					{block:IfIndexVideoCaptions}
-					{block:IndexPage}
-                    {block:Caption}
-						<div class="post-content"><figcaption>{Caption}</figcaption></div>
-					{/block:Caption}
-                    {/block:IndexPage}
-                    {/block:IfIndexVideoCaptions}
-
-                    {block:PermalinkPage}
-					{block:Caption}
-						<div class="post-content"><figcaption>{Caption}</figcaption></div>
-					{/block:Caption}
-					{/block:PermalinkPage}
+					{block:NotReblog}
+                        {block:Caption}<figcaption class="post-section">{Caption}</figcaption>{/block:Caption}
+                    {/block:NotReblog}
+                    {block:RebloggedFrom}
+                        {block:Reblogs}
+                            <div class="post-section">
+                                <p><img class="reblog-avatar" src="{PortraitURL-64}">
+                                {block:IsActive}<a class="reblog-username" target="_blank" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                                </p>
+                                {Body}
+                            </div>
+                        {/block:Reblogs}
+                    {/block:RebloggedFrom}
                 {/block:Video}
                 
 
                 {block:Audio}
-                    <div class="post-content">
-                    <figure class="audio-content">
-                    {AudioEmbed}
-                    </figure>
+                    <div class="post-section">
+                        <figure class="audio-content">
+                            {AudioEmbed}
+                        </figure>
+                    </div>
                     
-					{block:Caption}
-						<figcaption>{Caption}</figcaption>
-					{/block:Caption}
-					</div>
+					{block:NotReblog}
+                        {block:Caption}<div class="post-section">{Caption}</div>{/block:Caption}
+                    {/block:NotReblog}
+                    {block:RebloggedFrom}
+                        {block:Reblogs}
+                            <div class="post-section">
+                                <p><img class="reblog-avatar" src="{PortraitURL-64}">
+                                {block:IsActive}<a class="reblog-username" target="_blank" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                                {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                                </p>
+                                {Body}
+                            </div>
+                        {/block:Reblogs}
+                    {/block:RebloggedFrom}
                 {/block:Audio}
                 
                 {block:PermalinkPage}
@@ -1198,11 +1343,33 @@
                 {/block:PermalinkPage}
                 
                 {block:IndexPage}
-                <div class="post-hover-info">
-                    {block:Date}<a title="{lang:Permalink}"{block:IfPermalinkNewWindow} target="_blank"{/block:IfPermalinkNewWindow} class="timeago" href="{Permalink}">{block:IfUseRealDates}{ShortMonth} {DayOfMonth}<span class="year_{Year}"> {Year}</span>{/block:IfUseRealDates}{block:IfNotUseRealDates}{TimeAgo}</span>{/block:IfNotUseRealDates}{block:NoteCount} &bull; {NoteCountWithLabel}{/block:NoteCount}</a>{/block:Date}
+                <div class="post-index-meta">
+                    <a href="{Permalink}" class="note-count">{block:IfUseRealDates}{ShortMonth} {DayOfMonth}<span class="year_{Year}"> {Year}</span>{/block:IfUseRealDates}{block:IfNotUseRealDates}{TimeAgo}{/block:IfNotUseRealDates}{block:NoteCount} &bull; {NoteCountWithLabel}{/block:NoteCount}</a>
                     
                     <a title="Reblog" target="_blank" style="float:right; text-align: right" class="reblog-button" href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+                    
+                    {block:Photo}<a style="float:right; text-align: right; margin-right: 8px" class="has-lightbox" data-postid="{PostID}" title="{lang:Zoom}"><i class="fa fa-search-plus"></i></a>{/block:Photo}
+                    
+                    {block:Photoset}<a style="float:right; text-align: right; margin-right: 8px" class="has-lightbox" data-postid="{PostID}" title="{lang:Zoom}"><i class="fa fa-search-plus"></i></a>{/block:Photoset}
                 </div>
+                {block:IfNotIndexPhotoCaptions}
+                {block:Photo}
+                <div class="photo-hover">
+                    <div class="inside">
+                        <a class="has-lightbox" data-postid="{PostID}" title="{lang:Zoom}"><i class="fa fa-fw fa-search-plus"></i></a><a href="{Permalink}" title="{lang:Permalink}"><i class="fa fa-fw fa-link"></i></a><a href="{ReblogURL}" title="Reblog"><i class="fa fa-fw fa-retweet"></i></a>
+                        <br><a href="{Permalink}" class="note-count">{block:IfUseRealDates}{ShortMonth} {DayOfMonth}<span class="year_{Year}"> {Year}</span>{/block:IfUseRealDates}{block:IfNotUseRealDates}{TimeAgo}{/block:IfNotUseRealDates}{block:NoteCount} &bull; {NoteCountWithLabel}{/block:NoteCount}</a>
+                    </div>
+                </div>
+                {/block:Photo}
+                {block:Photoset}
+                <div class="photo-hover">
+                    <div class="inside">
+                        <a class="has-lightbox" data-postid="{PostID}" title="{lang:Zoom}"><i class="fa fa-search-plus"></i></a><a href="{Permalink}" title="{lang:Permalink}"><i class="fa fa-link"></i></a><a href="{ReblogURL}" title="Reblog"><i class="fa fa-retweet"></i></a>
+                        <br><a href="{Permalink}" class="note-count">{block:IfUseRealDates}{ShortMonth} {DayOfMonth}<span class="year_{Year}"> {Year}</span>{/block:IfUseRealDates}{block:IfNotUseRealDates}{TimeAgo}{/block:IfNotUseRealDates}{block:NoteCount} &bull; {NoteCountWithLabel}{/block:NoteCount}</a>
+                    </div>
+                </div>
+                {/block:Photoset}
+                {/block:IfNotIndexPhotoCaptions}
                 {/block:IndexPage}
                 
                 </article>
@@ -1216,11 +1383,8 @@
                     <a href="{ReblogURL}" class="share-item link-tumblr-reblog" target="_blank"><i class="fa fa-retweet"></i> Reblog</a>
                     <a href="https://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" class="share-item link-facebook-share" target="_blank"><i class="fa fa-facebook-square"></i> Share</a>
                     <a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" class="share-item link-twitter-tweet" target="_blank"><i class="fa fa-twitter"></i> Tweet</a>
-                    {block:NoteCount}
-                    <span style="float:right; text-align: right">
-                        <span class="postnotes">{NoteCountWithLabel}</span>{/block:PostNotes}
-                    </span>
-                    {/block:NoteCount}
+                    {block:Photo} <a href="https://www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&amp;media={PhotoURL-500}" class="share-item link-pinterest" target="_blank"><i class="fa fa-pinterest"></i> Pin</a>{/block:Photo}
+                    {block:Video}{block:VideoThumbnail} <a href="https://www.pinterest.com/pin/create/button/?url={URLEncodedPermalink}&amp;media={VideoThumbnailURL}&amp;is_video=true" class="share-item link-pinterest" target="_blank"><i class="fa fa-pinterest"></i> Pin</a>{/block:VideoThumbnail}{/block:Video}
                 </div>
 				
                 <div class="post-meta">
@@ -1240,16 +1404,15 @@
                 
                 {block:IfDisqusShortname}
                 <div class="post-meta post-comments">
-                    <div class="post-content">
                     <div id="disqus_thread"></div>
                     <script type="text/javascript" src="//disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
                     <noscript><a href="//{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
-                    </div>
                 </div>
                 {/block:IfDisqusShortname}
                 
                 {block:PostNotes}
                 <div class="post-meta post-notes-list">
+                    <h2>{NoteCountWithLabel}</h2>
     				{PostNotes-16}
                 </div>
 				{/block:PostNotes}
@@ -1264,21 +1427,21 @@
         {block:Pagination}
         <div class="pagination clearfix">
             <div class="span33 align-left">
-    		{block:PreviousPage}<a href="{PreviousPage}" id="previous">&larr; {lang:Previous}</a>{/block:PreviousPage}
+    		{block:PreviousPage}<a href="{PreviousPage}" id="previous"><i class="fa fa-angle-left fa-fw"></i> {lang:Previous}</a>{/block:PreviousPage}
     		</div>
     		<div class="span33 hide-on-mobile">
     		<span class="page-info">{lang:Page CurrentPage of TotalPages}</span>
     		</div>
     		<div class="span33 align-right">
-    		{block:NextPage}<a href="{NextPage}" id="next">{lang:Next} &rarr;</a>{/block:NextPage}
+    		{block:NextPage}<a href="{NextPage}" id="next">{lang:Next} <i class="fa fa-angle-right fa-fw"></i></a>{/block:NextPage}
     		</div>
     	</div>
     	{/block:Pagination}
 	</div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="//static.tumblr.com/anzluor/jA5p3abax/masonry.js"></script>
-	{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-    <script src="//static.tumblr.com/anzluor/5thomx8pc/copycat.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+	    <script src="https://static.tumblr.com/anzluor/jA5p3abax/masonry.js" integrity="sha384-QSR8IMziiyR2er9+g5wUifaM6vkO1GA6cAcGnHiX4AirDJeZoNgokDHdz2QesnU2" crossorigin="anonymous"></script>
+	    {block:IfInfiniteScrolling}<script src="https://static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js" integrity="sha384-DCHLD93QqUyWYMNlPlQ7qsaHYiMCzBiQPhi1uREwPnF3cW8CpyzzdSW2xLHlEh2B" crossorigin="anonymous"></script>{/block:IfInfiniteScrolling}
+    <script src="https://static.tumblr.com/anzluor/jjop6c2ux/copycat.min.js" integrity="sha384-CodgBNsHePd1/daq5LCfY8QZswfdn/OktH/7WFqvgW3nDOFAgzURCBwbGQuuw0F9" crossorigin="anonymous"></script>
         {block:IfGoogleAnalyticsID}
             <script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
