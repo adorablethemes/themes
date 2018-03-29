@@ -303,6 +303,7 @@
         
         .post {
 			width: 250px;
+			position: relative;
 			float: left;
 			background-color: {color:Post Background};
 			{block:IfPostOpacity}background-color: rgba({RGBcolor:Post Background}, {text:Post Opacity});{/block:IfPostOpacity}
