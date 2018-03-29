@@ -87,9 +87,11 @@
             color: {color:Hover};
             font-size: 16px;
             line-height: 16px;
-            padding: 20px 20px 0px 20px;
-            margin-top: 0px;
-            margin-bottom: 0px;
+            /*padding: 20px 20px 0px 20px;*/
+            /*margin-top: 0px;*/
+            /*margin-bottom: 0px;*/
+            margin: 0px;
+            padding: 0px;
             text-align: center;
             font-family: {font:Heading};
             font-weight: normal;
@@ -201,7 +203,7 @@
             background-color: transparent;
             font-size: 13px;
             line-height: 16px;
-            padding: 0px 5px;
+            padding: 5px 5px 0px 5px;
             margin: 1px;
             text-align: justify;
             text-indent: -0.3em;
@@ -600,11 +602,12 @@
                 <li class="post {PostType}">
                                 
                 {block:Text}
+                <div class="content">
                     {block:Title}
                         <h3>{Title}</h3>
                     {/block:Title}
 
-                    <div class="content">{Body}</div>
+                    {Body}</div>
                 {/block:Text}
                 
                 
@@ -612,9 +615,8 @@
                     <div class="content">
                         <img class="avatar-ask" style="float:left" src="{AskerPortraitURL-64}"/>
                         <p>{lang:Asker asked}: <b>{Question}</b></p>
-                    </div>
-
-                    <div class="content">{Answer}</div>
+                    
+                    {Answer}</div>
                 {/block:Answer}
                 
 
@@ -660,19 +662,20 @@
                 
 
                 {block:Link}
-                <h4><a href="{URL}" class="link" {Target}>{Name} &rarr;</a></h4>
+               <div class="content"> <h4><a href="{URL}" class="link" {Target}>{Name} &rarr;</a></h4>
 
                     {block:Description}
-                        <div class="content">{Description}</div>
+                        {Description}</div>
                     {/block:Description}
                 {/block:Link}
                 
 
                 {block:Chat}
+                <div class="content">
                     {block:Title}
                         <h3><a href="{Permalink}">{Title}</a></h3>
                     {/block:Title}
-                    <div class="content">
+                    
                     <ul class="chat">
                         {block:Lines}
                             <li class="{Alt} user_{UserNumber}">
