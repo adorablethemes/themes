@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win3.1
-        version:    1.2 (February 27, 2018)
+        version:    1.2.1 (March 31, 2018)
         from:       adorablethemes.com
         
         -->
@@ -346,6 +346,19 @@
         .layout-three-column .video .media-container iframe {
             width: 275px;
             height: 154px;
+        }
+        
+        .video .media-container iframe.instagram-media {
+            margin: 0 !important;
+        }
+        
+        .layout-two-column .video .media-container iframe.instagram-media {
+            width: 400px;
+            height: 610px;
+        }
+        .layout-three-column .video .media-container iframe.instagram-media {
+            width: 275px;
+            height: 460px;
         }
         
         .layout-two-column .soundcloud_audio_player {
