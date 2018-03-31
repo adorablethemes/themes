@@ -87,9 +87,6 @@
             color: {color:Hover};
             font-size: 16px;
             line-height: 16px;
-            /*padding: 20px 20px 0px 20px;*/
-            /*margin-top: 0px;*/
-            /*margin-bottom: 0px;*/
             margin: 0px;
             padding: 0px;
             text-align: center;
@@ -328,6 +325,7 @@
         
         .tags {
             display: block;
+            margin-top: 10px;
             margin-left: -5px;
         }
         .tags a, .tags a:hover {
