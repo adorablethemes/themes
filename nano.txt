@@ -5,7 +5,7 @@
         <!-- 
         
         theme:      nano
-        version:    1.1 (March 13, 2018)
+        version:    1.2 (April 8, 2018)
         from:       adorablethemes.com
         
         -->
@@ -155,6 +155,9 @@
         }
         .photoset-content iframe, .video-post-video, .audio-post-audio {
             border-radius: 2px;
+        }
+        .tumblr_video_iframe {
+            max-height: 540px;
         }
         .post h1,.post h2,.post h3,.post h4,.post h5,.post h6 {
             font-weight: 400;
@@ -967,9 +970,12 @@
                 // hide year if it's the current year
                 trimDates();
                 
-                // fit videos
+                // fit videos and photosets
                 if (window.innerWidth < 961) {
                     fitVideos();
+                    if (window.innerWidth < 768) {
+                        resizePhotosets();
+                    }
                 }
                 
                 // get like button state
@@ -985,9 +991,12 @@
             // hide year if it's the current year
             trimDates();
             
-            // fit videos
+            // fit videos and photosets
             if (window.innerWidth < 961) {
                 fitVideos();
+                if (window.innerWidth < 768) {
+                    resizePhotosets();
+                }
             }
             
             // mobile menu button
@@ -1018,6 +1027,20 @@
         function trimDates() {
             var theYear = new Date().getFullYear();
             $(".year-"+theYear).css("display", "none");
+        }
+        function resizePhotosets() {
+            // workaround for responsive photosets on mobile safari
+            try {
+                var parentWidth = document.body.querySelector('.html_photoset').offsetWidth; 
+                var photosets = document.body.querySelectorAll('iframe.photoset');
+                for(var i = 0; i < photosets.length; ++i){
+                    var photoset = photosets[i];
+                    photoset.width = parentWidth;
+                }
+            }
+            catch(e) {
+                console.log('no photosets');
+            }
         }
     </script>
     
