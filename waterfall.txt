@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Waterfall
-        version:    1.7.3 (September 30, 2016)
+        version:    1.7.4 (April 9, 2018)
         from:       adorablethemes.com
         
         -->
@@ -278,6 +278,9 @@
             .post iframe {
                 display: block;
                 max-width: 100%;
+            }
+            .tumblr_video_iframe {
+                max-height: 540px;
             }
             
 			.post p img {

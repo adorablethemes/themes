@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Smooth TC
-        version:    2.0 (February 12, 2018)
+        version:    2.0.1 (April 9, 2018)
         from:       adorablethemes.com
         
     	-->
@@ -275,6 +275,9 @@
             .post iframe {
                 display: block;
                 max-width: 100%;
+            }
+            .permalink-page .tumblr_video_iframe {
+                max-height: 540px;
             }
             .post-section figure img {
                 max-width: 100%;

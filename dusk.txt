@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Dusk
-        version:    2.0 (March 18, 2018)
+        version:    2.0.1 (April 9, 2018)
         from:       adorablethemes.com
         
         -->
@@ -132,6 +132,9 @@
         
         .post iframe, .blog-description iframe {
             max-width: 100%;
+        }
+        .tumblr_video_iframe {
+            max-height: 540px;
         }
         .post hr {
             border: 0;

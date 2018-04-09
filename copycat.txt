@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Copycat
-        version:    3.0 (March 28, 2018)
+        version:    3.0.1 (April 9, 2018)
         from:       adorablethemes.com
         
         -->
@@ -538,6 +538,10 @@
         }
         figure img {
             height: auto;
+        }
+        
+        .permalink-page .tumblr_video_iframe {
+            max-height: 540px;
         }
         
         /* Permalink page styles */

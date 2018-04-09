@@ -4,7 +4,7 @@
         <!-- 
 
         theme:      Color Block
-        version:    3.0 (August 18, 2015)
+        version:    3.0.1 (April 9, 2018)
         from:       adorablethemes.com
 
         -->
@@ -374,6 +374,9 @@
         .post iframe {
             max-width: 100%;
             display: block;   
+        }
+        .tumblr_video_iframe {
+            max-height: 540px;
         }
         hr {
             border: none;

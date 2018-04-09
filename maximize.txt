@@ -4,7 +4,7 @@
         <!-- 
 
         theme:      Maximize
-        version:    1.1 (December 11, 2017)
+        version:    1.1.1 (April 9, 2018)
         from:       adorablethemes.com
 
         -->
@@ -200,6 +200,9 @@
         }
         .post img, .post iframe, .mfp-content iframe {
             max-width: 100%;
+        }
+        .permalink-page .tumblr_video_iframe {
+            max-height: 540px;
         }
         .post img {
             height: auto;
