@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Mini Grid
-        version:    2.0 (February 26, 2018)
+        version:    2.0.1 (April 9, 2018)
         from:       adorablethemes.com
         
         -->
@@ -301,6 +301,9 @@
             
             .post iframe {
                 max-width: 100%;
+            }
+            .tumblr_video_iframe {
+                max-height: 540px;
             }
             
             .photo-post-photo, .photoset-container, .video-post-video, .audio-post-audio {

@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win3.1
-        version:    1.2.1 (March 31, 2018)
+        version:    1.2.2 (April 9, 2018)
         from:       adorablethemes.com
         
         -->
@@ -377,6 +377,10 @@
         .layout-three-column .spotify_audio_player {
             width: 275px;
             height: 319px;
+        }
+        
+        .tumblr_video_iframe {
+            max-height: 540px;
         }
         
         ul.chat {

@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win2K
-        version:    2.2.1 (March 30, 2018)
+        version:    2.2.2 (April 9, 2018)
         from:       adorablethemes.com
         
         -->
@@ -406,6 +406,10 @@
         .layout-three-column .soundcloud_audio_player {
             width: 275px;
             height: 275px;
+        }
+        
+        .tumblr_video_iframe {
+            max-height: 540px;
         }
         
         ul.chat {
