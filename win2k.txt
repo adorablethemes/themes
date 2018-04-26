@@ -4,14 +4,14 @@
         <!-- 
         
         theme:      Win2K
-        version:    2.2.2 (April 9, 2018)
+        version:    2.3 (April 26, 2018)
         from:       adorablethemes.com
         
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <meta charset="UTF-8">
         <meta name="description" content="{MetaDescription}">
-    	<meta name="viewport" content="width=1152">
+    	<meta name="viewport" content="width=1070">
     	<meta name="theme-color" content="{color:Title Bar Left}">
         <link rel="shortcut icon" href="{Favicon}">
         <link rel="apple-touch-icon" href="{PortraitURL-128}">
@@ -83,10 +83,10 @@
             margin: 0 auto;
         }
         body.layout-two-column {
-            width: 1064px;
+            width: 1020px;
         }
         body.layout-three-column {
-            width: 1107px;
+            width: 1063px;
         }
         a, a:hover {
             text-decoration: none;
@@ -1014,6 +1014,7 @@
     $(function(){
         {block:IndexPage}
         if (win2k.layout != 'one-column') {
+            fitVideos();
             var container = $('.posts-container');
     
     		container.imagesLoaded( function(){
@@ -1049,6 +1050,7 @@
 				$newElems.imagesLoaded(function(){
 					$newElems.css({ opacity: 1 });
 					if (win2k.layout != 'one-column') {
+					    fitVideos();
     					container.masonry( 'appended', $newElems, true );
     					setTimeout(function(){ container.masonry({
             				itemSelector : '.inf-scroll-item',
@@ -1059,6 +1061,7 @@
 			}
     	);
     	{/block:IfInfiniteScrolling}
+    	
     	{/block:IndexPage}
     	{block:PermalinkPage}
         var nc = note_count.innerHTML;
@@ -1106,6 +1109,12 @@
         {/block:IfCoolNotes}
         {/block:PermalinkPage}
     });
+    function fitVideos() {
+        $(".tumblr_video_iframe").each(function(index) {
+            $(this).data('aspect-ratio', $(this).data('width') / $(this).data('height'));
+            $(this).css('height', (parseInt($(this).css('width')) / $(this).data('aspect-ratio')) + "px");
+        });
+    }
     </script>
     {block:IfGoogleAnalyticsID}
     <script>
