@@ -4,7 +4,7 @@
     <!-- 
     
     theme:      Solar
-    version:    2.0.1 (December 26, 2017)
+    version:    2.1 (May 18, 2018)
     from:       adorablethemes.com
     
     -->
@@ -13,6 +13,7 @@
 
     <meta name="description" content="{MetaDescription}">
 	<meta name="viewport" content="width=960">
+	<meta name="theme-color" content="{color:Accent}">
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="apple-touch-icon" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
@@ -27,9 +28,9 @@
 	<meta name="color:Accent" content="#1abc9c">
 	<meta name="color:Text on Accent" content="#ffffff">
 	<meta name="color:Content Background" content="#ffffff">
-	<meta name="color:Content Text" content="#222222">
+	<meta name="color:Content Text" content="#000000">
 	<meta name="color:Sidebar Background" content="#ffffff">
-	<meta name="color:Sidebar Text" content="#222222">
+	<meta name="color:Sidebar Text" content="#000000">
 	
 	<meta name="if:Show Archive Link" content="1">
 	<meta name="if:Show Followed Blogs" content="1">
@@ -40,6 +41,7 @@
 	<meta name="if:Show Tags on Index" content="1">
 	<meta name="if:Show Like and Reblog Buttons" content="1">
 	
+	<meta name="text:Custom Ask Page Text" content="">
 	<meta name="text:Featured Tag 1" content="">
 	<meta name="text:Featured Tag 2" content="">
 	<meta name="text:Featured Tag 3" content="">
@@ -57,6 +59,9 @@
 	<meta name="text:Copyright Text" content="">
 	<meta name="text:Google Analytics ID" content="">
 	
+	<meta name="select:Main Column Width" content="600" title="600">
+	<meta name="select:Main Column Width" content="540" title="540">
+	<meta name="select:Main Column Width" content="500" title="500">
 	<meta name="select:Max Followed Blogs" content="27" title="25">
     <meta name="select:Max Followed Blogs" content="52" title="50">
     <meta name="select:Max Followed Blogs" content="77" title="75">
@@ -70,7 +75,7 @@
 	{/block:Hidden}
 
 	<link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic" rel="stylesheet">
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	
 	<style type="text/css">
 	/* Reset */
@@ -193,6 +198,13 @@
     
     /* =Post Styles=
 -------------------------------------------------------------- */
+    .post-content {
+        border-bottom: 1px solid rgba({RGBcolor:Content Text}, 0.08);
+        word-break: break-word;
+    }
+    .post-content:last-child {
+        border-bottom: 0;
+    }
     .post-content p {
         font-size: 14px;
     	line-height: 150%;
@@ -212,10 +224,11 @@
     	font-style: italic;
     }
     .post-content a, .post-content a:hover {
-        color: {color:Accent};
+        color: {color:Content Text};
+        text-decoration-color: rgba({RGBcolor:Content Text},0.5);
     }
     .post-content a:hover {
-        background-color: rgba({RGBcolor:Accent},0.2);
+        text-decoration-color: rgba({RGBcolor:Content Text},0.9);
     }
     .post-content ul, .post-content ol {
         font-size: 14px;
@@ -259,18 +272,20 @@
     }
     .video-post-video iframe {
         width: 600px;
-        height: 337px;
         display: block;
     }
     .video-post-video .vine-embed {
         width: 600px;
         height: 600px;
     }
-    .video-post-video .instagram-media {
-        height: 580px;
+    .tumblr_video_iframe {
+        max-height: 540px;
     }
     .tumblr_audio_player {
         width: 560px;
+    }
+    .tmblr-embed iframe {
+        max-width: 100%;
     }
     .quote-text {
         color: rgba({RGBcolor:Content Text}, 0.75);
@@ -307,7 +322,10 @@
     .question-box {
         background-color: {color:Content Background};
         color: rgba({RGBcolor:Content Text}, 0.75);
-        border-bottom: 1px solid rgba({RGBcolor:Content Text}, 0.05);
+        border-bottom: 1px solid rgba({RGBcolor:Content Text}, 0.08);
+        line-height: 150%;
+        font-size: 16px;
+        font-style: italic;
     }
     .read_more:after {
         content: " \2192";
@@ -447,11 +465,11 @@
 	    padding: 10px 15px;
 	}
 	.sidebar-content a {
-    	color: {color:Accent};
+    	color: {color:Sidebar Text};
     	text-decoration: none;
     }
     .sidebar-content a:hover {
-    	color: {color:Accent};
+    	color: {color:Sidebar Text};
     	text-decoration: underline;
     }
 	.about-avatar {
@@ -617,7 +635,7 @@
         margin-top: -16px;
     }
     .note.reblog:after {
-        content: '\f079';
+        content: '\f021';
         font-family: FontAwesome;
         font-size: 10px;
         float: right;
@@ -679,10 +697,87 @@
     .clearfix { *zoom: 1; }
     
     a img { border: 0; }
+    
+    .reblog-avatar {
+        width: 16px;
+        height: 16px;
+        border-radius: 2px;
+        margin-right: 7px;
+        vertical-align: middle;
+    }
+    .reblog-avatar.deleted {
+        -webkit-filter: grayscale(1);
+        filter: grayscale(1);
+    }
+    .reblog-username, a.reblog-username, a.reblog-username:hover, .answerer- a, .answerer- a:hover {
+        color: {color:Content Text};
+        text-decoration: none;
+        font-size: 12px;
+    }
+    .npf_quirky {
+        font-family: Gabriola, serif;
+        font-size: 20px !important;
+    }
+    p.tmblr-attribution {
+        font-size: 11px;
+    }
+    
+    body.width-540 #wrapper {
+        width: 860px;
+    }
+    body.width-540 #content {
+        width: 500px;
+    }
+    body.width-540 .post-meta {
+        width: 458px;
+    }
+    body.width-540 .photoset {
+        width: 500px;
+    }
+    body.width-540 .photo-post-photo, body.width-540 .video-post-video {
+        width: 540px;
+    }
+    body.width-540 .video-post-video iframe {
+        width: 540px;
+    }
+    body.width-540 .video-post-video .vine-embed {
+        width: 540px;
+        height: 540px;
+    }
+    body.width-540 .tumblr_audio_player {
+        width: 500px;
+    }
+    
+    body.width-500 #wrapper {
+        width: 820px;
+    }
+    body.width-500 #content {
+        width: 460px;
+    }
+    body.width-500 .post-meta {
+        width: 418px;
+    }
+    body.width-500 .photoset {
+        width: 460px;
+    }
+    body.width-500 .photo-post-photo, body.width-500 .video-post-video {
+        width: 500px;
+    }
+    body.width-500 .video-post-video iframe {
+        width: 500px;
+    }
+    body.width-500 .video-post-video .vine-embed {
+        width: 500px;
+        height: 500px;
+    }
+    body.width-500 .tumblr_audio_player {
+        width: 460px;
+    }
+    
 	{CustomCSS}
 	</style>
 	</head>
-<body class="{block:IndexPage}index-page{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} background-{select:Background Image Style}">
+<body class="{block:IndexPage}index-page{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} background-{select:Background Image Style} width-{select:Main Column Width}">
 <div id="wrapper" class="clearfix">
 
     <a href="/">
@@ -764,10 +859,27 @@
             {/block:ContentSource}
             </p>
             {/block:Date}
-        
+            
+            <div class="post-main">
             {block:Text}
             {block:Title}<a href="{Permalink}"><h2 class="post-title">{Title}</h2></a>{/block:Title}
-            <div class="post-content">{Body}</div>
+            {block:NotReblog}
+				<div class="post-content">
+				    {block:IfCustomAskPageText}{block:AskPage}<p>{text:Custom Ask Page Text}</p>{/block:AskPage}{/block:IfCustomAskPageText}
+					{Body}
+				</div>
+			{/block:NotReblog}
+            {block:RebloggedFrom}
+                {block:Reblogs}
+                    <div class="post-content">
+                        <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                        {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                        {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                        </p>
+                        {Body}
+                    </div>
+                {/block:Reblogs}
+            {/block:RebloggedFrom}
             {/block:Text}
             
             {block:Answer}
@@ -775,26 +887,77 @@
                 <p><img class="asker-avatar" src="{AskerPortraitURL-16}"/>{lang:Asked by Asker 2}:</p>
             </div>
             <div class="question-box">
-                <p>{Question}</p>
+                <p>&ldquo;{Question}&rdquo;</p>
             </div>
-            <div class="post-content">
-                {Answer}
-            </div>
+            {block:Answerer}
+			<div class="post-content">
+				<p class="answerer-"><img class="reblog-avatar" src="{AnswererPortraitURL-64}" /> <b>{Answerer}</b></p>
+				
+				{Answer}
+				
+			</div>
+			{/block:Answerer}
+            {block:NotReblog}<div class="post-content">{Replies}</div>{/block:NotReblog}
+			{block:RebloggedFrom}
+                {block:Reblogs}
+                    <div class="post-content">
+                        <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                        {block:IsActive}<a class="reblog-username" target="_blank" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                        {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                        </p>
+                        {Body}
+                    </div>
+                {/block:Reblogs}
+            {/block:RebloggedFrom}
             {/block:Answer}
             
             {block:Photo}
             <figure class="photo-post-photo">{LinkOpenTag}<img src="{PhotoURL-1280}" alt="{PhotoAlt}" />{LinkCloseTag}</figure>
-            <figcaption class="post-content">{Caption}</figcaption>
+            {block:NotReblog}
+                {block:Caption}
+					<figcaption class="post-content">
+    					{Caption}
+					</figcaption>
+				{/block:Caption}
+			{/block:NotReblog}
+            {block:RebloggedFrom}
+                {block:Reblogs}
+                    <div class="post-content">
+                        <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                        {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                        {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                        </p>
+                        {Body}
+                    </div>
+                {/block:Reblogs}
+            {/block:RebloggedFrom}
             {/block:Photo}
             
             {block:Photoset}
             <figure>{Photoset}</figure>
-            <figcaption class="post-content">{Caption}</figcaption>
+            {block:NotReblog}
+                {block:Caption}
+					<figcaption class="post-content">
+    					{Caption}
+					</figcaption>
+				{/block:Caption}
+			{/block:NotReblog}
+            {block:RebloggedFrom}
+                {block:Reblogs}
+                    <div class="post-content">
+                        <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                        {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                        {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                        </p>
+                        {Body}
+                    </div>
+                {/block:Reblogs}
+            {/block:RebloggedFrom}
             {/block:Photoset}
             
             {block:Quote}
             <div class="post-content">
-                <h2 class="quote-text">“{Quote}”</h2>
+                <h2 class="quote-text">&ldquo;{Quote}&rdquo;</h2>
                 {block:Source}<p class="quote-source text-right"> &mdash; {Source}</p>{/block:Source}
             </div>
             {/block:Quote}
@@ -808,9 +971,24 @@
             {block:Host}<p class="link-domain">{Host}{block:Excerpt} - <em>{Excerpt}</em>{/block:Excerpt}</p>{/block:Host}
             
             </div>
-            <div class="post-content">
-            {block:Description}{Description}{/block:Description}
-            </div>
+            {block:NotReblog}
+                {block:Description}
+					<div class="post-content">
+    					{Description}
+					</div>
+				{/block:Description}
+			{/block:NotReblog}
+            {block:RebloggedFrom}
+                {block:Reblogs}
+                    <div class="post-content">
+                        <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                        {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                        {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                        </p>
+                        {Body}
+                    </div>
+                {/block:Reblogs}
+            {/block:RebloggedFrom}
             {/block:Link}
             
             {block:Chat}
@@ -829,16 +1007,48 @@
             
             {block:Video}
             <figure class="video-post-video">{VideoEmbed-500}</figure>
-            <figcaption class="post-content">{Caption}</figcaption>
+            {block:NotReblog}
+                {block:Caption}
+					<figcaption class="post-content">
+    					{Caption}
+					</figcaption>
+				{/block:Caption}
+			{/block:NotReblog}
+            {block:RebloggedFrom}
+                {block:Reblogs}
+                    <div class="post-content">
+                        <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                        {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                        {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                        </p>
+                        {Body}
+                    </div>
+                {/block:Reblogs}
+            {/block:RebloggedFrom}
             {/block:Video}
             
             {block:Audio}
-            <div class="post-content">
-                <figure>{AudioEmbed}</figure>
-                <figcaption>{Caption}</figcaption>
-            </div>
+                <figure class="audio-post-audio">{AudioEmbed}</figure>
+                {block:NotReblog}
+                    {block:Caption}
+    					<div class="post-content">
+        					{Caption}
+    					</div>
+					{/block:Caption}
+				{/block:NotReblog}
+                {block:RebloggedFrom}
+                    {block:Reblogs}
+                        <div class="post-content">
+                            <p><img class="reblog-avatar{block:IsDeactivated} deleted{/block:IsDeactivated}" src="{PortraitURL-64}">
+                            {block:IsActive}<a target="_blank" class="reblog-username" href="{Permalink}"><b>{Username}</b></a>{/block:IsActive}
+                            {block:IsDeactivated}<b class="reblog-username">{Username}</b>{/block:IsDeactivated}
+                            </p>
+                            {Body}
+                        </div>
+                    {/block:Reblogs}
+                {/block:RebloggedFrom}
             {/block:Audio}
-            
+            </div>
             
             {block:HasTags}
             <section class="tags-list">
@@ -1060,17 +1270,14 @@
 
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+{block:IfInfiniteScrolling}<script src="https://static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js" integrity="sha384-DCHLD93QqUyWYMNlPlQ7qsaHYiMCzBiQPhi1uREwPnF3cW8CpyzzdSW2xLHlEh2B" crossorigin="anonymous"></script>{/block:IfInfiniteScrolling}
 <script>
-function matchContentAndSidebar() {
-    $("#content").css("minHeight",($("#sidebar").height()-60).toString()+"px");
-}
 $(function(){
-    var theYear = new Date().getFullYear();
-    $(".year_"+theYear).css("display", "none");
+    trimDates();
     matchContentAndSidebar();
     timeoutID = window.setTimeout(matchContentAndSidebar, 500);
+    fitVideos();
     
     {block:IndexPage}{block:IfInfiniteScrolling}
 	var container = $('#content');
@@ -1092,13 +1299,33 @@ $(function(){
                 return this.id; 
             }).get();
 			Tumblr.LikeButton.get_status_by_post_ids($newElemsIDs);
+			trimDates();
+			fitVideos();
 		}
 	);
 	{/block:IfInfiniteScrolling}{/block:IndexPage}
 });
+function matchContentAndSidebar() {
+    $("#content").css("minHeight",($("#sidebar").height()-60).toString()+"px");
+}
+function trimDates() {
+    var theYear = new Date().getFullYear();
+    $(".year_"+theYear).css("display", "none");
+}
+function fitVideos() {
+    // size videos to 16:9
+    $(".video-post-video iframe").each(function(index) {
+        if (!$(this).hasClass('instagram-media') && !$(this).hasClass('vine-embed')) {
+            $(this).css('height', (parseInt($(this).css('width')) / 1.77777777) + "px");
+        }
+    });
+    // tumblr videos get to have their AR preserved
+    $(".tumblr_video_iframe").each(function(index) {
+        $(this).data('aspect-ratio', $(this).data('width') / $(this).data('height'));
+        $(this).css('height', (parseInt($(this).css('width')) / $(this).data('aspect-ratio')) + "px");
+    });
+}
 </script>
-
-
 
 {block:IfGoogleAnalyticsID}
 <script>
