@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Castle
-        version:    2.0 (June 9, 2018)
+        version:    2.0.1 (June 22, 2018)
         from:       adorablethemes.com
         
         -->
@@ -786,6 +786,10 @@
             display: none !important;
         }
         
+        .photo-link[href=""] {
+            display: none;
+        }
+        
         {CustomCSS}
         </style>
         <noscript><style>.posts-hidden{opacity:1;}.spinner{display:none;}.pagination{display:block;}</style></noscript>
@@ -963,10 +967,7 @@
 
                 {block:Photo}
                     <figure class="photo-content">
-                    <img class="photo-post-photo"{block:HighRes} srcset="{PhotoURL-1280} 2x"{/block:HighRes} src="{PhotoURL-500}" alt="{PhotoAlt}" data-highres="{PhotoURL-HighRes}"
-                                data-lowres="{PhotoURL-500}"
-                                data-width="{PhotoWidth-HighRes}"
-                                data-height="{PhotoHeight-HighRes}"/>
+                    <img class="photo-post-photo"{block:HighRes} srcset="{PhotoURL-1280} 2x"{/block:HighRes} src="{PhotoURL-500}" alt="{PhotoAlt}" data-highres="{PhotoURL-HighRes}" data-lowres="{PhotoURL-500}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" />
 					</figure>
                     
                     {block:IndexPage}
@@ -997,12 +998,7 @@
 					    
 					    <div class="photoset-grid" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
                         {block:Photos}
-                        <img src="{PhotoURL-500}"
-                                data-highres="{PhotoURL-HighRes}"
-                                data-lowres="{PhotoURL-500}"
-                                data-width="{PhotoWidth-HighRes}"
-                                data-height="{PhotoHeight-HighRes}"
-                                {block:Caption}data-caption="{Caption}"{/block:caption} />
+                        <img src="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" data-lowres="{PhotoURL-500}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"{block:Caption} data-caption="{Caption}"{/block:Caption} />
                         {/block:Photos}
                         </div>
                     </figure>
@@ -1164,7 +1160,7 @@
                         </div>
                     </div>
                     {/block:IfShowLikeandReblogButtons}
-                    {block:RebloggedFrom}<a target="_blank" href="{ReblogParentURL}"><i class="fa fa-fw fa-user" title="{lang:Reblogged from ReblogParentName}"></i></a> {/block:RebloggedFrom}<a href="{Permalink}">{ShortMonth} {DayOfMonth} <span class="year_{Year}">{Year}</span>{block:IfShowNotes}{block:NoteCount} &nbsp;|&nbsp; {NoteCountWithLabel}{/block:NoteCount}{/block:IfShowNotes}</a>
+                    {block:RebloggedFrom}<a target="_blank" href="{ReblogParentURL}"><i class="fa fa-fw fa-user" title="{lang:Reblogged from ReblogParentName}"></i></a> {/block:RebloggedFrom}{block:Photo}<a class="photo-link" href="{LinkURL}"><i class="fa fa-fw fa-link"></i></a> {/block:Photo}<a href="{Permalink}">{ShortMonth} {DayOfMonth} <span class="year_{Year}">{Year}</span>{block:IfShowNotes}{block:NoteCount} &nbsp;|&nbsp; {NoteCountWithLabel}{/block:NoteCount}{/block:IfShowNotes}</a>
                 </div>
                 {/block:Date}
                 {/block:IndexPage}
