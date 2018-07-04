@@ -643,15 +643,16 @@
 
                 {block:Audio}
                     {block:IndexPage}
-                        {AudioEmbed-250}
+                        {AudioEmbed}
                     {/block:IndexPage}
                     {block:PermalinkPage}
-                        {AudioEmbed-500}
+                        {AudioEmbed}
                     {/block:PermalinkPage}
-
-                    {block:PermalinkPage}{block:Caption}
-                        <div class="content">{Caption}</div>
-                    {/block:Caption}{/block:PermalinkPage}
+                    {block:PermalinkPage}
+                    {block:Caption}
+                        {Caption}
+                    {/block:Caption}
+                    {/block:PermalinkPage}
                 {/block:Audio}
                 
                 
