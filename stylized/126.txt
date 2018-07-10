@@ -13,7 +13,7 @@
         <meta name="font:Body" content="Avalon, Helvetica, Sans-serif"/>
         <meta name="image:Profile Photo" content=""/>
         <meta name="image:Background" content=""/>
-        <meta name="color:Background" content="#eeeeee"/>
+        <meta name="color:Background" content="#cccccc"/>
         <meta name="color:Sidebar" content="#ffffff"/>
         <meta name="color:Text" content="#666666"/>
         <meta name="color:Accent" content="#529ecc"/>
