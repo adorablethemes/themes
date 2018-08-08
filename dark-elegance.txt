@@ -367,8 +367,8 @@
         }
         
                 /* icons next to notes */
-        .reblog {background: transparent url('http://static.tumblr.com/ohnymtu/liNoej6zz/reblog-white.png') right center no-repeat;}
-        .like {background: transparent url('http://static.tumblr.com/ohnymtu/KSUoej6zo/like-white.png') right center no-repeat;}
+        .reblog {background: transparent url('//static.tumblr.com/ohnymtu/liNoej6zz/reblog-white.png') right center no-repeat;}
+        .like {background: transparent url('//static.tumblr.com/ohnymtu/KSUoej6zo/like-white.png') right center no-repeat;}
         
         /* special styling for permalink pages */
         {block:PermalinkPage}
@@ -458,7 +458,7 @@
                     <li><a class="sidelink" href="{text:Custom Link 4 URL}">{text:Custom Link 4 Name}</a></li>
                 {/block:IfCustomLink4URL}
                 
-                <li><a class="sidelink" href="http://adorablethemes.com/" title="Get this theme!">Theme</a></li>
+                <li><a class="sidelink" href="http://stylized.adorablethemes.com/" title="Get this theme!">Theme</a></li>
             </ul>
         </nav>
 

@@ -490,7 +490,7 @@
                     <a class="sidelink" href="{text:Custom Link 3 URL}">{text:Custom Link 3 Name}</a>
                 {/block:IfCustomLink3URL}
                 
-                <a class="sidelink" href="http://adorablethemes.com/" title="Get this theme!">Theme</a>
+                <a class="sidelink" href="http://stylized.adorablethemes.com/" title="Get this theme!">Theme</a>
             </ul>
         </nav>
         </div>

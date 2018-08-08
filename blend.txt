@@ -7,6 +7,10 @@
         version:    1.2.1 (March 20, 2015)
         from:       adorablethemes.com
         
+        credits:
+        
+        Font Awesome 4.7.0 (fontawesome.com)
+        
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <meta charset="UTF-8">
@@ -87,8 +91,6 @@
             text-decoration: none;
         }
         
-        /* adorablethemes.com */
-        
         .post {
             background-color: #fafafa;
 			margin-bottom: 13px;
@@ -143,8 +145,6 @@
 			margin: 16px 0;
 			font-style: italic;
         }
-        
-        /* adorablethemes.com */
         
         .post iframe, .description iframe {
             max-width: 100%;
@@ -204,8 +204,6 @@
             border-bottom: 2px solid white;
         }
         
-        /* adorablethemes.com */
-        
         /* page navigation */
         .pagination {
 			margin: 0 auto;
@@ -224,8 +222,6 @@
         #previous:hover, #next:hover {
             text-decoration: none;
         }
-        
-        /* adorablethemes.com */
         
         /* misc classes */
         .float-right {
@@ -250,8 +246,6 @@
         .clearfix {
         	*zoom: 1;
         }
-        
-        /* adorablethemes.com */
         
         figure img, figure iframe {
             display: block;

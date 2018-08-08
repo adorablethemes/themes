@@ -7,6 +7,10 @@
         version:    2.0.3 (April 7, 2016)
         from:       adorablethemes.com
         
+        credits:
+        
+        Font Awesome 4.7.0 (fontawesome.com)
+        
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}">
@@ -34,7 +38,6 @@
         <meta name="if:Show Tags" content="1">
         <meta name="if:Infinite Scrolling" content="0">
         
-        <meta name="text:Disqus Shortname" content="">
         <meta name="text:Google Analytics ID" content="">
         {/block:Hidden}
         
@@ -456,13 +459,6 @@
                 <aside class="post-meta">
                     <a class="time-ago" href="{Permalink}"><i class="fa fa-clock-o fa-fw"></i> {TimeAgo}</a>&nbsp;&nbsp;&nbsp;<a class="note-count" href="{Permalink}"><i class="fa fa-heart-o fa-fw"></i> {NoteCountWithLabel}</a>
                 </aside>
-                {block:IfDisqusShortname}
-                <aside class="post-meta post-comments">
-                    <div id="disqus_thread"></div>
-                    <script type="text/javascript" src="//disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
-                    <noscript><a href="//{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
-                </aside>
-                {/block:IfDisqusShortname}
                 {block:PostNotes}
                 <aside class="post-meta post-notes">
                     {PostNotes-64}
@@ -502,7 +498,7 @@
     {/block:PermalinkPagination}
 	
     <footer>
-        Powered by <a href="https://www.tumblr.com/">Tumblr</a> &amp; <a href="https://adorablethemes.com/theme/big-text">Big Text Theme</a>
+        Powered by <a href="https://www.tumblr.com/">Tumblr</a> &amp; <a href="https://adorablethemes.com/">Big Text Theme</a>
     </footer>
       </div>
 		{block:IfInfiniteScrolling}
@@ -520,22 +516,5 @@
 		
 		</script>
         {/block:IfGoogleAnalyticsID}
-        
-        {block:IfDisqusShortname}
-            <script type="text/javascript">
-                //<![CDATA[
-                (function() {
-                    var links = document.getElementsByTagName('a');
-                    var query = '?';
-                    for(var i = 0; i < links.length; i++) {
-                        if(links[i].href.indexOf('#disqus_thread') >= 0) {
-                            query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
-                        }
-                    }
-                    document.write('<script charset="utf-8" type="text/javascript" src="//disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
-                })();
-                //]]>
-            </script>
-        {/block:IfDisqusShortname}
     </body>
 </html>

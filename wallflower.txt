@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Wallflower
-        from:       adorablethemes.com
+        from:       stylized.adorablethemes.com
         
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
@@ -482,7 +482,7 @@
                     <a class="sidelink" href="{text:Custom Link 4 URL}">{text:Custom Link 4 Name}</a> //
                 {/block:IfCustomLink4URL}
                 
-                <a class="sidelink" href="https://adorablethemes.com/" title="Get this theme!">Theme</a>
+                <a class="sidelink" href="http://stylized.adorablethemes.com/" title="Get this theme!">Theme</a>
             </ul>
         </nav>
 
@@ -642,7 +642,7 @@
         </div>
       </div>
     </div>
-    <a href="https://adorablethemes.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/6c6mzbk90/credit1.png" alt="" /></a>
+    <a href="http://stylized.adorablethemes.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/6c6mzbk90/credit1.png" alt="" /></a>
     {block:IndexPage}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}

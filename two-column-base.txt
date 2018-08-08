@@ -46,7 +46,7 @@
         <meta name="if:Infinite Scrolling" content="1">
         {/block:Hidden}
         
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         
         <style type="text/css">
         body {
@@ -550,8 +550,8 @@
 
             {/block:Posts}
     </div>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="//static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
+	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="//static.tumblr.com/anzluor/jA5p3abax/masonry.js"></script>
 	{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
 	{block:IndexPage}
 	<script>
