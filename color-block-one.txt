@@ -6,6 +6,12 @@
         theme:      Color Block (one-column)
         version:    3.1 (August 7, 2018)
         from:       adorablethemes.com
+        
+        credits:
+        
+        Infinite Scroll (infinite-scroll.com)
+        jQuery 3.3.1 (jquery.com)
+        Photoset Grid 1.0 (stylehatch.github.io/photoset-grid)
 
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
@@ -787,7 +793,7 @@
             </div>
         </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
         {block:IndexPage}{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}{/block:IndexPage}
         <script src="//static.tumblr.com/anzluor/HAXmxj1fs/photoset-grid.js"></script>
         <script>

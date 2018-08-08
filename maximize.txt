@@ -6,6 +6,13 @@
         theme:      Maximize
         version:    1.1.1 (April 9, 2018)
         from:       adorablethemes.com
+        
+        credits:
+        
+        Font Awesome 4.7.0 (fontawesome.com)
+        Infinite Scroll 2.0.2 (infinite-scroll.com)
+        jQuery 2.1.3 (jquery.com)
+        Magnific Popup 0.9.9 (dimsemenov.com/plugins/magnific-popup)
 
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>

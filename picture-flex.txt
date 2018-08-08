@@ -7,6 +7,14 @@
         version:    4.0 (June 14, 2018)
         from:       adorablethemes.com
         
+        credits:
+        
+        Font Awesome 4.7.0 (fontawesome.com)
+        imagesLoaded 4.1.4 (imagesloaded.desandro.com)
+        Infinite Scroll (infinite-scroll.com)
+        jQuery 3.3.1 (jquery.com)
+        Masonry 4.2.1 (masonry.desandro.com)
+        
         -->
         <meta charset="UTF-8">
         

@@ -7,6 +7,14 @@
         version:    2.0.1 (April 9, 2018)
         from:       adorablethemes.com
         
+        credits:
+        
+        Font Awesome 4.7.0 (fontawesome.com)
+        imagesLoaded 4.1.4 (imagesloaded.desandro.com)
+        Infinite Scroll 2.0.2 (infinite-scroll.com)
+        jQuery 3.3.1 (jquery.com)
+        Masonry 4.2.1 (masonry.desandro.com)
+        
     	-->
     	<title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
 		<link rel="shortcut icon" href="{Favicon}">
@@ -1101,7 +1109,7 @@
                 {block:PermalinkPagination}
             </div>
 		</div>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
         {block:IndexPage}
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
         <script src="//static.tumblr.com/anzluor/jA5p3abax/masonry.js"></script>

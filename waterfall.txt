@@ -7,6 +7,12 @@
         version:    1.7.4 (April 9, 2018)
         from:       adorablethemes.com
         
+        credits:
+        
+        Font Awesome 4.4.0 (fontawesome.com)
+        Infinite Scroll (infinite-scroll.com)
+        jQuery 1.11.3 (jquery.com)
+        
         -->
         
         {block:Hidden}

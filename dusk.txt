@@ -7,6 +7,11 @@
         version:    2.0.1 (April 9, 2018)
         from:       adorablethemes.com
         
+        credits:
+        
+        Infinite Scroll (infinite-scroll.com)
+        jQuery 3.3.1 (jquery.com)
+        
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <meta charset="UTF-8">

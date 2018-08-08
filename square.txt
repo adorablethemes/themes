@@ -7,6 +7,12 @@
         version:    2.0.1 (April 9, 2018)
         from:       adorablethemes.com
         
+        credits:
+        
+        Font Awesome 4.7.0 (fontawesome.com)
+        Infinite Scroll 2.0.2 (infinite-scroll.com)
+        jQuery 3.3.1 (jquery.com)
+        
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <meta charset="UTF-8">
@@ -728,7 +734,7 @@
             {/block:Posts}
         </div>
     </div>
-	{block:IndexPage}{block:IfInfiniteScrolling}<script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	{block:IndexPage}{block:IfInfiniteScrolling}<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>
     <script>
     var container = $('#posts');
