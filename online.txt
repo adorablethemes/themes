@@ -49,7 +49,7 @@
         <meta name="color:Post Background" content="#ffffff">
         <meta name="color:Post Text" content="#111111">
         <meta name="color:Post Borders" content="#8c8c8c">
-        <meta name="color:Post Shadows" content="#dddddd">
+        <meta name="color:Post Shadows" content="#000000">
         
         <meta name="text:Featured Tag 1" content="">
         <meta name="text:Featured Tag 2" content="">
