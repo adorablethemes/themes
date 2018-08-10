@@ -4,14 +4,14 @@
         <!-- 
         
         theme:      Waterfall
-        version:    1.7.4 (April 9, 2018)
+        version:    1.7.5 (August 10, 2018)
         from:       adorablethemes.com
         
         credits:
         
-        Font Awesome 4.4.0 (fontawesome.com)
+        Font Awesome 4.7.0 (fontawesome.com)
         Infinite Scroll (infinite-scroll.com)
-        jQuery 1.11.3 (jquery.com)
+        jQuery 1.12.4 (jquery.com)
         
         -->
         
@@ -68,7 +68,7 @@
         <!-- HTML5 elements for old browsers -->
         <!--[if lte IE 8]><script src="//static.tumblr.com/hriofhd/Qj0m8pn7q/html5shiv.js"></script><![endif]-->
         
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         
 		<style type="text/css">
 			body {
@@ -524,6 +524,20 @@
             .like-button-parent .like_button.liked + span {
                 color: #d95e40;
             }
+            
+            .npf_quirky {
+                font-family: Gabriola, serif;
+                font-size: 150% !important;
+            }
+            .npf_color_joey {color: #ff492f;}
+            .npf_color_monica {color: #ff8a00;}
+            .npf_color_phoebe {color: #fcf01d;}
+            .npf_color_ross {color: #00cf35;}
+            .npf_color_rachel {color: #00b8ff;}
+            .npf_color_chandler {color: #973ff4;}
+            .npf_color_niles {color: #ff62ce;}
+            .npf_color_frasier {color: #001935;}
+            .npf_color_mr_big {color: #000c1a;}
 			
 			{CustomCSS}
 		</style>
@@ -879,7 +893,7 @@
                 
             </div>
             
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
             {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
         <script>
         $(function(){

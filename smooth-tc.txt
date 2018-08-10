@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Smooth TC
-        version:    2.0.1 (April 9, 2018)
+        version:    2.0.2 (August 10, 2018)
         from:       adorablethemes.com
         
         credits:
@@ -557,8 +557,18 @@
                 font-size: 10px;
             }
             .npf_quirky {
-                font-family: serif;
+                font-family: Gabriola, serif;
+                font-size: 150% !important;
             }
+            .npf_color_joey {color: #ff492f;}
+            .npf_color_monica {color: #ff8a00;}
+            .npf_color_phoebe {color: #fcf01d;}
+            .npf_color_ross {color: #00cf35;}
+            .npf_color_rachel {color: #00b8ff;}
+            .npf_color_chandler {color: #973ff4;}
+            .npf_color_niles {color: #ff62ce;}
+            .npf_color_frasier {color: #001935;}
+            .npf_color_mr_big {color: #000c1a;}
             
             .post-attribution {
                 display: none;

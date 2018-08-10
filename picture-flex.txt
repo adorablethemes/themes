@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Picture Flex
-        version:    4.0 (June 14, 2018)
+        version:    4.0.1 (August 10, 2018)
         from:       adorablethemes.com
         
         credits:
@@ -662,7 +662,17 @@
         
         .npf_quirky {
             font-family: Gabriola, serif;
+            font-size: 150% !important;
         }
+        .npf_color_joey {color: #ff492f;}
+        .npf_color_monica {color: #ff8a00;}
+        .npf_color_phoebe {color: #fcf01d;}
+        .npf_color_ross {color: #00cf35;}
+        .npf_color_rachel {color: #00b8ff;}
+        .npf_color_chandler {color: #973ff4;}
+        .npf_color_niles {color: #ff62ce;}
+        .npf_color_frasier {color: #001935;}
+        .npf_color_mr_big {color: #000c1a;}
         .post-section {
             border-bottom: 1px solid rgba({RGBcolor:Post Text},0.07);
         }

@@ -5,8 +5,16 @@
         <!-- 
         
         theme:      nano
-        version:    1.2 (April 8, 2018)
+        version:    1.2.1 (August 10, 2018)
         from:       adorablethemes.com
+        
+        
+        credits:
+        
+        Font Awesome 4.7.0 (fontawesome.com)
+        Infinite Scroll 3.0.3 (infinite-scroll.com)
+        jQuery 3.3.1 (jquery.com)
+        Sticky-Kit 1.1.2 (leafo.net)
         
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
@@ -387,6 +395,15 @@
             font-size: 1.25em;
             font-weight: 400;
         }
+        .npf_color_joey {color: #ff492f;}
+        .npf_color_monica {color: #ff8a00;}
+        .npf_color_phoebe {color: #fcf01d;}
+        .npf_color_ross {color: #00cf35;}
+        .npf_color_rachel {color: #00b8ff;}
+        .npf_color_chandler {color: #973ff4;}
+        .npf_color_niles {color: #ff62ce;}
+        .npf_color_frasier {color: #001935;}
+        .npf_color_mr_big {color: #000c1a;}
         
         .post-section {
             padding-top: 0.2em;
