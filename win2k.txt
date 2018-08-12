@@ -4,8 +4,16 @@
         <!-- 
         
         theme:      Win2K
-        version:    2.3 (April 26, 2018)
+        version:    2.3.1 (August 11, 2018)
         from:       adorablethemes.com
+        
+        
+        credits:
+        
+        imagesLoaded 4.1.4 (imagesloaded.desandro.com)
+        Infinite Scroll 2.0.2 (infinite-scroll.com)
+        jQuery 3.3.1 (jquery.com)
+        Masonry 4.2.1 (masonry.desandro.com)
         
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
@@ -355,6 +363,7 @@
             border-bottom-color: white;
             margin-bottom: 2px;
             background-color: {color:Photo Background};
+            overflow: hidden;
         }
         .photo-post-photo {
             max-width: 100%;
@@ -627,6 +636,15 @@
             font-family: Gabriola, serif;
             font-size: 17px;
         }
+        .npf_color_joey {color: #ff492f;}
+        .npf_color_monica {color: #ff8a00;}
+        .npf_color_phoebe {color: #fcf01d;}
+        .npf_color_ross {color: #00cf35;}
+        .npf_color_rachel {color: #00b8ff;}
+        .npf_color_chandler {color: #973ff4;}
+        .npf_color_niles {color: #ff62ce;}
+        .npf_color_frasier {color: #001935;}
+        .npf_color_mr_big {color: #000c1a;}
         
         {CustomCSS}
         </style>
@@ -843,7 +861,7 @@
                         {/block:RebloggedFrom}
                     {/block:Link}
                     {block:Quote}
-                        <p class="quote-text">{Quote}</p>
+                        <p class="quote-text">&ldquo;{Quote}&rdquo;</p>
                         <p style="text-align: right">&mdash; {Source}</p>
                     {/block:Quote}
                     {block:Chat}
@@ -1110,6 +1128,14 @@
         {/block:PermalinkPage}
     });
     function fitVideos() {
+        $(".video .media-container iframe").each(function(index) {
+            if ($(this).attr('src').search('vine.co') > -1) {
+                $(this).css('height', parseInt($(this).css('width')) + "px");
+            }
+            else if (!$(this).hasClass('instagram-media')) {
+                $(this).css('height', (parseInt($(this).css('width')) / 1.77777777) + "px");
+            }
+        });
         $(".tumblr_video_iframe").each(function(index) {
             $(this).data('aspect-ratio', $(this).data('width') / $(this).data('height'));
             $(this).css('height', (parseInt($(this).css('width')) / $(this).data('aspect-ratio')) + "px");

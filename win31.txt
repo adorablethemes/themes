@@ -4,14 +4,22 @@
         <!-- 
         
         theme:      Win3.1
-        version:    1.2.2 (April 9, 2018)
+        version:    1.3 (August 11, 2018)
         from:       adorablethemes.com
+        
+        
+        credits:
+        
+        imagesLoaded 4.1.4 (imagesloaded.desandro.com)
+        Infinite Scroll 2.0.2 (infinite-scroll.com)
+        jQuery 3.3.1 (jquery.com)
+        Masonry 4.2.1 (masonry.desandro.com)
         
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <meta charset="UTF-8">
         <meta name="description" content="{MetaDescription}">
-    	<meta name="viewport" content="width=1152">
+    	<meta name="viewport" content="width=1080">
     	<meta name="theme-color" content="{color:Title Bar}">
         <link rel="shortcut icon" href="{Favicon}">
         <link rel="apple-touch-icon" href="{PortraitURL-128}">
@@ -82,10 +90,10 @@
             margin: 0 auto;
         }
         body.layout-two-column {
-            width: 1064px;
+            width: 1022px;
         }
         body.layout-three-column {
-            width: 1107px;
+            width: 1065px;
         }
         a, a:hover {
             text-decoration: none;
@@ -317,6 +325,7 @@
         .media-container {
             border-top: 1px solid black;
             background-color: {color:Post Background};
+            overflow: hidden;
         }
         .photo-post-photo {
             max-width: 100%;
@@ -573,6 +582,15 @@
             font-family: Gabriola, serif;
             font-size: 17px;
         }
+        .npf_color_joey {color: #ff492f;}
+        .npf_color_monica {color: #ff8a00;}
+        .npf_color_phoebe {color: #fcf01d;}
+        .npf_color_ross {color: #00cf35;}
+        .npf_color_rachel {color: #00b8ff;}
+        .npf_color_chandler {color: #973ff4;}
+        .npf_color_niles {color: #ff62ce;}
+        .npf_color_frasier {color: #001935;}
+        .npf_color_mr_big {color: #000c1a;}
         
         {CustomCSS}
         </style>
@@ -789,7 +807,7 @@
                     {/block:RebloggedFrom}
                     {/block:Link}
                     {block:Quote}
-                        <p class="quote-text">{Quote}</p>
+                        <p class="quote-text">&ldquo;{Quote}&rdquo;</p>
                         <p style="text-align: right">&mdash; {Source}</p>
                     {/block:Quote}
                     {block:Chat}
@@ -960,6 +978,7 @@
     $(function(){
         {block:IndexPage}
         if (win31.layout != 'one-column') {
+            fitVideos();
             var container = $('.posts-container');
     
     		container.imagesLoaded( function(){
@@ -995,6 +1014,7 @@
 				$newElems.imagesLoaded(function(){
 					$newElems.css({ opacity: 1 });
 					if (win31.layout != 'one-column') {
+					    fitVideos();
     					container.masonry( 'appended', $newElems, true );
     					setTimeout(function(){ container.masonry({
             				itemSelector : '.inf-scroll-item',
@@ -1023,6 +1043,20 @@
         {/block:IfCoolNotes}
         {/block:PermalinkPage}
     });
+    function fitVideos() {
+        $(".video .media-container iframe").each(function(index) {
+            if ($(this).attr('src').search('vine.co') > -1) {
+                $(this).css('height', parseInt($(this).css('width')) + "px");
+            }
+            else if (!$(this).hasClass('instagram-media')) {
+                $(this).css('height', (parseInt($(this).css('width')) / 1.77777777) + "px");
+            }
+        });
+        $(".tumblr_video_iframe").each(function(index) {
+            $(this).data('aspect-ratio', $(this).data('width') / $(this).data('height'));
+            $(this).css('height', (parseInt($(this).css('width')) / $(this).data('aspect-ratio')) + "px");
+        });
+    }
     </script>
     {block:IfGoogleAnalyticsID}
     <script>
