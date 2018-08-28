@@ -4,7 +4,7 @@
     <!-- 
     
     theme:      Solar
-    version:    2.1 (May 18, 2018)
+    version:    2.1.1 (August 21, 2018)
     from:       adorablethemes.com
     
     -->
@@ -46,6 +46,8 @@
 	<meta name="text:Featured Tag 2" content="">
 	<meta name="text:Featured Tag 3" content="">
 	<meta name="text:Featured Tag 4" content="">
+	<meta name="text:Featured Tag 5" content="">
+	<meta name="text:Featured Tag 6" content="">
 	<meta name="text:Facebook Username" content="">
 	<meta name="text:Flickr Username" content="">
 	<meta name="text:Instagram Username" content="">
@@ -715,9 +717,17 @@
         font-size: 12px;
     }
     .npf_quirky {
-        font-family: Gabriola, serif;
+        font-family: Gabriola, 'Apple Chancery', serif;
         font-size: 20px !important;
     }
+    .npf_color_joey {color: #ff492f;}
+    .npf_color_monica {color: #ff8a00;}
+    .npf_color_phoebe {color: #fcf01d;}
+    .npf_color_ross {color: #00cf35;}
+    .npf_color_rachel {color: #00b8ff;}
+    .npf_color_chandler {color: #973ff4;}
+    .npf_color_niles {color: #ff62ce;}
+    
     p.tmblr-attribution {
         font-size: 11px;
     }
@@ -1208,6 +1218,8 @@
 				{block:IfFeaturedTag2}<li><a href="/tagged/{text:Featured Tag 2}">{text:Featured Tag 2}</a></li>{/block:IfFeaturedTag2}
 				{block:IfFeaturedTag3}<li><a href="/tagged/{text:Featured Tag 3}">{text:Featured Tag 3}</a></li>{/block:IfFeaturedTag3}
 				{block:IfFeaturedTag4}<li><a href="/tagged/{text:Featured Tag 4}">{text:Featured Tag 4}</a></li>{/block:IfFeaturedTag4}
+				{block:IfFeaturedTag5}<li><a href="/tagged/{text:Featured Tag 5}">{text:Featured Tag 5}</a></li>{/block:IfFeaturedTag5}
+				{block:IfFeaturedTag6}<li><a href="/tagged/{text:Featured Tag 6}">{text:Featured Tag 6}</a></li>{/block:IfFeaturedTag6}
 			</ul>
 		</div>
 		{/block:IfFeaturedTag1}
