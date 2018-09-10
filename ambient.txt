@@ -4,8 +4,15 @@
         <!-- 
         
         theme:      Ambient
-        version:    3.0.1 (April 9, 2018)
+        version:    3.0.2 (September 9, 2018)
         from:       adorablethemes.com
+        
+        
+        credits:
+        
+        Font Awesome 4.7.0 (fontawesome.com)
+        Infinite Scroll 2.0.2 (infinite-scroll.com)
+        jQuery 1.12.4 (jquery.com)
         
         -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
@@ -509,9 +516,16 @@
             display: inline;
         }
         .npf_quirky {
-            font-family: Gabriola, Georgia, serif;
-            font-size: 1.25em !important;
+            font-family: Gabriola, 'Apple Chancery', serif;
+            font-size: 150% !important;
         }
+        .npf_color_joey {color: #ff492f;}
+        .npf_color_monica {color: #ff8a00;}
+        .npf_color_phoebe {color: #fcf01d;}
+        .npf_color_ross {color: #00cf35;}
+        .npf_color_rachel {color: #00b8ff;}
+        .npf_color_chandler {color: #973ff4;}
+        .npf_color_niles {color: #ff62ce;}
         
         {CustomCSS}
         </style>
