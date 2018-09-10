@@ -4,8 +4,18 @@
         <!-- 
         
         theme:      Castle
-        version:    2.0.1 (June 22, 2018)
+        version:    2.0.2 (September 9, 2018)
         from:       adorablethemes.com
+        
+        
+        credits:
+        
+        Font Awesome 4.7.0 (fontawesome.com)
+        imagesLoaded 4.1.4 (imagesloaded.desandro.com)
+        Infinite Scroll 2.0.2 (infinite-scroll.com)
+        jQuery 3.3.1 (jquery.com)
+        Masonry 4.2.1 (masonry.desandro.com)
+        Photoset Grid 1.0 (stylehatch.github.io/photoset-grid)
         
         -->
         <meta charset="UTF-8">
@@ -643,9 +653,16 @@
         }
         
         .npf_quirky {
-            font-family: Gabriola, serif;
+            font-family: Gabriola, 'Apple Chancery', serif;
             font-size: 1.5em !important;
         }
+        .npf_color_joey {color: #ff492f;}
+        .npf_color_monica {color: #ff8a00;}
+        .npf_color_phoebe {color: #fcf01d;}
+        .npf_color_ross {color: #00cf35;}
+        .npf_color_rachel {color: #00b8ff;}
+        .npf_color_chandler {color: #973ff4;}
+        .npf_color_niles {color: #ff62ce;}
         
         .tmblr-attribution {
             font-size: 0.8em !important;
