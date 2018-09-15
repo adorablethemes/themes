@@ -22,7 +22,7 @@
         <meta name="if:Infinite Scrolling" content=""/>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave" rel="stylesheet"> 
-        <!--[if (lte IE 8)]><script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <!--[if (lte IE 8)]><script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <style type="text/css">
         body {
             color: #ff7ea5;

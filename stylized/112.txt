@@ -431,8 +431,8 @@
         }
         
         /* icons next to notes */
-        .reblog {background: transparent url('http://static.tumblr.com/ohnymtu/Vo3oewol9/reblog-white.png') right center no-repeat;}
-        .like {background: transparent url('http://static.tumblr.com/ohnymtu/5lvoewokz/like-white.png') right center no-repeat;}
+        .reblog {background: transparent url('//static.tumblr.com/ohnymtu/Vo3oewol9/reblog-white.png') right center no-repeat;}
+        .like {background: transparent url('//static.tumblr.com/ohnymtu/5lvoewokz/like-white.png') right center no-repeat;}
         
         /* special styling for permalink pages */
         {block:PermalinkPage}

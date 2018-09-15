@@ -25,7 +25,7 @@
         <meta name="text:Twitter URL" content=""/>
         <meta name="if:Infinite Scrolling" content="1"/>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-        <!--[if (lte IE 8)]><script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <!--[if (lte IE 8)]><script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <style type="text/css">
         body {
             color: {color:Text};
@@ -389,8 +389,8 @@
         }
         
         /* icons next to notes */
-        .reblog {background: transparent url('http://static.tumblr.com/anzluor/nF5ml4elu/reblog.png') right center no-repeat;}
-        .like {background: transparent url('http://static.tumblr.com/anzluor/O7Nml4ekz/like.png') right center no-repeat;}
+        .reblog {background: transparent url('//static.tumblr.com/anzluor/nF5ml4elu/reblog.png') right center no-repeat;}
+        .like {background: transparent url('//static.tumblr.com/anzluor/O7Nml4ekz/like.png') right center no-repeat;}
         
         /* make sure avatars don't get huge */
         img.avatar {

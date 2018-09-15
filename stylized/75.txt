@@ -9,7 +9,7 @@
         {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=1024"/>
-        <meta name="font:Body" content="Helvetica Neue, Helvetica, Arial, sans-serif"/>
+        <meta name="font:Body" content="Helvetica"/>
         <meta name="image:Profile Photo" content=""/>
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>
@@ -647,7 +647,7 @@
         </div>
       </div>
     </div>
-    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="http://static.tumblr.com/ohnymtu/6c6mzbk90/credit1.png" alt="" /></a>
+    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/6c6mzbk90/credit1.png" alt="" /></a>
     {block:IndexPage}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}

@@ -10,7 +10,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=1200"/>
         {block:Hidden}
-        <meta name="font:Body" content="Helvetica Neue, Helvetica, Arial, sans-serif"/>
+        <meta name="font:Body" content="Helvetica"/>
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>
         <meta name="text:Custom Link 2 URL" content=""/>
@@ -18,8 +18,7 @@
         <meta name="if:Infinite Scrolling" content="0"/>
         {/block:Hidden}
         <!--[if (lte IE 8)]><script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<link href='//fonts.googleapis.com/css?family=Carrois+Gothic+SC' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Carrois+Gothic+SC|Josefin+Sans' rel='stylesheet' type='text/css'>
         <style type="text/css">
         body {
             color: #999;

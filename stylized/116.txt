@@ -369,8 +369,8 @@
         /*stylized.adorablethemes.com*/
         
         /* Note icons */
-        .reblog {background: transparent url('http://static.tumblr.com/anzluor/nF5ml4elu/reblog.png') right center no-repeat;}
-        .like {background: transparent url('http://static.tumblr.com/anzluor/O7Nml4ekz/like.png') right center no-repeat;}
+        .reblog {background: transparent url('//static.tumblr.com/anzluor/nF5ml4elu/reblog.png') right center no-repeat;}
+        .like {background: transparent url('//static.tumblr.com/anzluor/O7Nml4ekz/like.png') right center no-repeat;}
         
         @media screen and (max-width:1198px) {
             .wrapper {

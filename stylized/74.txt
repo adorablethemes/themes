@@ -9,7 +9,7 @@
         {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=1024"/>
-        <meta name="font:Body" content="Helvetica Neue, Helvetica, Arial, sans-serif"/>
+        <meta name="font:Body" content="Helvetica"/>
         <meta name="image:Profile Photo" content=""/>
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>

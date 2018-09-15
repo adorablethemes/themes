@@ -34,7 +34,7 @@
             line-height: 100%;
             font-weight: normal;
             letter-spacing: 0px;
-            background: #222 url('http://static.tumblr.com/ohnymtu/jfkoel2da/halloween3.png');
+            background: #222 url('//static.tumblr.com/ohnymtu/jfkoel2da/halloween3.png');
             background-repeat: no-repeat;
             background-position: top left;
             background-attachment: fixed;
@@ -410,8 +410,8 @@
         }
         
                 /* icons next to notes */
-        .reblog {background: transparent url('http://static.tumblr.com/ohnymtu/Ew0oek4s7/reblog-white.png') right center no-repeat;}
-        .like {background: transparent url('http://static.tumblr.com/ohnymtu/h1Doek4sk/like-white.png') right center no-repeat;}
+        .reblog {background: transparent url('//static.tumblr.com/ohnymtu/Ew0oek4s7/reblog-white.png') right center no-repeat;}
+        .like {background: transparent url('//static.tumblr.com/ohnymtu/h1Doek4sk/like-white.png') right center no-repeat;}
         
         /* special styling for permalink pages */
         {block:PermalinkPage}
@@ -676,7 +676,7 @@
         </div>
       </div>
     </div>
-    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="http://i.imgur.com/0jHzlR4.jpg" alt="" /></a>
+    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//i.imgur.com/0jHzlR4.jpg" alt="" /></a>
     {block:IndexPage}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}

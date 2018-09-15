@@ -9,7 +9,7 @@
         {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=1366"/>
-        <meta name="font:Body" content="Avalon, Arial, Helvetica, Sans-serif"/>
+        <meta name="font:Body" content="Avalon"/>
         <meta name="image:Profile Photo" content=""/>
         <meta name="if:Show Archive Link" content="0"/>
         <meta name="if:Show Random Link" content="0"/>

@@ -19,7 +19,7 @@
         <meta name="font:Body" content="Helvetica">
         <meta name="text:Google Analytics ID" content="">
         <meta name="if:Infinite Scrolling" content="1">
-        <link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
         <style type="text/css">
         body {
             color: #999;
@@ -345,7 +345,7 @@
 
         </div>
         
-        <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="http://static.tumblr.com/ohnymtu/6c6mzbk90/credit1.png" alt="" /></a>
+        <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/6c6mzbk90/credit1.png" alt="" /></a>
         
         <div class="main">
         
@@ -504,7 +504,7 @@
             {/block:Posts}
     </div>
     {block:IfInfiniteScrolling}
-    <script type="text/javascript" src="http://static.tumblr.com/q0etgkr/ytzm5f1ke/infinitescrolling.js"></script>
+    <script type="text/javascript" src="//static.tumblr.com/q0etgkr/ytzm5f1ke/infinitescrolling.js"></script>
     {/block:IfInfiniteScrolling}
     {block:IfGoogleAnalyticsID}
     <script>

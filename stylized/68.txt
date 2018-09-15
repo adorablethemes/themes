@@ -23,7 +23,7 @@
         <meta name="if:Show Archive Link" content="1"/>
         <meta name="if:Show Random Link" content="0"/>
         <meta name="if:Infinite Scrolling" content="0"/>
-        <!--[if (lte IE 8)]><script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <!--[if (lte IE 8)]><script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <style type="text/css">
         body {
             color: #222;
@@ -378,8 +378,8 @@
         }
         
                 /* icons next to notes */
-        .reblog {background: transparent url('http://static.tumblr.com/anzluor/nF5ml4elu/reblog.png') right center no-repeat;}
-        .like {background: transparent url('http://static.tumblr.com/anzluor/O7Nml4ekz/like.png') right center no-repeat;}
+        .reblog {background: transparent url('//static.tumblr.com/anzluor/nF5ml4elu/reblog.png') right center no-repeat;}
+        .like {background: transparent url('//static.tumblr.com/anzluor/O7Nml4ekz/like.png') right center no-repeat;}
         
         /* tumblr reblog button */
         .reblog_button {
@@ -641,11 +641,11 @@
         </div>
       </div>
     </div>
-    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="http://static.tumblr.com/ohnymtu/6c6mzbk90/credit1.png" alt="" /></a>
+    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/6c6mzbk90/credit1.png" alt="" /></a>
     {block:IndexPage}
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        {block:IfInfiniteScrolling}<script src="http://static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-        <script src="http://static.tumblr.com/anzluor/3H8mp4qek/masonry.pkgd.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
+        <script src="//static.tumblr.com/anzluor/3H8mp4qek/masonry.pkgd.min.js"></script>
         <script>
         $(function(){
             var container = $('ul#posts');

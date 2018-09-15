@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- One Solid Theme by stylizedthemes.tumblr.com 
-        image credit: www.flickr.com/photos/tabor-roeder/4579860965 -->
+        <!-- One Solid Theme by stylizedthemes.tumblr.com -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -10,7 +9,7 @@
         {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=1080"/>
-        <meta name="font:Body" content="Helvetica Neue, Helvetica, Arial, sans-serif"/>
+        <meta name="font:Body" content="Helvetica"/>
         <meta name="color:Background" content="#000000"/>
         <meta name="color:Accent" content="#ffffff"/>
         <meta name="text:Custom Link 1 URL" content=""/>
@@ -20,8 +19,8 @@
         <meta name="if:Show Archive Link" content="1"/>
         <meta name="if:Show Random Link" content="0"/>
         <meta name="if:Infinite Scrolling" content="0"/>
-        <!--[if (lte IE 8)]><script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+        <!--[if (lte IE 8)]><script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link href='//fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
         <style type="text/css">
         body {
             color: {color:Background};
@@ -375,8 +374,8 @@
         }
         
                 /* icons next to notes */
-        .reblog {background: transparent url('http://static.tumblr.com/anzluor/nF5ml4elu/reblog.png') right center no-repeat;}
-    	.like {background: transparent url('http://static.tumblr.com/anzluor/O7Nml4ekz/like.png') right center no-repeat;}
+        .reblog {background: transparent url('//static.tumblr.com/anzluor/nF5ml4elu/reblog.png') right center no-repeat;}
+    	.like {background: transparent url('//static.tumblr.com/anzluor/O7Nml4ekz/like.png') right center no-repeat;}
         
         /* tumblr reblog button */
         .reblog_button {
@@ -630,10 +629,10 @@
 		</div>
       </div>
     </div>
-    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="http://static.tumblr.com/ohnymtu/6c6mzbk90/credit1.png" alt="" /></a>
+    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/6c6mzbk90/credit1.png" alt="" /></a>
         {block:IndexPage}
         {block:IfInfiniteScrolling}
-	<script type="text/javascript" src="http://static.tumblr.com/q0etgkr/ytzm5f1ke/infinitescrolling.js"></script>
+	<script type="text/javascript" src="//static.tumblr.com/q0etgkr/ytzm5f1ke/infinitescrolling.js"></script>
 	{/block:IfInfiniteScrolling}
 		{/block:IndexPage}
 
