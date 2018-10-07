@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Ambient
-        version:    3.0.2 (September 9, 2018)
+        version:    3.1 (October 6, 2018)
         from:       adorablethemes.com
         
         
@@ -519,6 +519,12 @@
             font-family: Gabriola, 'Apple Chancery', serif;
             font-size: 150% !important;
         }
+        .npf_chat {
+            font-family: Consolas, Menlo, monospace;
+        }
+        .npf_quote {
+            font-family: Georgia, serif;
+        }
         .npf_color_joey {color: #ff492f;}
         .npf_color_monica {color: #ff8a00;}
         .npf_color_phoebe {color: #fcf01d;}
@@ -526,6 +532,24 @@
         .npf_color_rachel {color: #00b8ff;}
         .npf_color_chandler {color: #973ff4;}
         .npf_color_niles {color: #ff62ce;}
+        div.npf_row {
+            max-width: 100%;
+            height: auto !important;
+            display: flex;
+        }
+        div.npf_row figure.tmblr-full {
+            flex: 1;
+            justify-content: space-between;
+        }
+        div.npf_row figure.tmblr-full:first-child {
+            padding-right: 2px;
+        }
+        .npf-link-block .poster {
+            background-image: none !important;
+        }
+        .post-section figure video {
+            max-width: 100%;
+        }
         
         {CustomCSS}
         </style>
@@ -592,7 +616,7 @@
 				<a class="sidebar-link" href="https://twitter.com/{text:Twitter Username}"><li><i class="fa fa-fw fa-twitter"></i> Twitter</li></a>
 			{/block:IfTwitterUsername}
 			
-			<a class="sidebar-link" href="https://adorablethemes.com/"><li><i class="fa fa-fw fa-star"></i> Theme</li></a>
+			<a class="sidebar-link" href="https://adorablethemes.com/theme/ambient" target="_blank"><li><i class="fa fa-fw fa-star"></i> Theme</li></a>
 			
         </ul>
         
