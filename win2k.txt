@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win2K
-        version:    2.3.1 (August 11, 2018)
+        version:    2.3.2 (November 3, 2018)
         from:       adorablethemes.com
         
         
@@ -135,6 +135,9 @@
             border-left-color: white;
             margin-bottom: 4px;
         }
+        .button-border:active {
+            border: 1px solid #404040;
+        }
         .sidebar-links li {
             border: 1px solid #808080;
             border-top-color: #d0d0c8;
@@ -143,6 +146,11 @@
             color: black;
             font-size: 11px;
             padding: 4px 0;
+        }
+        .sidebar-links li:active {
+            border: 1px solid #808080;
+            color: rgba(0,0,0,0);
+            text-shadow: 1px 1px 0px black;
         }
         .blog-description {
             text-align: center;
@@ -259,6 +267,13 @@
             color: black;
             cursor: default;
             border: 1px outset #d0d0c8;
+        }
+        .menu-items li:active {
+            border: 1px solid #808080;
+            border-right-color: white;
+            border-bottom-color: white;
+            color: rgba(0,0,0,0);
+            text-shadow: 1px 1px 0px black;
         }
         .text-area {
             font-family: Arial, Helvetica, sans-serif;
@@ -448,7 +463,7 @@
             color: orange;
         }
         .chat .chat-line {
-            font-family: arial;
+            font-family: Arial, sans-serif;
             font-size: 14px;
         }
         
@@ -632,19 +647,26 @@
             font-size: 11px;
         }
         
-        .npf_quirky {
-            font-family: Gabriola, serif;
-            font-size: 17px;
+        div.npf_row {
+            max-width: 100%;
+            height: auto !important;
+            display: flex;
+            margin: 0 !important;
         }
-        .npf_color_joey {color: #ff492f;}
-        .npf_color_monica {color: #ff8a00;}
-        .npf_color_phoebe {color: #fcf01d;}
-        .npf_color_ross {color: #00cf35;}
-        .npf_color_rachel {color: #00b8ff;}
-        .npf_color_chandler {color: #973ff4;}
-        .npf_color_niles {color: #ff62ce;}
-        .npf_color_frasier {color: #001935;}
-        .npf_color_mr_big {color: #000c1a;}
+        div.npf_row figure.tmblr-full {
+            flex: 1;
+            justify-content: space-between;
+            margin: 0;
+        }
+        div.npf_row figure.tmblr-full:first-child {
+            padding-right: 2px;
+        }
+        .post-section figure video, .post-section figure audio {
+            max-width: 100%;
+        }
+        .npf-link-block a {
+            text-decoration: none !important;
+        }
         
         {CustomCSS}
         </style>
@@ -1082,9 +1104,14 @@
     	
     	{/block:IndexPage}
     	{block:PermalinkPage}
-        var nc = note_count.innerHTML;
-        nc = nc.replace('notes', 'object(s)');
-        note_count.innerHTML = nc;
+        try {
+            var nc = note_count.innerHTML;
+            nc = nc.replace('notes', 'object(s)');
+            note_count.innerHTML = nc;
+    	}
+    	catch(e) {
+    	    
+    	}
         
         {block:IfCoolNotes}
         
