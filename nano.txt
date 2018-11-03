@@ -393,15 +393,7 @@
         div.npf_row {
             max-width: 100%;
             height: auto !important;
-            display: flex;
             margin: 0 !important;
-        }
-        div.npf_row figure.tmblr-full {
-            flex: 1;
-            justify-content: space-between;
-        }
-        div.npf_row figure.tmblr-full:first-child {
-            padding-right: 2px;
         }
         .post-section figure video, .post-section figure audio {
             max-width: 100%;
