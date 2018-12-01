@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Online
-        version:    1.1 (October 6, 2018)
+        version:    1.1.1 (December 1, 2018)
         from:       adorablethemes.com
         
         
@@ -361,39 +361,28 @@
             height: auto;
         }
         
-        .npf_quirky {
-            font-family: Gabriola, 'Apple Chancery', serif;
-            font-size: 150% !important;
+        p.npf_quirky {
+            font-size: 24px;
+            line-height: 1.3em;
         }
-        .npf_chat {
-            font-family: Consolas, Menlo, monospace;
-        }
-        .npf_quote {
-            font-family: Georgia, serif;
-        }
-        .npf_color_joey {color: #ff492f;}
-        .npf_color_monica {color: #ff8a00;}
-        .npf_color_phoebe {color: #fcf01d;}
-        .npf_color_ross {color: #00cf35;}
-        .npf_color_rachel {color: #00b8ff;}
-        .npf_color_chandler {color: #973ff4;}
-        .npf_color_niles {color: #ff62ce;}
         div.npf_row {
             max-width: 100%;
             height: auto !important;
             display: flex;
+            margin: 0 !important;
         }
         div.npf_row figure.tmblr-full {
             flex: 1;
             justify-content: space-between;
+            margin: 0;
         }
         div.npf_row figure.tmblr-full:first-child {
             padding-right: 2px;
         }
-        .npf-link-block .poster {
-            background-image: none !important;
+        .npf-link-block a {
+            text-decoration: none !important;
         }
-        .post-section figure video {
+        .post-section figure video, .post-section figure audio {
             max-width: 100%;
         }
         
