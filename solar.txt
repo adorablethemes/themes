@@ -4,7 +4,7 @@
     <!-- 
     
     theme:      Solar
-    version:    2.2.1 (December 1, 2018)
+    version:    2.2.1 (December 3, 2018)
     from:       adorablethemes.com
     
     credits:
@@ -743,7 +743,7 @@
     .npf-link-block a {
         text-decoration: none !important;
     }
-    .post-section figure video, .post-section figure audio {
+    .post-content figure video,  .post-content figure audio {
         max-width: 100%;
     }
     
