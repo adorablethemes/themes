@@ -560,7 +560,7 @@
             <a class="sidelink" href="{text:Custom Link 2 URL}" target="_blank">{text:Custom Link 2 Name}</a>
                 {/block:IfCustomLink2URL}
                 
-            <a class="sidelink" href="http://stylizedthemes.tumblr.com/" target="_blank" title="Get this theme!">Theme</a>
+            <a class="sidelink" href="https://stylizedthemes.tumblr.com/" target="_blank" title="Get this theme!">Theme</a>
             </ul>
         </nav>
         
@@ -724,7 +724,7 @@
         </div>
       </div>
     </div>
-    <a href="http://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="https://i.imgur.com/0jHzlR4.jpg" alt="" /></a>
+    <a href="https://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="https://i.imgur.com/0jHzlR4.jpg" alt="" /></a>
     {block:IndexPage}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
