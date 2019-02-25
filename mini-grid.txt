@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Mini Grid
-        version:    2.0.4 (November 2, 2018)
+        version:    3.0 (February 25, 2019)
         from:       adorablethemes.com
         
         credits:
@@ -616,7 +616,7 @@
             			<li><a class="sidebar-link" href="/random">{lang:Random}</a></li>
             		{/block:IfShowRandomLink}
 		
-		            <li><a class="sidebar-link" href="https://adorablethemes.com/">Theme</a></li>
+		            <li><a class="sidebar-link" href="https://adorablethemes.com/theme/mini-grid">Theme</a></li>
 		
 	            </ul>
 
@@ -633,6 +633,7 @@
                         
                     	{block:Text}
                     	    {block:IndexPage}
+                    	    <div class="temp" data-pid="{PostID}" style="display:none">{Body}</div>
                     	    <a href="{Permalink}">
                         	    <div class="square-inner">
                         	        <div class="square-inner-content">
@@ -744,12 +745,15 @@
 
                     	{block:Photoset}
                     	    {block:IndexPage}
+                    	        <a href="{Permalink}">
                     			{block:Photos}
-                    			<a href="{Permalink}">
+                    			
                         			<div class="square-inner" style="background-image: url('{PhotoURL-500}'); background-size: cover; background-position: center center">
-                        			</div>
-                    			</a>
+                        			</div><!--
+                    			
                     			{/block:Photos}
+                    			-->
+                    			</a>
                     		{/block:IndexPage}
                     		{block:PermalinkPage}
                     			<figure class="photoset-container">
@@ -801,6 +805,7 @@
 
                     	{block:Link}
                     	    {block:IndexPage}
+                    	    {block:Thumbnail}<div class="temp" data-pid="{PostID}" style="display:none"><div class="tmblr-full"><img src="{Thumbnail}"/></div></div>{/block:Thumbnail}
                     	    <a href="{URL}">
                     	    <div class="square-inner">
                     	        <div class="square-inner-content">
@@ -989,10 +994,12 @@
         </div>
 
     {block:IndexPage}
-    {block:IfLoadMoreButton}
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    {block:IfLoadMoreButton}
     <script src="https://unpkg.com/infinite-scroll@3.0.3/dist/infinite-scroll.pkgd.min.js" integrity="sha384-SpHS3ahBNOa97uGbif91UXZ7WShL+CdO3tkOFKrJquA31QgXeSJHhrMxOT3EQKSp" crossorigin="anonymous"></script>
+    {/block:IfLoadMoreButton}
     <script>
+    {block:IfLoadMoreButton}
     var container = $('#posts');
     
     container.infiniteScroll({
@@ -1002,8 +1009,59 @@
     	history: false,
     	scrollThreshold: false
     });
-    </script>
+    container.on( 'append.infiniteScroll', function(event, response, path, items) {
+        getThumbs(items);
+    });
     {/block:IfLoadMoreButton}
+    
+    getThumbs('.post');
+    
+    function getThumbs(items) {
+        // Look for images to use as thumbnails
+        $(items).each(function(){
+            done = false;
+            add = "";
+            isVideo = false;
+            isLink = false;
+            pid = $(this).attr('id');
+            $("#" + pid + ' .temp').each(function(){
+                // Look for an image
+                $("#" + pid + ' .tmblr-full img').each(function(){
+                    if (!done) {
+                        add = $(this).attr('src');
+                        done = true;
+                    }
+                });
+                if (!done) {
+                    // Look for a video
+                    $("#" + pid + ' .tmblr-full video').each(function(){
+                        if (!done) {
+                            add = $(this).attr('poster');
+                            isVideo = true;
+                            done = true;
+                        }
+                    });
+                }
+            });
+            if (done) {
+                a = "";
+                if (isVideo) {
+                    a = '<div class="square-inner-content"><h2 class="post-title"><i class="fa fa-play fa-lg"></i></h2></div>';
+                }
+                else if ((isLink)||($(this).hasClass('link'))) {
+                    a = '<div class="square-inner-content"><h2 class="post-title"><i class="fa fa-link fa-lg"></i></h2></div>';
+                    isLink = true;
+                }
+                addstr = '<div class="square-inner" style="background-image:url('+add+');background-size:cover;background-position:center center">'+a+'</div>';
+                $("#" + pid + ' .square-inner').html(addstr);
+                if ((isVideo)||(isLink)) {
+                    $("#" + pid).addClass('video');
+                }
+            }
+        });
+    }
+    </script>
+    
     {/block:IndexPage}
 
     {block:IfGoogleAnalyticsID}
