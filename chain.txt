@@ -4,7 +4,7 @@
     <!-- 
     
     theme:      Chain
-    version:    1.1.3 (November 2, 2018)
+    version:    1.1.4 (December 3, 2018)
     from:       adorablethemes.com
     
     credits:
@@ -611,6 +611,10 @@
     p.tmblr-attribution {
         font-size: 10px;
     }
+    p.npf_quirky {
+        font-size: 24px;
+        line-height: 1.3em;
+    }
     div.npf_row {
         max-width: 100%;
         height: auto !important;
@@ -624,7 +628,7 @@
     div.npf_row figure.tmblr-full:first-child {
         padding-right: 2px;
     }
-    figure video {
+    .post-section figure video, .post-section figure audio {
         max-width: 100%;
     }
     
@@ -713,7 +717,7 @@
             {block:IfTwitchURL}<a href="{text:Twitch URL}" title="Twitch"><li><i class="fa fa-twitch fa-fw"></i></li></a>{/block:IfTwitchURL}
             {block:IfTwitterURL}<a href="{text:Twitter URL}" title="Twitter"><li><i class="fa fa-twitter fa-fw"></i></li></a>{/block:IfTwitterURL}
             {block:IfYouTubeURL}<a href="{text:YouTube URL}" title="YouTube"><li><i class="fa fa-youtube-play fa-fw"></i></li></a>{/block:IfYouTubeURL}
-            <a href="https://adorablethemes.com/" title="Theme" target="_blank"><li class="last"><i class="fa fa-paint-brush fa-fw"></i></li></a>
+            <a href="https://adorablethemes.com/post/161066973352/chain-theme" title="Theme" target="_blank"><li class="last"><i class="fa fa-paint-brush fa-fw"></i></li></a>
         </ul>
     </nav>
     
