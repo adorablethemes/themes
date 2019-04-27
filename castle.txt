@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Castle
-        version:    2.1.1 (December 1, 2018)
+        version:    2.1.2 (April 27, 2019)
         from:       adorablethemes.com
         
         
@@ -14,7 +14,7 @@
         imagesLoaded 4.1.4 (imagesloaded.desandro.com)
         Infinite Scroll 2.0.2 (infinite-scroll.com)
         jQuery 3.3.1 (jquery.com)
-        Masonry 4.2.1 (masonry.desandro.com)
+        Masonry 4.2.2 (masonry.desandro.com)
         Photoset Grid 1.0 (stylehatch.github.io/photoset-grid)
         
         -->
@@ -24,7 +24,7 @@
         {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
         
         <link rel="shortcut icon" href="{Favicon}">
-        <link rel="apple-touch-icon" href="{PortraitURL-128}">
+        <link rel="apple-touch-icon" href="{PortraitURL-512}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -1363,10 +1363,10 @@
 	{/block:Pagination}
 	</div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
-	<script src="https://static.tumblr.com/anzluor/jA5p3abax/masonry.js" integrity="sha384-QSR8IMziiyR2er9+g5wUifaM6vkO1GA6cAcGnHiX4AirDJeZoNgokDHdz2QesnU2" crossorigin="anonymous"></script>
+	<script src="https://static.tumblr.com/anzluor/iaEpqmv4c/masonry.js" integrity="sha384-Z1dr8QPnJJj/ZsgHeAYXczkGop4EAJs2rGcOOHoGeaSZ+8cY0sh1OraK+Scm9KEv" crossorigin="anonymous"></script>
 	<script src="https://static.tumblr.com/anzluor/kaep9zlrb/photoset-grid.js" integrity="sha384-6Uo3boUbRScPJ6F8FVc9OfGG6ZtDJTZee+mgNBhNTLnIuVvwhNWnJrmFc/c6b5nd" crossorigin="anonymous"></script>
     {block:IfInfiniteScrolling}<script src="https://static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js" integrity="sha384-DCHLD93QqUyWYMNlPlQ7qsaHYiMCzBiQPhi1uREwPnF3cW8CpyzzdSW2xLHlEh2B" crossorigin="anonymous"></script>{/block:IfInfiniteScrolling}
-    <script src="https://static.tumblr.com/anzluor/prcpa0wb7/castle2.min.js" integrity="sha384-iHZMxgtMNUxipDOjDYNsk+LwIhEXdfJYKi4dNRh1sh6K6cBdkfmLfystzWxewixw" crossorigin="anonymous"></script>
+    <script src="https://static.tumblr.com/anzluor/K0Kpqmwxk/castle2.min.js" integrity="sha384-NdYHSkN8ofzXWRHDvdfLmMFB4GC5aom0+tpqQcyh2jpnXgiYbJN/Cq5QOq51diJ2" crossorigin="anonymous"></script>
     {block:IfGoogleAnalyticsID}
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
