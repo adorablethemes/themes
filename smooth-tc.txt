@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Smooth TC
-        version:    2.0.4 (November 2, 2018)
+        version:    2.0.5 (April 27, 2019)
         from:       adorablethemes.com
         
         credits:
@@ -13,12 +13,12 @@
         imagesLoaded 4.1.4 (imagesloaded.desandro.com)
         Infinite Scroll 2.0.2 (infinite-scroll.com)
         jQuery 3.3.1 (jquery.com)
-        Masonry 4.2.1 (masonry.desandro.com)
+        Masonry 4.2.2 (masonry.desandro.com)
         
     	-->
     	<title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
 		<link rel="shortcut icon" href="{Favicon}">
-		<link rel="apple-touch-icon" href="{PortraitURL-128}">
+		<link rel="apple-touch-icon" href="{PortraitURL-512}">
 		<link rel="alternate" type="application/rss+xml" href="{RSS}">
 		{block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
 		<meta charset="UTF-8">
@@ -556,6 +556,14 @@
             p.tmblr-attribution {
                 font-size: 10px;
             }
+            .index-page p.npf_quirky {
+                font-size: 18px;
+                line-height: 1.3em;
+            }
+            .permalink-page p.npf_quirky {
+                font-size: 24px;
+                line-height: 1.3em;
+            }
             div.npf_row {
                 max-width: 100%;
                 height: auto !important;
@@ -565,11 +573,12 @@
             div.npf_row figure.tmblr-full {
                 flex: 1;
                 justify-content: space-between;
+                margin: 0;
             }
             div.npf_row figure.tmblr-full:first-child {
                 padding-right: 2px;
             }
-            figure video {
+            .post-section figure video, .post-section figure audio {
                 max-width: 100%;
             }
             
@@ -937,7 +946,7 @@
 
                             {block:Quote}
                                 <div class="post-section">
-                                <div class="quote-text">"{Quote}"</div>
+                                <div class="quote-text">&ldquo;{Quote}&rdquo;</div>
 
                                 {block:Source}
                                 
@@ -1125,7 +1134,7 @@
         <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
         {block:IndexPage}
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-        <script src="//static.tumblr.com/anzluor/jA5p3abax/masonry.js"></script>
+        <script src="//static.tumblr.com/anzluor/iaEpqmv4c/masonry.js"></script>
         <script>
         $(function(){
     		var container = $('#posts');
@@ -1133,7 +1142,7 @@
 			container.masonry({
                 transitionDuration: 0,
                 itemSelector: ".post"
-            }).imagesLoaded().done(function(b) {
+            }).imagesLoaded().always(function(b) {
                 container.masonry("reloadItems").masonry();
                 setTimeout(function(){ container.masonry({
     				itemSelector : '.post',
@@ -1157,7 +1166,7 @@
                     var $newElemsIDs = $newElems.map(function () { 
                         return this.id; 
                     }).get();
-					$newElems.imagesLoaded(function(){
+					$newElems.imagesLoaded().always(function(b){
 						$newElems.animate({ opacity: 1 });
 						container.masonry( 'appended', $newElems, true );
 						setTimeout(function(){ container.masonry({
