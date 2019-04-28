@@ -4,12 +4,14 @@
         <!-- 
         
         theme:      Dusk
-        version:    2.0.4 (November 2, 2018)
+        version:    2.0.5 (April 27, 2019)
         from:       adorablethemes.com
         
         credits:
         
+        imagesLoaded 4.1.4 (imagesloaded.desandro.com)
         Infinite Scroll (infinite-scroll.com)
+        Masonry 4.2.2 (masonry.desandro.com)
         jQuery 3.3.1 (jquery.com)
         
         -->
@@ -18,7 +20,7 @@
         <meta name="viewport" content="width=900">
         <meta name="theme-color" content="{color:Accent}">
         <link rel="shortcut icon" href="{Favicon}">
-        <link rel="apple-touch-icon" href="{PortraitURL-128}">
+        <link rel="apple-touch-icon" href="{PortraitURL-512}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
         
@@ -350,7 +352,7 @@
 				{/block:Pages}
 			{/block:HasPages}
 			
-			<a class="header-link" href="https://adorablethemes.com/post/93018151792/dusk-theme"><li>Theme</li></a>
+			<a class="header-link" href="https://adorablethemes.com/post/93018151792/dusk-theme" target="_blank"><li>Theme</li></a>
 			
         </ul>
 
@@ -497,7 +499,7 @@
                 {/block:Photoset}
 
                 {block:Quote}
-                    <p class="quote-text">"{Quote}"</p>
+                    <p class="quote-text">&ldquo;{Quote}&rdquo;</p>
 
                     {block:Source}
                         <p class="text-right"> &mdash; {Source}</p>
@@ -648,7 +650,7 @@
         {/block:Pagination}
     
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="https://static.tumblr.com/anzluor/jA5p3abax/masonry.js"></script>
+	<script src="https://static.tumblr.com/anzluor/iaEpqmv4c/masonry.js"></script>
 	{block:IfInfiniteScrolling}<script src="https://static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
 	{block:IndexPage}
 	<script>
@@ -656,7 +658,7 @@
 			var container = $('main');
 			
 			trimDates();
-			container.imagesLoaded( function(){
+			container.imagesLoaded().always(function(b){
 				container.masonry({
 					itemSelector : '.post'
 				});
@@ -678,7 +680,7 @@
 				},
 				function( newElements ) {
 					var $newElems = $( newElements ).css({ opacity: 0 });
-					$newElems.imagesLoaded(function(){
+					$newElems.imagesLoaded().always(function(b){
 						$newElems.animate({ opacity: 1 });
 						container.masonry( 'appended', $newElems, true );
 						trimDates();
