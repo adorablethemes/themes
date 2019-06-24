@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Copycat
-        version:    3.1.2 (April 28, 2019)
+        version:    3.2 (June 24, 2019)
         from:       adorablethemes.com
         
         
@@ -12,7 +12,7 @@
         
         Font Awesome 4.7.0 (fontawesome.com)
         imagesLoaded 4.1.4 (imagesloaded.desandro.com)
-        Infinite Scroll 2.0.2 (infinite-scroll.com)
+        Infinite Scroll 3.0.6 (infinite-scroll.com)
         jQuery 3.3.1 (jquery.com)
         Masonry 4.2.2 (masonry.desandro.com)
         
@@ -637,7 +637,7 @@
 			margin: 0 auto;
 			margin-bottom: 80px;
         }
-        #previous, #next, .page-info {
+        #previous, #next, #load_more_button, .page-info {
             font-size: 11px;
             text-transform: uppercase;
             background-color: {color:Post Background};
@@ -647,6 +647,9 @@
         }
         #previous:hover, #next:hover {
             color: {color:Post Text};
+        }
+        #load_more_button {
+            cursor: pointer;
         }
         .align-left {
             text-align: left;
@@ -662,6 +665,9 @@
         {block:IfInfiniteScrolling}
         .page-1 .pagination {
             display: none;
+        }
+        .page-1 .pagination.loadmore {
+            display: block;
         }
         {/block:IfInfiniteScrolling}
         
@@ -708,6 +714,9 @@
         }
         .loaded {
             display: none;
+        }
+        .invisible {
+            opacity: 0;
         }
         
         /* Button to open/close the sidebar */
@@ -1009,9 +1018,9 @@
         </style>
         
         <script type="text/javascript">
-            var copycat = {{block:IfInfiniteScrolling}infScroll: true,{/block:IfInfiniteScrolling}{block:IfNotInfiniteScrolling}infScroll: false,{/block:IfNotInfiniteScrolling} {block:IndexPage}indexPage: true{/block:IndexPage}{block:PermalinkPage}indexPage: false{/block:PermalinkPage}, prefill: false};
+            var copycat = {{block:IfInfiniteScrolling}infScroll: true,{/block:IfInfiniteScrolling}{block:IfNotInfiniteScrolling}infScroll: false,{/block:IfNotInfiniteScrolling} {block:IndexPage}indexPage: true{/block:IndexPage}{block:PermalinkPage}indexPage: false{/block:PermalinkPage}};
         </script>
-        <noscript><style>.posts-hidden {opacity: 1;} #loading {display: none;}{block:IfInfiniteScrolling}.page-1 .pagination { display: block !important; }{/block:IfInfiniteScrolling}</style></noscript>
+        <noscript><style>.posts-hidden {opacity: 1;} #loading {display: none;}{block:IfInfiniteScrolling}.page-1 .pagination { display: block !important; } .pagination.loadmore { display: none !important; }{/block:IfInfiniteScrolling}</style></noscript>
     </head>
     <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} font-{select:Post Body Font} layout-{select:Max Columns} background-{select:Background Image Style} no-touch">
         
@@ -1047,35 +1056,35 @@
                 <ul class="sidebar-links sidebar-links-social">
                 
                 {block:IfFacebookUsername}
-                <a target="_blank" class="sidebar-link link-facebook" href="https://facebook.com/{text:Facebook Username}" title="Facebook: {text:Facebook Username}"><li><i class="fa fa-fw fa-facebook-square"></i> Facebook</li></a>
+                <a target="_blank" class="sidebar-link link-facebook" href="https://facebook.com/{text:Facebook Username}"><li><i class="fa fa-fw fa-facebook-square"></i> Facebook</li></a>
                 {/block:IfFacebookUsername}
                 
                 {block:IfTwitterUsername}
-                <a target="_blank" class="sidebar-link link-twitter" href="https://twitter.com/{text:Twitter Username}" title="Twitter: {text:Twitter Username}"><li><i class="fa fa-fw fa-twitter"></i> Twitter</li></a>
+                <a target="_blank" class="sidebar-link link-twitter" href="https://twitter.com/{text:Twitter Username}"><li><i class="fa fa-fw fa-twitter"></i> Twitter</li></a>
                 {/block:IfTwitterUsername}
                 
                 {block:IfInstagramUsername}
-                <a target="_blank" class="sidebar-link link-instagram" href="https://instagram.com/{text:Instagram Username}" title="Instagram: {text:Instagram Username}"><li><i class="fa fa-fw fa-instagram"></i> Instagram</li></a>
+                <a target="_blank" class="sidebar-link link-instagram" href="https://instagram.com/{text:Instagram Username}"><li><i class="fa fa-fw fa-instagram"></i> Instagram</li></a>
                 {/block:IfInstagramUsername}
                 
                 {block:IfPinterestUsername}
-                <a target="_blank" class="sidebar-link link-pinterest" href="https://pinterest.com/{text:Pinterest Username}" title="Pinterest: {text:Pinterest Username}"><li><i class="fa fa-fw fa-pinterest"></i> Pinterest</li></a>
+                <a target="_blank" class="sidebar-link link-pinterest" href="https://pinterest.com/{text:Pinterest Username}"><li><i class="fa fa-fw fa-pinterest"></i> Pinterest</li></a>
                 {/block:IfPinterestUsername}
                 
                 {block:IfSoundCloudUsername}
-                <a target="_blank" class="sidebar-link link-soundcloud" href="https://soundcloud.com/{text:SoundCloud Username}" title="SoundCloud: {text:SoundCloud Username}"><li><i class="fa fa-fw fa-soundcloud"></i> SoundCloud</li></a>
+                <a target="_blank" class="sidebar-link link-soundcloud" href="https://soundcloud.com/{text:SoundCloud Username}"><li><i class="fa fa-fw fa-soundcloud"></i> SoundCloud</li></a>
                 {/block:IfSoundCloudUsername}
                 
                 {block:IfTwitchUsername}
-                <a target="_blank" class="sidebar-link link-twitch" href="https://twitch.tv/{text:Twitch Username}" title="Twitch: {text:Twitch Username}"><li><i class="fa fa-fw fa-twitch"></i> Twitch</li></a>
+                <a target="_blank" class="sidebar-link link-twitch" href="https://twitch.tv/{text:Twitch Username}"><li><i class="fa fa-fw fa-twitch"></i> Twitch</li></a>
                 {/block:IfTwitchUsername}
                 
                 {block:IfVineUsername}
-                <a target="_blank" class="sidebar-link link-vine" href="https://vine.co/{text:Vine Username}" title="Vine: {text:Vine Username}"><li><i class="fa fa-fw fa-vine"></i> Vine</li></a>
+                <a target="_blank" class="sidebar-link link-vine" href="https://vine.co/{text:Vine Username}"><li><i class="fa fa-fw fa-vine"></i> Vine</li></a>
                 {/block:IfVineUsername}
                 
                 {block:IfYouTubeUsername}
-                <a target="_blank" class="sidebar-link link-youtube" href="https://youtube.com/{text:YouTube Username}" title="YouTube: {text:YouTube Username}"><li><i class="fa fa-fw fa-youtube"></i> YouTube</li></a>
+                <a target="_blank" class="sidebar-link link-youtube" href="https://youtube.com/{text:YouTube Username}"><li><i class="fa fa-fw fa-youtube"></i> YouTube</li></a>
                 {/block:IfYouTubeUsername}
                 </ul>
             </nav>
@@ -1476,6 +1485,11 @@
       </div>
     
         {block:Pagination}
+        {block:IfInfiniteScrolling}
+        <div class="pagination loadmore clearfix">
+            <span id="load_more_button">{lang:Load more posts}</span>
+        </div>
+        {/block:IfInfiniteScrolling}
         <div class="pagination clearfix">
             <div class="span33 align-left">
     		{block:PreviousPage}<a href="{PreviousPage}" id="previous"><i class="fa fa-angle-left fa-fw"></i> {lang:Previous}</a>{/block:PreviousPage}
@@ -1491,8 +1505,8 @@
 	</div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
 	    <script src="https://static.tumblr.com/anzluor/iaEpqmv4c/masonry.js" integrity="sha384-Z1dr8QPnJJj/ZsgHeAYXczkGop4EAJs2rGcOOHoGeaSZ+8cY0sh1OraK+Scm9KEv" crossorigin="anonymous"></script>
-	    {block:IfInfiniteScrolling}<script src="https://static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js" integrity="sha384-DCHLD93QqUyWYMNlPlQ7qsaHYiMCzBiQPhi1uREwPnF3cW8CpyzzdSW2xLHlEh2B" crossorigin="anonymous"></script>{/block:IfInfiniteScrolling}
-    <script src="https://static.tumblr.com/anzluor/poDpqmxsi/copycat.min.js" integrity="sha384-P7hFx1T9cMSy1vC+HNWvNsHPXNHiwurhI/95lvr3IZKvl8wiu6UCHRHxJqx1J4Oz" crossorigin="anonymous"></script>
+	    {block:IfInfiniteScrolling}<script src="https://unpkg.com/infinite-scroll@3.0.6/dist/infinite-scroll.pkgd.min.js" integrity="sha384-2o0eDtiURg21bbJ8Gfe0FVoA7nyRucxrUJH+rtZ46TKP8+D66f2ayNyUcBv6QDbM" crossorigin="anonymous"></script>{/block:IfInfiniteScrolling}
+	    <script src="https://static.tumblr.com/anzluor/aGlptl3tu/copycat.min.js" integrity="sha384-qSp4kXH482JUq4enxz31WVYnWl5fXaYk0KMrLZG3FRZavTTng/qWWlsdbw/KmfXD" crossorigin="anonymous"></script>
         {block:IfGoogleAnalyticsID}
             <script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
