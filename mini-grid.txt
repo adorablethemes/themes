@@ -616,7 +616,7 @@
             			<li><a class="sidebar-link" href="/random">{lang:Random}</a></li>
             		{/block:IfShowRandomLink}
 		
-		            <li><a class="sidebar-link" href="https://adorablethemes.com/post/134200968652/mini-grid-theme">Theme</a></li>
+		            <li><a class="sidebar-link" href="https://adorablethemes.com/theme/mini-grid">Theme</a></li>
 		
 	            </ul>
 

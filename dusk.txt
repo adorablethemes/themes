@@ -352,7 +352,7 @@
 				{/block:Pages}
 			{/block:HasPages}
 			
-			<a class="header-link" href="https://adorablethemes.com/post/93018151792/dusk-theme" target="_blank"><li>Theme</li></a>
+			<a class="header-link" href="https://adorablethemes.com/" target="_blank"><li>Theme</li></a>
 			
         </ul>
 

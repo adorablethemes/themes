@@ -746,7 +746,7 @@
                         {block:IfShowRandomLink}<li><a class="sidebar-link" href="/random">{lang:Random}</a></li>{/block:IfShowRandomLink}
                         
 						{block:IfShowLikedPostsLink}<li><a class="sidebar-link" href="https://tumblr.com/liked/by/{Name}">{lang:Liked posts}</a></li>{/block:IfShowLikedPostsLink}
-						<li><a class="sidebar-link" href="https://adorablethemes.com/post/116484229832/smooth-tc-theme">Theme</a></li>
+						<li><a class="sidebar-link" href="https://adorablethemes.com/">Theme</a></li>
 						
 					</ul>
 					

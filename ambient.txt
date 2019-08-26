@@ -676,7 +676,7 @@
 				<a class="sidebar-link" href="{text:Twitter URL}" target="_blank"><li><i class="fa fa-fw fa-twitter"></i> Twitter</li></a>
 			{/block:IfTwitterURL}
 			
-			<a class="sidebar-link" href="https://adorablethemes.com/post/93118360612/ambient-theme" target="_blank"><li><i class="fa fa-fw fa-paint-brush"></i> Theme</li></a>
+			<a class="sidebar-link" href="https://adorablethemes.com/theme/ambient" target="_blank"><li><i class="fa fa-fw fa-paint-brush"></i> Theme</li></a>
 			
         </ul>
         

@@ -710,7 +710,7 @@
 				<li><a class="sidebar-link" href="{text:Custom Link 3 URL}">{text:Custom Link 3 Name}</a></li>
 			{/block:IfCustomLink3URL}
 			
-			<li><a class="sidebar-link" href="https://adorablethemes.com/post/137384935257/basic-theme">Theme</a></li>
+			<li><a class="sidebar-link" href="https://adorablethemes.com/theme/basic">Theme</a></li>
 			
         </ul>
         
