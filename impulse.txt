@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Impulse
-        version:    3.1.1 (December 1, 2018)
+        version:    3.2 (August 27, 2019)
         from:       adorablethemes.com
         
         
@@ -12,9 +12,9 @@
         
         Font Awesome 4.7.0 (fontawesome.com)
         imagesLoaded 4.1.4 (imagesloaded.desandro.com)
-        Infinite Scroll 2.0.2 (infinite-scroll.com)
+        Infinite Scroll 3.0.6 (infinite-scroll.com)
         jQuery 3.3.1 (jquery.com)
-        Masonry 4.2.1 (masonry.desandro.com)
+        Masonry 4.2.2 (masonry.desandro.com)
         
         -->
         <meta charset="UTF-8">
@@ -23,11 +23,11 @@
         {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
         
         <link rel="shortcut icon" href="{Favicon}">
-        <link rel="apple-touch-icon" href="{PortraitURL-128}">
+        <link rel="apple-touch-icon" href="{PortraitURL-512}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="{AccentColor}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="theme-color" content="{BackgroundColor}">
         
         {block:Hidden}
         <meta name="image:Background" content="">
@@ -47,7 +47,6 @@
         <meta name="color:Post Background" content="#ffffff">
         <meta name="color:Post Text" content="#000000">
 		
-		<meta name="text:Disqus Shortname" content="">
         <meta name="text:Google Analytics ID" content="">
         <meta name="text:Custom Ask Page Text" content="">
 		
@@ -61,12 +60,10 @@
         <meta name="if:Index Photo Captions" content="0">
         <meta name="if:Index Video Captions" content="1">
         <meta name="if:Infinite Scrolling" content="1">
-        <meta name="if:Use Real Dates" content="0">
+        <meta name="if:Use Real Dates" content="1">
         {/block:Hidden}
         
-        <!--[if lt IE 9]><script src="//static.tumblr.com/hriofhd/Qj0m8pn7q/html5shiv.js"></script><![endif]-->
-        
-        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         
         <style type="text/css">
         body {
@@ -601,7 +598,7 @@
 			clear: both;
 			text-align: center;
         }
-        #previous, #next, .page-info {
+        #previous, #next, #load_more_button, .page-info {
             font-size: 13px;
             background-color: rgba({RGBcolor:Post Background},0.8);
             color: {color:Post Text};
@@ -610,6 +607,9 @@
         }
         #previous:hover, #next:hover {
             background-color: rgba({RGBcolor:Post Background},1);
+        }
+        #load_more_button {
+            cursor: pointer;
         }
         
         /* Infinite scroll loading indicator */
@@ -628,6 +628,17 @@
         #loading.loaded {
             display: none;
         }
+        .invisible {
+            opacity: 0;
+        }
+        {block:IfInfiniteScrolling}
+        .page-1 .pagination {
+            display: none;
+        }
+        .page-1 .pagination.loadmore {
+            display: block;
+        }
+        {/block:IfInfiniteScrolling}
         
         /* Button to open/close the search box */
         #openMenu {
@@ -908,11 +919,11 @@
         </style>
         
         <script type="text/javascript">
-            var impulse = {{block:IfInfiniteScrolling}infScroll: true,{/block:IfInfiniteScrolling}{block:IfNotInfiniteScrolling}infScroll: false,{/block:IfNotInfiniteScrolling} {block:IndexPage}indexPage: true{/block:IndexPage}{block:PermalinkPage}indexPage: false{/block:PermalinkPage}, prefill: false};
+            var impulse = {{block:IfInfiniteScrolling}infScroll: true,{/block:IfInfiniteScrolling}{block:IfNotInfiniteScrolling}infScroll: false,{/block:IfNotInfiniteScrolling} {block:IndexPage}indexPage: true{/block:IndexPage}{block:PermalinkPage}indexPage: false{/block:PermalinkPage}};
         </script>
-        <noscript><style>.posts-hidden {opacity: 1;} #loading {display: none;}</style></noscript>
+        <noscript><style>.posts-hidden {opacity: 1;} #loading {display: none;}{block:IfInfiniteScrolling}.page-1 .pagination { display: block !important; } .pagination.loadmore { display: none !important; }{/block:IfInfiniteScrolling}</style></noscript>
     </head>
-    <body class="{block:IndexPage}index-page{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} font-{select:Post Body Font} layout-3col background-{select:Background Image Style}">
+    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage} font-{select:Post Body Font} layout-3col background-{select:Background Image Style}">
     
         {block:IfShowSearchBox}
         <div id="sidebar" class="sidebar">
@@ -1289,16 +1300,6 @@
 				
                 </div>
                 
-                {block:IfDisqusShortname}
-                <div class="post-meta post-comments">
-                    <div class="post-section">
-                    <div id="disqus_thread"></div>
-                    <script type="text/javascript" src="//disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
-                    <noscript><a href="//{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
-                    </div>
-                </div>
-                {/block:IfDisqusShortname}
-                
                 {block:PostNotes}
                 <div class="post-meta post-notes-list">
                     <h2>{NoteCountWithLabel}</h2>
@@ -1313,15 +1314,24 @@
         </div>
       </div>
     </div>
-    <div class="pagination">
-		{block:Pagination}{block:PreviousPage}<a href="{PreviousPage}" id="previous">&larr; {lang:Previous}</a>{/block:PreviousPage}
+    {block:IfInfiniteScrolling}
+    {block:Pagination}
+    <div class="pagination loadmore clearfix">
+        <span id="load_more_button">{lang:Load more posts}</span>
+    </div>
+    {/block:Pagination}
+    {/block:IfInfiniteScrolling}
+	{block:Pagination}
+	<div class="pagination">
+		{block:PreviousPage}<a href="{PreviousPage}" id="previous">&larr; {lang:Previous}</a>{/block:PreviousPage}
 		<span class="page-info">{lang:Page CurrentPage of TotalPages}</span>
-		{block:NextPage}<a href="{NextPage}" id="next">{lang:Next} &rarr;</a>{/block:NextPage}{/block:Pagination}
+		{block:NextPage}<a href="{NextPage}" id="next">{lang:Next} &rarr;</a>{/block:NextPage}
 	</div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
-    <script src="https://static.tumblr.com/anzluor/jA5p3abax/masonry.js" integrity="sha384-QSR8IMziiyR2er9+g5wUifaM6vkO1GA6cAcGnHiX4AirDJeZoNgokDHdz2QesnU2" crossorigin="anonymous"></script>
-    {block:IfInfiniteScrolling}<script src="https://static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js" integrity="sha384-DCHLD93QqUyWYMNlPlQ7qsaHYiMCzBiQPhi1uREwPnF3cW8CpyzzdSW2xLHlEh2B" crossorigin="anonymous"></script>{/block:IfInfiniteScrolling}
-    <script src="https://static.tumblr.com/anzluor/q4Gpetldi/impulse.min.js" integrity="sha384-3U9giyOEcPrvCP1Ex6td9pYXnHQsOMsCgid3Iod4X0HYkBDewQKxFg+J6WyNO9AV" crossorigin="anonymous"></script>
+	{/block:Pagination}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://static.tumblr.com/anzluor/iaEpqmv4c/masonry.js"></script>
+    {block:IfInfiniteScrolling}<script src="https://unpkg.com/infinite-scroll@3.0.6/dist/infinite-scroll.pkgd.min.js"></script>{/block:IfInfiniteScrolling}
+    <script src="https://static.tumblr.com/anzluor/tkhpwwte2/impulse.min.js"></script>
         {block:IfGoogleAnalyticsID}
             <script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -1334,21 +1344,5 @@
             
             </script>
         {/block:IfGoogleAnalyticsID}
-        {block:IfDisqusShortname}
-            <script type="text/javascript">
-                //<![CDATA[
-                (function() {
-                    var links = document.getElementsByTagName('a');
-                    var query = '?';
-                    for(var i = 0; i < links.length; i++) {
-                        if(links[i].href.indexOf('#disqus_thread') >= 0) {
-                            query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
-                        }
-                    }
-                    document.write('<script charset="utf-8" type="text/javascript" src="//disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
-                })();
-                //]]>
-            </script>
-        {/block:IfDisqusShortname}
     </body>
 </html>
