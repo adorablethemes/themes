@@ -13,10 +13,11 @@
         <meta name="font:Heading" content=""/>
         <meta name="font:Body" content=""/>
         <meta name="color:Background" content="#ffffff"/>
+        <meta name="color:Post Background" content="#ffffff"/> 
         <meta name="color:Heading Text" content="#555555"/> 
         <meta name="color:Text" content="#444444"/> 
         <meta name="color:Link" content="#ffadc3"/> 
-        <meta name="color:Accent" content="#ffc2d3"/> 
+        <meta name="color:Quote Accent" content="#ffc2d3"/> 
         <meta name="text:Custom Link 1 URL" content=""/>
         <meta name="text:Custom Link 1 Name" content=""/>
         <meta name="text:Custom Link 2 URL" content=""/>
@@ -185,7 +186,7 @@
             width: 250px;
             float: left;
             position: relative;
-            background-color: transparent;
+            background-color: {color:Post Background};
             margin: 5px;
             overflow: hidden;
         }
@@ -234,7 +235,7 @@
             text-align: center;
             letter-spacing: 5px;
             font-size: 24px;
-            color: {color:Accent};
+            color: {color:Quote Accent};
             margin: -10px;
         }
         
