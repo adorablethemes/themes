@@ -799,7 +799,7 @@
                 {block:Date}
                 <div class="menu-bar">
                     <ul class="menu-items">
-                        <a href="{ReblogURL}"><li>Reblog</li></a><a href="{Permalink}"><li>{lang:Permalink}</li></a>{block:Photo}{block:HighRes}<a target="_blank" href="\image\{PostID}"><li>{lang:Zoom}</li></a>{/block:HighRes}{block:Photo}{block:ContentSource}<a target="_blank" href="{SourceURL}"><li>{lang:Source}</li></a>{/block:ContentSource}
+                        <a href="{ReblogURL}"><li>{lang:Reblogged}</li></a><a href="{Permalink}"><li>{lang:Permalink}</li></a>{block:Photo}{block:HighRes}<a target="_blank" href="\image\{PostID}"><li>{lang:Zoom}</li></a>{/block:HighRes}{block:Photo}{block:ContentSource}<a target="_blank" href="{SourceURL}"><li>{lang:Source}</li></a>{/block:ContentSource}
                     </ul>
                 </div>
                 {/block:Date}
@@ -1003,7 +1003,7 @@
             <div class="window">
                 <div class="title-bar">
                     <div class="icon"></div>
-                    Notes
+                    {lang:Notes}
                     <div class="title-bar-buttons"></div>
                 </div>
                 <div class="text-area note-window clearfix">
