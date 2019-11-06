@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win3.1
-        version:    1.5 (April 14, 2019)
+        version:    1.6 (November 5, 2019)
         from:       adorablethemes.com
         
         
@@ -730,7 +730,7 @@
                 {block:Date}
                 <div class="menu-bar">
                     <ul class="menu-items">
-                        <a href="{ReblogURL}"><li><span class="first-letter">R</span>eblog</li></a><a href="{Permalink}"><li><span class="first-letter">P</span>ermalink</li></a>{block:Photo}{block:HighRes}<a target="_blank" href="\image\{PostID}"><li><span class="first-letter">Z</span>oom</li></a>{/block:HighRes}{block:Photo}{block:ContentSource}<a target="_blank" href="{SourceURL}"><li><span class="first-letter">S</span>ource</li></a>{/block:ContentSource}
+                        <a href="{ReblogURL}"><li>{block:English}<span class="first-letter">R</span>eblog{/block:English}{block:German}Rebloggen{/block:German}{block:French}Rebloguer{/block:French}{block:Italian}Reblogga{/block:Italian}{block:Japanese}リブログ{/block:Japanese}{block:Turkish}Yeniden Blogla{/block:Turkish}{block:Spanish}Rebloguear{/block:Spanish}{block:Russian}Реблог{/block:Russian}{block:Polish}Rebloguj{/block:Polish}{block:PortuguesePT}Reblogar{/block:PortuguesePT}{block:PortugueseBR}Reblogar{/block:PortugueseBR}{block:Dutch}Rebloggen{/block:Dutch}{block:Korean}리블로그{/block:Korean}{block:ChineseSimplified}转发{/block:ChineseSimplified}{block:ChineseTraditional}轉格{/block:ChineseTraditional}{block:ChineseHK}轉載{/block:ChineseHK}{block:Indonesian}Reblog{/block:Indonesian}{block:Hindi}रीब्लॉग करेंे{/block:Hindi}</li></a><a href="{Permalink}"><li>{block:English}<span class="first-letter">P</span>ermalink{/block:English}{block:NotEnglish}{lang:Permalink}{/block:NotEnglish}</li></a>{block:Photo}{block:HighRes}<a target="_blank" href="\image\{PostID}"><li>{block:English}<span class="first-letter">Z</span>oom{/block:English}{block:NotEnglish}{lang:Zoom}{/block:NotEnglish}</li></a>{/block:HighRes}{block:Photo}{block:ContentSource}<a target="_blank" href="{SourceURL}"><li>{block:English}<span class="first-letter">S</span>ource{/block:English}{block:NotEnglish}{lang:Source}{/block:NotEnglish}</li></a>{/block:ContentSource}
                     </ul>
                 </div>
                 {/block:Date}
@@ -934,7 +934,7 @@
             <div class="window">
                 <div class="title-bar">
                     <div class="icon"></div>
-                    Notes
+                    {lang:Notes}
                     <div class="title-bar-buttons"></div>
                 </div>
                 <div class="text-area note-window clearfix">
@@ -1077,7 +1077,7 @@
                     {block:HasPages}
                     {block:Pages}<a href="{URL}"><div class="button-border"><li>{Label}</li></div></a>{/block:Pages}
                     {/block:HasPages}
-                    <a href="https://adorablethemes.com/theme/win31" target="_blank"><div class="button-border"><li>Theme</li></div></a>
+                    <a href="https://adorablethemes.com/theme/win31" target="_blank"><div class="button-border"><li>{block:English}Theme{/block:English}{block:German}Template{/block:German}{block:French}Thème{/block:French}{block:Italian}Temi{/block:Italian}{block:Japanese}テーマ{/block:Japanese}{block:Turkish}Tema{/block:Turkish}{block:Spanish}Tema{/block:Spanish}{block:Russian}Темы{/block:Russian}{block:Polish}Szablon{/block:Polish}{block:PortuguesePT}Tema{/block:PortuguesePT}{block:PortugueseBR}Tema{/block:PortugueseBR}{block:Dutch}Sjablonen{/block:Dutch}{block:Korean}테마{/block:Korean}{block:ChineseSimplified}主题{/block:ChineseSimplified}{block:ChineseTraditional}佈景主題{/block:ChineseTraditional}{block:ChineseHK}佈景主題{/block:ChineseHK}{block:Indonesian}Tema{/block:Indonesian}{block:Hindi}थीम{/block:Hindi}</li></div></a>
                 </ul>
                 
             </div>
