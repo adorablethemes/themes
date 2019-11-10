@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win2K
-        version:    2.4 (April 14, 2019)
+        version:    2.5 (November 5, 2019)
         from:       adorablethemes.com
         
         
@@ -799,7 +799,7 @@
                 {block:Date}
                 <div class="menu-bar">
                     <ul class="menu-items">
-                        <a href="{ReblogURL}"><li>{lang:Reblogged}</li></a><a href="{Permalink}"><li>{lang:Permalink}</li></a>{block:Photo}{block:HighRes}<a target="_blank" href="\image\{PostID}"><li>{lang:Zoom}</li></a>{/block:HighRes}{block:Photo}{block:ContentSource}<a target="_blank" href="{SourceURL}"><li>{lang:Source}</li></a>{/block:ContentSource}
+                        <a href="{ReblogURL}"><li>{block:English}Reblog{/block:English}{block:German}Rebloggen{/block:German}{block:French}Rebloguer{/block:French}{block:Italian}Reblogga{/block:Italian}{block:Japanese}リブログ{/block:Japanese}{block:Turkish}Yeniden Blogla{/block:Turkish}{block:Spanish}Rebloguear{/block:Spanish}{block:Russian}Реблог{/block:Russian}{block:Polish}Rebloguj{/block:Polish}{block:PortuguesePT}Reblogar{/block:PortuguesePT}{block:PortugueseBR}Reblogar{/block:PortugueseBR}{block:Dutch}Rebloggen{/block:Dutch}{block:Korean}리블로그{/block:Korean}{block:ChineseSimplified}转发{/block:ChineseSimplified}{block:ChineseTraditional}轉格{/block:ChineseTraditional}{block:ChineseHK}轉載{/block:ChineseHK}{block:Indonesian}Reblog{/block:Indonesian}{block:Hindi}रीब्लॉग करेंे{/block:Hindi}</li></a><a href="{Permalink}"><li>{lang:Permalink}</li></a>{block:Photo}{block:HighRes}<a target="_blank" href="\image\{PostID}"><li>{lang:Zoom}</li></a>{/block:HighRes}{block:Photo}{block:ContentSource}<a target="_blank" href="{SourceURL}"><li>{lang:Source}</li></a>{/block:ContentSource}
                     </ul>
                 </div>
                 {/block:Date}
@@ -1145,7 +1145,7 @@
                     {block:HasPages}
                     {block:Pages}<a href="{URL}"><div class="button-border"><li>{Label}</li></div></a>{/block:Pages}
                     {/block:HasPages}
-                    <a href="https://adorablethemes.com/theme/win2k"><div class="button-border"><li>Theme</li></div></a>
+                    <a href="https://adorablethemes.com/theme/win2k" target="_blank"><div class="button-border"><li>{block:English}Theme{/block:English}{block:German}Template{/block:German}{block:French}Thème{/block:French}{block:Italian}Temi{/block:Italian}{block:Japanese}テーマ{/block:Japanese}{block:Turkish}Tema{/block:Turkish}{block:Spanish}Tema{/block:Spanish}{block:Russian}Темы{/block:Russian}{block:Polish}Szablon{/block:Polish}{block:PortuguesePT}Tema{/block:PortuguesePT}{block:PortugueseBR}Tema{/block:PortugueseBR}{block:Dutch}Sjablonen{/block:Dutch}{block:Korean}테마{/block:Korean}{block:ChineseSimplified}主题{/block:ChineseSimplified}{block:ChineseTraditional}佈景主題{/block:ChineseTraditional}{block:ChineseHK}佈景主題{/block:ChineseHK}{block:Indonesian}Tema{/block:Indonesian}{block:Hindi}थीम{/block:Hindi}</li></div></a>
                 </ul>
                 
             </div>
