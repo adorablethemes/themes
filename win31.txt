@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win3.1
-        version:    1.6 (November 5, 2019)
+        version:    1.7 (February 8, 2020)
         from:       adorablethemes.com
         
         
@@ -22,7 +22,7 @@
     	<meta name="viewport" content="width=1080">
     	<meta name="theme-color" content="{color:Title Bar}">
         <link rel="shortcut icon" href="{Favicon}">
-        <link rel="apple-touch-icon" href="{PortraitURL-128}">
+        <link rel="apple-touch-icon" href="{PortraitURL-512}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         {block:Hidden}
         <meta name="image:Wallpaper" content="">
@@ -584,7 +584,7 @@
             max-width: 100%;
             height: auto !important;
             display: flex;
-            margin: 0 !important;
+            margin: 0 0 4px 0 !important;
         }
         div.npf_row figure.tmblr-full {
             flex: 1;
@@ -1094,7 +1094,8 @@
             fitVideos();
             var container = $('.posts-container');
     
-    		container.imagesLoaded( function(){
+    		container.imagesLoaded().always( function(){
+    		    fixNPFPhotosets();
     			container.masonry({
     				itemSelector : '.inf-scroll-item',
     				transitionDuration: 0
@@ -1104,6 +1105,11 @@
     				transitionDuration: 0
     			}); }, 750);
     		});
+        }
+        else {
+            $('.posts-container').imagesLoaded().always( function(){
+                fixNPFPhotosets();
+            });
         }
         {block:IfInfiniteScrolling}
     	var container = $('main');
@@ -1124,7 +1130,7 @@
                 var $newElemsIDs = $newElems.map(function () { 
                     return this.id; 
                 }).get();
-				$newElems.imagesLoaded(function(){
+				$newElems.imagesLoaded().always(function(){
 					$newElems.css({ opacity: 1 });
 					if (win31.layout != 'one-column') {
 					    fitVideos();
@@ -1140,6 +1146,9 @@
     	{/block:IfInfiniteScrolling}
     	{/block:IndexPage}
     	{block:PermalinkPage}
+    	$('.posts-container').imagesLoaded().always( function(){
+            fixNPFPhotosets();
+        });
         var nc = note_count.innerHTML;
         nc = nc.replace('notes', 'file(s)');
         note_count.innerHTML = "Total "+nc;
@@ -1161,6 +1170,10 @@
             if ($(this).attr('src').search('vine.co') > -1) {
                 $(this).css('height', parseInt($(this).css('width')) + "px");
             }
+            else if ($(this).attr('src').search('www.youtube.com')>0) {
+                $(this).data('aspect-ratio', $(this).attr('width') / $(this).attr('height'));
+                $(this).css('height', (parseInt($(this).css('width')) / $(this).data('aspect-ratio')) + "px");
+            }
             else if (!$(this).hasClass('instagram-media')) {
                 $(this).css('height', (parseInt($(this).css('width')) / 1.77777777) + "px");
             }
@@ -1168,6 +1181,21 @@
         $(".tumblr_video_iframe").each(function(index) {
             $(this).data('aspect-ratio', $(this).data('width') / $(this).data('height'));
             $(this).css('height', (parseInt($(this).css('width')) / $(this).data('aspect-ratio')) + "px");
+        });
+    }
+    function fixNPFPhotosets() {
+        $(".npf_row").each(function(index) {
+            lowestHeight = 999;
+            numImages = 0;
+            $(this).children('figure').each(function() {
+                numImages++;
+                if (parseInt($(this).css('height')) < lowestHeight) {
+                    lowestHeight = parseInt($(this).css('height'))-6;
+                }
+            });
+            if (numImages > 1) {
+                $(this).css('max-height', lowestHeight.toString() + "px");
+            }
         });
     }
     </script>
