@@ -5,7 +5,7 @@
         <!-- 
         
         theme:      nano
-        version:    1.3.1 (November 3, 2018)
+        version:    1.4 (February 8, 2020)
         from:       adorablethemes.com
         
         
@@ -24,7 +24,7 @@
         <meta name="theme-color" content="{color:Accent}">
         
         <link rel="shortcut icon" href="{Favicon}">
-        <link rel="apple-touch-icon" href="{PortraitURL-128}">
+        <link rel="apple-touch-icon" href="{PortraitURL-512}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         
         {block:Hidden}
@@ -393,7 +393,7 @@
         div.npf_row {
             max-width: 100%;
             height: auto !important;
-            margin: 0 !important;
+            margin: 0 0 4px 0 !important;
         }
         .post-section figure video, .post-section figure audio {
             max-width: 100%;
@@ -989,6 +989,7 @@
                     fitVideos();
                     if (window.innerWidth < 768) {
                         resizePhotosets();
+                        fixNPFPhotosets();
                     }
                 }
                 
@@ -1010,6 +1011,7 @@
                 fitVideos();
                 if (window.innerWidth < 768) {
                     resizePhotosets();
+                    fixNPFPhotosets();
                 }
             }
             
@@ -1026,13 +1028,19 @@
             });
         });
         function fitVideos() {
-            // size videos to 16:9
+            // code for sizing external video embeds
             $(".video-post-video iframe").each(function(index) {
-                if (!$(this).hasClass('instagram-media')) {
+                // preserve aspect ratio for youtube vids
+                if ($(this).attr('src').search('www.youtube.com')>0) {
+                    $(this).data('aspect-ratio', $(this).attr('width') / $(this).attr('height'));
+                    $(this).css('height', (parseInt($(this).css('width')) / $(this).data('aspect-ratio')) + "px");
+                }
+                // use 16:9 for everything else, except instagram
+                else if (!$(this).hasClass('instagram-media')) {
                     $(this).css('height', (parseInt($(this).css('width')) / 1.77777777) + "px");
                 }
             });
-            // tumblr videos get to have their AR preserved
+            // preserve aspect ratio for tumblr-hosted vids
             $(".tumblr_video_iframe").each(function(index) {
                 $(this).data('aspect-ratio', $(this).data('width') / $(this).data('height'));
                 $(this).css('height', (parseInt($(this).css('width')) / $(this).data('aspect-ratio')) + "px");
@@ -1055,6 +1063,21 @@
             catch(e) {
                 console.log('no photosets');
             }
+        }
+        function fixNPFPhotosets() {
+            $(".npf_row").each(function(index) {
+                lowestHeight = parseInt($(this).css('height'));
+                numImages = 0;
+                $(this).children('figure').each(function() {
+                    numImages++;
+                    if (parseInt($(this).css('height')) < lowestHeight) {
+                        lowestHeight = parseInt($(this).css('height'))-6;
+                    }
+                });
+                if (numImages > 1) {
+                    $(this).css('max-height', lowestHeight.toString() + "px");
+                }
+            });
         }
     </script>
     
