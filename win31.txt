@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win3.1
-        version:    1.7 (February 8, 2020)
+        version:    1.8 (May 26, 2020)
         from:       adorablethemes.com
         
         
@@ -725,6 +725,7 @@
                     <span class="title">{lang:Audio}</span>
                     {/block:Audio}
                     {block:Date}<span class="post-date"> - {ShortMonth} {DayOfMonth}, {Year}</span>{/block:Date}
+                    {block:PinnedPostLabel}<span class="pinned-post">({PinnedPostLabel})</span>{/block:PinnedPostLabel}
                     <div class="title-bar-buttons"></div>
                 </div>
                 {block:Date}

@@ -5,7 +5,7 @@
         <!-- 
         
         theme:      nano
-        version:    1.4 (February 8, 2020)
+        version:    1.5 (May 26, 2020)
         from:       adorablethemes.com
         
         
@@ -276,6 +276,9 @@
         }
         .note-count, .play-count, .post-attribution {
             margin-left: 1.33em;
+        }
+        .pinned-post {
+            margin-right: 1.33em;
         }
         .post-attribution a {
             display: none;
@@ -896,6 +899,7 @@
     					    <span><i class="fa fa-heart"></i></span>
     					</div>
     				</div>
+                    {block:PinnedPostLabel}<a class="pinned-post" href="{Permalink}"><i class="fa fa-fw fa-thumb-tack"></i> {PinnedPostLabel}</a>{/block:PinnedPostLabel}
                     <a class="time-posted" href="{Permalink}">{ShortMonth} {DayOfMonth} <span class="year-{Year}">{Year}</span></a>
                     {block:IndexPage}{block:NoteCount}<a class="note-count" href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}{/block:IndexPage}
                     {block:Video}{block:PlayCount}<a class="play-count" href="{Permalink}">{PlayCountWithLabel}</a>{/block:PlayCount}{/block:Video}

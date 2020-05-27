@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Ambient
-        version:    3.2 (April 18, 2019)
+        version:    3.3 (May 26, 2020)
         from:       adorablethemes.com
         
         
@@ -958,6 +958,7 @@
     				</div>
     				
     				<div class="post-info">
+    				    {block:PinnedPostLabel}<a class="pinned-post" href="{Permalink}"><i class="fa fa-fw fa-thumb-tack"></i> {PinnedPostLabel}</a>{/block:PinnedPostLabel}
     				    <a href="{Permalink}" class="time-posted" title="{12Hour}:{Minutes} {AmPm}, {DayOfWeek}, {Month} {DayOfMonth}, {Year}">{ShortMonth} {DayOfMonth} <span class="year_{Year}">{Year}</span></a>
                     {block:NoteCount}<a href="{Permalink}" class="note-count">{NoteCountWithLabel}</a>{block:NoteCount}
                     <span class="post-attribution">
