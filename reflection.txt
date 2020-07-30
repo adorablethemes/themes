@@ -5,7 +5,7 @@
         
         theme:      Reflection
         version:    1.4.3 (August 7, 2017)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         credits:
         
@@ -609,8 +609,6 @@
 				{block:IfCustomLink2URL}
 					<li><a class="header-link" href="{text:Custom Link 2 URL}"><i class="fa fa-fw fa-external-link"></i> {text:Custom Link 2 Name}</a></li>
 				{/block:IfCustomLink2URL}
-				
-				<li><a class="header-link" href="https://adorablethemes.com/"><i class="fa fa-fw fa-heart"></i> Theme</a></li>
 			</ul>
 			
 			<ul class="social-links">

@@ -5,7 +5,7 @@
         
         theme:      Picture Flex
         version:    4.0.3 (April 27, 2019)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         credits:
         
@@ -757,7 +757,6 @@
             {block:HasPages}
                 {block:Pages}<a class="header-link" href="{URL}"><li>{Label}</li></a>{/block:Pages}
             {/block:HasPages}
-            <a class="header-link" target="_blank" href="https://adorablethemes.com/"><li>Theme</li></a>
         </ul>
         </div>
         {/block:IfShowHeaderNavbar}

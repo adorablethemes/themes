@@ -5,7 +5,7 @@
     	
         theme:      Smooth SC
         version:    2.0.4 (November 2, 2018)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         credits:
         
@@ -672,8 +672,6 @@
                         {block:IfShowRandomLink}<li><a class="sidebar-link" href="/random">{lang:Random}</a></li>{/block:IfShowRandomLink}
                         
 						{block:IfShowLikedPostsLink}<li><a class="sidebar-link" href="https://tumblr.com/liked/by/{Name}">{lang:Liked posts}</a></li>{/block:IfShowLikedPostsLink}
-						
-						<li><a class="sidebar-link" href="https://adorablethemes.com/">Theme</a></li>
 					</ul>
 					
 				</div>

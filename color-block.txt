@@ -5,7 +5,7 @@
 
         theme:      Color Block
         version:    3.1.1 (August 10, 2018)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         credits:
         
@@ -666,7 +666,6 @@
                         {block:IfCustomLink4URL}
                             <a class="sidebar-link" href="{text:Custom Link 4 URL}"><li>{text:Custom Link 4 Name}</li></a>
                         {/block:IfCustomLink4URL}
-                        <a class="sidebar-link" href="https://adorablethemes.com/" target="_blank"><li>Theme</li></a>
                     </ul>
                     {block:Description}
                     <div class="widget widget-description">

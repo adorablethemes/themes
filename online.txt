@@ -5,7 +5,7 @@
         
         theme:      Online
         version:    1.1.2 (April 27, 2019)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         
         credits:
@@ -937,8 +937,6 @@
 			{block:IfShowRandomLink}<a class="sidebar-link" href="/random"><li>{lang:Random}</li></a>{/block:IfShowRandomLink}
 			
 			{block:IfShowLikedPostsLink}<a class="sidebar-link" href="https://www.tumblr.com/liked/by/{Name}" target="_blank"><li>{lang:Liked posts}</li></a>{/block:IfShowLikedPostsLink}
-			
-			<a class="sidebar-link" href="https://adorablethemes.com/theme/online" target="_blank"><li>Theme</li></a>
 			
 			{block:IfFeaturedTag1}
 			

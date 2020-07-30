@@ -5,7 +5,7 @@
         
         theme:      Square
         version:    2.0.4 (November 2, 2018)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         credits:
         
@@ -433,8 +433,6 @@
 					<a class="sidebar-link" href="{URL}"><li>{Label}</li></a>
 				{/block:Pages}
 			{/block:HasPages}
-			
-			<a class="sidebar-link" href="https://adorablethemes.com/"><li>Theme</li></a>
 			
         </ul>
         

@@ -5,7 +5,7 @@
     
     theme:      Solar
     version:    2.2.1 (December 3, 2018)
-    from:       adorablethemes.com
+    from:       adorablethemes.github.io
     
     credits:
     
@@ -1293,7 +1293,6 @@
         <div class="widget widget-footer">
             <div class="sidebar-content">
                 <p>&copy; {CopyrightYears} {block:IfCopyrightText}{text:Copyright Text}{/block:IfCopyrightText}{block:IfNotCopyrightText}{Title}{/block:IfNotCopyrightText}</p>
-                <p><b><a target="_blank" href="https://adorablethemes.com/theme/solar">Solar Theme</a></b></p>
             </div>
         </div>
 		

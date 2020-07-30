@@ -5,7 +5,7 @@
     
     theme:      Chain
     version:    1.1.4 (December 3, 2018)
-    from:       adorablethemes.com
+    from:       adorablethemes.github.io
     
     credits:
         
@@ -717,7 +717,6 @@
             {block:IfTwitchURL}<a href="{text:Twitch URL}" title="Twitch"><li><i class="fa fa-twitch fa-fw"></i></li></a>{/block:IfTwitchURL}
             {block:IfTwitterURL}<a href="{text:Twitter URL}" title="Twitter"><li><i class="fa fa-twitter fa-fw"></i></li></a>{/block:IfTwitterURL}
             {block:IfYouTubeURL}<a href="{text:YouTube URL}" title="YouTube"><li><i class="fa fa-youtube-play fa-fw"></i></li></a>{/block:IfYouTubeURL}
-            <a href="https://adorablethemes.com/" title="Theme" target="_blank"><li class="last"><i class="fa fa-paint-brush fa-fw"></i></li></a>
         </ul>
     </nav>
     

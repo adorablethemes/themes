@@ -6,7 +6,7 @@
         
         theme:      nano
         version:    1.5 (May 26, 2020)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         
         credits:
@@ -620,8 +620,6 @@
 			{block:SubmissionsEnabled}
 				<a class="sidebar-link{block:SubmitPage} current-page{/block:SubmitPage}" href="/submit"><li>{SubmitLabel}</li></a>
 			{/block:SubmissionsEnabled}
-			
-			<a class="sidebar-link" href="https://adorablethemes.com/theme/nano" target="_blank"><li>Theme</li></a>
 			
 			{block:IfFeaturedTag1}
 			

@@ -5,7 +5,7 @@
         
         theme:      Mini Grid
         version:    3.0 (February 25, 2019)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         credits:
         
@@ -615,8 +615,6 @@
             		{block:IfShowRandomLink}
             			<li><a class="sidebar-link" href="/random">{lang:Random}</a></li>
             		{/block:IfShowRandomLink}
-		
-		            <li><a class="sidebar-link" href="https://adorablethemes.com/theme/mini-grid">Theme</a></li>
 		
 	            </ul>
 

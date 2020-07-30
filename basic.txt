@@ -5,7 +5,7 @@
         
         theme:      Basic
         version:    4.0.5 (November 2, 2018)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         credits:
         
@@ -709,8 +709,6 @@
 			{block:IfCustomLink3URL}
 				<li><a class="sidebar-link" href="{text:Custom Link 3 URL}">{text:Custom Link 3 Name}</a></li>
 			{/block:IfCustomLink3URL}
-			
-			<li><a class="sidebar-link" href="https://adorablethemes.com/theme/basic">Theme</a></li>
 			
         </ul>
         

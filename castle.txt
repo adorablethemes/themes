@@ -5,7 +5,7 @@
         
         theme:      Castle
         version:    2.1.2 (April 27, 2019)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         
         credits:
@@ -907,7 +907,6 @@
             <a target="_blank" class="link-youtube" href="{text:YouTube URL}"><i class="fa fa-fw fa-youtube"></i></a>
             {/block:IfYouTubeURL}
         </div>
-        <a class="theme-link" href="https://adorablethemes.com/theme/castle" target="_blank">theme</a>
         
         </div>
         

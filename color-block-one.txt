@@ -5,7 +5,7 @@
 
         theme:      Color Block (one-column)
         version:    3.1.1 (August 10, 2018)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         credits:
         
@@ -580,7 +580,6 @@
                         {block:IfCustomLink2URL}<a class="sidebar-link" href="{text:Custom Link 2 URL}"><li>{text:Custom Link 2 Name}</li></a>{/block:IfCustomLink2URL}
                         {block:IfCustomLink3URL}<a class="sidebar-link" href="{text:Custom Link 3 URL}"><li>{text:Custom Link 3 Name}</li></a>{/block:IfCustomLink3URL}
                         {block:IfCustomLink4URL}<a class="sidebar-link" href="{text:Custom Link 4 URL}"><li>{text:Custom Link 4 Name}</li></a>{/block:IfCustomLink4URL}
-                        <a class="sidebar-link" href="https://adorablethemes.com/" target="_blank"><li>Theme</li></a>
                     </ul>
                     
                     {block:Description}

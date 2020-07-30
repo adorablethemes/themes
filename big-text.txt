@@ -5,7 +5,7 @@
         
         theme:      Big Text
         version:    2.0.3 (April 7, 2016)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         credits:
         
@@ -498,7 +498,7 @@
     {/block:PermalinkPagination}
 	
     <footer>
-        Powered by <a href="https://www.tumblr.com/">Tumblr</a> &amp; <a href="https://adorablethemes.com/">Big Text Theme</a>
+        Powered by <a href="https://www.tumblr.com/">Tumblr</a>
     </footer>
       </div>
 		{block:IfInfiniteScrolling}

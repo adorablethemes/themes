@@ -5,7 +5,7 @@
         
         theme:      Volume
         version:    1.0 (December 1, 2015)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         credits:
         
@@ -628,7 +628,6 @@
                 {block:HasPages}
                 {block:Pages}<a class="pages-link" href="{URL}"><li>{Label}</li></a>{/block:Pages}
                 {/block:HasPages}
-                <a class="pages-link" href="https://adorablethemes.com/"><li>Theme</li></a>
             </ul>
 
         </header>

@@ -4,8 +4,8 @@
         <!-- 
         
         theme:      Copycat
-        version:    3.2 (June 24, 2019)
-        from:       adorablethemes.com
+        version:    3.3 (March 9, 2020)
+        from:       adorablethemes.github.io
         
         
         credits:
@@ -76,14 +76,13 @@
 		<meta name="text:Header Opacity" content="1.0">
 		<meta name="text:Post Opacity" content="1.0">
 		
-		<meta name="text:Facebook Username" content="">
-		<meta name="text:Twitter Username" content="">
-		<meta name="text:Instagram Username" content="">
-		<meta name="text:Pinterest Username" content="">
-		<meta name="text:SoundCloud Username" content="">
-		<meta name="text:Twitch Username" content="">
-		<meta name="text:Vine Username" content="">
-		<meta name="text:YouTube Username" content="">
+		<meta name="text:Facebook URL" content="">
+		<meta name="text:Twitter URL" content="">
+		<meta name="text:Instagram URL" content="">
+		<meta name="text:Pinterest URL" content="">
+		<meta name="text:SoundCloud URL" content="">
+		<meta name="text:Twitch URL" content="">
+		<meta name="text:YouTube URL" content="">
 		<meta name="text:Store URL" content="">
 		
 		<meta name="text:Disqus Shortname" content="">
@@ -1055,37 +1054,33 @@
                 
                 <ul class="sidebar-links sidebar-links-social">
                 
-                {block:IfFacebookUsername}
-                <a target="_blank" class="sidebar-link link-facebook" href="https://facebook.com/{text:Facebook Username}"><li><i class="fa fa-fw fa-facebook-square"></i> Facebook</li></a>
-                {/block:IfFacebookUsername}
+                {block:IfFacebookURL}
+                <a target="_blank" class="sidebar-link link-facebook" href="{text:Facebook URL}"><li><i class="fa fa-fw fa-facebook-square"></i> Facebook</li></a>
+                {/block:IfFacebookURL}
                 
-                {block:IfTwitterUsername}
-                <a target="_blank" class="sidebar-link link-twitter" href="https://twitter.com/{text:Twitter Username}"><li><i class="fa fa-fw fa-twitter"></i> Twitter</li></a>
-                {/block:IfTwitterUsername}
+                {block:IfTwitterURL}
+                <a target="_blank" class="sidebar-link link-twitter" href="{text:Twitter URL}"><li><i class="fa fa-fw fa-twitter"></i> Twitter</li></a>
+                {/block:IfTwitterURL}
                 
-                {block:IfInstagramUsername}
-                <a target="_blank" class="sidebar-link link-instagram" href="https://instagram.com/{text:Instagram Username}"><li><i class="fa fa-fw fa-instagram"></i> Instagram</li></a>
-                {/block:IfInstagramUsername}
+                {block:IfInstagramURL}
+                <a target="_blank" class="sidebar-link link-instagram" href="{text:Instagram URL}"><li><i class="fa fa-fw fa-instagram"></i> Instagram</li></a>
+                {/block:IfInstagramURL}
                 
-                {block:IfPinterestUsername}
-                <a target="_blank" class="sidebar-link link-pinterest" href="https://pinterest.com/{text:Pinterest Username}"><li><i class="fa fa-fw fa-pinterest"></i> Pinterest</li></a>
-                {/block:IfPinterestUsername}
+                {block:IfPinterestURL}
+                <a target="_blank" class="sidebar-link link-pinterest" href="{text:Pinterest URL}"><li><i class="fa fa-fw fa-pinterest"></i> Pinterest</li></a>
+                {/block:IfPinterestURL}
                 
-                {block:IfSoundCloudUsername}
-                <a target="_blank" class="sidebar-link link-soundcloud" href="https://soundcloud.com/{text:SoundCloud Username}"><li><i class="fa fa-fw fa-soundcloud"></i> SoundCloud</li></a>
-                {/block:IfSoundCloudUsername}
+                {block:IfSoundCloudURL}
+                <a target="_blank" class="sidebar-link link-soundcloud" href="{text:SoundCloud URL}"><li><i class="fa fa-fw fa-soundcloud"></i> SoundCloud</li></a>
+                {/block:IfSoundCloudURL}
                 
-                {block:IfTwitchUsername}
-                <a target="_blank" class="sidebar-link link-twitch" href="https://twitch.tv/{text:Twitch Username}"><li><i class="fa fa-fw fa-twitch"></i> Twitch</li></a>
-                {/block:IfTwitchUsername}
+                {block:IfTwitchURL}
+                <a target="_blank" class="sidebar-link link-twitch" href="{text:Twitch URL}"><li><i class="fa fa-fw fa-twitch"></i> Twitch</li></a>
+                {/block:IfTwitchURL}
                 
-                {block:IfVineUsername}
-                <a target="_blank" class="sidebar-link link-vine" href="https://vine.co/{text:Vine Username}"><li><i class="fa fa-fw fa-vine"></i> Vine</li></a>
-                {/block:IfVineUsername}
-                
-                {block:IfYouTubeUsername}
-                <a target="_blank" class="sidebar-link link-youtube" href="https://youtube.com/{text:YouTube Username}"><li><i class="fa fa-fw fa-youtube"></i> YouTube</li></a>
-                {/block:IfYouTubeUsername}
+                {block:IfYouTubeURL}
+                <a target="_blank" class="sidebar-link link-youtube" href="{text:YouTube URL}"><li><i class="fa fa-fw fa-youtube"></i> YouTube</li></a>
+                {/block:IfYouTubeURL}
                 </ul>
             </nav>
             
@@ -1095,7 +1090,6 @@
             {block:IfNotCopyrightText}
                 <p>&copy; {CopyrightYears} {Title}</p>
             {/block:IfNotCopyrightText}
-            <p><a target="_blank" href="https://adorablethemes.com/theme/copycat">Copycat Theme</a></p>
         </div>
         
         <div id="openMenu"><i class="fa fa-lg fa-bars"></i></div>
@@ -1132,7 +1126,6 @@
             {block:HasPages}
                 {block:Pages}<a class="header-link" href="{URL}"><li>{Label}</li></a>{/block:Pages}
             {/block:HasPages}
-            <a class="header-link" target="_blank" href="https://adorablethemes.com/"><li>Theme</li></a>
         </ul>
         </div>
         {/block:IfShowHeaderNavbar}
