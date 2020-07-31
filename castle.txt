@@ -221,7 +221,7 @@
         }
         .social-buttons {
             position: fixed;
-            bottom: 18px;
+            bottom: 0;
             width: 260px;
             margin: 0;
             padding: 12px;
