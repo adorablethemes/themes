@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Copycat
-        version:    3.3 (March 9, 2020)
+        version:    3.3.1 (August 3, 2020)
         from:       adorablethemes.github.io
         
         
@@ -100,7 +100,7 @@
         <meta name="if:Index Video Captions" content="1">
         <meta name="if:Infinite Scrolling" content="1">
         <meta name="if:Use Real Dates" content="1">
-        <meta name="if:Photoset Only First" content="1">
+        <meta name="if:Collapse Photosets" content="1">
         <meta name="if:Colorize Social Links" content="0">
         <meta name="if:Rounded Corners" content="1">
         {/block:Hidden}
@@ -799,11 +799,11 @@
         .index-page .photoset-container figure {
             display: none;
         }
-        {block:IfPhotosetOnlyFirst}
+        {block:IfCollapsePhotosets}
         .index-page .photoset-container figure:first-child {
             display: block;
         }
-        {/block:IfPhotosetOnlyFirst}
+        {/block:IfCollapsePhotosets}
         
         /* Keep reading link arrow */
         a.read_more:after {
@@ -815,7 +815,7 @@
             opacity: 0.01;
         }
         
-        {block:IfPhotosetOnlyFirst}
+        {block:IfCollapsePhotosets}
         /* Indicator for photosets */
         .photoset-note {
             position: absolute;
@@ -835,12 +835,12 @@
             font-weight: bold;
             padding: 7px 10px;
         }
-        {/block:IfPhotosetOnlyFirst}
-        {block:IfNotPhotosetOnlyFirst}
+        {/block:IfCollapsePhotosets}
+        {block:IfNotCollapsePhotosets}
         .photoset-note {
             display: none;
         }
-        {/block:IfNotPhotosetOnlyFirst}
+        {/block:IfNotCollapsePhotosets}
         
         /* Media player sizing */
         .index-page .spotify_audio_player {
@@ -873,11 +873,11 @@
 		        display: none;
 		    }
 		    {block:IfNotIndexPhotoCaptions}
-		    {block:IfNotPhotosetOnlyFirst}
+		    {block:IfNotCollapsePhotosets}
             .post.photoset .post-index-meta {
                 display: block;
             }
-            {/block:IfNotPhotosetOnlyFirst}
+            {/block:IfNotCollapsePhotosets}
             {/block:IfNotIndexPhotoCaptions}
 		}
 		@media screen and (max-width:550px) {
@@ -1252,17 +1252,17 @@
 					{block:Photos}
 					<figure data-width="{PhotoWidth-HighRes}"data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" data-caption="{Caption}" class="photo-content photoset-content"></figure>
 					{/block:Photos}
-					{block:IfPhotosetOnlyFirst}
+					{block:IfCollapsePhotosets}
 					{block:Photos}
 					<a href="{Permalink}"><img class="photo-post-photo" src="{PhotoURL-250}" srcset="{PhotoURL-500} 2x" alt="{PhotoAlt}" /></a>
 					<!--
 					{/block:Photos}
 					-->
-					{/block:IfPhotosetOnlyFirst}
+					{/block:IfCollapsePhotosets}
 					</div>
-					{block:IfNotPhotosetOnlyFirst}
+					{block:IfNotCollapsePhotosets}
 					<figure class="photoset-content">{Photoset-250}</figure>
-					{/block:IfNotPhotosetOnlyFirst}
+					{/block:IfNotCollapsePhotosets}
 					{/block:IndexPage}
 					{block:PermalinkPage}
 					<figure class="photoset-content">{Photoset-500}</figure>

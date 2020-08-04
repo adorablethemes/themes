@@ -5,7 +5,7 @@
         
         theme:      Ambient
         version:    3.3 (May 26, 2020)
-        from:       adorablethemes.com
+        from:       adorablethemes.github.io
         
         
         credits:
@@ -675,8 +675,6 @@
 			{block:IfTwitterURL}
 				<a class="sidebar-link" href="{text:Twitter URL}" target="_blank"><li><i class="fa fa-fw fa-twitter"></i> Twitter</li></a>
 			{/block:IfTwitterURL}
-			
-			<a class="sidebar-link" href="https://adorablethemes.com/theme/ambient" target="_blank"><li><i class="fa fa-fw fa-paint-brush"></i> Theme</li></a>
 			
         </ul>
         

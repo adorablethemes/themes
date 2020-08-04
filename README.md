@@ -1,2 +1,2 @@
 # Themes
-Tumblr themes made by [Adorable Themes](https://adorablethemes.com/).
+Tumblr themes made by [Adorable Themes](https://adorablethemes.github.io/).
