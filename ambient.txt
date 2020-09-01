@@ -66,6 +66,7 @@
         <meta name="if:Show Tags On Index" content="1">
         <meta name="if:Show Sidebar Link Icons" content="1">
         <meta name="if:Show Related Posts" content="1">
+        <meta name="if:Show Theme Credit" content="1">
         
         <meta name="text:Facebook URL" content="">
         <meta name="text:Twitter URL" content="">
@@ -675,6 +676,10 @@
 			{block:IfTwitterURL}
 				<a class="sidebar-link" href="{text:Twitter URL}" target="_blank"><li><i class="fa fa-fw fa-twitter"></i> Twitter</li></a>
 			{/block:IfTwitterURL}
+			
+			{block:IfShowThemeCredit}
+			<a class="sidebar-link" target="_blank" href="http://adorablethemes.github.io/theme/ambient"><li><i class="fa fa-fw fa-paint-brush"></i> Theme</li></a>
+			{/block:IfShowThemeCredit}
 			
         </ul>
         

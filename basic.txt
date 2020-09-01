@@ -72,6 +72,7 @@
         <meta name="if:Show Following" content="0">
         <meta name="if:Drop Shadows" content="0">
         <meta name="if:Round Corners" content="1">
+        <meta name="if:Show Theme Credit" content="1">
         {/block:Hidden}
         
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -709,6 +710,10 @@
 			{block:IfCustomLink3URL}
 				<li><a class="sidebar-link" href="{text:Custom Link 3 URL}">{text:Custom Link 3 Name}</a></li>
 			{/block:IfCustomLink3URL}
+			
+			{block:IfShowThemeCredit}
+			<li><a class="sidebar-link" target="_blank" href="http://adorablethemes.github.io/theme/basic">Theme</a></li>
+			{/block:IfShowThemeCredit}
 			
         </ul>
         

@@ -56,6 +56,7 @@
         <meta name="if:Show Archive Link" content="1">
         <meta name="if:Show Random Link" content="1">
         <meta name="if:Text Post Previews" content="1">
+        <meta name="if:Show Theme Credit" content="1">
         {/block:Hidden}
 
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -615,6 +616,10 @@
             		{block:IfShowRandomLink}
             			<li><a class="sidebar-link" href="/random">{lang:Random}</a></li>
             		{/block:IfShowRandomLink}
+            		
+            		{block:IfShowThemeCredit}
+                        <li><a class="sidebar-link" target="_blank" href="http://adorablethemes.github.io/theme/mini-grid">Theme</a></li>
+            		{/block:IfShowThemeCredit}
 		
 	            </ul>
 

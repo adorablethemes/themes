@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Infuse theme by stylized.adorablethemes.com -->
+        <!-- Infuse theme by stylizedthemes.tumblr.com -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -403,7 +403,7 @@
             margin: 20px 5px;
         }
         
-        /*stylized.adorablethemes.com*/
+        /*stylizedthemes.tumblr.com*/
         
         /* fix height of element with floats inside */
         .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }

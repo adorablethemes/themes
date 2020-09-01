@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Snapshot Theme by stylized.adorablethemes.com -->
+        <!-- Snapshot Theme by stylizedthemes.tumblr.com -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -393,7 +393,7 @@
             color: {color:Text};
         }
         
-        /*stylized.adorablethemes.com*/
+        /*stylizedthemes.tumblr.com*/
         
         /* Note icons */
         .reblog {background: transparent url('https://static.tumblr.com/anzluor/nF5ml4elu/reblog.png') right center no-repeat;}

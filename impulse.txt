@@ -61,6 +61,7 @@
         <meta name="if:Index Video Captions" content="1">
         <meta name="if:Infinite Scrolling" content="1">
         <meta name="if:Use Real Dates" content="1">
+        <meta name="if:Show Theme Credit" content="1">
         {/block:Hidden}
         
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -977,6 +978,9 @@
             {block:HasPages}
                 {block:Pages}<a class="header-link" href="{URL}"><li><i class="fa fa-fw fa-file-o"></i> {Label}</li></a>{/block:Pages}
             {/block:HasPages}
+            {block:IfShowThemeCredit}
+            <a class="header-link" target="_blank" href="http://adorablethemes.github.io/theme/impulse"><li><i class="fa fa-fw fa-paint-brush"></i> Theme</li></a>
+            {/block:IfShowThemeCredit}
         </ul>
         </div>
         

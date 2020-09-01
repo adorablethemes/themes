@@ -103,6 +103,7 @@
         <meta name="if:Collapse Photosets" content="1">
         <meta name="if:Colorize Social Links" content="0">
         <meta name="if:Rounded Corners" content="1">
+        <meta name="if:Show Theme Credit" content="1">
         {/block:Hidden}
         
         <!--[if lt IE 9]><script src="//static.tumblr.com/hriofhd/Qj0m8pn7q/html5shiv.js"></script><![endif]-->
@@ -1090,6 +1091,10 @@
             {block:IfNotCopyrightText}
                 <p>&copy; {CopyrightYears} {Title}</p>
             {/block:IfNotCopyrightText}
+            
+            {block:IfShowThemeCredit}
+			<p><a target="_blank" href="http://adorablethemes.github.io/theme/copycat">Copycat Theme</a></p>
+			{/block:IfShowThemeCredit}
         </div>
         
         <div id="openMenu"><i class="fa fa-lg fa-bars"></i></div>
@@ -1126,6 +1131,7 @@
             {block:HasPages}
                 {block:Pages}<a class="header-link" href="{URL}"><li>{Label}</li></a>{/block:Pages}
             {/block:HasPages}
+            {block:IfShowThemeCredit}<a class="header-link" target="_blank" href="http://adorablethemes.github.io/theme/copycat"><li>Theme</li></a>{/block:IfShowThemeCredit}
         </ul>
         </div>
         {/block:IfShowHeaderNavbar}

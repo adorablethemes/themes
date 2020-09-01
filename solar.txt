@@ -46,6 +46,7 @@
 	<meta name="if:Show Accent Lines" content="1">
 	<meta name="if:Show Tags on Index" content="1">
 	<meta name="if:Show Like and Reblog Buttons" content="1">
+	<meta name="if:Show Theme Credit" content="1">
 	
 	<meta name="text:Custom Ask Page Text" content="">
 	<meta name="text:Featured Tag 1" content="">
@@ -1293,6 +1294,7 @@
         <div class="widget widget-footer">
             <div class="sidebar-content">
                 <p>&copy; {CopyrightYears} {block:IfCopyrightText}{text:Copyright Text}{/block:IfCopyrightText}{block:IfNotCopyrightText}{Title}{/block:IfNotCopyrightText}</p>
+                {block:IfShowThemeCredit}<p><b><a target="_blank" href="http://adorablethemes.github.io/theme/solar">Solar Theme</a></b></p>{/block:IfShowThemeCredit}
             </div>
         </div>
 		

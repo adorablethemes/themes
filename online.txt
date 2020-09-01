@@ -70,6 +70,7 @@
         <meta name="if:Load More Button" content="1">
         <meta name="if:Index Captions" content="1">
         <meta name="if:Index Tags" content="0">
+        <meta name="if:Show Theme Credit" content="1">
         {/block:Hidden}
         
         <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet" type="text/css">
@@ -937,6 +938,8 @@
 			{block:IfShowRandomLink}<a class="sidebar-link" href="/random"><li>{lang:Random}</li></a>{/block:IfShowRandomLink}
 			
 			{block:IfShowLikedPostsLink}<a class="sidebar-link" href="https://www.tumblr.com/liked/by/{Name}" target="_blank"><li>{lang:Liked posts}</li></a>{/block:IfShowLikedPostsLink}
+			
+			{block:IfShowThemeCredit}<a class="sidebar-link" target="_blank" href="http://adorablethemes.github.io/theme/online"><li>Theme</li></a>{/block:IfShowThemeCredit}
 			
 			{block:IfFeaturedTag1}
 			
