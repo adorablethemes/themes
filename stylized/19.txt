@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Dark Elegance Theme by stylized.adorablethemes.com -->
-        <!--Last updated: October 4, 2016-->
+        <!-- Dark Elegance Theme by stylizedthemes.tumblr.com -->
+        <!--Last updated: October 29, 2020-->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -25,16 +25,16 @@
         <meta name="if:Show Random Link" content="0"/>
         <meta name="if:Infinite Scrolling" content="0"/>
         {/block:Hidden}
-        <!--[if (lte IE 8)]><script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-        <link href='//fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
+        <!--[if (lte IE 8)]><script type="text/javascript" src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
         
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
         
         <style type="text/css">
         body {
             color: #fff;
             background-color: #000;
-            background-image: url('//static.tumblr.com/frs2lbn/pfLn0n631/damask1.jpg');
+            background-image: url('https://static.tumblr.com/frs2lbn/pfLn0n631/damask1.jpg');
             background-repeat: repeat-x;
             background-attachment: fixed;
             background-position: bottom left;
@@ -363,8 +363,8 @@
         }
         
                 /* icons next to notes */
-        .reblog {background: transparent url('http://static.tumblr.com/ohnymtu/liNoej6zz/reblog-white.png') right center no-repeat;}
-        .like {background: transparent url('http://static.tumblr.com/ohnymtu/KSUoej6zo/like-white.png') right center no-repeat;}
+        .reblog {background: transparent url('https://static.tumblr.com/ohnymtu/liNoej6zz/reblog-white.png') right center no-repeat;}
+        .like {background: transparent url('https://static.tumblr.com/ohnymtu/KSUoej6zo/like-white.png') right center no-repeat;}
         
         /* special styling for permalink pages */
         {block:PermalinkPage}
@@ -454,7 +454,7 @@
                     <li><a class="sidelink" href="{text:Custom Link 4 URL}">{text:Custom Link 4 Name}</a></li>
                 {/block:IfCustomLink4URL}
                 
-                <li><a class="sidelink" href="http://adorablethemes.com/" title="Get this theme!">Theme</a></li>
+                <li><a class="sidelink" href="https://stylizedthemes.tumblr.com/" title="Get this theme!">Theme</a></li>
             </ul>
         </nav>
 
@@ -615,7 +615,7 @@
         </div>
       </div>
     </div>
-    <a href="http://stylized.adorablethemes.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/fmJoejmpk/credit3.jpg" alt="" /></a>
+    <a href="https://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/fmJoejmpk/credit3.jpg" alt="" /></a>
     {block:IndexPage}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}

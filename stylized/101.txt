@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Euphoria Theme by stylized.adorablethemes.com -->
+        <!-- Euphoria Theme by stylizedthemes.tumblr.com -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -29,7 +29,7 @@
         <meta name="if:Show Random Link" content="0"/>
         <meta name="if:Infinite Scrolling" content="0"/>
         {/block:Hidden}
-        <!--[if (lte IE 8)]><script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <!--[if (lte IE 8)]><script type="text/javascript" src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <style type="text/css">
         body {
             color: {color:Text};
@@ -561,7 +561,7 @@
                     <a class="sidelink" href="{text:Custom Link 2 URL}" target="_blank">{text:Custom Link 2 Name}</a>
                 {/block:IfCustomLink2URL}
                 
-                <a class="sidelink" href="http://stylized.adorablethemes.com/" target="_blank" title="Get this theme!">Theme</a>
+                <a class="sidelink" href="https://stylizedthemes.tumblr.com/" target="_blank" title="Get this theme!">Theme</a>
             </ul>
             </center>
         </nav>
@@ -737,11 +737,11 @@
         </div>
       </div>
     </div>
-    <a href="http://stylized.adorablethemes.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/fmJoejmpk/credit3.jpg" alt="" /></a>
+    <a href="https://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="https://static.tumblr.com/ohnymtu/fmJoejmpk/credit3.jpg" alt="" /></a>
     {block:IndexPage}
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
-        <script src="//static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        {block:IfInfiniteScrolling}<script src="https://static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
+        <script src="https://static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
         <script>
         $(function(){
             var container = $('ul#posts');
