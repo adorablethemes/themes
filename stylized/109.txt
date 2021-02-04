@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Acrylic Theme by stylized.adorablethemes.com -->
+        <!-- Acrylic Theme by stylizedthemes.tumblr.com -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -514,7 +514,7 @@
                 {block:IfCustomLink3URL}
                     <a class="sidelink" href="{text:Custom Link 3 URL}" target="_blank">{text:Custom Link 3 Name}</a>
                 {/block:IfCustomLink3URL}
-                <a class="sidelink" href="http://stylized.adorablethemes.com/" target="_blank" title="Get this theme!">Theme</a>
+                <a class="sidelink" href="https://stylizedthemes.tumblr.com/" target="_blank" title="Get this theme!">Theme</a>
             </ul>
         </nav>
 
@@ -681,7 +681,7 @@
         </div>
       </div>
     </div>
-                    <!--stylized.adorablethemes.com-->
+                    <!--stylizedthemes.tumblr.com-->
     {block:IndexPage}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}

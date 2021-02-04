@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Light Elegance by stylized.adorablethemes.com -->
+        <!-- Light Elegance by stylizedthemes.tumblr.com -->
         <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         <link rel="shortcut icon" href="{Favicon}"/>
         <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
@@ -361,7 +361,7 @@
             margin: 15px 10px;
         }
         
-        /*stylized.adorablethemes.com*/
+        /*stylizedthemes.tumblr.com*/
        
         /* fix height of element with floats inside */
         .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
@@ -507,7 +507,7 @@
             <a class="sidelink" href="{text:Custom Link 4 URL}">{text:Custom Link 4 Name}</a>
                 {/block:IfCustomLink4URL}
                 
-            <a class="sidelink" href="http://stylized.adorablethemes.com/" title="Get this theme!">Theme</a>
+            <a class="sidelink" href="https://stylizedthemes.tumblr.com/" title="Get this theme!">Theme</a>
             </ul>
         </nav>
         </header>
@@ -668,7 +668,7 @@
         </div>
       </div>
     </div>
-    <a href="http://stylized.adorablethemes.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/fmJoejmpk/credit3.jpg" alt="" /></a>
+    <a href="https://stylizedthemes.tumblr.com/" alt="Tumblr Themes" title="Get this theme!"><img class="credit" src="//static.tumblr.com/ohnymtu/fmJoejmpk/credit3.jpg" alt="" /></a>
     {block:IndexPage}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         {block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
