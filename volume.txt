@@ -38,8 +38,6 @@
         <meta name="color:Post Links" content="#0063b1">
         <meta name="color:Photo Hover" content="#0063b1">
 		
-        <meta name="text:Google Analytics ID" content="">
-		
         <meta name="if:Infinite Scrolling" content="1">
         <meta name="if:Permalink New Window" content="1">
         <meta name="if:Show Like and Reblog Buttons" content="1">
@@ -897,17 +895,5 @@
 	<script src="//static.tumblr.com/anzluor/Np0nv9fs0/masonry.pkgd.min.js"></script>
 	{block:IfInfiniteScrolling}<script src="//static.tumblr.com/anzluor/ycPn74dop/jquery.infinitescroll.min.js"></script>{/block:IfInfiniteScrolling}
 	<script src="//static.tumblr.com/anzluor/fDNnypiui/volume.min.js"></script>
-        {block:IfGoogleAnalyticsID}
-            <script>
-              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-            
-              ga('create', '{text:Google Analytics ID}', 'auto');
-              ga('send', 'pageview');
-            
-            </script>
-        {/block:IfGoogleAnalyticsID}
     </body>
 </html>

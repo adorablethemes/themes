@@ -58,7 +58,6 @@
 		<meta name="text:Featured Tag 3" content="">
 		<meta name="text:Featured Tag 4" content="">
 		<meta name="text:Footer Text" content="">
-		<meta name="text:Google Analytics ID" content="">
 		
         <meta name="if:Show Archive Link" content="1">
         <meta name="if:Show Random Link" content="0">
@@ -868,17 +867,5 @@
 	<script src="//static.tumblr.com/anzluor/hJIomvwis/masonry.js"></script>
 	<script src="//static.tumblr.com/anzluor/HAXmxj1fs/photoset-grid.js"></script>
 	<script src="//static.tumblr.com/anzluor/mi6oubujm/reflection.min.js"></script>
-    {block:IfGoogleAnalyticsID}
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    
-      ga('create', '{text:Google Analytics ID}', 'auto');
-      ga('send', 'pageview');
-    
-    </script>
-    {/block:IfGoogleAnalyticsID}
     </body>
 </html>
