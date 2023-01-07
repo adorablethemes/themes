@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Win2K
-        version:    2.7 (May 26, 2020)
+        version:    3.0 (January 5, 2023)
         from:       adorablethemes.github.io
         
         
@@ -12,7 +12,7 @@
         
         imagesLoaded 4.1.4 (imagesloaded.desandro.com)
         Infinite Scroll 2.0.2 (infinite-scroll.com)
-        jQuery 3.3.1 (jquery.com)
+        jQuery 3.6.0 (jquery.com)
         Masonry 4.2.1 (masonry.desandro.com)
         
         -->
@@ -31,16 +31,13 @@
         <meta name="color:Title Bar Left" content="#082468">
         <meta name="color:Title Bar Right" content="#a0c8f0">
         <meta name="color:Title Bar Text" content="#ffffff">
-        <meta name="color:Photo Background" content="#d0d0c8">
 
         <meta name="if:Show Archive Link" content="1">
         <meta name="if:Show Random Link" content="0">
         <meta name="if:Show Liked Posts Link" content="0">
         <meta name="if:Show Search Box" content="1">
-        <meta name="if:Stretch Images" content="1">
         <meta name="if:Cool Notes" content="1">
         <meta name="if:Infinite Scrolling" content="0">
-        <meta name="if:Show Dates in Title Bars" content="0">
         <meta name="if:Show Related Posts" content="1">
         <meta name="if:Show Theme Credit" content="1">
         
@@ -286,7 +283,13 @@
             border-right-color: white;
             border-bottom-color: white;
             background-color: white;
-            padding: 10px 20px;
+        }
+        .text-area p, .text-area h1, .text-area h2, .text-area h3, .text-area h4, .text-area h5, .text-area h6, .text-area ol, .text-area ul, .text-area blockquote {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .text-area ul, .text-area ol {
+            padding-left: 20px;
         }
         .text-area a.tumblr_blog {
             text-decoration: none;
@@ -312,15 +315,6 @@
         .font-tahoma .text-area {
             font-family: Tahoma, sans-serif;
         }
-        .photo .text-area, .video .text-area, .audio .text-area {
-            display: none;
-        }
-        .photo .text-area.has-caption, .video .text-area.has-caption, .audio .text-area.has-caption {
-            display: block;
-        }
-        .photo .text-area.has-tags, .video .text-area.has-tags, .audio .text-area.has-tags {
-            display: block;
-        }
         .text-area a {
             color: black;
             text-decoration: underline;
@@ -342,8 +336,6 @@
         }
         .text-area blockquote {
             border-left: 2px solid black;
-            margin-left: 2px;
-            padding-left: 8px;
         }
         .quote-text {
             font-family: 'Times New Roman', Times, serif;
@@ -370,68 +362,6 @@
             background-image: url('//static.tumblr.com/anzluor/Fgkolwea1/m56u7v9.png');
             background-repeat: no-repeat;
             background-position: -160px -32px;
-        }
-        
-        .media-container {
-            border: 1px inset #d0d0c8;
-            border-left-color: #404040;
-            border-top-color: #404040;
-            border-right-color: white;
-            border-bottom-color: white;
-            margin-bottom: 2px;
-            background-color: {color:Photo Background};
-            overflow: hidden;
-        }
-        .photo-post-photo {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        {block:IfStretchImages}
-        .stretch-images .photo-post-photo {
-            width: 500px;
-        }
-        .stretch-images.layout-two-column .photo-post-photo {
-            width: 400px;
-        }
-        .stretch-images.layout-three-column .photo-post-photo {
-            width: 275px;
-        }
-        {/block:IfStretchImages}
-        
-        .media-container iframe {
-            display: block;
-            max-width: 100%;
-        }
-        .layout-two-column .video .media-container iframe {
-            width: 400px;
-            height: 225px;
-        }
-        .layout-three-column .video .media-container iframe {
-            width: 275px;
-            height: 154px;
-        }
-        
-        .video .media-container iframe.instagram-media {
-            margin: 0 !important;
-        }
-        
-        .layout-two-column .video .media-container iframe.instagram-media {
-            width: 400px;
-            height: 610px;
-        }
-        .layout-three-column .video .media-container iframe.instagram-media {
-            width: 275px;
-            height: 460px;
-        }
-        
-        .layout-two-column .soundcloud_audio_player {
-            width: 400px;
-            height: 400px;
-        }
-        .layout-three-column .soundcloud_audio_player {
-            width: 275px;
-            height: 275px;
         }
         
         .tumblr_video_iframe {
@@ -467,17 +397,6 @@
         .chat .chat-line {
             font-family: Arial, sans-serif;
             font-size: 14px;
-        }
-        
-        .video .text-area, .audio .text-area {
-            background-color: black;
-            color: white;
-        }
-        .video .text-area a, .video .text-area a:hover, .audio .text-area a, .audio .text-area a:hover {
-            color: white;   
-        }
-        .video .text-area blockquote, .audio .text-area blockquote {
-            border-left: 2px solid white;
         }
         
         /* Keep reading link arrow */
@@ -546,7 +465,6 @@
         {block:IfNotCoolNotes}
         ol.notes {
             list-style-type: none;
-            margin: 0;
             padding: 0;
         }
         ol.notes li {
@@ -639,8 +557,8 @@
         .post-section {
             border-bottom: 1px solid #ddd;
         }
-        .video .post-section, .audio .post-section {
-            border-bottom: 1px solid #222;
+        .post-section.legacy-media {
+            border-bottom: 0;
         }
         .post-section:last-child {
             border-bottom: 0;
@@ -650,29 +568,36 @@
         }
         
         div.npf_row {
-            max-width: 100%;
             height: auto !important;
             display: flex;
-            margin: 0 0 4px 0 !important;
         }
         div.npf_row figure.tmblr-full {
             flex: 1;
             justify-content: space-between;
             margin: 0;
         }
-        div.npf_row figure.tmblr-full:first-child {
-            padding-right: 2px;
+        .tmblr-full .post_media_photo_anchor {
+            width: 100%;
         }
-        .post-section figure video, .post-section figure audio {
-            max-width: 100%;
+        .tmblr-full audio {
+            width: 100%;
+        }
+        .tmblr-full img {
+            width: 100%;
+            height: auto;
+        }
+        .post-section figure:not(.tmblr-full) {
+            margin: 10px 20px;
         }
         .npf-link-block a {
             text-decoration: none !important;
         }
+        div.npf-link-block {
+            margin: 10px 20px !important;
+        }
         
         .text-area.related {
-            padding-top: 20px;
-            padding-right: 5px;
+            padding: 20px 5px 5px 20px;
         }
         
         .square {
@@ -691,20 +616,14 @@
             overflow: hidden;
         }
         
-        .related-posts-container a:nth-child(n+9) {
-            display: none;
-        }
-        
         .related-posts a:hover .square {
             -webkit-filter: brightness(1.07);
             filter: brightness(1.07);
         }
         
-        {block:IfNotShowDatesInTitleBars}
-        .title-bar .post-date {
-            display: none;
+        .invisible {
+            opacity: 0;   
         }
-        {/block:IfNotShowDatesInTitleBars}
         
         {CustomCSS}
         </style>
@@ -713,7 +632,7 @@
             var win2k = {{block:IfInfiniteScrolling}infScroll: true,{/block:IfInfiniteScrolling}{block:IfNotInfiniteScrolling}infScroll: false,{/block:IfNotInfiniteScrolling} {block:IndexPage}indexPage: true{/block:IndexPage}{block:PermalinkPage}indexPage: false{/block:PermalinkPage}, layout: '{select:Layout}', prefill: false};
         </script>
     </head>
-    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage}{block:TagPage} tag-page{/block:TagPage}{block:SearchResults} search-page{/block:SearchResults}{block:NoSearchResults} search-page{/block:NoSearchResults} font-{select:Post Body Font} background-{select:Background Image Style}{block:IndexPage} layout-{select:Layout}{/block:IndexPage}{block:IfStretchImages} stretch-images{/block:IfStretchImages}">
+    <body class="{block:IndexPage}index-page page-{CurrentPage}{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage}{block:TagPage} tag-page{/block:TagPage}{block:SearchResults} search-page{/block:SearchResults}{block:NoSearchResults} search-page{/block:NoSearchResults} font-{select:Post Body Font} background-{select:Background Image Style}{block:IndexPage} layout-{select:Layout}{/block:IndexPage}">
     <main>
     
     <div class="posts-container">
@@ -721,7 +640,7 @@
     {block:IndexPage}
     
     {block:TagPage}
-    <div class="window-border intro inf-scroll-item">
+    <div class="masonry-item window-border intro">
         <div class="window text">
             <div class="title-bar">
                 &nbsp;
@@ -734,7 +653,7 @@
     {/block:TagPage}
     
     {block:SearchResults}
-    <div class="window-border intro inf-scroll-item">
+    <div class="masonry-item window-border intro">
         <div class="window text">
             <div class="title-bar">
                 &nbsp;
@@ -747,7 +666,7 @@
     {/block:SearchResults}
     
     {block:NoSearchResults}
-    <div class="window-border intro inf-scroll-item">
+    <div class="masonry-item window-border intro">
         <div class="window text">
             <div class="title-bar">
                 &nbsp;
@@ -761,54 +680,23 @@
     
     {/block:IndexPage}
     
-    {block:Posts}
-        <div class="window-border inf-scroll-item">
+    {block:Posts inlineMediaWidth="500" inlineNestedMediaWidth="500"}
+        <div class="window-border masonry-item inf-scroll-item">
             <div id="{PostID}" class="window {PostType}">
                 <div class="title-bar">
                     <div class="icon"></div>
-                    {block:Text}
-                    <span class="title">{lang:Text}</span>
-                    {/block:Text}
-                    {block:Answer}
-                    <span class="title">{lang:Answer}</span>
-                    {/block:Answer}
-                    {block:Chat}
-                    <span class="title">{lang:Chat}</span>
-                    {/block:Chat}
-                    {block:Quote}
-                    <span class="title">{lang:Quote}</span>
-                    {/block:Quote}
-                    {block:Photo}
-                    <span class="title">{lang:Photo}</span>
-                    {/block:Photo}
-                    {block:Photoset}
-                    <span class="title">{lang:Photoset}</span>
-                    {/block:Photoset}
-                    {block:Link}
-                    <span class="title">{lang:Link}</span>
-                    {/block:Link}
-                    {block:Video}
-                    <span class="title">{lang:Video}</span>
-                    {/block:Video}
-                    {block:Audio}
-                    <span class="title">{lang:Audio}</span>
-                    {/block:Audio}
-                    {block:Date}<span class="post-date"> - {ShortMonth} {DayOfMonth}, {Year}</span>{/block:Date}
-                    {block:PinnedPostLabel}<span class="pinned-post">({PinnedPostLabel})</span>{/block:PinnedPostLabel}
+                    {block:Date}<span class="post-date">{ShortMonth} {DayOfMonth}, {Year}</span>{/block:Date}
+                    {block:PinnedPostLabel}<span class="pinned-post"> ({PinnedPostLabel})</span>{/block:PinnedPostLabel}
                     <div class="title-bar-buttons"></div>
                 </div>
                 {block:Date}
                 <div class="menu-bar">
                     <ul class="menu-items">
-                        <a href="{ReblogURL}"><li>{block:English}Reblog{/block:English}{block:German}Rebloggen{/block:German}{block:French}Rebloguer{/block:French}{block:Italian}Reblogga{/block:Italian}{block:Japanese}リブログ{/block:Japanese}{block:Turkish}Yeniden Blogla{/block:Turkish}{block:Spanish}Rebloguear{/block:Spanish}{block:Russian}Реблог{/block:Russian}{block:Polish}Rebloguj{/block:Polish}{block:PortuguesePT}Reblogar{/block:PortuguesePT}{block:PortugueseBR}Reblogar{/block:PortugueseBR}{block:Dutch}Rebloggen{/block:Dutch}{block:Korean}리블로그{/block:Korean}{block:ChineseSimplified}转发{/block:ChineseSimplified}{block:ChineseTraditional}轉格{/block:ChineseTraditional}{block:ChineseHK}轉載{/block:ChineseHK}{block:Indonesian}Reblog{/block:Indonesian}{block:Hindi}रीब्लॉग करेंे{/block:Hindi}</li></a><a href="{Permalink}"><li>{lang:Permalink}</li></a>{block:Photo}{block:HighRes}<a target="_blank" href="\image\{PostID}"><li>{lang:Zoom}</li></a>{/block:HighRes}{block:Photo}{block:ContentSource}<a target="_blank" href="{SourceURL}"><li>{lang:Source}</li></a>{/block:ContentSource}
+                        <a href="{ReblogURL}"><li>{block:English}Reblog{/block:English}{block:German}Rebloggen{/block:German}{block:French}Rebloguer{/block:French}{block:Italian}Reblogga{/block:Italian}{block:Japanese}リブログ{/block:Japanese}{block:Turkish}Yeniden Blogla{/block:Turkish}{block:Spanish}Rebloguear{/block:Spanish}{block:Russian}Реблог{/block:Russian}{block:Polish}Rebloguj{/block:Polish}{block:PortuguesePT}Reblogar{/block:PortuguesePT}{block:PortugueseBR}Reblogar{/block:PortugueseBR}{block:Dutch}Rebloggen{/block:Dutch}{block:Korean}리블로그{/block:Korean}{block:ChineseSimplified}转发{/block:ChineseSimplified}{block:ChineseTraditional}轉格{/block:ChineseTraditional}{block:ChineseHK}轉載{/block:ChineseHK}{block:Indonesian}Reblog{/block:Indonesian}{block:Hindi}रीब्लॉग करेंे{/block:Hindi}</li></a><a href="{Permalink}"><li>{lang:Permalink}</li></a>{block:ContentSource}<a target="_blank" href="{SourceURL}"><li>{lang:Source}</li></a>{/block:ContentSource}
                     </ul>
                 </div>
                 {/block:Date}
-                {block:Photo}<div class="media-container">{LinkOpenTag}<img class="photo-post-photo" src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}</div>{/block:Photo}
-                {block:Photoset}<div class="media-container">{Photoset-500}</div>{/block:Photoset}
-                {block:Video}<div class="media-container">{VideoEmbed-500}</div>{/block:Video}
-                {block:Audio}<div class="media-container">{AudioEmbed}</div>{/block:Audio}
-                <div class="text-area{block:Photo}{block:Caption} has-caption{/block:Caption}{block:HasTags} has-tags{/block:HasTags}{/block:Photo}{block:Photoset}{block:Caption} has-caption{/block:Caption}{block:HasTags} has-tags{/block:HasTags}{/block:Photoset}{block:Video}{block:Caption} has-caption{/block:Caption}{block:HasTags} has-tags{/block:HasTags}{/block:Video}{block:Audio}{block:Caption} has-caption{/block:Caption}{block:HasTags} has-tags{/block:HasTags}{/block:Audio}">
+                <div class="text-area">
                     {block:Text}
                         {block:Title}<h2>{Title}</h2>{/block:Title}
                         {block:NotReblog}
@@ -859,6 +747,9 @@
                         {/block:RebloggedFrom}
                     {/block:Answer}
                     {block:Photo}
+                        <div class="post-section legacy-media">
+                            <figure class="tmblr-full" data-imgwidth="{PhotoWidth-HighRes}"><a class="post_media_photo_anchor" data-big-photo="{PhotoURL-HighRes}" data-big-photo-height="{PhotoHeight-HighRes}" data-big-photo-width="{PhotoWidth-HighRes}"><img class="post_media_photo image" src="{PhotoURL-500}" alt="image" /></a></figure>
+                        </div>
                         {block:NotReblog}
                             {block:Caption}
             					<div class="post-section">
@@ -879,6 +770,9 @@
                         {/block:RebloggedFrom}
                     {/block:Photo}
                     {block:Photoset}
+                        <div class="post-section legacy-media">
+                            {Photoset-500}
+                        </div>
                         {block:NotReblog}
                             {block:Caption}
                                 <div class="post-section">
@@ -899,9 +793,18 @@
                         {/block:RebloggedFrom}
                     {/block:Photoset}
                     {block:Link}
-                        <div class="post-section">
-                            <h2><a href="{URL}" class="link-post-link"{block:Host} title="{Host}"{/block:Host} {Target}>{Name} &rarr;</a></h2>
-                            <p>{Host}{block:Excerpt} &mdash; <em>{Excerpt}</em>{/block:Excerpt}</p>
+                        <div class="post-section legacy-media">
+                            <div class="npf-link-block {block:Thumbnail}has-poster not-{/block:Thumbnail}no-poster">
+                                <a href="{URL}" {Target}>
+                                    {block:Thumbnail}<div class="poster" style="background-image: url('{Thumbnail-HighRes}')">{/block:Thumbnail}
+                                        <div class="title">{Name}</div>
+                                    {block:Thumbnail}</div>{/block:Thumbnail}
+                                    <div class="bottom">
+                                        {block:Excerpt}<div class="description">{Excerpt}</div>{/block:Excerpt}
+                                        {block:Host}<div class="site-name">{Host}</div>{/block:Host}
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                         {block:NotReblog}
                             {block:Description}
@@ -923,8 +826,10 @@
                         {/block:RebloggedFrom}
                     {/block:Link}
                     {block:Quote}
-                        <p class="quote-text">&ldquo;{Quote}&rdquo;</p>
-                        <p style="text-align: right">&mdash; {Source}</p>
+                        <p class="npf_quote" data-quote-length="{Length}">&ldquo;{Quote}&rdquo;</p>
+                    {block:Source}
+                        <p class="text-right"> &mdash; {Source}</p>
+                    {/block:Source}
                     {/block:Quote}
                     {block:Chat}
                         {block:Title}<h2>{Title}</h2>{/block:Title}
@@ -941,6 +846,9 @@
     					</ul>
                     {/block:Chat}
                     {block:Video}
+                        <div class="post-section legacy-media">
+                            {VideoEmbed-500}
+                        </div>
                         {block:NotReblog}
                             {block:Caption}
             					<div class="post-section">
@@ -961,6 +869,9 @@
                         {/block:RebloggedFrom}
                     {/block:Video}
                     {block:Audio}
+                        <div class="post-section legacy-media">
+                            {AudioEmbed}
+                        </div>
                         {block:NotReblog}
                             {block:Caption}
             					<div class="post-section">
@@ -982,7 +893,7 @@
                     {/block:Audio}
                     
                     {block:HasTags}
-                        <p>
+                        <p class="post-tags">
                         {block:Tags}
                             <a class="tag" href="{TagURL}">{Tag}</a>&nbsp;
                         {/block:Tags}
@@ -1033,49 +944,19 @@
                 
             <div class="related-posts">
                 <div class="related-posts-container">
-                    {block:Posts}
-                    
-                    {block:Text}
-                    <a href="{Permalink}"><div class="square">{block:Title}<b>{PlaintextTitle}</b><br>{/block:Title}{PlaintextBody}</div></a>
-                    {/block:Text}
-                    
-                    {block:Answer}
-                    <a href="{Permalink}"><div class="square">{PlaintextAsker}:<br>{Question}</div></a>
-                    {/block:Answer}
-                    
-                    {block:Photo}
-                    <a href="{Permalink}"><div class="square" style="background-image: url({PhotoURL-250})"></div></a>
-                    {/block:Photo}
-                    
-                    {block:Photoset}
-                    {block:Photos}
-                    <a href="{Permalink}"><div class="square" style="background-image: url({PhotoURL-250})"></div></a>
-                    <!--
-                    {/block:Photos}
-                    -->
-                    {/block:Photoset}
-                    
-                    {block:Chat}
-                    <a href="{Permalink}"><div class="square">{block:Title}<b>{PlaintextTitle}</b><br>{/block:Title}{block:Lines}{block:Label}{Label}{/block:Label}{Line}<br>{/block:Lines}</div></a>
-                    {/block:Chat}
-                    
-                    {block:Quote}
-                    <a href="{Permalink}"><div class="square"><span style="font-family: serif">&ldquo;{Quote}&rdquo;</span> &mdash;{PlaintextSource}</div></a>
-                    {/block:Quote}
-                    
-                    {block:Link}
-                    <a href="{Permalink}"><div class="square"><b>{Name} &rarr;</b><br><span style="opacity: 0.75">{Host}</span></div></a>
-                    {/block:Link}
-                    
-                    {block:Video}
-                    <a href="{Permalink}"><div class="square" style="background-image: url({block:VideoThumbnail}{VideoThumbnailURL}{/block:VideoThumbnail})"></div></a>
-                    {/block:Video}
-                    
-                    {block:Audio}
-                    <a href="{Permalink}"><div class="square" style="background-color: #7c5cff">{block:TrackName}<b>&#9654; {TrackName}</b>{/block:TrackName}<br>{block:Artist}{Artist}{/block:Artist}</div></a>
-                    {/block:Audio}
-                    
-                    {/block:Posts}
+                    <script>
+                        has_related_posts = true;
+                        related_posts = [];
+                        related_posts_urls = [];
+                        {block:Posts}
+                        
+                        var relatedPostNPF = {NPF};
+                        
+                        related_posts.push(relatedPostNPF);
+                        related_posts_urls.push("{Permalink}");
+                        
+                        {/block:Posts}
+                    </script>
                     </div>
                 </div>
             </div>
@@ -1155,32 +1036,32 @@
         </div>
 	</div>
 	
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
     <script src="https://static.tumblr.com/anzluor/jA5p3abax/masonry.js" integrity="sha384-QSR8IMziiyR2er9+g5wUifaM6vkO1GA6cAcGnHiX4AirDJeZoNgokDHdz2QesnU2" crossorigin="anonymous"></script>
     {block:IfInfiniteScrolling}<script src="https://static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js" integrity="sha384-DCHLD93QqUyWYMNlPlQ7qsaHYiMCzBiQPhi1uREwPnF3cW8CpyzzdSW2xLHlEh2B" crossorigin="anonymous"></script>{/block:IfInfiniteScrolling}
     <script>
     $(function(){
+        // remove tmblr-full from small legacy photos
+        $('.photo .post-section figure').each(function(){
+            if ($(this).data('imgwidth') < 250) {
+                $(this).removeClass('tmblr-full');
+            }
+        });
         {block:IndexPage}
         if (win2k.layout != 'one-column') {
             fitVideos();
             var container = $('.posts-container');
     
     		container.imagesLoaded().always( function(){
-    		    fixNPFPhotosets();
     			container.masonry({
-    				itemSelector : '.inf-scroll-item',
+    				itemSelector : 'div.masonry-item',
     				transitionDuration: 0
     			});
     			setTimeout(function(){ container.masonry({
-    				itemSelector : '.inf-scroll-item',
+    				itemSelector : 'div.masonry-item',
     				transitionDuration: 0
     			}); }, 750);
     		});
-        }
-        else {
-            $('.posts-container').imagesLoaded().always( function(){
-                fixNPFPhotosets();
-            });
         }
         {block:IfInfiniteScrolling}
     	var container = $('main');
@@ -1197,21 +1078,34 @@
     		}
     	    },
 			function( newElements ) {
-				var $newElems = $( newElements ).css({ opacity: 0 });
+				var $newElems = $( newElements ).addClass('invisible');
                 var $newElemsIDs = $newElems.map(function () { 
                     return this.id; 
                 }).get();
 				$newElems.imagesLoaded().always(function(){
-					$newElems.css({ opacity: 1 });
-					fixNPFPhotosets();
+				    // remove tmblr-full from small legacy photos
+                    $('.photo .post-section figure').each(function(){
+                        if ($(this).data('imgwidth') < 250) {
+                            $(this).removeClass('tmblr-full');
+                        }
+                    });
+					$('.invisible .post_media_photo_anchor').each(function(){
+                        if (!$(this).hasClass('chmade')) {
+                            $(this).on('click',function(){
+                                makeLightboxNPF($(this).data('big-photo'), $(this).data('big-photo-width'), $(this).data('big-photo-height'));
+                            });
+                            $(this).addClass('chmade');
+                        }
+                    });
 					if (win2k.layout != 'one-column') {
 					    fitVideos();
     					container.masonry( 'appended', $newElems, true );
     					setTimeout(function(){ container.masonry({
-            				itemSelector : '.inf-scroll-item',
+            				itemSelector : 'div.masonry-item',
             				transitionDuration: 0
             			}); }, 750);
 					}
+					$newElems.removeClass('invisible');
 				});
 			}
     	);
@@ -1222,14 +1116,56 @@
     	$('.posts-container').imagesLoaded().always( function(){
             fixNPFPhotosets();
         });
-        try {
+        if (document.getElementById("note_count")) {
             var nc = note_count.innerHTML;
             nc = nc.replace('notes', 'object(s)');
             note_count.innerHTML = nc;
     	}
-    	catch(e) {
-    	    
-    	}
+    	
+    	{block:IfShowRelatedPosts}
+    	// render related posts
+        if (has_related_posts) {
+            for (var i=0; i<related_posts.length; i++) {
+                if (i < 8) {
+                    var thisSquare = "";
+                    var thumb = "";
+                    var texts = "";
+                    var contentLocation;
+                    if (related_posts[i].trail[0]) {
+                        contentLocation = related_posts[i].trail[0].content[0];
+                    }
+                    else {
+                        contentLocation = related_posts[i].content[0];
+                    }
+                    if (contentLocation.type == "image") {
+                        for (var j=0; j<contentLocation.media.length; j++) {
+                            if (contentLocation.media[j].width == 250) {
+                                thumb = contentLocation.media[j].url;
+                            }
+                        }
+                        if (thumb == "") {
+                            thumb = contentLocation.media[0].url;
+                        }
+                    }
+                    else if ((contentLocation.type == "audio") || (contentLocation.type == "video") || (contentLocation.type == "link")) {
+                        if (contentLocation.poster) {
+                            thumb = contentLocation.poster[0].url;
+                        }
+                    }
+                    if (thumb == "") {
+                        if (contentLocation.text) { texts = contentLocation.text; }
+                        if (contentLocation.type == "link") { texts = contentLocation.title; }
+                        thisSquare = '<a href="'+related_posts_urls[i]+'"><div class="square square-text">' + texts + '</div></a>';
+                    }
+                    else {
+                        if (contentLocation.type != "image") { texts = "<span>"+contentLocation.type+"</span>"; }
+                        thisSquare = '<a href="'+related_posts_urls[i]+'"><div class="square" style="background-image: url(' + thumb + ')">'+texts+'</div></a>';
+                    }
+                    $('.related-posts-container').append(thisSquare);
+                }
+            }
+        }
+        {/block:IfShowRelatedPosts}
         
         {block:IfCoolNotes}
         
@@ -1290,20 +1226,23 @@
             $(this).css('height', (parseInt($(this).css('width')) / $(this).data('aspect-ratio')) + "px");
         });
     }
-    function fixNPFPhotosets() {
-        $(".npf_row").each(function(index) {
-            lowestHeight = parseInt($(this).css('height'));
-            numImages = 0;
-            $(this).children('figure').each(function() {
-                numImages++;
-                if (parseInt($(this).css('height')) < lowestHeight) {
-                    lowestHeight = parseInt($(this).css('height'))-6;
-                }
-            });
-            if (numImages > 1) {
-                $(this).css('max-height', lowestHeight.toString() + "px");
-            }
+    function makeLightbox(post_ID, startImg) {
+        var lbArray = [];
+        var photoCount = 0;
+        $("#"+post_ID+' .photoset-photo').each(function() {
+            var arrayContents = {"width":$(this).data('width'), "height":$(this).data('height'), "low_res":$(this).data("image"), "high_res":$(this).data('imagehd'), "caption":$(this).data('caption')};
+            lbArray.push(arrayContents);
+            photoCount++;
         });
+        Tumblr.Lightbox.init(lbArray, startImg);
+    }
+    function makeLightboxNPF(photoURL, photoWidth, photoHeight) {
+        var lbArray = [];
+        var photoCount = 0;
+        var arrayContents = {"width":photoWidth, "height":photoHeight, "low_res":photoURL, "high_res":photoURL, "caption":""};
+        lbArray.push(arrayContents);
+        photoCount++;
+        Tumblr.Lightbox.init(lbArray, 1);
     }
     </script>
     </body>
