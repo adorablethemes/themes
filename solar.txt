@@ -4,14 +4,14 @@
     <!-- 
     
     theme:      Solar
-    version:    2.2.1 (December 3, 2018)
+    version:    2.2.2 (February 20, 2023)
     from:       adorablethemes.github.io
     
     credits:
     
     Font Awesome 4.7.0 (fontawesome.com)
     Infinite Scroll 2.0.2 (infinite-scroll.com)
-    jQuery 3.3.1 (jquery.com)
+    jQuery 3.6.0 (jquery.com)
     
     -->
     <meta charset="UTF-8">
@@ -55,19 +55,18 @@
 	<meta name="text:Featured Tag 4" content="">
 	<meta name="text:Featured Tag 5" content="">
 	<meta name="text:Featured Tag 6" content="">
-	<meta name="text:Facebook Username" content="">
-	<meta name="text:Flickr Username" content="">
-	<meta name="text:Instagram Username" content="">
-	<meta name="text:Pinterest Username" content="">
-	<meta name="text:SoundCloud Username" content="">
-	<meta name="text:Twitch Username" content="">
-	<meta name="text:Vine Username" content="">
-	<meta name="text:YouTube Username" content="">
-	<meta name="text:Max Tweets" content="4">
+	<meta name="text:Facebook URL" content="">
+	<meta name="text:Flickr URL" content="">
+	<meta name="text:Instagram URL" content="">
+	<meta name="text:Pinterest URL" content="">
+	<meta name="text:SoundCloud URL" content="">
+	<meta name="text:Twitch URL" content="">
+	<meta name="text:Twitter URL" content="">
+	<meta name="text:YouTube URL" content="">
 	<meta name="text:Header Height" content="130">
 	<meta name="text:Copyright Text" content="">
 	
-	<meta name="select:Main Column Width" content="600" title="600">
+	<meta name="select:Main Column Width" content="580" title="580">
 	<meta name="select:Main Column Width" content="540" title="540">
 	<meta name="select:Main Column Width" content="500" title="500">
 	<meta name="select:Max Followed Blogs" content="27" title="25">
@@ -126,7 +125,7 @@
         background-repeat: no-repeat;
     }
     #wrapper {
-    	width: 920px;
+    	width: 900px;
     	margin-left: auto;
     	margin-right: auto;
     }
@@ -172,7 +171,7 @@
         background-color: {color:Content Background};
     	float: left;
     	text-align: left;
-    	width: 560px;
+    	width: 540px;
     	margin-top: 0px;
     	margin-bottom: 20px;
     	padding: 20px;
@@ -266,11 +265,11 @@
     	height: auto;
     }
     .photoset {
-        width: 560px;
+        width: 540px;
     }
     .photo-post-photo, .video-post-video {
         margin: 0 -20px;
-        width: 600px;
+        width: 580px;
         background-color: rgba({RGBcolor:Content Text}, 0.05);
     }
     .photo-post-photo img {
@@ -279,18 +278,18 @@
         margin: 0 auto;
     }
     .video-post-video iframe {
-        width: 600px;
+        width: 580px;
         display: block;
     }
     .video-post-video .vine-embed {
-        width: 600px;
-        height: 600px;
+        width: 540px;
+        height: 540px;
     }
     .tumblr_video_iframe {
         max-height: 540px;
     }
     .tumblr_audio_player {
-        width: 560px;
+        width: 540px;
     }
     .tmblr-embed iframe {
         max-width: 100%;
@@ -726,20 +725,6 @@
         font-size: 24px;
         line-height: 1.3em;
     }
-    div.npf_row {
-        max-width: 100%;
-        height: auto !important;
-        display: flex;
-        margin: 0 !important;
-    }
-    div.npf_row figure.tmblr-full {
-        flex: 1;
-        justify-content: space-between;
-        margin: 0;
-    }
-    div.npf_row figure.tmblr-full:first-child {
-        padding-right: 2px;
-    }
     .npf-link-block a {
         text-decoration: none !important;
     }
@@ -846,7 +831,7 @@
 		</section>
 		{/block:TagPage}
         
-        {block:Posts inlineMediaWidth="560"}
+        {block:Posts inlineMediaWidth="540"}
         
         <article id="{PostID}" class="post inf-scroll-item post-{PostType}">
         
@@ -916,7 +901,7 @@
                 <p><img class="asker-avatar" src="{AskerPortraitURL-16}"/>{lang:Asked by Asker 2}:</p>
             </div>
             <div class="question-box">
-                <p>&ldquo;{Question}&rdquo;</p>
+                <p>{Question}</p>
             </div>
             {block:Answerer}
 			<div class="post-content">
@@ -1177,33 +1162,30 @@
 	       </div>
 	       
 	       <div class="sidebar-content">
-    	       {block:IfFacebookUsername}
-    	       <a class="social-link" href="https://www.facebook.com/{text:Facebook Username}" title="Facebook"><i class="fa fa-facebook-square fa-lg"></i></a>
-    	       {/block:IfFacebookUsername}
-    	       {block:Twitter}
-    	       <a class="social-link" href="https://twitter.com/{TwitterUsername}" title="Twitter"><i class="fa fa-twitter-square fa-lg"></i></a>
-    	       {/block:Twitter}
-    	       {block:IfFlickrUsername}
-    	       <a class="social-link" href="https://www.flickr.com/photos/{text:Flickr Username}" title="Flickr"><i class="fa fa-flickr fa-lg"></i></a>
-    	       {/block:IfFlickrUsername}
-    	       {block:IfInstagramUsername}
-    	       <a class="social-link" href="https://instagram.com/{text:Instagram Username}" title="Instagram"><i class="fa fa-instagram fa-lg"></i></a>
-    	       {/block:IfInstagramUsername}
-    	       {block:IfPinterestUsername}
-    	       <a class="social-link" href="https://www.pinterest.com/{text:Pinterest Username}" title="Pinterest"><i class="fa fa-pinterest-square fa-lg"></i></a>
-    	       {/block:IfPinterestUsername}
-    	       {block:IfSoundCloudUsername}
-    	       <a class="social-link" href="https://soundcloud.com/{text:SoundCloud Username}" title="SoundCloud"><i class="fa fa-soundcloud fa-lg"></i></a>
-    	       {/block:IfSoundCloudUsername}
-    	       {block:IfTwitchUsername}
-    	       <a class="social-link" href="https://www.twitch.tv/{text:Twitch Username}" title="Twitch"><i class="fa fa-twitch fa-lg"></i></a>
-    	       {/block:IfTwitchUsername}
-    	       {block:IfVineUsername}
-    	       <a class="social-link" href="https://vine.co/{text:Vine Username}" title="Vine"><i class="fa fa-vine fa-lg"></i></a>
-    	       {/block:IfVineUsername}
-    	       {block:IfYouTubeUsername}
-    	       <a class="social-link" href="https://www.youtube.com/user/{text:YouTube Username}" title="YouTube"><i class="fa fa-youtube-square fa-lg"></i></a>
-    	       {/block:IfYouTubeUsername}
+    	       {block:IfFacebookURL}
+    	       <a class="social-link" href="{text:Facebook URL}" title="Facebook"><i class="fa fa-facebook-square fa-lg"></i></a>
+    	       {/block:IfFacebookURL}
+    	       {block:IfTwitterURL}
+    	       <a class="social-link" href="{TwitterURL}" title="Twitter"><i class="fa fa-twitter-square fa-lg"></i></a>
+    	       {/block:IfTwitterURL}
+    	       {block:IfFlickrURL}
+    	       <a class="social-link" href="{text:Flickr URL}" title="Flickr"><i class="fa fa-flickr fa-lg"></i></a>
+    	       {/block:IfFlickrURL}
+    	       {block:IfInstagramURL}
+    	       <a class="social-link" href="{text:Instagram URL}" title="Instagram"><i class="fa fa-instagram fa-lg"></i></a>
+    	       {/block:IfInstagramURL}
+    	       {block:IfPinterestURL}
+    	       <a class="social-link" href="{text:Pinterest URL}" title="Pinterest"><i class="fa fa-pinterest-square fa-lg"></i></a>
+    	       {/block:IfPinterestURL}
+    	       {block:IfSoundCloudURL}
+    	       <a class="social-link" href="{text:SoundCloud URL}" title="SoundCloud"><i class="fa fa-soundcloud fa-lg"></i></a>
+    	       {/block:IfSoundCloudURL}
+    	       {block:IfTwitchURL}
+    	       <a class="social-link" href="{text:Twitch URL}" title="Twitch"><i class="fa fa-twitch fa-lg"></i></a>
+    	       {/block:IfTwitchURL}
+    	       {block:IfYouTubeURL}
+    	       <a class="social-link" href="{text:YouTube URL}" title="YouTube"><i class="fa fa-youtube-square fa-lg"></i></a>
+    	       {/block:IfYouTubeURL}
             </div>
 	            
 		    <ul>
@@ -1243,29 +1225,6 @@
 		</div>
 		{/block:IfFeaturedTag1}
 		
-		{block:Twitter}
-		<div class="widget widget-twitter">
-		    <span class="sidebar-header">{lang:Tweets}</span>
-            <div id="twitter" style="display:none;">
-                <ul id="tweets"></ul>
-                
-                <script type="text/javascript">
-                    function recent_tweets(data) {
-                        for (i=0; i<{text:Max Tweets}; i++) {
-                            document.getElementById("tweets").innerHTML =
-                                document.getElementById("tweets").innerHTML +
-                                '<li class="tweet"><a href="https://twitter.com/{TwitterUsername}/status/' +
-                                (data[i].id_str ? data[i].id_str : data[i].id) +
-                                '">' + data[i].text +
-                                '</a></li>';
-                        }
-                        document.getElementById("twitter").style.display = 'block';
-                    }
-                </script>
-            </div>
-        </div>
-		{/block:Twitter}
-		
 		{block:IfShowFollowedBlogs}
         {block:Following}
         <div class="widget widget-following">
@@ -1301,7 +1260,7 @@
 
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
 {block:IfInfiniteScrolling}<script src="https://static.tumblr.com/anzluor/98Ymoinyd/jquery.infinitescroll.min.js" integrity="sha384-DCHLD93QqUyWYMNlPlQ7qsaHYiMCzBiQPhi1uREwPnF3cW8CpyzzdSW2xLHlEh2B" crossorigin="anonymous"></script>{/block:IfInfiniteScrolling}
 <script>
 $(function(){
@@ -1358,8 +1317,5 @@ function fitVideos() {
 }
 </script>
 
-{block:Twitter}
-<script src="/tweets.js"></script>
-{/block:Twitter}
 </body>
 </html>
