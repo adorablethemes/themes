@@ -5,7 +5,7 @@
         <!-- 
         
         theme:      nano
-        version:    2.0 (January 7, 2022)
+        version:    2.0.1 (February 21, 2023)
         from:       adorablethemes.github.io
         
         
@@ -493,6 +493,22 @@
             cursor: zoom-in;
         }
         
+        .poll-post .poll-question {
+            font-size: 17px;
+            font-weight: 600;
+        }
+        .poll-post a.poll-row {
+            color: {color:Text};
+            border: 2px solid {color:Text};
+            background-color: transparent;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .poll-post a.poll-row:hover {
+            text-decoration: none;
+            background-color: rgba({RGBcolor:Text},0.15);
+        }
+        
         
         @media screen and (max-width:1000px) {
             body {
@@ -718,7 +734,7 @@
                 
                 {block:Answer}
                     <div class="post-section">
-					<p class="asker"><img class="reblog-avatar" src="{AskerPortraitURL-64}" aria-hidden="true" /> <b>{lang:Asker asked 2}</b></p><p class="question">&ldquo;{Question}&rdquo;</p>
+					<p class="asker"><img class="reblog-avatar" src="{AskerPortraitURL-64}" aria-hidden="true" /> <b>{lang:Asker asked 2}</b></p><div class="question">{Question}</div>
 					
 					</div>
 					
