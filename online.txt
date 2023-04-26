@@ -4,7 +4,7 @@
         <!-- 
         
         theme:      Online
-        version:    1.1.2 (April 27, 2019)
+        version:    2.0 (April 26, 2023)
         from:       adorablethemes.github.io
         
         
@@ -12,8 +12,8 @@
         
         IcoMoon Free Pack (icomoon.io)
         imagesLoaded 4.1.4 (imagesloaded.desandro.com)
-        Infinite Scroll 3.0.3 (infinite-scroll.com)
-        jQuery 3.3.1 (jquery.com)
+        Infinite Scroll 3.0.6 (infinite-scroll.com)
+        jQuery 3.6.4 (jquery.com)
         Masonry 4.2.2 (masonry.desandro.com)
         
         -->
@@ -67,7 +67,6 @@
         <meta name="if:Show Random Link" content="0">
         <meta name="if:Show Liked Posts Link" content="0">
         <meta name="if:Load More Button" content="1">
-        <meta name="if:Index Captions" content="1">
         <meta name="if:Index Tags" content="0">
         <meta name="if:Show Theme Credit" content="1">
         {/block:Hidden}
@@ -293,7 +292,7 @@
         a.post-section-title .post-section {
             background-color: {color:Header};
             color: {color:Header Text};
-            padding: 6px 20px;
+            padding: 10px 0;
         }
         a.post-section-title:hover .post-section {
             background-color: rgba({RGBcolor:Header},0.95);
@@ -301,16 +300,13 @@
         }
         
 		.post-section {
-		    border-bottom: 1px dotted {color:Post Borders};
-			padding: 10px 20px;
 			font-size: 14px;
 			line-height: 150%;
 			word-wrap: break-word;
         }
-        
-        .post-section:empty {
-            padding: 0;
-            border-bottom: 0;
+        .post-section p, .post-section h1, .post-section h2, .post-section h3, .post-section h4, .post-section h5, .post-section h6, .post-section ol, .post-section ul, .post-section blockquote {
+            margin-left: 20px;
+            margin-right: 20px;
         }
         
         .post a, .post a:hover {
@@ -324,9 +320,8 @@
 			text-decoration-color: rgba({RGBcolor:Post Text}, 0.8);
         }
         .post h1, .post h2, .post h3, .post h4, .post h5, .post h6 {
-			font-size: 14px;
-			font-weight: 500;
-			margin: 0.83em 0;
+			font-size: 16px;
+			font-weight: 700;
         }
         .post p {
 			font-size: 14px;
@@ -343,8 +338,7 @@
         }
         .post blockquote {
 			font-size: 13px;
-			padding: 0 8px;
-			margin: 16px 0;
+			padding: 0 6px;
 			font-style: italic;
 			border-left: 2px solid {color:Post Text};
         }
@@ -361,15 +355,10 @@
             height: auto;
         }
         
-        p.npf_quirky {
-            font-size: 24px;
-            line-height: 1.3em;
-        }
         div.npf_row {
             max-width: 100%;
             height: auto !important;
             display: flex;
-            margin: 0 !important;
         }
         div.npf_row figure.tmblr-full {
             flex: 1;
@@ -378,6 +367,9 @@
         }
         div.npf_row figure.tmblr-full:first-child {
             padding-right: 2px;
+        }
+        .post_media_photo.image {
+            display: block;
         }
         .npf-link-block a {
             text-decoration: none !important;
@@ -418,36 +410,32 @@
         .question {
             font-style: italic;
         }
-        
-        /* Photo posts */
-        .index-page .photo-post-photo {
-			width: 100%;
-			height: auto;
-			display: block;
+        .question p {
+            font-size: 125%;
         }
         
-        /* Photoset posts */
-        .photoset-container {
-            position: relative;
+        .photoset-content img {
+            display: none;
         }
-        .photoset-note {
+        .photoset-content.single-image img {
             display: block;
-            position: absolute;
-            bottom: 18px;
-            right: 14px;
-            background-color: {color:Post Background};
-            box-shadow: 0px 0px 0px 1px black, 0px 0px 0px 2px white;
-            color: {color:Post Text};
-            padding: 5px 9px;
-            font-size: 12px;
-            font-weight: bold;
+            width: 100%;
+            height: auto;
         }
-        .permalink-page .photoset-content {
-            padding: 10px;
-            border-bottom: 1px dotted {color:Post Borders};
+        .photoset-row {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid transparent;
         }
-        .permalink-page .photoset-content iframe {
-            display: block;
+        .photoset-photo {
+            flex: 1 0 0px;
+            background-size: cover;
+            background-position: center center;
+            margin-right: 1px;
+            cursor: zoom-in;
+        }
+        .photoset-photo:last-child {
+            margin-right: 0;
         }
         
         /* Link posts */
@@ -500,15 +488,28 @@
             height: 230px;
         }
         
-        .photo-post-photo, .audio-content, .video-content {
-            border-bottom: 1px dotted {color:Post Borders};
+        .poll-post {
+            margin-left: 20px !important;
+            margin-right: 20px !important;
         }
-        
-        {block:IfNotIndexCaptions}
-        .index-page .photo .post-section, .index-page .video .post-section, .index-page .audio .post-section {
-            display: none;
+        .poll-post .poll-question {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
         }
-        {/block:IfNotIndexCaptions}
+        .index-page .poll-post .poll-question {
+            font-size: 20px !important;
+        }
+		
+		p.npf_quirky {
+		    font-size: 20px;
+		}
+		p.npf_quote {
+		    font-size: 16px;
+		}
+		
+		.post-section figure:not(.tmblr-full) {
+            margin: 10px 20px;
+        }
 		
 		
 		/* =Post meta styles=
@@ -523,8 +524,9 @@
             display: block !important;
         }
         {/block:IfIndexTags}
-        .post-tags {
+        .post-tags p {
             font-size: 13px;
+            opacity: 0.75;
         }
         .tag:before {
             content: "#";
@@ -618,7 +620,7 @@
 -------------------------------------------------------------- */
 		.permalink-page .post {
 		    width: 100%;
-			max-width: 556px;
+			max-width: 596px;
 			float: none;
 		}
 		
@@ -849,29 +851,9 @@
     		.permalink-page .photo img {
     			max-width: 100%;
     		}
-    		.permalink-page img.photo-post-photo {
-    			width: 100%;
-    			height: auto;
-    		}
-		}
-		@media screen and (max-width:864px) {
-		   .photo .post-index-meta {
-		       display: block;
-		   }
-		   .photo-hover {
-		       display: none;
-		   }
-		}
-		@media (hover:none) {
-		    .photo .post-index-meta {
-		       display: block;
-		   }
-		   .photo-hover {
-		       display: none;
-		   }
 		}
         
-        .tmblr-iframe--app-cta-button {
+        iframe.tmblr-iframe--follow-teaser {
             display: none !important;
         }
         
@@ -962,7 +944,7 @@
 
         <div id="posts"{block:IndexPage} class="posts-hidden"{/block:IndexPage}>
         
-            {block:Posts inlineMediaWidth="460" inlineNestedMediaWidth="460"}
+            {block:Posts inlineMediaWidth="540" inlineNestedMediaWidth="540"}
 				<article id="{PostID}" class="post {PostType}{block:PermalinkPage} {block:Date}not-{/block:Date}page{/block:PermalinkPage}">
 				
 				<div class="post-inner">
@@ -992,7 +974,7 @@
                 
                 {block:Answer}
                     <div class="post-section">
-					<p class="asker"><img class="asker-avatar" src="{AskerPortraitURL-64}" /> <b>{lang:Asker asked 2}</b></p><p class="question">&ldquo;{Question}&rdquo;</p>
+					<p class="asker"><img class="asker-avatar" src="{AskerPortraitURL-64}" /> <b>{lang:Asker asked 2}</b></p><span class="question">{Question}</span>
 					
 					</div>
 					
@@ -1021,9 +1003,9 @@
                 
 
                 {block:Photo}
-                    <figure data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}"class="photo-content">
-                    <img data-postid="{PostID}" class="photo-post-photo has-lightbox" src="{PhotoURL-500}" {block:PermalinkPage}{block:HighRes}srcset="{PhotoURL-1280} 2x"{/block:HighRes}{/block:PermalinkPage} alt="{PhotoAlt}" />
-					</figure>
+                    <figure id="photoset_{PostID}" class="photoset-content single-image" data-layout="1">
+                        <img class="photoset-photo" src="{block:IndexPage}{PhotoURL-400}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-1280}{/block:PermalinkPage}"{block:IndexPage} srcset="{PhotoURL-1280} 2x"{/block:IndexPage} data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-image="{PhotoURL-400}" data-imagehd="{PhotoURL-HighRes}" data-caption="" data-number="1" />
+                    </figure>
 					
 					{block:NotReblog}
                         {block:Caption}<div class="photo-caption"><figcaption class="post-section">{Caption}</figcaption></div>{/block:Caption}
@@ -1045,23 +1027,11 @@
                 
 
                 {block:Photoset}
-					{block:IndexPage}
-					<div class="photoset-container has-lightbox" data-postid="{PostID}">
-					{block:Photos}
-					<figure data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" data-caption="{Caption}" class="photo-content photoset-content has-lightbox"></figure>{/block:Photos}
-					
-					{block:Photos}
-					<img class="photo-post-photo" src="{PhotoURL-500}" alt="{PhotoAlt}" />
-					<!--
-					{/block:Photos}
-					-->
-					<div class="photoset-note">{PhotoCount}</div>
-					</div>
-					{/block:IndexPage}
-
-					{block:PermalinkPage}
-						<figure class="photoset-content">{Photoset-500}</figure>
-					{/block:PermalinkPage}
+					<figure id="photoset_{PostID}" class="photoset-content" data-layout="{PhotosetLayout}">
+                        {block:Photos}
+                            <img src="{block:IndexPage}{PhotoURL-400}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-imagehd="{PhotoURL-HighRes}" data-caption="{Caption}" />
+                        {/block:Photos}
+                    </figure>
 					
 					{block:NotReblog}
                         {block:Caption}<div class="photo-caption"><figcaption class="post-section">{Caption}</figcaption></div>{/block:Caption}
@@ -1182,9 +1152,11 @@
                 
                 {block:HasTags}
                 <div class="post-section post-tags">
+                    <p>
                     {block:Tags}
                         <a class="tag" href="{TagURL}">{Tag}</a>
                     {/block:Tags}
+                    </p>
                 </div>
                 {/block:HasTags}
                 
@@ -1263,9 +1235,9 @@
       </main>
     </div>
     
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://static.tumblr.com/anzluor/iaEpqmv4c/masonry.js"></script>
-    {block:IfLoadMoreButton}<script src="https://unpkg.com/infinite-scroll@3.0.3/dist/infinite-scroll.pkgd.min.js"></script>{/block:IfLoadMoreButton}
-    <script src="https://static.tumblr.com/anzluor/qnjpqmvq5/online.min.js"></script>
+    {block:IfLoadMoreButton}<script src="https://unpkg.com/infinite-scroll@3.0.6/dist/infinite-scroll.pkgd.min.js"></script>{/block:IfLoadMoreButton}
+    <script src="https://static.tumblr.com/anzluor/2lmrtqe6x/online.min.js"></script>
     </body>
 </html>
