@@ -1092,7 +1092,7 @@
             {/block:IfNotCopyrightText}
             
             {block:IfShowThemeCredit}
-			<p><a target="_blank" href="http://adorablethemes.github.io/theme/copycat">Copycat Theme</a></p>
+			<p><a target="_blank" href="http://adorablethemes.github.io/">Copycat Theme</a></p>
 			{/block:IfShowThemeCredit}
         </div>
         
@@ -1130,7 +1130,7 @@
             {block:HasPages}
                 {block:Pages}<a class="header-link" href="{URL}"><li>{Label}</li></a>{/block:Pages}
             {/block:HasPages}
-            {block:IfShowThemeCredit}<a class="header-link" target="_blank" href="http://adorablethemes.github.io/theme/copycat"><li>Theme</li></a>{/block:IfShowThemeCredit}
+            {block:IfShowThemeCredit}<a class="header-link" target="_blank" href="http://adorablethemes.github.io/"><li>Theme</li></a>{/block:IfShowThemeCredit}
         </ul>
         </div>
         {/block:IfShowHeaderNavbar}

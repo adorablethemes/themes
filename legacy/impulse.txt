@@ -978,7 +978,7 @@
                 {block:Pages}<a class="header-link" href="{URL}"><li><i class="fa fa-fw fa-file-o"></i> {Label}</li></a>{/block:Pages}
             {/block:HasPages}
             {block:IfShowThemeCredit}
-            <a class="header-link" target="_blank" href="http://adorablethemes.github.io/theme/impulse"><li><i class="fa fa-fw fa-paint-brush"></i> Theme</li></a>
+            <a class="header-link" target="_blank" href="http://adorablethemes.github.io/"><li><i class="fa fa-fw fa-paint-brush"></i> Theme</li></a>
             {/block:IfShowThemeCredit}
         </ul>
         </div>
